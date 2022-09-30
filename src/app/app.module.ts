@@ -1,15 +1,14 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './modules/header/header.component';
-import { FooterComponent } from './modules/footer/footer.component';
-import { NavarComponent } from './modules/navar/navar.component';
-import { ModulesComponent } from './modules/modules.component';
-
-
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./modules/header/header.component";
+import { FooterComponent } from "./modules/footer/footer.component";
+import { NavarComponent } from "./modules/navar/navar.component";
+import { ModulesComponent } from "./modules/modules.component";
+import { ReactiveFormsComponent } from "./modules/reactive-forms/reactive-forms.component";
 
 @NgModule({
   declarations: [
@@ -18,16 +17,10 @@ import { ModulesComponent } from './modules/modules.component';
     FooterComponent,
     NavarComponent,
     ModulesComponent,
-   
-    
+    ReactiveFormsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-  
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

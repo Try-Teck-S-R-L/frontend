@@ -1,0 +1,137 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <h3>Preinscripcion</h3>
+    <label>Nombre del Delegado</label>
+    <input
+      type="text"
+      formControlName="nombreDelegado"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.nombreDelegado.invalid && form.nombreDelegado.touched
+      }"
+    />
+    <div
+      *ngIf="form.nombreDelegado.invalid && form.nombreDelegado.touched"
+      class="invalid-feedback"
+    >
+      El nombre es obligatorio
+    </div>
+
+    <label>Nombre del Equipo</label>
+    <input
+      type="text"
+      formControlName="nombreEquipo"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
+      }"
+    />
+    <div
+      *ngIf="form.nombreEquipo.invalid && form.nombreEquipo.touched"
+      class="invalid-feedback"
+    >
+      El nombre es obligatorio
+    </div>
+
+    <label>Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': form.email.invalid && form.email.touched }"
+    />
+    <div
+      *ngIf="form.email.invalid && form.email.touched"
+      class="invalid-feedback"
+    >
+      <div *ngIf="form.email.errors?.required">El email es obligatorio</div>
+      <div *ngIf="form.email.errors?.email">El email debe de ser válido</div>
+    </div>
+
+    <!--INPUT Categorias-->
+
+    <label for="categorias" class="form-label">Categorias</label>
+    <select
+      name="categorias"
+      id="categorias"
+      class="form-select form-select-sm"
+      formControlName="categorias"
+    >
+      <option value="+35">mayores de 35</option>
+      <option value="+45">mayores de 45</option>
+      <option value="+55">mayores de 55</option>
+    </select>
+
+    <!--INPUT PAIS-->
+
+    <label class="form-label">Pais del Equipo:</label>
+    <select
+      class="form-control"
+      name="paisEquipo"
+      formControlName="paisEquipo"
+      required
+    >
+      <option value="" disabled>Seleccionar pais</option>
+      <option *ngFor="let pais of paises" [value]="pais.value">
+        {{ pais.name }}
+      </option>
+    </select>
+    <div
+      *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.paisEquipo.errors?.required">
+        Por favor, ingresa el pais del equipo
+      </div>
+    </div>
+
+    <!--INPUT subir imagen-->
+    <label class="form-label">Cargue una foto del vaucher:</label>
+    <input
+      type="file"
+      name="imagen"
+      id="imagen"
+      formControlName="imagen"
+      accept="image/*"
+      required
+    />
+    <div
+      *ngIf="(form.imagen.touched && form.imagen.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.imagen.errors?.required">
+        Por favor, suba el comprobante
+      </div>
+    </div>
+
+    <!--INPUT agregar fecha-->
+    <label class="form-label">Agregar fecha:</label>
+    <input
+      type="date"
+      name="fecha"
+      id="fecha"
+      formControlName="fecha"
+      min="2022-01-01"
+      max="2022-12-31"
+      required
+    />
+    <div
+      *ngIf="(form.fecha.touched && form.fecha.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.fecha.errors?.required">
+        Por favor, ingrese una fecha valida
+      </div>
+    </div>
+
+    <!--INPUT subir-->
+    <div class="text-center">
+      <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">
+        Registrarse
+      </button>
+      <button class="btn btn-secondary" type="reset" (click)="onReset()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
