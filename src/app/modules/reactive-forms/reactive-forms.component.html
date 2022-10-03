@@ -1,9 +1,12 @@
+<app-header></app-header>
+<app-navar></app-navar>
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Preinscripcion</h3>
     <label>Nombre del Delegado</label>
     <input
       type="text"
+      ngModel maxlength="50"
       formControlName="nombreDelegado"
       class="form-control"
       [ngClass]="{
@@ -14,7 +17,7 @@
       *ngIf="form.nombreDelegado.invalid && form.nombreDelegado.touched"
       class="invalid-feedback"
     >
-      El nombre es obligatorio
+      Este campo no puede estar vacio.
     </div>
 
     <label>Nombre del Equipo</label>
@@ -25,13 +28,19 @@
       [ngClass]="{
         'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
       }"
+      
+      
     />
     <div
       *ngIf="form.nombreEquipo.invalid && form.nombreEquipo.touched"
       class="invalid-feedback"
     >
-      El nombre es obligatorio
+    Este campo no puede estar vacio.
+
+    
     </div>
+
+   
 
     <label>Email</label>
     <input
@@ -44,7 +53,7 @@
       *ngIf="form.email.invalid && form.email.touched"
       class="invalid-feedback"
     >
-      <div *ngIf="form.email.errors?.required">El email es obligatorio</div>
+      <div *ngIf="form.email.errors?.required">Este campo no puede estar vacio.</div>
       <div *ngIf="form.email.errors?.email">El email debe de ser válido</div>
     </div>
 
@@ -64,7 +73,7 @@
 
     <!--INPUT PAIS-->
 
-    <label class="form-label">Pais del Equipo:</label>
+    <label class="form-label">Pais:</label>
     <select
       class="form-control"
       name="paisEquipo"
@@ -86,7 +95,7 @@
     </div>
 
     <!--INPUT subir imagen-->
-    <label class="form-label">Cargue una foto del vaucher:</label>
+    <label class="form-label">Selecionar imagen:</label>
     <input
       type="file"
       name="imagen"
@@ -135,3 +144,4 @@
     </div>
   </form>
 </div>
+<app-footer></app-footer>
