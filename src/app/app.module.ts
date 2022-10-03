@@ -9,6 +9,8 @@ import { FooterComponent } from "./modules/footer/footer.component";
 import { NavarComponent } from "./modules/navar/navar.component";
 import { ModulesComponent } from "./modules/modules.component";
 import { ReactiveFormsComponent } from "./modules/reactive-forms/reactive-forms.component";
+import { HttpClientModule } from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -19,8 +21,10 @@ import { ReactiveFormsComponent } from "./modules/reactive-forms/reactive-forms.
     ModulesComponent,
     ReactiveFormsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
+  
+
 })
 export class AppModule {}
