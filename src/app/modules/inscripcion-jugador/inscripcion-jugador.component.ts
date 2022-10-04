@@ -1,5 +1,3 @@
-
-
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import {
@@ -16,9 +14,9 @@ interface CountryOption {
 }
 
 @Component({
-  selector: 'app-inscripcion-jugador',
-  templateUrl: './inscripcion-jugador.component.html',
-  styleUrls: ['./inscripcion-jugador.component.css']
+  selector: "app-inscripcion-jugador",
+  templateUrl: "./inscripcion-jugador.component.html",
+  styleUrls: ["./inscripcion-jugador.component.css"],
 })
 export class InscripcionJugadorComponent implements OnInit {
   registerForm: FormGroup;
@@ -41,13 +39,17 @@ export class InscripcionJugadorComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      nombreDelegado: ["", [Validators.required]],
-      nombreEquipo: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
+      nombredeljugador: ["", [Validators.required]],
+      apellidodeljugador: ["", [Validators.required]],
+      
       categorias: ["", [Validators.required]],
       paisEquipo: ["", [Validators.required]],
-      fecha: ["2022-10-01", [Validators.required]],
+      talla: ["", [Validators.required]],
+      posicion: ["", [Validators.required]],
       imagen: [null, [Validators.required]],
+      camiseta: ["", [Validators.required]],
+      CI: [null, [Validators.required]],
+      edad: ["", [Validators.required]],
     });
   }
 

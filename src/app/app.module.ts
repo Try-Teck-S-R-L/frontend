@@ -12,6 +12,7 @@ import { ReactiveFormsComponent } from "./modules/reactive-forms/reactive-forms.
 import { HttpClientModule } from "@angular/common/http";
 
 import { InscripcionJugadorComponent } from './modules/inscripcion-jugador/inscripcion-jugador.component';
+import { VistaDelegadoComponent } from './modules/vista-delegado/vista-delegado.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { InscripcionJugadorComponent } from './modules/inscripcion-jugador/inscr
     ModulesComponent,
     ReactiveFormsComponent,
     InscripcionJugadorComponent,
+    VistaDelegadoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [],

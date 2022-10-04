@@ -1,8 +1,12 @@
+
 <app-header></app-header>
 <app-navar></app-navar>
+
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Preinscripcion</h3>
+
+    <!--INPUT nombre delegado-->
     <label>Nombre del Delegado</label>
     <input
       type="text"
@@ -20,6 +24,8 @@
       Este campo no puede estar vacio.
     </div>
 
+
+<!--INPUT nombreequipo-->
     <label>Nombre del Equipo</label>
     <input
       type="text"
@@ -40,7 +46,7 @@
     
     </div>
 
-   
+   <!--INPUT email-->
 
     <label>Email</label>
     <input
@@ -70,6 +76,15 @@
       <option value="+45">mayores de 45</option>
       <option value="+55">mayores de 55</option>
     </select>
+    <div
+    *ngIf="(form.categorias.touched && form.categorias.invalid) || submitted"
+    class="text-danger"
+  >
+    <div *ngIf="form.categorias.errors?.required">
+      Elija una de las opciones
+    </div>
+  </div>
+
 
     <!--INPUT PAIS-->
 
@@ -90,11 +105,10 @@
       class="text-danger"
     >
       <div *ngIf="form.paisEquipo.errors?.required">
-        Por favor, ingresa el pais del equipo
+        Elija una de las opciones
       </div>
     </div>
-
-    <!--INPUT subir imagen-->
+<br>
     <label class="form-label">Selecionar imagen:</label>
     <input
       type="file"
@@ -112,7 +126,7 @@
         Por favor, suba el comprobante
       </div>
     </div>
-
+<br><br>
     <!--INPUT agregar fecha-->
     <label class="form-label">Agregar fecha:</label>
     <input
