@@ -1,204 +1,256 @@
+
 <app-header></app-header>
 <app-navar></app-navar>
 
-
 <div class="container">
-    <form (ngSubmit)="onSubmit()" [formGroup]="registrojugador">
-      <h3>Inscripción</h3>
-        <!--INPUT Categorias-->
-        <label for="categorias" class="form-label">Categorias</label>
-        <select
-          name="categorias"
-          id="categorias"
-          class="form-select form-select-sm"
-          formControlName="categorias"
-        >
-          <option value="+35">mayores de 35</option>
-          <option value="+45">mayores de 45</option>
-          <option value="+55">mayores de 55</option>
-        </select>
-        <div
-        *ngIf="(form.categorias.touched && form.categorias.invalid) || submitted"
-        class="text-danger"
-      >
-        <div *ngIf="form.categorias.errors?.required">
-          Elija una de las opciones
-        </div>
-      </div>
-        
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <h3>Inscripcion de jugador</h3>
 
 
-<!--INPUT nombre-->
+<!--INPUT Categorias-->
 
-      <label>Nombres</label>
-      <input
-        type="text"
-        formControlName="nombres"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid': form.nombres.invalid && form.nombres.touched
-        }"
-      />
-      <div
-        *ngIf="form.nombres.invalid && form.nombres.touched"
-        class="invalid-feedback"
-      >
-        El nombre es obligatorio
-      </div>
-  
-      <label>Apellidos</label>
-      <input
-        type="text"
-        formControlName="apellido"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid': form.apellido.invalid && form.apellido.touched
-        }"
-      />
-      <div
-        *ngIf="form.apellido.invalid && form.apellido.touched"
-        class="invalid-feedback"
-      >
-        El apellido es obligatorio
-      </div>
-  
-  <!--INPUT PAIS-->
-  
-  <label class="form-label">Pais del Equipo</label>
-  <select
-    class="form-control"
-    name="paisEquipo"
-    formControlName="paisEquipo"
-    required
-  >
-    <option value="" disabled>Seleccionar pais</option>
-    <option *ngFor="let paisEquipo of paisEquipo" [value]="paisEquipo.value">
-      {{ paisEquipo.name }}
-    </option>
-  </select>
-  <div
-    *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
-    class="text-danger"
-  >
-    <div *ngIf="form.paisEquipo.errors?.required">
-      Por favor, ingresa el pais del equipo
+<label for="categorias" class="form-label">Categorias</label>
+<select
+  name="categorias"
+  id="categorias"
+  class="form-select form-select-sm"
+  formControlName="categorias"
+>
+  <option value="+35">mayores de 35</option>
+  <option value="+45">mayores de 45</option>
+  <option value="+55">mayores de 55</option>
+</select>
+<div
+*ngIf="(form.categorias.touched && form.categorias.invalid) || submitted"
+class="text-danger"
+>
+<div *ngIf="form.categorias.errors?.required">
+  Elija una de las opciones
+</div>
+</div>
+
+
+    <!--INPUT nombre delegado-->
+    <label>Nombre</label>
+    <input
+      type="text"
+      ngModel maxlength="50"
+      formControlName="nombredeljugador"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.nombredeljugador.invalid && form.nombredeljugador.touched
+      }"
+    />
+    <div
+      *ngIf="form.nombredeljugador.invalid && form.nombredeljugador.touched"
+      class="invalid-feedback"
+    >
+      Este campo no puede estar vacio.
     </div>
+
+
+<!--INPUT apellido-->
+    <label>Apellido</label>
+    <input
+      type="text"
+      formControlName="apellidodeljugador"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.apellidodeljugador.invalid && form.apellidodeljugador.touched
+      }"
+      
+      
+    />
+    <div
+      *ngIf="form.apellidodeljugador.invalid && form.apellidodeljugador.touched"
+      class="invalid-feedback"
+    >
+    Este campo no puede estar vacio.
+
+    
+    </div>
+
+<!--INPUT PAIS-->
+
+<label class="form-label">Pais:</label>
+<select
+  class="form-control"
+  name="paisEquipo"
+  formControlName="paisEquipo"
+  required
+>
+  <option value="" disabled>Seleccionar pais</option>
+  <option *ngFor="let pais of paises" [value]="pais.value">
+    {{ pais.name }}
+  </option>
+</select>
+<div
+  *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
+  class="text-danger"
+>
+  <div *ngIf="form.paisEquipo.errors?.required">
+    Elija una de las opciones
   </div>
+</div>
+
   
-   <!--INPUT Talla-->
+    
+<!--INPUT Categorias-->
+
+<label for="talla" class="form-label">talla</label>
+<select
+  name="talla"
+  id="talla"
+  class="form-select form-select-sm"
+  formControlName="talla"
+>
+  <option value="x">xl</option>
+  <option value="l">l</option>
+  <option value="m">m</option>
+  <option value="s">s</option>
+</select>
+<div
+*ngIf="(form.talla.touched && form.talla.invalid) || submitted"
+class="text-danger"
+>
+<div *ngIf="form.talla.errors?.required">
+  Elija una de las opciones
+</div>
+</div>
+
+<br>
+<!--INPUT posicion-->
+
+
+<label>Nro Camiseta</label>
+<input
+  type="number"
+  formControlName="camiseta"
+  class="form-control"
+  [ngClass]="{
+    'is-invalid': form.camiseta.invalid && form.camiseta.touched
+  }"
   
-   <label for="Talla" class="form-label">Talla</label>
-   <select
-     name="Talla"
-     id="Talla"
-     class="form-select form-select-sm"
-     formControlName="Talla"
-   >
-     <option value="+35">S</option>
-     <option value="+45">M</option>
-     <option value="+55">L</option>
-     <option value="+55">XL</option>
-   </select>
   
-  <label>Nro Camiseta</label>
-      <input
-        type="number"
-        formControlName="Camiseta"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid': form.Camiseta.invalid && form.Camiseta.touched
-        }"
-      />
-      <div
-        *ngIf="form.Camiseta.invalid && form.Camiseta.touched"
-        class="invalid-feedback"
-      >
-        El nro de camiseta es obligatorio
-      </div>
+/>
+<div
+  *ngIf="form.camiseta.invalid && form.camiseta.touched"
+  class="invalid-feedback"
+>
+Este campo no puede estar vacio.
+
+
+</div>
+
+<!--INPUT edad-->
+
+
+<label>Edad</label>
+<input
+  type="number"
+  formControlName="edad"
+  class="form-control"
+  [ngClass]="{
+    'is-invalid': form.edad.invalid && form.edad.touched
+  }"
   
-      <label>Edad</label>
-      <input
-        type="text"
-        formControlName="nombres"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid': form.nombreDelegado.invalid && form.nombreDelegado.touched
-        }"
-      />
-      <div
-        *ngIf="form.nombreDelegado.invalid && form.nombreDelegado.touched"
-        class="invalid-feedback"
-      >
-        La edad es obligatorio
-      </div>
   
-      <!--INPUT Posición-->
-  
-      <label for="Posición" class="form-label">Posición</label>
-      <select
-        name="Posición"
-        id="Posición"
-        class="form-select form-select-sm"
-        formControlName="Posición"
-      >
-        <option value="+Base">Base</option>
-        <option value="+Escolta">Escolta</option>
-        <option value="+Alero">Alero</option>
-        <option value="+Ala-pivot">Ala-pivot</option>
-        <option value="+Pivot">Pivot</option>
-      </select>
-  
-      <!--INPUT subir foto de jugador-->
-      <label class="form-label">Foto Jugador</label>
-      <input
-        type="file"
-        name="foto"
-        id="foto"
-        formControlName="foto"
-        accept="foto/*"
-        required
-      />
-      <div
-        *ngIf="(form.foto.touched && form.foto.invalid) || submitted"
-        class="text-danger"
-      >
-        <div *ngIf="form.foto.errors?.required">
-          Por favor, suba la foto
-        </div>
-      </div>
-  <br>
-   <!--INPUT subir imagen-->
-   <label class="form-label">Foto CI</label>
-   <input
-     type="file"
-     name="imagen"
-     id="imagen"
-     formControlName="imagen"
-     accept="image/*"
-     required
-   />
-   <div
-     *ngIf="(form.imagen.touched && form.imagen.invalid) || submitted"
-     class="text-danger"
-   >
-     <div *ngIf="form.imagen.errors?.required">
-       Por favor, suba la imagen
-     </div>
-   </div>
-  
-      <!--INPUT subir-->
-      <div class="text-center">
-        <button class="btn btn-primary mr-1" [disabled]="registrojugador.invalid">
-          Registrarse
-        </button>
-        <button class="btn btn-secondary" type="reset" (click)="onReset()">
-          Cancel
-        </button>
-      </div>
-    </form>
-  </div>
+/>
+<div
+  *ngIf="form.edad.invalid && form.edad.touched"
+  class="invalid-feedback"
+>
+Este campo no puede estar vacio.
+
+
+</div>
 
 
 
 
+
+<!--INPUT posicion-->
+
+<label for="posicion" class="form-label">posicion</label>
+<select
+  name="posicion"
+  id="posicion"
+  class="form-select form-select-sm"
+  formControlName="posicion"
+>
+  <option value="Base">Base</option>
+  <option value="Escolta">Escolta</option>
+  <option value="Alero">Alero</option>
+  <option value="Ala-pivot">Ala-pivot</option>
+  <option value="Pivot">Pivot</option>
+</select>
+<div
+*ngIf="(form.posicion.touched && form.posicion.invalid) || submitted"
+class="text-danger"
+>
+<div *ngIf="form.talla.errors?.required">
+  Elija una de las opciones
+</div>
+</div>
+
+
+<br>
+    
+
+    <!--INPUT subir imagen-->
+    <label class="form-label">Foto Jugador:</label>
+    <input
+      type="file"
+      name="imagen"
+      id="imagen"
+      formControlName="imagen"
+      accept="image/*"
+      required
+    />
+    <div
+      *ngIf="(form.imagen.touched && form.imagen.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.imagen.errors?.required">
+        Por favor, suba el comprobante
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!--INPUT subir imagen-->
+    <label class="form-label">CI:</label>
+    <input
+      type="file"
+      name="CI"
+      id="CI"
+      formControlName="CI"
+      accept="CI/*"
+      required
+    />
+    <div
+      *ngIf="(form.CI.touched && form.CI.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.CI.errors?.required">
+        Por favor, suba el comprobante
+      </div>
+    </div>
+
+    
+
+   
+
+    <!--INPUT subir-->
+    <div class="text-center">
+      <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">
+        Registrarse
+      </button>
+      <button class="btn btn-secondary" type="reset" (click)="onReset()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
 <app-footer></app-footer>

@@ -10,6 +10,7 @@ import { NavarComponent } from "./modules/navar/navar.component";
 import { ModulesComponent } from "./modules/modules.component";
 import { ReactiveFormsComponent } from "./modules/reactive-forms/reactive-forms.component";
 import { InscripcionJugadorComponent } from './modules/inscripcion-jugador/inscripcion-jugador.component';
+import { VistaDelegadoComponent } from './modules/vista-delegado/vista-delegado.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InscripcionJugadorComponent } from './modules/inscripcion-jugador/inscr
     ModulesComponent,
     ReactiveFormsComponent,
     InscripcionJugadorComponent,
+    VistaDelegadoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

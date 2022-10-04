@@ -1,4 +1,3 @@
-
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import {
@@ -15,14 +14,14 @@ interface CountryOption {
 }
 
 @Component({
-  selector: 'app-inscripcion-jugador',
-  templateUrl: './inscripcion-jugador.component.html',
-  styleUrls: ['./inscripcion-jugador.component.css']
+  selector: "app-inscripcion-jugador",
+  templateUrl: "./inscripcion-jugador.component.html",
+  styleUrls: ["./inscripcion-jugador.component.css"],
 })
 export class InscripcionJugadorComponent implements OnInit {
-  registrojugador: FormGroup;
+  registerForm: FormGroup;
   submitted = false;
-  public paisEquipo: CountryOption[] = [];
+  public paises: CountryOption[] = [];
   private file: File | null = null;
 
   @HostListener("change", ["$event.target.files"]) emitFiles(event: FileList) {
@@ -34,23 +33,23 @@ export class InscripcionJugadorComponent implements OnInit {
   }
 
   constructor(private formBuilder: FormBuilder) {
-    this.registrojugador = formBuilder.group({});
-    this.paisEquipo = data.paises;
+    this.registerForm = formBuilder.group({});
+    this.paises = data.paises;
   }
 
   ngOnInit() {
-    this.registrojugador = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
+      nombredeljugador: ["", [Validators.required]],
+      apellidodeljugador: ["", [Validators.required]],
+      
       categorias: ["", [Validators.required]],
-      nombres: ["", [Validators.required]],
-      apellido: ["", [Validators.required]],
       paisEquipo: ["", [Validators.required]],
       talla: ["", [Validators.required]],
-      camiseta: ["", [Validators.required]],
-      edad: ["", [Validators.required]],
       posicion: ["", [Validators.required]],
-      foto: [null, [Validators.required]],
       imagen: [null, [Validators.required]],
-      
+      camiseta: ["", [Validators.required]],
+      CI: [null, [Validators.required]],
+      edad: ["", [Validators.required]],
     });
   }
 
@@ -76,27 +75,27 @@ export class InscripcionJugadorComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get form() {
-    return this.registrojugador.controls;
+    return this.registerForm.controls;
   }
 
   onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.registrojugador.invalid) {
+    if (this.registerForm.invalid) {
       return;
     }
 
-    console.log({ ...this.registrojugador.value, imagen: this.file });
+    console.log({ ...this.registerForm.value, imagen: this.file });
 
     // display form values on success
     alert(
-      "SUCCESS!! :-)\n\n" + JSON.stringify(this.registrojugador.value, null, 4)
+      "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
     );
   }
 
   onReset() {
     this.submitted = false;
-    this.registrojugador.reset();
+    this.registerForm.reset();
   }
 }
