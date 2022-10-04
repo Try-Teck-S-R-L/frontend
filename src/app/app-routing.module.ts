@@ -1,3 +1,4 @@
+import { VistaDelegadoComponent } from './modules/vista-delegado/vista-delegado.component';
 import { ModulesComponent } from './modules/modules.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path:'inscripcion',
     component:InscripcionJugadorComponent
+  },
+  {
+    path:'vistadelegado',
+    component:VistaDelegadoComponent
   },
 
 ];
