@@ -11,6 +11,7 @@ import { ModulesComponent } from "./modules/modules.component";
 import { ReactiveFormsComponent } from "./modules/reactive-forms/reactive-forms.component";
 import { HttpClientModule } from "@angular/common/http";
 
+import { InscripcionJugadorComponent } from './modules/inscripcion-jugador/inscripcion-jugador.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from "@angular/common/http";
     NavarComponent,
     ModulesComponent,
     ReactiveFormsComponent,
+    InscripcionJugadorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [],
