@@ -3,10 +3,9 @@
 
 
 <div class="container">
-    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="registrojugador">
       <h3>Inscripción</h3>
         <!--INPUT Categorias-->
-  
         <label for="categorias" class="form-label">Categorias</label>
         <select
           name="categorias"
@@ -23,20 +22,25 @@
         class="text-danger"
       >
         <div *ngIf="form.categorias.errors?.required">
-          Por favor, ingresa el pais del equipo
+          Elija una de las opciones
         </div>
       </div>
+        
+
+
+<!--INPUT nombre-->
+
       <label>Nombres</label>
       <input
         type="text"
         formControlName="nombres"
         class="form-control"
         [ngClass]="{
-          'is-invalid': form.nombreDelegado.invalid && form.nombreDelegado.touched
+          'is-invalid': form.nombres.invalid && form.nombres.touched
         }"
       />
       <div
-        *ngIf="form.nombreDelegado.invalid && form.nombreDelegado.touched"
+        *ngIf="form.nombres.invalid && form.nombres.touched"
         class="invalid-feedback"
       >
         El nombre es obligatorio
@@ -45,14 +49,14 @@
       <label>Apellidos</label>
       <input
         type="text"
-        formControlName="nombreEquipo"
+        formControlName="apellido"
         class="form-control"
         [ngClass]="{
-          'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
+          'is-invalid': form.apellido.invalid && form.apellido.touched
         }"
       />
       <div
-        *ngIf="form.nombreEquipo.invalid && form.nombreEquipo.touched"
+        *ngIf="form.apellido.invalid && form.apellido.touched"
         class="invalid-feedback"
       >
         El apellido es obligatorio
@@ -68,8 +72,8 @@
     required
   >
     <option value="" disabled>Seleccionar pais</option>
-    <option *ngFor="let pais of paises" [value]="pais.value">
-      {{ pais.name }}
+    <option *ngFor="let paisEquipo of paisEquipo" [value]="paisEquipo.value">
+      {{ paisEquipo.name }}
     </option>
   </select>
   <div
@@ -85,10 +89,10 @@
   
    <label for="Talla" class="form-label">Talla</label>
    <select
-     name="categorias"
-     id="categorias"
+     name="Talla"
+     id="Talla"
      class="form-select form-select-sm"
-     formControlName="categorias"
+     formControlName="Talla"
    >
      <option value="+35">S</option>
      <option value="+45">M</option>
@@ -98,15 +102,15 @@
   
   <label>Nro Camiseta</label>
       <input
-        type="text"
-        formControlName="nombres"
+        type="number"
+        formControlName="Camiseta"
         class="form-control"
         [ngClass]="{
-          'is-invalid': form.nombreDelegado.invalid && form.nombreDelegado.touched
+          'is-invalid': form.Camiseta.invalid && form.Camiseta.touched
         }"
       />
       <div
-        *ngIf="form.nombreDelegado.invalid && form.nombreDelegado.touched"
+        *ngIf="form.Camiseta.invalid && form.Camiseta.touched"
         class="invalid-feedback"
       >
         El nro de camiseta es obligatorio
@@ -128,20 +132,20 @@
         La edad es obligatorio
       </div>
   
-      <!--INPUT Categorias-->
+      <!--INPUT Posición-->
   
-      <label for="categorias" class="form-label">Posición</label>
+      <label for="Posición" class="form-label">Posición</label>
       <select
-        name="categorias"
-        id="categorias"
+        name="Posición"
+        id="Posición"
         class="form-select form-select-sm"
-        formControlName="categorias"
+        formControlName="Posición"
       >
-        <option value="+35">Base</option>
-        <option value="+45">Escolta</option>
-        <option value="+55">Alero</option>
-        <option value="+55">Ala-pivot</option>
-        <option value="+55">Pivot</option>
+        <option value="+Base">Base</option>
+        <option value="+Escolta">Escolta</option>
+        <option value="+Alero">Alero</option>
+        <option value="+Ala-pivot">Ala-pivot</option>
+        <option value="+Pivot">Pivot</option>
       </select>
   
       <!--INPUT subir foto de jugador-->
@@ -184,7 +188,7 @@
   
       <!--INPUT subir-->
       <div class="text-center">
-        <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">
+        <button class="btn btn-primary mr-1" [disabled]="registrojugador.invalid">
           Registrarse
         </button>
         <button class="btn btn-secondary" type="reset" (click)="onReset()">

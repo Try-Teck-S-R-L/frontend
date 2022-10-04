@@ -1,5 +1,6 @@
 <app-header></app-header>
 <app-navar></app-navar>
+
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Preinscripcion</h3>
@@ -70,6 +71,15 @@
       <option value="+45">mayores de 45</option>
       <option value="+55">mayores de 55</option>
     </select>
+    <div
+    *ngIf="(form.categorias.touched && form.categorias.invalid) || submitted"
+    class="text-danger"
+  >
+    <div *ngIf="form.categorias.errors?.required">
+      Elija una de las opciones
+    </div>
+  </div>
+
 
     <!--INPUT PAIS-->
 
@@ -90,7 +100,7 @@
       class="text-danger"
     >
       <div *ngIf="form.paisEquipo.errors?.required">
-        Por favor, ingresa el pais del equipo
+        Elija una de las opciones
       </div>
     </div>
 

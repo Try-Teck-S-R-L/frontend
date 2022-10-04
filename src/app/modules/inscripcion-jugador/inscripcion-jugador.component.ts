@@ -1,5 +1,4 @@
 
-
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import {
@@ -21,9 +20,9 @@ interface CountryOption {
   styleUrls: ['./inscripcion-jugador.component.css']
 })
 export class InscripcionJugadorComponent implements OnInit {
-  registerForm: FormGroup;
+  registrojugador: FormGroup;
   submitted = false;
-  public paises: CountryOption[] = [];
+  public paisEquipo: CountryOption[] = [];
   private file: File | null = null;
 
   @HostListener("change", ["$event.target.files"]) emitFiles(event: FileList) {
@@ -35,19 +34,23 @@ export class InscripcionJugadorComponent implements OnInit {
   }
 
   constructor(private formBuilder: FormBuilder) {
-    this.registerForm = formBuilder.group({});
-    this.paises = data.paises;
+    this.registrojugador = formBuilder.group({});
+    this.paisEquipo = data.paises;
   }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      nombreDelegado: ["", [Validators.required]],
-      nombreEquipo: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
+    this.registrojugador = this.formBuilder.group({
       categorias: ["", [Validators.required]],
+      nombres: ["", [Validators.required]],
+      apellido: ["", [Validators.required]],
       paisEquipo: ["", [Validators.required]],
-      fecha: ["2022-10-01", [Validators.required]],
+      talla: ["", [Validators.required]],
+      camiseta: ["", [Validators.required]],
+      edad: ["", [Validators.required]],
+      posicion: ["", [Validators.required]],
+      foto: [null, [Validators.required]],
       imagen: [null, [Validators.required]],
+      
     });
   }
 
@@ -73,27 +76,27 @@ export class InscripcionJugadorComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get form() {
-    return this.registerForm.controls;
+    return this.registrojugador.controls;
   }
 
   onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.registerForm.invalid) {
+    if (this.registrojugador.invalid) {
       return;
     }
 
-    console.log({ ...this.registerForm.value, imagen: this.file });
+    console.log({ ...this.registrojugador.value, imagen: this.file });
 
     // display form values on success
     alert(
-      "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
+      "SUCCESS!! :-)\n\n" + JSON.stringify(this.registrojugador.value, null, 4)
     );
   }
 
   onReset() {
     this.submitted = false;
-    this.registerForm.reset();
+    this.registrojugador.reset();
   }
 }
