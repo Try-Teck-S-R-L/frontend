@@ -11,6 +11,7 @@ import { ModulesComponent } from "./modules/modules.component";
 import { ReactiveFormsComponent } from "./modules/reactive-forms/reactive-forms.component";
 import { InscripcionJugadorComponent } from './modules/inscripcion-jugador/inscripcion-jugador.component';
 import { VistaDelegadoComponent } from './modules/vista-delegado/vista-delegado.component';
+import { RegistrarEquipoComponent } from './modules/registrar-equipo/registrar-equipo.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { VistaDelegadoComponent } from './modules/vista-delegado/vista-delegado.
     ReactiveFormsComponent,
     InscripcionJugadorComponent,
     VistaDelegadoComponent,
+    RegistrarEquipoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsComponent } from './modules/reactive-forms/reactive-forms.component';
 import { InscripcionJugadorComponent } from './modules/inscripcion-jugador/inscripcion-jugador.component';
+import { RegistrarEquipoComponent } from './modules/registrar-equipo/registrar-equipo.component';
+
 
 const routes: Routes = [
   {
@@ -17,6 +19,10 @@ const routes: Routes = [
   {
     path:'vistadelegado',
     component:VistaDelegadoComponent
+  },
+  {
+    path:'registrarequipo',
+    component:RegistrarEquipoComponent
   },
 
 ];
