@@ -4,7 +4,8 @@
 
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-    <h3>Preinscripcion</h3>
+    <h3>Inscripcion de equipo</h3>
+    
 
     <!--INPUT nombre delegado-->
     <label>Nombre delegado:</label>
@@ -46,22 +47,6 @@
     
     </div>
 
-   <!--INPUT email-->
-
-    <label>Email:</label>
-    <input
-      type="text"
-      formControlName="email"
-      class="form-control"
-      [ngClass]="{ 'is-invalid': form.email.invalid && form.email.touched }"
-    />
-    <div
-      *ngIf="form.email.invalid && form.email.touched"
-      class="invalid-feedback"
-    >
-      <div *ngIf="form.email.errors?.required">Este campo no puede estar vacio.</div>
-      <div *ngIf="form.email.errors?.email">El email debe de ser válido</div>
-    </div>
 
     <!--INPUT Categorias-->
 
@@ -109,51 +94,11 @@
       </div>
     </div>
 <br>
-    <label class="form-label">Voucher de pago:</label>
-    <input
-      type="file"
-      name="imagen"
-      id="imagen"
-      formControlName="imagen"
-      accept="image/*"
-      required
-    />
-    <div
-      *ngIf="(form.imagen.touched && form.imagen.invalid) || submitted"
-      class="text-danger"
-    >
-      <div *ngIf="form.imagen.errors?.required">
-        Por favor, suba el comprobante
-      </div>
-    </div>
-<br><br>
-    <!--INPUT agregar fecha-->
-    <label class="form-label">Fecha:</label>
-    <input
-      type="date"
-      name="fecha"
-      id="fecha"
-      formControlName="fecha"
-      min="2022-01-01"
-      max="2022-12-31"
-      required
-    />
-    <div
-      *ngIf="(form.fecha.touched && form.fecha.invalid) || submitted"
-      class="text-danger"
-    >
-      <div *ngIf="form.fecha.errors?.required">
-        Por favor, ingrese una fecha valida
-      </div>
-    </div>
-
+ 
     <!--INPUT subir-->
     <div class="text-center">
       <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">
-        Registrarse
-      </button>
-      <button class="btn btn-secondary" type="reset" (click)="onReset()">
-        Cancel
+        Inscribir equipo
       </button>
     </div>
   </form>

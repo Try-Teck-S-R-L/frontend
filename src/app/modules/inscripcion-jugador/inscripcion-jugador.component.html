@@ -9,7 +9,7 @@
 
 <!--INPUT Categorias-->
 
-<label for="categorias" class="form-label">Categorias</label>
+<label for="categorias" class="form-label">Categoria:</label>
 <select
   name="categorias"
   id="categorias"
@@ -31,7 +31,7 @@ class="text-danger"
 
 
     <!--INPUT nombre delegado-->
-    <label>Nombre</label>
+    <label>Nombres:</label>
     <input
       type="text"
       ngModel maxlength="50"
@@ -50,7 +50,7 @@ class="text-danger"
 
 
 <!--INPUT apellido-->
-    <label>Apellido</label>
+    <label>Apellidos:</label>
     <input
       type="text"
       formControlName="apellidodeljugador"
@@ -72,7 +72,7 @@ class="text-danger"
 
 <!--INPUT PAIS-->
 
-<label class="form-label">Pais:</label>
+<label class="form-label">Nacionalidad:</label>
 <select
   class="form-control"
   name="paisEquipo"
@@ -97,17 +97,17 @@ class="text-danger"
     
 <!--INPUT Categorias-->
 
-<label for="talla" class="form-label">talla</label>
+<label for="talla" class="form-label">Talla:</label>
 <select
   name="talla"
   id="talla"
   class="form-select form-select-sm"
   formControlName="talla"
 >
-  <option value="x">xl</option>
-  <option value="l">l</option>
-  <option value="m">m</option>
-  <option value="s">s</option>
+  <option value="x">XL</option>
+  <option value="l">L</option>
+  <option value="m">M</option>
+  <option value="s">S</option>
 </select>
 <div
 *ngIf="(form.talla.touched && form.talla.invalid) || submitted"
@@ -122,7 +122,7 @@ class="text-danger"
 <!--INPUT posicion-->
 
 
-<label>Nro Camiseta</label>
+<label>Nro Camiseta:</label>
 <input
   type="number"
   formControlName="camiseta"
@@ -145,7 +145,7 @@ Este campo no puede estar vacio.
 <!--INPUT edad-->
 
 
-<label>Edad</label>
+<label>Edad:</label>
 <input
   type="number"
   formControlName="edad"
@@ -171,7 +171,7 @@ Este campo no puede estar vacio.
 
 <!--INPUT posicion-->
 
-<label for="posicion" class="form-label">posicion</label>
+<label for="posicion" class="form-label">Posicion:</label>
 <select
   name="posicion"
   id="posicion"
@@ -212,7 +212,7 @@ class="text-danger"
       class="text-danger"
     >
       <div *ngIf="form.imagen.errors?.required">
-        Por favor, suba el comprobante
+        Tiene que adjuntar un archivo
       </div>
     </div>
 
@@ -234,7 +234,7 @@ class="text-danger"
       class="text-danger"
     >
       <div *ngIf="form.CI.errors?.required">
-        Por favor, suba el comprobante
+        Tiene que adjuntar un archivo
       </div>
     </div>
 
@@ -245,10 +245,10 @@ class="text-danger"
     <!--INPUT subir-->
     <div class="text-center">
       <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">
-        Registrarse
+        Ingresar
       </button>
       <button class="btn btn-secondary" type="reset" (click)="onReset()">
-        Cancel
+        Cancelar
       </button>
     </div>
   </form>
