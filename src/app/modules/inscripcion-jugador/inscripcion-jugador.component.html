@@ -8,8 +8,9 @@
 
 
 <!--INPUT Categorias-->
-
-<label for="categorias" class="form-label">Categoria:</label>
+<div class="mb-3 row">
+<label for="categorias" class="col-sm-2 col-form-label form-label">Categoria:</label>
+<div class="col-sm-10">
 <select
   name="categorias"
   id="categorias"
@@ -28,10 +29,14 @@ class="text-danger"
   Elija una de las opciones
 </div>
 </div>
-
+</div>
+</div>
 
     <!--INPUT nombre delegado-->
-    <label>Nombres:</label>
+    <div class="mb-3 row">
+    <label for="inputnombres" class="col-sm-2 col-form-label">Nombres:</label>
+    <div class="col-sm-10">
+      
     <input
       type="text"
       ngModel maxlength="50"
@@ -47,10 +52,13 @@ class="text-danger"
     >
       Este campo no puede estar vacio.
     </div>
-
+  </div>
+</div>
 
 <!--INPUT apellido-->
-    <label>Apellidos:</label>
+<div class="mb-3 row">
+    <label  for="inputapellidos" class="col-sm-2 col-form-label">Apellidos:</label>
+    <div class="col-sm-10">
     <input
       type="text"
       formControlName="apellidodeljugador"
@@ -69,10 +77,12 @@ class="text-danger"
 
     
     </div>
-
+  </div>
+</div>
 <!--INPUT PAIS-->
-
-<label class="form-label">Nacionalidad:</label>
+<div class="mb-3 row">
+<label for="pais" class="col-sm-2 col-form-label form-label">Nacionalidad:</label>
+<div class="col-sm-10">
 <select
   class="form-control"
   name="paisEquipo"
@@ -92,12 +102,14 @@ class="text-danger"
     Elija una de las opciones
   </div>
 </div>
-
+</div>
+</div>
   
     
 <!--INPUT Categorias-->
-
-<label for="talla" class="form-label">Talla:</label>
+<div class="mb-3 row">
+<label for="talla" class="col-sm-2 col-form-label form-label">Talla:</label>
+<div class="col-sm-10">
 <select
   name="talla"
   id="talla"
@@ -117,12 +129,14 @@ class="text-danger"
   Elija una de las opciones
 </div>
 </div>
-
+</div>
+</div>
 <br>
 <!--INPUT posicion-->
 
-
-<label>Nro Camiseta:</label>
+<div class="mb-3 row">
+<label for="nroCamiseta" class="col-sm-2 col-form-label"  >Nro Camiseta:</label>
+<div class="col-sm-10">
 <input
   type="number"
   formControlName="camiseta"
@@ -141,11 +155,13 @@ Este campo no puede estar vacio.
 
 
 </div>
-
+</div>
+</div>
 <!--INPUT edad-->
 
-
-<label>Edad:</label>
+<div class="mb-3 row">
+<label for="edad" class="col-sm-2 col-form-label">Edad:</label>
+<div class="col-sm-10">
 <input
   type="number"
   formControlName="edad"
@@ -164,14 +180,16 @@ Este campo no puede estar vacio.
 
 
 </div>
-
+</div>
+</div>
 
 
 
 
 <!--INPUT posicion-->
-
-<label for="posicion" class="form-label">Posicion:</label>
+<div class="mb-3 row">
+<label for="posicion" class="col-sm-2 col-form-label form-label">Posicion:</label>
+<div class="col-sm-10">
 <select
   name="posicion"
   id="posicion"
@@ -192,7 +210,8 @@ class="text-danger"
   Elija una de las opciones
 </div>
 </div>
-
+</div>
+</div>
 
 <br>
     
@@ -253,4 +272,5 @@ class="text-danger"
     </div>
   </form>
 </div>
-<app-footer></app-footer>
+<app-footer>
+</app-footer>

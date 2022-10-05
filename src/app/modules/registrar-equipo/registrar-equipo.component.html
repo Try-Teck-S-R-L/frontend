@@ -8,7 +8,9 @@
     
 
     <!--INPUT nombre delegado-->
-    <label>Nombre delegado:</label>
+    <div class="mb-3 row">
+    <label for="inputnombreDelegado" class="col-sm-2 col-form-label">Nombre delegado:</label>
+    <div class="col-sm-10">
     <input
       type="text"
       ngModel maxlength="50"
@@ -24,10 +26,13 @@
     >
       Este campo no puede estar vacio.
     </div>
-
+  </div>
+</div>
 
 <!--INPUT nombreequipo-->
-    <label>Nombre del equipo:</label>
+    <div class="mb-3 row">
+    <label for="inputnombreEquipo" class="col-sm-2 col-form-label">Nombre del equipo:</label>
+    <div class="col-sm-10">
     <input
       type="text"
       formControlName="nombreEquipo"
@@ -46,11 +51,14 @@
 
     
     </div>
+  </div>
+</div>
 
 
     <!--INPUT Categorias-->
-
-    <label for="categorias" class="form-label">Categoria:</label>
+    <div class="mb-3 row">
+    <label for="categorias" class="col-sm-2 col-form-label form-label">Categoria:</label>
+    <div class="col-sm-10">   
     <select
       name="categorias"
       id="categorias"
@@ -69,11 +77,13 @@
       Elija una de las opciones
     </div>
   </div>
-
+</div>
+</div>
 
     <!--INPUT PAIS-->
-
-    <label class="form-label">Pais:</label>
+    <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label form-label">Pais:</label>
+    <div class="col-sm-10">
     <select
       class="form-control"
       name="paisEquipo"
@@ -93,6 +103,8 @@
         Elija una de las opciones
       </div>
     </div>
+  </div>
+</div>
 <br>
  
     <!--INPUT subir-->
@@ -103,4 +115,8 @@
     </div>
   </form>
 </div>
+
+
+
+
 <app-footer></app-footer>
