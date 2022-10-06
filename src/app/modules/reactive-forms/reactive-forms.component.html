@@ -18,11 +18,13 @@
       }"
     />
     <div
-      *ngIf="form.nombreDelegado.invalid && form.nombreDelegado.touched"
-      class="invalid-feedback"
-    >
+    *ngIf="(form.nombreDelegado.touched && form.nombreDelegado.invalid) || submitted"
+    class="text-danger"
+  >
+    <div *ngIf="form.nombreDelegado.errors?.required">
       Este campo no puede estar vacio.
     </div>
+  </div>
 
 
 <!--INPUT nombreequipo-->
@@ -38,13 +40,13 @@
       
     />
     <div
-      *ngIf="form.nombreEquipo.invalid && form.nombreEquipo.touched"
-      class="invalid-feedback"
-    >
-    Este campo no puede estar vacio.
-
-    
+    *ngIf="(form.nombreEquipo.touched && form.nombreEquipo.invalid) || submitted"
+    class="text-danger"
+  >
+    <div *ngIf="form.nombreEquipo.errors?.required">
+      Este campo no puede estar vacio.
     </div>
+  </div>
 
    <!--INPUT email-->
 
@@ -55,13 +57,15 @@
       class="form-control"
       [ngClass]="{ 'is-invalid': form.email.invalid && form.email.touched }"
     />
-    <div
-      *ngIf="form.email.invalid && form.email.touched"
-      class="invalid-feedback"
-    >
-      <div *ngIf="form.email.errors?.required">Este campo no puede estar vacio.</div>
-      <div *ngIf="form.email.errors?.email">El email debe de ser válido</div>
-    </div>
+    
+<div
+    *ngIf="(form.email.touched && form.email.invalid) || submitted"
+    class="text-danger"
+  >
+  <div *ngIf="form.email.errors?.required">Este campo no puede estar vacio.</div>
+  <div *ngIf="form.email.errors?.email">El email debe de ser válido</div>
+  </div>
+
 
     <!--INPUT Categorias-->
 
@@ -138,18 +142,11 @@
       max="2022-12-31"
       required
     />
-    <div
-      *ngIf="(form.fecha.touched && form.fecha.invalid) || submitted"
-      class="text-danger"
-    >
-      <div *ngIf="form.fecha.errors?.required">
-        Por favor, ingrese una fecha valida
-      </div>
-    </div>
+   
 
     <!--INPUT subir-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">
+      <button class="btn btn-primary mr-1" >
         Registrarse
       </button>
       <button class="btn btn-secondary" type="reset" (click)="onReset()">

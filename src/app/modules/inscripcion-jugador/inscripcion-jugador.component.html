@@ -42,10 +42,12 @@ class="text-danger"
       }"
     />
     <div
-      *ngIf="form.nombredeljugador.invalid && form.nombredeljugador.touched"
-      class="invalid-feedback"
+      *ngIf="(form.nombredeljugador.touched && form.nombredeljugador.invalid) || submitted"
+      class="text-danger"
     >
-      Este campo no puede estar vacio.
+      <div *ngIf="form.nombredeljugador.errors?.required">
+        Este campo no puede estar vacio.
+      </div>
     </div>
 
 
@@ -62,12 +64,12 @@ class="text-danger"
       
     />
     <div
-      *ngIf="form.apellidodeljugador.invalid && form.apellidodeljugador.touched"
-      class="invalid-feedback"
+      *ngIf="(form.apellidodeljugador.touched && form.apellidodeljugador.invalid) || submitted"
+      class="text-danger"
     >
-    Este campo no puede estar vacio.
-
-    
+      <div *ngIf="form.apellidodeljugador.errors?.required">
+        Este campo no puede estar vacio.
+      </div>
     </div>
 
 <!--INPUT PAIS-->
@@ -134,13 +136,13 @@ class="text-danger"
   
 />
 <div
-  *ngIf="form.camiseta.invalid && form.camiseta.touched"
-  class="invalid-feedback"
->
-Este campo no puede estar vacio.
-
-
-</div>
+      *ngIf="(form.camiseta.touched && form.camiseta.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.camiseta.errors?.required">
+        Este campo no puede estar vacio.
+      </div>
+    </div>
 
 <!--INPUT edad-->
 
@@ -157,13 +159,13 @@ Este campo no puede estar vacio.
   
 />
 <div
-  *ngIf="form.edad.invalid && form.edad.touched"
-  class="invalid-feedback"
->
-Este campo no puede estar vacio.
-
-
-</div>
+      *ngIf="(form.edad.touched && form.edad.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.edad.errors?.required">
+        Este campo no puede estar vacio.
+      </div>
+    </div>
 
 
 
@@ -229,6 +231,8 @@ class="text-danger"
       accept="CI/*"
       required
     />
+    
+
     <div
       *ngIf="(form.CI.touched && form.CI.invalid) || submitted"
       class="text-danger"
@@ -244,7 +248,7 @@ class="text-danger"
 
     <!--INPUT subir-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1" [disabled]="registerForm.invalid">
+      <button class="btn btn-primary mr-1" >
         Ingresar
       </button>
       <button class="btn btn-secondary" type="reset" (click)="onReset()">
