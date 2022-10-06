@@ -25,14 +25,10 @@
     <div *ngIf="form.nombreDelegado.errors?.required">
       Este campo no puede estar vacio.
     </div>
-<<<<<<< HEAD
   </div>
+</div>
+</div>
 
-
-=======
-    </div>
-    </div>
->>>>>>> b788ba74000c17d964d9292abe723afdbc970c66
 <!--INPUT nombreequipo-->
     <div class="mb-3 row">
     <label for="inputnombreEquipo" class="col-sm-2 col-form-label">Nombre del equipo:</label>
@@ -54,12 +50,9 @@
     <div *ngIf="form.nombreEquipo.errors?.required">
       Este campo no puede estar vacio.
     </div>
-<<<<<<< HEAD
   </div>
-=======
-    </div>
-    </div>
->>>>>>> b788ba74000c17d964d9292abe723afdbc970c66
+</div>
+</div>
 
    <!--INPUT email-->
    <div class="mb-3 row">
@@ -71,7 +64,6 @@
       class="form-control"
       [ngClass]="{ 'is-invalid': form.email.invalid && form.email.touched }"
     />
-<<<<<<< HEAD
     
 <div
     *ngIf="(form.email.touched && form.email.invalid) || submitted"
@@ -81,18 +73,8 @@
   <div *ngIf="form.email.errors?.email">El email debe de ser válido</div>
   </div>
 
-
-=======
-    <div
-      *ngIf="form.email.invalid && form.email.touched"
-      class="invalid-feedback"
-    >
-      <div *ngIf="form.email.errors?.required">Este campo no puede estar vacio.</div>
-      <div *ngIf="form.email.errors?.email">El email debe de ser válido</div>
-    </div>
-   </div>
-   </div>
->>>>>>> b788ba74000c17d964d9292abe723afdbc970c66
+</div>
+</div>
     <!--INPUT Categorias-->
     <div class="mb-3 row">   
     <label for="categorias" class="col-sm-2 col-form-label form-label ">Categoria:</label>
@@ -184,6 +166,8 @@
         Cancel
       </button>
     </div>
-  </form>
+</form>
 </div>
+
+
 <app-footer></app-footer>
