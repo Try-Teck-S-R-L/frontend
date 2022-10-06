@@ -5,9 +5,10 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Preinscripcion</h3>
-
     <!--INPUT nombre delegado-->
-    <label>Nombre delegado:</label>
+    <div class="mb-3 row">
+    <label for="inputnombreDelegado" class="col-sm-2 col-form-label">Nombre delegado:</label>
+    <div class="col-sm-10">
     <input
       type="text"
       ngModel maxlength="50"
@@ -24,11 +25,18 @@
     <div *ngIf="form.nombreDelegado.errors?.required">
       Este campo no puede estar vacio.
     </div>
+<<<<<<< HEAD
   </div>
 
 
+=======
+    </div>
+    </div>
+>>>>>>> b788ba74000c17d964d9292abe723afdbc970c66
 <!--INPUT nombreequipo-->
-    <label>Nombre del equipo:</label>
+    <div class="mb-3 row">
+    <label for="inputnombreEquipo" class="col-sm-2 col-form-label">Nombre del equipo:</label>
+    <div class="col-sm-10">
     <input
       type="text"
       formControlName="nombreEquipo"
@@ -46,17 +54,24 @@
     <div *ngIf="form.nombreEquipo.errors?.required">
       Este campo no puede estar vacio.
     </div>
+<<<<<<< HEAD
   </div>
+=======
+    </div>
+    </div>
+>>>>>>> b788ba74000c17d964d9292abe723afdbc970c66
 
    <!--INPUT email-->
-
-    <label>Email:</label>
+   <div class="mb-3 row">
+    <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
+    <div class="col-sm-10">
     <input
       type="text"
       formControlName="email"
       class="form-control"
       [ngClass]="{ 'is-invalid': form.email.invalid && form.email.touched }"
     />
+<<<<<<< HEAD
     
 <div
     *ngIf="(form.email.touched && form.email.invalid) || submitted"
@@ -67,9 +82,21 @@
   </div>
 
 
+=======
+    <div
+      *ngIf="form.email.invalid && form.email.touched"
+      class="invalid-feedback"
+    >
+      <div *ngIf="form.email.errors?.required">Este campo no puede estar vacio.</div>
+      <div *ngIf="form.email.errors?.email">El email debe de ser válido</div>
+    </div>
+   </div>
+   </div>
+>>>>>>> b788ba74000c17d964d9292abe723afdbc970c66
     <!--INPUT Categorias-->
-
-    <label for="categorias" class="form-label">Categoria:</label>
+    <div class="mb-3 row">   
+    <label for="categorias" class="col-sm-2 col-form-label form-label ">Categoria:</label>
+    <div class="col-sm-10">
     <select
       name="categorias"
       id="categorias"
@@ -88,11 +115,13 @@
       Elija una de las opciones
     </div>
   </div>
-
+</div>
+</div>
 
     <!--INPUT PAIS-->
-
-    <label class="form-label">Pais:</label>
+    <div class="mb-3 row">
+    <label for="pais" class=" col-sm-2 col-form-labelform-label">Pais:</label>
+    <div class="col-sm-10">
     <select
       class="form-control"
       name="paisEquipo"
@@ -112,6 +141,8 @@
         Elija una de las opciones
       </div>
     </div>
+   </div>
+   </div>  
 <br>
     <label class="form-label">Voucher de pago:</label>
     <input
