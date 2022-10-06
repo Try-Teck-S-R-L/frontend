@@ -1,0 +1,152 @@
+
+<app-header></app-header>
+<app-navar></app-navar>
+
+<div class="container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <h3>Inscripcion de equipo</h3>
+    
+
+    <!--INPUT nombre delegado-->
+    <div class="mb-3 row">
+    <label for="inputnombreDelegado" class="col-sm-2 col-form-label">Nombre delegado:</label>
+    <div class="col-sm-10">
+    <input
+      type="text"
+      ngModel maxlength="50"
+      formControlName="nombreDelegado"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.nombreDelegado.invalid && form.nombreDelegado.touched
+      }"
+    />
+    <div
+    *ngIf="(form.nombreDelegado.touched && form.nombreDelegado.invalid) || submitted"
+    class="text-danger"
+  >
+    <div *ngIf="form.nombreDelegado .errors?.required">
+      Este campo no puede estar vacio.
+    </div>
+  </div>
+<<<<<<< HEAD
+
+=======
+</div>
+>>>>>>> b788ba74000c17d964d9292abe723afdbc970c66
+
+<!--INPUT nombreequipo-->
+    <div class="mb-3 row">
+    <label for="inputnombreEquipo" class="col-sm-2 col-form-label">Nombre del equipo:</label>
+    <div class="col-sm-10">
+    <input
+      type="text"
+      formControlName="nombreEquipo"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
+      }"
+      
+      
+    />
+    <div
+      *ngIf="(form.nombreEquipo.touched && form.nombreEquipo.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.nombreEquipo.errors?.required">
+        Este campo no puede estar vacio.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!--INPUT Categorias-->
+    <div class="mb-3 row">
+    <label for="categorias" class="col-sm-2 col-form-label form-label">Categoria:</label>
+    <div class="col-sm-10">   
+    <select
+      name="categorias"
+      id="categorias"
+      class="form-select form-select-sm"
+      formControlName="categorias"
+    >
+      <option value="+35">mayores de 35</option>
+      <option value="+45">mayores de 45</option>
+      <option value="+55">mayores de 55</option>
+    </select>
+    <div
+    *ngIf="(form.categorias.touched && form.categorias.invalid) || submitted"
+    class="text-danger"
+  >
+    <div *ngIf="form.categorias.errors?.required">
+      Elija una de las opciones
+    </div>
+  </div>
+</div>
+</div>
+
+    <!--INPUT PAIS-->
+    <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label form-label">Pais:</label>
+    <div class="col-sm-10">
+    <select
+      class="form-control"
+      name="paisEquipo"
+      formControlName="paisEquipo"
+      required
+    >
+      <option value="" disabled>Seleccionar pais</option>
+      <option *ngFor="let pais of paises" [value]="pais.value">
+        {{ pais.name }}
+      </option>
+    </select>
+    <div
+      *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.paisEquipo.errors?.required">
+        Elija una de las opciones
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+ 
+    <!--INPUT subir-->
+    <div class="text-center">
+      <button class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Inscribir equipo
+      
+      </button>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          Su solicitud fue enviada correctamente.
+          Espere a que un administrador lo apruebe.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+  </form>
+</div>
+
+
+
+
+<app-footer></app-footer>
+
+
+
+
+
