@@ -43,7 +43,7 @@ export class RegistrarEquipoComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       nombreDelegado: ["", [Validators.required]],
       nombreEquipo: ["", [Validators.required]],
-      categorias: ["", [Validators.required]],
+      categoria: ["", [Validators.required]],
       paisEquipo: ["", [Validators.required]],
     });
   }

@@ -48,11 +48,11 @@ export class ReactiveFormsComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       nombreDelegado: ["", [Validators.required]],
       nombreEquipo: ["", [Validators.required]],
-      email: ["", [Validators.required, Validators.email]],
-      categorias: ["", [Validators.required]],
+      emailDelegado: ["", [Validators.required, Validators.email]],
+      categoria: ["", [Validators.required]],
       paisEquipo: ["", [Validators.required]],
-      fecha: ["2022-10-01", [Validators.required]],
-      imagen: [null, [Validators.required]],
+      fechaPreinscripcion: ["2022-10-01", [Validators.required]],
+      voucherPreinscripcion: [null, [Validators.required]],
     });
   }
 

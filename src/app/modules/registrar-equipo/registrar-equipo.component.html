@@ -61,20 +61,20 @@
     <label for="categorias" class="col-sm-2 col-form-label form-label">Categoria:</label>
     <div class="col-sm-10">   
     <select
-      name="categorias"
-      id="categorias"
+      name="categoria"
+      id="categoria"
       class="form-select form-select-sm"
-      formControlName="categorias"
+      formControlName="categoria"
     >
       <option value="+35">mayores de 35</option>
       <option value="+45">mayores de 45</option>
       <option value="+55">mayores de 55</option>
     </select>
     <div
-    *ngIf="(form.categorias.touched && form.categorias.invalid) || submitted"
+    *ngIf="(form.categoria.touched && form.categoria.invalid) || submitted"
     class="text-danger"
   >
-    <div *ngIf="form.categorias.errors?.required">
+    <div *ngIf="form.categoria.errors?.required">
       Elija una de las opciones
     </div>
   </div>

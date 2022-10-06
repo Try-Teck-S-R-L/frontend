@@ -12,20 +12,20 @@
 <label for="categorias" class="col-sm-2 col-form-label form-label">Categoria:</label>
 <div class="col-sm-10">
 <select
-  name="categorias"
-  id="categorias"
+  name="categoria"
+  id="categoria"
   class="form-select form-select-sm"
-  formControlName="categorias"
+  formControlName="categoria"
 >
   <option value="+35">mayores de 35</option>
   <option value="+45">mayores de 45</option>
   <option value="+55">mayores de 55</option>
 </select>
 <div
-*ngIf="(form.categorias.touched && form.categorias.invalid) || submitted"
+*ngIf="(form.categoria.touched && form.categoria.invalid) || submitted"
 class="text-danger"
 >
-<div *ngIf="form.categorias.errors?.required">
+<div *ngIf="form.categoria.errors?.required">
   Elija una de las opciones
 </div>
 </div>
@@ -40,17 +40,17 @@ class="text-danger"
     <input
       type="text"
       ngModel maxlength="50"
-      formControlName="nombredeljugador"
+      formControlName="nombreJugador"
       class="form-control"
       [ngClass]="{
-        'is-invalid': form.nombredeljugador.invalid && form.nombredeljugador.touched
+        'is-invalid': form.nombreJugador.invalid && form.nombreJugador.touched
       }"
     />
     <div
-      *ngIf="(form.nombredeljugador.touched && form.nombredeljugador.invalid) || submitted"
+      *ngIf="(form.nombreJugador.touched && form.nombreJugador.invalid) || submitted"
       class="text-danger"
     >
-      <div *ngIf="form.nombredeljugador.errors?.required">
+      <div *ngIf="form.nombreJugador.errors?.required">
         Este campo no puede estar vacio.
       </div>
     </div>
@@ -63,19 +63,19 @@ class="text-danger"
     <div class="col-sm-10">
     <input
       type="text"
-      formControlName="apellidodeljugador"
+      formControlName="apellidoJugador"
       class="form-control"
       [ngClass]="{
-        'is-invalid': form.apellidodeljugador.invalid && form.apellidodeljugador.touched
+        'is-invalid': form.apellidoJugador.invalid && form.apellidoJugador.touched
       }"
       
       
     />
     <div
-      *ngIf="(form.apellidodeljugador.touched && form.apellidodeljugador.invalid) || submitted"
+      *ngIf="(form.apellidoJugador.touched && form.apellidoJugador.invalid) || submitted"
       class="text-danger"
     >
-      <div *ngIf="form.apellidodeljugador.errors?.required">
+      <div *ngIf="form.apellidoJugador.errors?.required">
         Este campo no puede estar vacio.
       </div>
     </div>
@@ -87,8 +87,8 @@ class="text-danger"
 <div class="col-sm-10">
 <select
   class="form-control"
-  name="paisEquipo"
-  formControlName="paisEquipo"
+  name="nacionalidadJugador"
+  formControlName="nacionalidadJugador"
   required
 >
   <option value="" disabled>Seleccionar pais</option>
@@ -97,10 +97,10 @@ class="text-danger"
   </option>
 </select>
 <div
-  *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
+  *ngIf="(form.nacionalidadJugador.touched && form.nacionalidadJugador.invalid) || submitted"
   class="text-danger"
 >
-  <div *ngIf="form.paisEquipo.errors?.required">
+  <div *ngIf="form.nacionalidadJugador.errors?.required">
     Elija una de las opciones
   </div>
 </div>
@@ -113,10 +113,10 @@ class="text-danger"
 <label for="talla" class="col-sm-2 col-form-label form-label">Talla:</label>
 <div class="col-sm-10">
 <select
-  name="talla"
-  id="talla"
+  name="tallaJugador"
+  id="tallaJugador"
   class="form-select form-select-sm"
-  formControlName="talla"
+  formControlName="tallaJugador"
 >
   <option value="x">XL</option>
   <option value="l">L</option>
@@ -124,36 +124,36 @@ class="text-danger"
   <option value="s">S</option>
 </select>
 <div
-*ngIf="(form.talla.touched && form.talla.invalid) || submitted"
+*ngIf="(form.tallaJugador.touched && form.tallaJugador.invalid) || submitted"
 class="text-danger"
 >
-<div *ngIf="form.talla.errors?.required">
+<div *ngIf="form.tallaJugador.errors?.required">
   Elija una de las opciones
 </div>
 </div>
 </div>
 </div>
 <br>
-<!--INPUT posicion-->
+<!--INPUT camiseta-->
 
 <div class="mb-3 row">
 <label for="nroCamiseta" class="col-sm-2 col-form-label"  >Nro Camiseta:</label>
 <div class="col-sm-10">
 <input
   type="number"
-  formControlName="camiseta"
+  formControlName="numeroCamiseta"
   class="form-control"
   [ngClass]="{
-    'is-invalid': form.camiseta.invalid && form.camiseta.touched
+    'is-invalid': form.numeroCamiseta.invalid && form.numeroCamiseta.touched
   }"
   
   
 />
 <div
-      *ngIf="(form.camiseta.touched && form.camiseta.invalid) || submitted"
+      *ngIf="(form.numeroCamiseta.touched && form.numeroCamiseta.invalid) || submitted"
       class="text-danger"
     >
-      <div *ngIf="form.camiseta.errors?.required">
+      <div *ngIf="form.numeroCamiseta.errors?.required">
         Este campo no puede estar vacio.
       </div>
     </div>
@@ -167,19 +167,19 @@ class="text-danger"
 <div class="col-sm-10">
 <input
   type="number"
-  formControlName="edad"
+  formControlName="edadJugador"
   class="form-control"
   [ngClass]="{
-    'is-invalid': form.edad.invalid && form.edad.touched
+    'is-invalid': form.edadJugador.invalid && form.edadJugador.touched
   }"
   
   
 />
 <div
-      *ngIf="(form.edad.touched && form.edad.invalid) || submitted"
+      *ngIf="(form.edadJugador.touched && form.edadJugador.invalid) || submitted"
       class="text-danger"
     >
-      <div *ngIf="form.edad.errors?.required">
+      <div *ngIf="form.edadJugador.errors?.required">
         Este campo no puede estar vacio.
       </div>
     </div>
@@ -193,10 +193,10 @@ class="text-danger"
 <label for="posicion" class="col-sm-2 col-form-label form-label">Posicion:</label>
 <div class="col-sm-10">
 <select
-  name="posicion"
-  id="posicion"
+  name="posicionJugador"
+  id="posicionJugador"
   class="form-select form-select-sm"
-  formControlName="posicion"
+  formControlName="posicionJugador"
 >
   <option value="Base">Base</option>
   <option value="Escolta">Escolta</option>
@@ -205,10 +205,10 @@ class="text-danger"
   <option value="Pivot">Pivot</option>
 </select>
 <div
-*ngIf="(form.posicion.touched && form.posicion.invalid) || submitted"
+*ngIf="(form.posicionJugador.touched && form.posicionJugador.invalid) || submitted"
 class="text-danger"
 >
-<div *ngIf="form.talla.errors?.required">
+<div *ngIf="form.posicionJugador.errors?.required">
   Elija una de las opciones
 </div>
 </div>
@@ -222,17 +222,17 @@ class="text-danger"
     <label class="form-label">Foto Jugador:</label>
     <input
       type="file"
-      name="imagen"
-      id="imagen"
-      formControlName="imagen"
+      name="fotoPerfilJugador"
+      id="fotoPerfilJugador"
+      formControlName="fotoPerfilJugador"
       accept="image/*"
       required
     />
     <div
-      *ngIf="(form.imagen.touched && form.imagen.invalid) || submitted"
+      *ngIf="(form.fotoPerfilJugador.touched && form.fotoPerfilJugador.invalid) || submitted"
       class="text-danger"
     >
-      <div *ngIf="form.imagen.errors?.required">
+      <div *ngIf="form.fotoPerfilJugador.errors?.required">
         Tiene que adjuntar un archivo
       </div>
     </div>
@@ -244,19 +244,19 @@ class="text-danger"
     <label class="form-label">CI:</label>
     <input
       type="file"
-      name="CI"
-      id="CI"
-      formControlName="CI"
-      accept="CI/*"
+      name="fotoCiJugador"
+      id="fotoCiJugador"
+      formControlName="fotoCiJugador"
+      accept="image/*"
       required
     />
     
 
     <div
-      *ngIf="(form.CI.touched && form.CI.invalid) || submitted"
+      *ngIf="(form.fotoCiJugador.touched && form.fotoCiJugador.invalid) || submitted"
       class="text-danger"
     >
-      <div *ngIf="form.CI.errors?.required">
+      <div *ngIf="form.fotoCiJugador.errors?.required">
         Tiene que adjuntar un archivo
       </div>
     </div>

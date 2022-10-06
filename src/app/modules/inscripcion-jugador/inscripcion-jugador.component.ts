@@ -39,17 +39,17 @@ export class InscripcionJugadorComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      nombredeljugador: ["", [Validators.required]],
-      apellidodeljugador: ["", [Validators.required]],
+      nombreJugador: ["", [Validators.required]],
+      apellidoJugador: ["", [Validators.required]],
       
-      categorias: ["", [Validators.required]],
-      paisEquipo: ["", [Validators.required]],
-      talla: ["", [Validators.required]],
-      posicion: ["", [Validators.required]],
-      imagen: [null, [Validators.required]],
-      camiseta: ["", [Validators.required]],
-      CI: [null, [Validators.required]],
-      edad: ["", [Validators.required]],
+      categoria: ["", [Validators.required]],
+      nacionalidadJugador: ["", [Validators.required]],
+      tallaJugador: ["", [Validators.required]],
+      posicionJugador: ["", [Validators.required]],
+      fotoPerfilJugador: [null, [Validators.required]],
+      numeroCamiseta: ["", [Validators.required]],
+      fotoCiJugador: [null, [Validators.required]],
+      edadJugador: ["", [Validators.required]],
     });
   }
 
