@@ -4,7 +4,9 @@
 
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-    <h3>Preinscripcion</h3>
+    <h3>Inscripcion de equipo</h3>
+    
+
     <!--INPUT nombre delegado-->
     <div class="mb-3 row">
     <label for="inputnombreDelegado" class="col-sm-2 col-form-label">Nombre delegado:</label>
@@ -22,13 +24,12 @@
     *ngIf="(form.nombreDelegado.touched && form.nombreDelegado.invalid) || submitted"
     class="text-danger"
   >
-    <div *ngIf="form.nombreDelegado.errors?.required">
+    <div *ngIf="form.nombreDelegado .errors?.required">
       Este campo no puede estar vacio.
     </div>
   </div>
 </div>
 </div>
-
 <!--INPUT nombreequipo-->
     <div class="mb-3 row">
     <label for="inputnombreEquipo" class="col-sm-2 col-form-label">Nombre del equipo:</label>
@@ -44,41 +45,21 @@
       
     />
     <div
-    *ngIf="(form.nombreEquipo.touched && form.nombreEquipo.invalid) || submitted"
-    class="text-danger"
-  >
-    <div *ngIf="form.nombreEquipo.errors?.required">
-      Este campo no puede estar vacio.
+      *ngIf="(form.nombreEquipo.touched && form.nombreEquipo.invalid) || submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.nombreEquipo.errors?.required">
+        Este campo no puede estar vacio.
+      </div>
     </div>
   </div>
 </div>
-</div>
 
-   <!--INPUT email-->
-   <div class="mb-3 row">
-    <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
-    <div class="col-sm-10">
-    <input
-      type="text"
-      formControlName="emailDelegado"
-      class="form-control"
-      [ngClass]="{ 'is-invalid': form.emailDelegado.invalid && form.emailDelegado.touched }"
-    />
-    
-<div
-    *ngIf="(form.emailDelegado.touched && form.emailDelegado.invalid) || submitted"
-    class="text-danger"
-  >
-  <div *ngIf="form.emailDelegado.errors?.required">Este campo no puede estar vacio.</div>
-  <div *ngIf="form.emailDelegado.errors?.email">El email debe de ser válido</div>
-  </div>
 
-</div>
-</div>
     <!--INPUT Categorias-->
-    <div class="mb-3 row">   
-    <label for="categorias" class="col-sm-2 col-form-label form-label ">Categoria:</label>
-    <div class="col-sm-10">
+    <div class="mb-3 row">
+    <label for="categorias" class="col-sm-2 col-form-label form-label">Categoria:</label>
+    <div class="col-sm-10">   
     <select
       name="categoria"
       id="categoria"
@@ -102,7 +83,7 @@
 
     <!--INPUT PAIS-->
     <div class="mb-3 row">
-    <label for="pais" class=" col-sm-2 col-form-labelform-label">Pais:</label>
+    <label class="col-sm-2 col-form-label form-label">Pais:</label>
     <div class="col-sm-10">
     <select
       class="form-control"
@@ -123,54 +104,45 @@
         Elija una de las opciones
       </div>
     </div>
-   </div>
-   </div>  
+  </div>
+</div>
 <br>
-
-
-
-    <label class="form-label">Voucher de pago:</label>
-    <input
-      type="file"
-      name="voucherPreinscripcion"
-      id="voucherPreinscripcion"
-      formControlName="voucherPreinscripcion"
-      accept="image/*"
-      required
-    />
-    <div
-      *ngIf="(form.voucherPreinscripcion.touched && form.voucherPreinscripcion.invalid) || submitted"
-      class="text-danger"
-    >
-      <div *ngIf="form.voucherPreinscripcion.errors?.required">
-        Por favor, suba el comprobante
-      </div>
-    </div>
-<br><br>
-    <!--INPUT agregar fecha-->
-    <label class="form-label">Fecha:</label>
-    <input
-      type="date"
-      name="fechaPreinscripcion"
-      id="fechaPreinscripcion"
-      formControlName="fechaPreinscripcion"
-      min="2022-01-01"
-      max="2022-12-31"
-      required
-    />
-   
-
+ 
     <!--INPUT subir-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1" >
-        Registrarse
+      <button class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Inscribir equipo
+      
       </button>
-      <button class="btn btn-secondary" type="reset" (click)="onReset()">
-        Cancel
-      </button>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          Su solicitud fue enviada correctamente.
+          Espere a que un administrador lo apruebe.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
     </div>
 </form>
 </div>
 
 
+
+
 <app-footer></app-footer>
+
+
+
+
+

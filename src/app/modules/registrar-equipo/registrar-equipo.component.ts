@@ -1,5 +1,6 @@
 import { HostListener } from "@angular/core";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
+
 import {
   FormGroup,
   FormControl,
@@ -14,11 +15,12 @@ interface CountryOption {
 }
 
 @Component({
-  selector: "app-inscripcion-jugador",
-  templateUrl: "./inscripcion-jugador.component.html",
-  styleUrls: ["./inscripcion-jugador.component.css"],
+  selector: 'app-registrar-equipo',
+  templateUrl: './registrar-equipo.component.html',
+  styleUrls: ['./registrar-equipo.component.css']
 })
-export class InscripcionJugadorComponent implements OnInit {
+export class RegistrarEquipoComponent implements OnInit {
+
   registerForm: FormGroup;
   submitted = false;
   public paises: CountryOption[] = [];
@@ -39,17 +41,10 @@ export class InscripcionJugadorComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      nombreJugador: ["", [Validators.required]],
-      apellidoJugador: ["", [Validators.required]],
-      
+      nombreDelegado: ["", [Validators.required]],
+      nombreEquipo: ["", [Validators.required]],
       categoria: ["", [Validators.required]],
-      nacionalidadJugador: ["", [Validators.required]],
-      tallaJugador: ["", [Validators.required]],
-      posicionJugador: ["", [Validators.required]],
-      fotoPerfilJugador: [null, [Validators.required]],
-      numeroCamiseta: ["", [Validators.required]],
-      fotoCiJugador: [null, [Validators.required]],
-      edadJugador: ["", [Validators.required]],
+      paisEquipo: ["", [Validators.required]],
     });
   }
 
