@@ -44,9 +44,6 @@ export class InscripcionJugadorComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.getAllJugadores().subscribe(data => console.log(data));
-    //this.http.get<any>
-    //console.log(this.http.getAllJugadores().subscribe);
     this.registerForm = this.formBuilder.group({
 
       nombreJugador: ["", [Validators.required]],
