@@ -13,6 +13,10 @@ import { ResponseI } from '../modules/models/response.interface';
   
     constructor(private http:HttpClient) { }
   
+    getAllJugadores():Observable<JugadorI[]>{
+      return this.http.get<JugadorI[]>(this.base_url);
+    }
+
     Jugador(form:JugadorI):Observable<ResponseI>{
       let url = this.base_url + "api/jugador/"
       return this.http.post<ResponseI>(url, form)
