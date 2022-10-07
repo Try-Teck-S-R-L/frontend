@@ -14,7 +14,7 @@ import { ResponseI } from '../modules/models/response.interface';
     constructor(private http:HttpClient) { }
   
     getAllJugadores():Observable<JugadorI[]>{
-      return this.http.get<JugadorI[]>(this.base_url);
+      return this.http.get<JugadorI[]>(this.base_url + "api/jugador/");
     }
 
     Jugador(form:JugadorI):Observable<ResponseI>{
