@@ -7,7 +7,10 @@ import {
   Validators,
   FormBuilder,
 } from "@angular/forms";
+import { Router } from "@angular/router";
+import { EquipoService } from "src/app/services/equipo.service";
 import data from "../../../assets/Archivos/data.json";
+import { ResponseI } from "../models/response.interface";
 
 interface CountryOption {
   name: string;
@@ -34,7 +37,9 @@ export class RegistrarEquipoComponent implements OnInit {
     }
   }
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private http:EquipoService,
+    private router:Router) {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
   }
@@ -81,7 +86,10 @@ export class RegistrarEquipoComponent implements OnInit {
       return;
     }
 
-    console.log({ ...this.registerForm.value, imagen: this.file });
+    this.http.Equipo(this.registerForm.value).subscribe(data => {
+      let response:ResponseI = data
+      console.log({ ...this.registerForm.value, imagen: this.file });
+    })
 
     // display form values on success
     alert(
