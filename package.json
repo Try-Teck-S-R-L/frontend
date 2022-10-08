@@ -20,9 +20,11 @@
     "@angular/router": "~12.2.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "@popperjs/core": "^2.11.6",
+    "angular2-qrcode": "^2.0.3",
     "bootstrap": "^5.2.2",
     "jquery": "^3.6.1",
     "mdb-ui-kit": "^5.0.0",
+    "pdfmake": "^0.2.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

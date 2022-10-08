@@ -1,3 +1,7 @@
+import { CredencialComponent } from './modules/credencial/credencial.component';
+import { ListaEquiposComponent } from './modules/lista-equipos/lista-equipos.component';
+
+
 import { VistaDelegadoComponent } from './modules/vista-delegado/vista-delegado.component';
 import { ModulesComponent } from './modules/modules.component';
 import { NgModule } from '@angular/core';
@@ -23,6 +27,14 @@ const routes: Routes = [
   {
     path:'registrarequipo',
     component:RegistrarEquipoComponent
+  },
+  {
+    path:'listaequipos',
+    component:ListaEquiposComponent
+  },
+  {
+    path:'credencial',
+    component:CredencialComponent
   },
 
 ];
