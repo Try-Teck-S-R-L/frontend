@@ -21,6 +21,9 @@ import { ElementolistaI } from "../modules/models/elementoLista.interface";
 
     getAllCategorias():Observable<ElementolistaI[]>{
         return this.http.get<ElementolistaI[]>(this.base_url + "api/categorias/");
-      }
+    }
 
+    getAllTallas():Observable<ElementolistaI[]>{
+      return this.http.get<ElementolistaI[]>(this.base_url + "api/tallas/");
+  }
   }
