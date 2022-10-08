@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JugadorService } from 'src/app/services/jugador.service';
+import { JugadorI } from '../models/jugador.interface';
 
 @Component({
   selector: 'app-vista-delegado',
@@ -8,10 +9,15 @@ import { JugadorService } from 'src/app/services/jugador.service';
 })
 export class VistaDelegadoComponent implements OnInit {
 
-  constructor( private http: JugadorService) { }
+  public listaJugadores:any = [];
+
+  constructor( private http: JugadorService) { 
+
+  }
 
   ngOnInit(): void {
-    this.http.getAllJugadores().subscribe(data => console.log(data));
+    this.http.getAllJugadores().subscribe(data => (this.listaJugadores = data));
+    console.log(this.listaJugadores);
   }
 
 }
