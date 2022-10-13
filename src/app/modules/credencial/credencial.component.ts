@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import {QRCodeComponent} from 'angular2-qrcode';
+import { JugadorService } from 'src/app/services/jugador.service';
 
 @Component({
   selector: 'app-credencial',
@@ -13,7 +14,7 @@ export class CredencialComponent implements OnInit {
   listaJugadores: any = [];
 
   public urlActual: any;
-  constructor() { 
+  constructor(private http: JugadorService) { 
     this.urlActual = window.location.href;
     console.log(this.urlActual);
     this.credencial = new FormGroup({
@@ -23,6 +24,7 @@ export class CredencialComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.http.getAllJugadores().subscribe(data => (this.listaJugadores = data));
   }
   get equipoJugador(){ return this.credencial.value.equipos; }
 }

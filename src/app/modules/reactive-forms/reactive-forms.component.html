@@ -1,133 +1,161 @@
-
 <app-header></app-header>
 <app-navar></app-navar>
 
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Preinscripcion</h3>
+
+    <!--categorias <br />
+    {{ listaCategorias | json }} <br />
+    paises <br />
+    {{ listaPaises | json }} <br />
+    -->
     <!--INPUT nombre delegado-->
     <div class="mb-3 row">
-    <label for="inputnombreDelegado" class="col-sm-2 col-form-label">Nombre delegado:</label>
-    <div class="col-sm-10">
-    <input
-      type="text"
-      ngModel maxlength="50"
-      formControlName="nombreDelegado"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid': form.nombreDelegado.invalid && form.nombreDelegado.touched
-      }"
-    />
-    <div
-    *ngIf="(form.nombreDelegado.touched && form.nombreDelegado.invalid) || submitted"
-    class="text-danger"
-  >
-    <div *ngIf="form.nombreDelegado.errors?.required">
-      Este campo no puede estar vacio.
+      <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
+        >Nombre delegado:</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          maxlength="50"
+          formControlName="nombreDelegado"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              form.nombreDelegado.invalid && form.nombreDelegado.touched
+          }"
+        />
+        <div
+          *ngIf="
+            (form.nombreDelegado.touched && form.nombreDelegado.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.nombreDelegado.errors?.required">
+            Este campo no puede estar vacio.
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
 
-<!--INPUT nombreequipo-->
+    <!--INPUT nombreequipo-->
     <div class="mb-3 row">
-    <label for="inputnombreEquipo" class="col-sm-2 col-form-label">Nombre del equipo:</label>
-    <div class="col-sm-10">
-    <input
-      type="text"
-      formControlName="nombreEquipo"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
-      }"
-      
-      
-    />
-    <div
-    *ngIf="(form.nombreEquipo.touched && form.nombreEquipo.invalid) || submitted"
-    class="text-danger"
-  >
-    <div *ngIf="form.nombreEquipo.errors?.required">
-      Este campo no puede estar vacio.
+      <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
+        >Nombre del equipo:</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          formControlName="nombreEquipo"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
+          }"
+        />
+        <div
+          *ngIf="
+            (form.nombreEquipo.touched && form.nombreEquipo.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.nombreEquipo.errors?.required">
+            Este campo no puede estar vacio.
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
 
-   <!--INPUT email-->
-   <div class="mb-3 row">
-    <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
-    <div class="col-sm-10">
-    <input
-      type="text"
-      formControlName="emailDelegado"
-      class="form-control"
-      [ngClass]="{ 'is-invalid': form.emailDelegado.invalid && form.emailDelegado.touched }"
-    />
-    
-<div
-    *ngIf="(form.emailDelegado.touched && form.emailDelegado.invalid) || submitted"
-    class="text-danger"
-  >
-  <div *ngIf="form.emailDelegado.errors?.required">Este campo no puede estar vacio.</div>
-  <div *ngIf="form.emailDelegado.errors?.email">El email debe de ser válido</div>
-  </div>
+    <!--INPUT email-->
+    <div class="mb-3 row">
+      <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          formControlName="emailDelegado"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              form.emailDelegado.invalid && form.emailDelegado.touched
+          }"
+        />
 
-</div>
-</div>
+        <div
+          *ngIf="
+            (form.emailDelegado.touched && form.emailDelegado.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.emailDelegado.errors?.required">
+            Este campo no puede estar vacio.
+          </div>
+          <div *ngIf="form.emailDelegado.errors?.email">
+            El email debe de ser válido
+          </div>
+        </div>
+      </div>
+    </div>
     <!--INPUT Categorias-->
-    <div class="mb-3 row">   
-    <label for="categorias" class="col-sm-2 col-form-label form-label ">Categoria:</label>
-    <div class="col-sm-10">
-    <select
-      name="categoria"
-      id="categoria"
-      class="form-select form-select-sm"
-      formControlName="categoria"
-    >
-      <option value="+35">mayores de 35</option>
-      <option value="+45">mayores de 45</option>
-      <option value="+55">mayores de 55</option>
-    </select>
-    <div
-    *ngIf="(form.categoria.touched && form.categoria.invalid) || submitted"
-    class="text-danger"
-  >
-    <div *ngIf="form.categoria.errors?.required">
-      Elija una de las opciones
+    <div class="mb-3 row">
+      <label for="categorias" class="col-sm-2 col-form-label form-label"
+        >Categoria:</label
+      >
+      <div class="col-sm-10">
+        <select
+          name="categoria"
+          id="categoria"
+          class="form-select form-select-sm"
+          formControlName="categoria"
+        >
+          <option value="+35">mayores de 35</option>
+          <option value="+45">mayores de 45</option>
+          <option value="+55">mayores de 55</option>
+        </select>
+        <div
+          *ngIf="
+            (form.categoria.touched && form.categoria.invalid) || submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.categoria.errors?.required">
+            Elija una de las opciones
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
 
     <!--INPUT PAIS-->
     <div class="mb-3 row">
-    <label for="pais" class=" col-sm-2 col-form-labelform-label">Pais:</label>
-    <div class="col-sm-10">
-    <select
-      class="form-control"
-      name="paisEquipo"
-      formControlName="paisEquipo"
-      required
-    >
-      <option value="" disabled>Seleccionar pais</option>
-      <option *ngFor="let pais of paises" [value]="pais.value">
-        {{ pais.name }}
-      </option>
-    </select>
-    <div
-      *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
-      class="text-danger"
-    >
-      <div *ngIf="form.paisEquipo.errors?.required">
-        Elija una de las opciones
+      <label for="pais" class="col-sm-2 col-form-labelform-label">Pais:</label>
+      <div class="col-sm-10">
+        <select
+          class="form-control"
+          name="paisEquipo"
+          formControlName="paisEquipo"
+          required
+        >
+          <option value="" disabled>Seleccionar pais</option>
+          <option *ngFor="let pais of paises" [value]="pais.value">
+            {{ pais.name }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            (form.paisEquipo.touched && form.paisEquipo.invalid) || submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.paisEquipo.errors?.required">
+            Elija una de las opciones
+          </div>
+        </div>
       </div>
     </div>
-   </div>
-   </div>  
-<br>
-
-
+    <br />
 
     <label class="form-label">Voucher de pago:</label>
     <input
@@ -139,14 +167,18 @@
       required
     />
     <div
-      *ngIf="(form.voucherPreinscripcion.touched && form.voucherPreinscripcion.invalid) || submitted"
+      *ngIf="
+        (form.voucherPreinscripcion.touched &&
+          form.voucherPreinscripcion.invalid) ||
+        submitted
+      "
       class="text-danger"
     >
       <div *ngIf="form.voucherPreinscripcion.errors?.required">
         Por favor, suba el comprobante
       </div>
     </div>
-<br><br>
+    <br /><br />
     <!--INPUT agregar fecha-->
     <label class="form-label">Fecha:</label>
     <input
@@ -158,19 +190,15 @@
       max="2022-12-31"
       required
     />
-   
 
     <!--INPUT subir-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1" >
-        Registrarse
-      </button>
+      <button class="btn btn-primary mr-1">Registrarse</button>
       <button class="btn btn-secondary" type="reset" (click)="onReset()">
         Cancel
       </button>
     </div>
-</form>
+  </form>
 </div>
-
 
 <app-footer></app-footer>

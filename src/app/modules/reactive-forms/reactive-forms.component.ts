@@ -50,8 +50,8 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.elemento.getAllCategorias().subscribe(data => (this.listaCategorias = data));
-    //this.elemento.getAllPaises().subscribe(data => (this.listaPaises = data));
+    this.elemento.getAllCategorias().subscribe(data => (this.listaCategorias = data));
+    this.elemento.getAllPaises().subscribe(data => (this.listaPaises = data));
     this.registerForm = this.formBuilder.group({
       nombreDelegado: ["", [Validators.required]],
       nombreEquipo: ["", [Validators.required]],

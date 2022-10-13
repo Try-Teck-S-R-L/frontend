@@ -12,18 +12,18 @@ import { ElementolistaI } from "../modules/models/elementolista.interface";
     constructor(private http:HttpClient) { }
   
     getAllPaises():Observable<ElementolistaI[]>{
-      return this.http.get<ElementolistaI[]>(this.base_url + "api/Pais/");
+      return this.http.get<ElementolistaI[]>(this.base_url + "api/paises/");
     }
 
     getAllPosiciones():Observable<ElementolistaI[]>{
-        return this.http.get<ElementolistaI[]>(this.base_url + "api/posicions/");
+        return this.http.get<ElementolistaI[]>(this.base_url + "api/posiciones/");
     }
 
     getAllCategorias():Observable<ElementolistaI[]>{
-        return this.http.get<ElementolistaI[]>(this.base_url + "api/Categorias/");
+        return this.http.get<ElementolistaI[]>(this.base_url + "api/categorias/");
     }
 
     getAllTallas():Observable<ElementolistaI[]>{
-      return this.http.get<ElementolistaI[]>(this.base_url + "api/talla/");
+      return this.http.get<ElementolistaI[]>(this.base_url + "api/tallas/");
   }
   }
