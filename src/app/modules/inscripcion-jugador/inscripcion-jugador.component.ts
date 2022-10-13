@@ -50,10 +50,10 @@ export class InscripcionJugadorComponent implements OnInit {
 
   ngOnInit() {
 
-    //this.elemento.getAllCategorias().subscribe(data => (this.listaCategorias = data));
-    //this.elemento.getAllPaises().subscribe(data => (this.listaPaises = data));
-    //this.elemento.getAllPosiciones().subscribe(data => (this.listaPosiciones = data));
-    //this.elemento.getAllTallas().subscribe(data => (this.listaTallas = data));
+    this.elemento.getAllCategorias().subscribe(data => (this.listaCategorias = data));
+    this.elemento.getAllPaises().subscribe(data => (this.listaPaises = data));
+    this.elemento.getAllPosiciones().subscribe(data => (this.listaPosiciones = data));
+    this.elemento.getAllTallas().subscribe(data => (this.listaTallas = data));
 
     this.registerForm = this.formBuilder.group({
 
