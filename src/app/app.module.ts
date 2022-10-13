@@ -14,6 +14,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { InscripcionJugadorComponent } from './modules/inscripcion-jugador/inscripcion-jugador.component';
 import { VistaDelegadoComponent } from './modules/vista-delegado/vista-delegado.component';
 import { RegistrarEquipoComponent } from './modules/registrar-equipo/registrar-equipo.component';
+import { ListaEquiposComponent } from "./modules/lista-equipos/lista-equipos.component";
+import { CredencialComponent } from './modules/credencial/credencial.component';
+import { QRCodeModule } from 'angular2-qrcode';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,10 @@ import { RegistrarEquipoComponent } from './modules/registrar-equipo/registrar-e
     InscripcionJugadorComponent,
     VistaDelegadoComponent,
     RegistrarEquipoComponent,
+    ListaEquiposComponent,
+    CredencialComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QRCodeModule],
   providers: [],
   bootstrap: [AppComponent],
   
