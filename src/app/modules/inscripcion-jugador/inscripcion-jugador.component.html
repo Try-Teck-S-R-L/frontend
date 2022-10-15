@@ -4,12 +4,12 @@
 
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-    <h3>Inscripcion de jugador</h3>
+    <h3>Inscripción de jugador</h3>
 
 
 <!--INPUT Categorias-->
 <div class="mb-3 row">
-<label for="categorias" class="col-sm-2 col-form-label form-label">Categoria:</label>
+<label for="categorias" class="col-sm-2 col-form-label form-label">Categoría:</label>
 <div class="col-sm-10">
 <select
   name="categoria"
@@ -91,7 +91,7 @@ class="text-danger"
   formControlName="nacionalidadJugador"
   required
 >
-  <option value="" disabled>Seleccionar pais</option>
+  <option value="" disabled>Seleccionar país</option>
   <option *ngFor="let pais of paises" [value]="pais.value">
     {{ pais.name }}
   </option>
@@ -190,7 +190,7 @@ class="text-danger"
 
 <!--INPUT posicion-->
 <div class="mb-3 row">
-<label for="posicion" class="col-sm-2 col-form-label form-label">Posicion:</label>
+<label for="posicion" class="col-sm-2 col-form-label form-label">Posición:</label>
 <div class="col-sm-10">
 <select
   name="posicionJugador"
