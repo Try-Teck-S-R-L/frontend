@@ -1,10 +1,9 @@
-export interface PreinscripcionI{
-    nombreDelegado: String,
-    categoria: String,
-    emailDelegado: String,
-    fechaPreinscripcion: Date,
-    voucherPreinscripcion: File,
-    nombreEquipo: String,
-    paisEquipo: String
-
+export interface PreinscripcionI {
+  nombreDelegado: string;
+  categoria: string;
+  emailDelegado: string;
+  fechaPreinscripcion: string;
+  voucherPreinscripcion: File;
+  nombreEquipo: string;
+  paisEquipo: string;
 }

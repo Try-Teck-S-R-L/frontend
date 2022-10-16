@@ -28,30 +28,24 @@ export class ReactiveFormsComponent implements OnInit {
   submitted = false;
   public paises: CountryOption[] = [];
   private file: File | null = null;
+  public listaPaises: any = [];
+  public listaCategorias: any = [];
 
-  @HostListener("change", ["$event.target.files"]) emitFiles(event: FileList) {
-    const file = event && event.item(0);
-    // usar esta variable en el momento de enviar el fomulario
-    if (file) {
-      this.file = file;
-    }
-  }
-
-  public listaPaises:any = [];
-  public listaCategorias:any = [];
-
-  constructor(private formBuilder: FormBuilder, 
-    private http:PreinscripcionService,
-    private elemento:ElementolistaService,
-    private router:Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: PreinscripcionService,
+    private elemento: ElementolistaService,
+    private router: Router
+  ) {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
-
   }
 
   ngOnInit() {
-    this.elemento.getAllCategorias().subscribe(data => (this.listaCategorias = data));
-    this.elemento.getAllPaises().subscribe(data => (this.listaPaises = data));
+    this.elemento
+      .getAllCategorias()
+      .subscribe((data) => (this.listaCategorias = data));
+    this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
     this.registerForm = this.formBuilder.group({
       nombreDelegado: ["", [Validators.required]],
       nombreEquipo: ["", [Validators.required]],
@@ -59,7 +53,6 @@ export class ReactiveFormsComponent implements OnInit {
       categoria: ["", [Validators.required]],
       paisEquipo: ["", [Validators.required]],
       fechaPreinscripcion: ["2022-10-01", [Validators.required]],
-      voucherPreinscripcion: [null, [Validators.required]],
     });
   }
 
@@ -96,12 +89,19 @@ export class ReactiveFormsComponent implements OnInit {
       return;
     }
 
-    this.http.Preinscripcion(this.registerForm.value).subscribe(data => {
-      let response:ResponseI = data
-      console.log({ ...this.registerForm.value, imagen: this.file });
-    })
-
-    
+    this.http
+      .Preinscripcion({
+        ...this.registerForm.value,
+        voucherPreinscripcion: this.file,
+      })
+      .subscribe((data) => {
+        let response: ResponseI = data;
+        console.log("File:", this.file);
+        console.log({
+          ...this.registerForm.value,
+          voucherPreinscripcion: this.file,
+        });
+      });
 
     // display form values on success
     alert(
@@ -112,5 +112,13 @@ export class ReactiveFormsComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    if (file) {
+      this.file = file;
+    }
   }
 }

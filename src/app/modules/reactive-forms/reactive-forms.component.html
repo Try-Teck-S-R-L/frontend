@@ -3,13 +3,7 @@
 
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-    <h3>Preinscripcion</h3>
-
-    <!--categorias <br />
-    {{ listaCategorias | json }} <br />
-    paises <br />
-    {{ listaPaises | json }} <br />
-    -->
+    <h3>Preinscripción</h3>
     <!--INPUT nombre delegado-->
     <div class="mb-3 row">
       <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
@@ -100,47 +94,59 @@
       </div>
     </div>
     <!--INPUT Categorias-->
-    <div class="mb-3 row">   
-    <label for="categorias" class="col-sm-2 col-form-label form-label ">Categoría:</label>
-    <div class="col-sm-10">
-    <select
-      name="categoria"
-      id="categoria"
-      class="form-select form-select-sm"
-      formControlName="categoria"
-    >
-      <option value="+35">mayores de 35</option>
-      <option value="+45">mayores de 45</option>
-      <option value="+55">mayores de 55</option>
-    </select>
-    <div
-    *ngIf="(form.categoria.touched && form.categoria.invalid) || submitted"
-    class="text-danger"
-  >
-    <div *ngIf="form.categoria.errors?.required">
-      Elija una de las opciones
+    <div class="mb-3 row">
+      <label for="categorias" class="col-sm-2 col-form-label form-label"
+        >Categoría:</label
+      >
+      <div class="col-sm-10">
+        <select
+          name="categoria"
+          id="categoria"
+          class="form-select form-select-sm"
+          formControlName="categoria"
+        >
+          <option value="+35">mayores de 35</option>
+          <option value="+45">mayores de 45</option>
+          <option value="+55">mayores de 55</option>
+        </select>
+        <div
+          *ngIf="
+            (form.categoria.touched && form.categoria.invalid) || submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.categoria.errors?.required">
+            Elija una de las opciones
+          </div>
+        </div>
+      </div>
     </div>
+
     <!--INPUT PAIS-->
     <div class="mb-3 row">
-    <label for="pais" class=" col-sm-2 col-form-labelform-label">País:</label>
-    <div class="col-sm-10">
-    <select
-      class="form-control"
-      name="paisEquipo"
-      formControlName="paisEquipo"
-      required
-    >
-      <option value="" disabled>Seleccionar pais</option>
-      <option *ngFor="let pais of paises" [value]="pais.value">
-        {{ pais.name }}
-      </option>
-    </select>
-    <div
-      *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
-      class="text-danger"
-    >
-      <div *ngIf="form.paisEquipo.errors?.required">
-        Elija una de las opciones
+      <label for="pais" class="col-sm-2 col-form-labelform-label">País:</label>
+      <div class="col-sm-10">
+        <select
+          class="form-control"
+          name="paisEquipo"
+          formControlName="paisEquipo"
+          required
+        >
+          <option value="" disabled>Seleccionar pais</option>
+          <option *ngFor="let pais of paises" [value]="pais.value">
+            {{ pais.name }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            (form.paisEquipo.touched && form.paisEquipo.invalid) || submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.paisEquipo.errors?.required">
+            Elija una de las opciones
+          </div>
+        </div>
       </div>
     </div>
     <br />
@@ -150,22 +156,18 @@
       type="file"
       name="voucherPreinscripcion"
       id="voucherPreinscripcion"
-      formControlName="voucherPreinscripcion"
       accept="image/*"
+      (change)="onFileSelected($event)"
       required
     />
-    <div
-      *ngIf="
-        (form.voucherPreinscripcion.touched &&
-          form.voucherPreinscripcion.invalid) ||
-        submitted
-      "
+    <!-- <div
+      *ngIf="submitted"
       class="text-danger"
     >
       <div *ngIf="form.voucherPreinscripcion.errors?.required">
         Por favor, suba el comprobante
       </div>
-    </div>
+    </div> -->
     <br /><br />
     <!--INPUT agregar fecha-->
     <label class="form-label">Fecha:</label>
