@@ -1,4 +1,5 @@
 export interface EquipoI{
     nombreEquipo: string,
-    paisEquipo: string
+    paisEquipo: string,
+    categoria: string
 }
