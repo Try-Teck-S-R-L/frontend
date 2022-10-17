@@ -1,3 +1,4 @@
+import { JugadorI } from './../models/jugador.interface';
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import {
@@ -41,20 +42,17 @@ export class InscripcionJugadorComponent implements OnInit {
   public listaCategorias:any = [];
   public listaPosiciones:any = [];
 
-  constructor(private formBuilder: FormBuilder,
-    private http: JugadorService, private elemento: ElementolistaService, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: JugadorService, 
+    private elemento: ElementolistaService, 
+    private router: Router) {
 
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
   }
 
   ngOnInit() {
-
-    this.elemento.getAllCategorias().subscribe(data => (this.listaCategorias = data));
-    this.elemento.getAllPaises().subscribe(data => (this.listaPaises = data));
-    this.elemento.getAllPosiciones().subscribe(data => (this.listaPosiciones = data));
-    this.elemento.getAllTallas().subscribe(data => (this.listaTallas = data));
-
     this.registerForm = this.formBuilder.group({
 
       nombreJugador: ["", [Validators.required]],
@@ -65,9 +63,9 @@ export class InscripcionJugadorComponent implements OnInit {
       nacionalidadJugador: ["", [Validators.required]],
       tallaJugador: ["", [Validators.required]],
       posicionJugador: ["", [Validators.required]],
-      fotoPerfilJugador: [null, [Validators.required]],
+      
       numeroCamiseta: ["", [Validators.required]],
-      fotoCiJugador: [null, [Validators.required]],
+      
       edadJugador: ["", [Validators.required]],
     });
   }
@@ -105,10 +103,22 @@ export class InscripcionJugadorComponent implements OnInit {
       return;
     }
 
-    this.http.Jugador(this.registerForm.value).subscribe(data => {
-      let response:ResponseI = data
-      console.log({ ...this.registerForm.value, imagen: this.file });
+    this.http
+    .jugador({
+      ...this.registerForm.value,
+      fotoPerfilJugador: this.file,
+      fotoCiJugador: this.file,
     })
+    
+    .subscribe((data) => {
+      let response: ResponseI = data;
+      console.log("File:", this.file);
+      console.log({
+        ...this.registerForm.value,
+        fotoPerfilJugador: this.file,
+        fotoCiJugador:this.file,
+      });
+    });
 
 
     // display form values on success
@@ -120,5 +130,13 @@ export class InscripcionJugadorComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
+  }
+  
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    if (file) {
+      this.file = file;
+    }
   }
 }

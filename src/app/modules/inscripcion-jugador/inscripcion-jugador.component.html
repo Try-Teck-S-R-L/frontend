@@ -263,11 +263,11 @@
       type="file"
       name="fotoPerfilJugador"
       id="fotoPerfilJugador"
-      formControlName="fotoPerfilJugador"
       accept="image/*"
+      (change)="onFileSelected($event)"
       required
     />
-    <div
+   <!-- <div
       *ngIf="
         (form.fotoPerfilJugador.touched && form.fotoPerfilJugador.invalid) ||
         submitted
@@ -278,7 +278,7 @@
         Tiene que adjuntar un archivo
       </div>
     </div>
-
+-->
     <br />
     <br />
 
@@ -288,11 +288,11 @@
       type="file"
       name="fotoCiJugador"
       id="fotoCiJugador"
-      formControlName="fotoCiJugador"
       accept="image/*"
+      (change)="onFileSelected($event)"
       required
     />
-
+<!--
     <div
       *ngIf="
         (form.fotoCiJugador.touched && form.fotoCiJugador.invalid) || submitted
@@ -303,7 +303,7 @@
         Tiene que adjuntar un archivo
       </div>
     </div>
-
+  -->
     <!--INPUT subir-->
     <div class="text-center">
       <button class="btn btn-primary mr-1">Ingresar</button>
