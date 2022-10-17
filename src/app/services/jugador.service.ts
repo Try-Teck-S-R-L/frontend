@@ -23,18 +23,18 @@ import { ResponseI } from '../modules/models/response.interface';
       console.log("Service log: ", form);
       const formData = new FormData();
       
-      formData.append("nombreJugador", form.nombrejugador);
-      formData.append("apellidoJugador", form.apellidojugador);
+      formData.append("nombreJugador", form.nombreJugador);
+      formData.append("apellidoJugador", form.apellidoJugador);
       formData.append("categoria", form.categoria);
-      formData.append("nacionalidadJugador", form.nacionalidadjugador);
-      formData.append("tallaJugador", form.tallajugador);
-      formData.append("posicionJugador", form.posicionjugador);
-      formData.append("numeroCamiseta", form.numerocamiseta);
-      formData.append("edadJugador", form.edadjugador);
+      formData.append("nacionalidadJugador", form.nacionalidadJugador);
+      formData.append("tallaJugador", form.tallaJugador);
+      formData.append("posicionJugador", form.posicionJugador);
+      formData.append("numeroCamiseta", form.numeroCamiseta);
+      formData.append("edadJugador", form.edadJugador);
       
-      formData.append("fotoPerfilJugador", form.fotoperfiljugador);
-      return this.http.post<ResponseI>(url, formData);
-      formData.append("fotocijugador", form.fotocijugador);
+      formData.append("fotoPerfilJugador", form.fotoPerfilJugador);
+
+      formData.append("fotoCiJugador", form.fotoCiJugador);
       return this.http.post<ResponseI>(url, formData);
     }
   }
