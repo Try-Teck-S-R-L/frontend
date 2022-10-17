@@ -14,7 +14,7 @@ import { EquipoI } from "../modules/models/equipo.interface";
     constructor(private http:HttpClient) { }
   
     getAllEquipos():Observable<EquipoI[]>{
-      return this.http.get<EquipoI[]>(this.base_url);
+      return this.http.get<EquipoI[]>(this.base_url + 'api/equipo');
     }
 
     Equipo(form:EquipoI):Observable<ResponseI>{
