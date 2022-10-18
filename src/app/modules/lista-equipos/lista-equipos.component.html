@@ -1,7 +1,4 @@
 <app-header></app-header>
-
-<!--{{ listaEquipos | json }} <br />
--->
 <div class="container">
   <div class="row">
     <div class="col">
@@ -15,27 +12,55 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Martha</td>
-              <td>Otto</td>
-              <td>Bolivia</td>
+            <tr *ngFor="let equipo of listaEquipos">
+              <th scope="row">{{ equipo.equipoid }}</th>
+              <td>{{ equipo.nombreEquipo }}</td>
+              <td>{{ equipo.paisEquipo }}</td>
+              <td>{{ equipo.categoria }}</td>
             </tr>
 
-            <tr>
-              <td>juana</td>
-              <td>lopez</td>
-              <td>Bolivia</td>
-            </tr>
-            <tr>
-              <td>lucia</td>
-              <td>vaca</td>
-              <td>Bolivia</td>
-            </tr>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="table-responsive">
+                    <table
+                      class="mt-4 table table-hover table-striped table-secondary"
+                    >
+                      <thead>
+                        <tr>
+                          <th scope="col">Nombre equipo</th>
+                          <th scope="col">Categoría</th>
+                          <th scope="col">País</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Martha</td>
+                          <td>Otto</td>
+                          <td>Bolivia</td>
+                        </tr>
+
+                        <tr>
+                          <td>juana</td>
+                          <td>lopez</td>
+                          <td>Bolivia</td>
+                        </tr>
+                        <tr>
+                          <td>lucia</td>
+                          <td>vaca</td>
+                          <td>Bolivia</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <app-footer></app-footer>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
-
-<app-footer></app-footer>

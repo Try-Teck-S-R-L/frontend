@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
+import { EquipoI } from './../models/equipo.interface';
 import { Component, OnInit } from '@angular/core';
 import { EquipoService } from 'src/app/services/equipo.service';
-
 @Component({
   selector: 'app-lista-equipos',
   templateUrl: './lista-equipos.component.html',
