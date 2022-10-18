@@ -24,16 +24,19 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Martha</td>
-              <td>Otto</td>
-              <td>Bolivia</td>
-              <td>pivot</td>
-              <td>56</td>
-              <td>l</td>
-              <td>12</td>
-              <td>imagen.png</td>
-              <td>imagen.png</td>
+              <tr *ngFor="let jugador of jugadores">
+                <th scope="row">{{jugador.id}}</th>
+                <td>{{jugador.nombreJugador}}</td>
+                <td>{{jugador.apellidoJugador}}</td>
+                <td>{{jugador.numeroCamiseta}}</td>
+                <td>{{jugador.categoria}}</td>
+                <td>{{jugador.edadJugador}}</td>
+                <td>{{jugador.fotoPerfilJugador}}</td>
+                <td>{{jugador.fotoCiJugador}}</td>
+                <td>{{jugador.nacionalidadJugador}}</td>
+                <td>{{jugador.posicionJugador}}</td>
+                <td>{{jugador.tallaJugador}}</td>
+             
               <th>
                 <a href="/vistadelegado" class="basuero">eliminar</a>
               </th>
