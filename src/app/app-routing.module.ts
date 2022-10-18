@@ -35,7 +35,7 @@ const routes: Routes = [
   {
     path:'credencial',
     component:CredencialComponent
-  },
+  }
 
 ];
 

@@ -18,6 +18,11 @@ import { ResponseI } from '../modules/models/response.interface';
       return this.http.get<JugadorI[]>(this.base_url + "api/jugador/");
     }
 
+    eliminarJugador($id:number){
+
+      return this.http.delete(this.base_url+"api/jugador/"+$id);
+    }
+
     jugador(form: JugadorI): Observable<ResponseI> {
       let url = this.base_url + "api/jugador/";
       console.log("Service log: ", form);

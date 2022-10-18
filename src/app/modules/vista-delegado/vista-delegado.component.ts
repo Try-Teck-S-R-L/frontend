@@ -20,4 +20,10 @@ export class VistaDelegadoComponent implements OnInit {
     console.log(this.listaJugadores);
   }
 
+  delete($id: number){
+    this.http.eliminarJugador($id).subscribe((data)=>{
+      console.log("success");
+  });
+ }
+
 }

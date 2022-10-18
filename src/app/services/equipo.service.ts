@@ -21,4 +21,5 @@ import { EquipoI } from "../modules/models/equipo.interface";
       let url = this.base_url + "api/equipo/"
       return this.http.post<ResponseI>(url, form)
     }
+
   }
