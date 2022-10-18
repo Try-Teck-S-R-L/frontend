@@ -10,15 +10,15 @@ import { JugadorService } from 'src/app/services/jugador.service';
 })
 export class VistaDelegadoComponent implements OnInit {
 
-  jugadores: JugadorI[] = [];
+  public listaJugadores: any = [];
 
   constructor( private http: JugadorService) { 
 
   }
 
   ngOnInit(): void {
-    this.http.getAllJugadores().subscribe(data => (this.jugadores = data));
-    console.log(this.jugadores);
+    this.http.getAllJugadores().subscribe(data => (this.listaJugadores = data));
+    console.log(this.listaJugadores);
   }
 
 }
