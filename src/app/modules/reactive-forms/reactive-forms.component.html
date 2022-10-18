@@ -20,6 +20,7 @@
       <div class="col-sm-10">
         <input
           type="text"
+          (keydown.space)="$event.preventDefault();" required 
           ngModel
           maxlength="50"
           formControlName="nombreDelegado"
@@ -51,6 +52,7 @@
       <div class="col-sm-10">
         <input
           type="text"
+          (keydown.space)="$event.preventDefault();" required 
           formControlName="nombreEquipo"
           class="form-control"
           [ngClass]="{
@@ -77,6 +79,7 @@
       <div class="col-sm-10">
         <input
           type="text"
+          (keydown.space)="$event.preventDefault();" required 
           formControlName="emailDelegado"
           class="form-control"
           [ngClass]="{
