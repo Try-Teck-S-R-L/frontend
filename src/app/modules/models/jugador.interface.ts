@@ -1,16 +1,16 @@
 export interface JugadorI{
   
     id:number,
-    nombrejugador: string,
-    apellidojugador: string,
-    numerocamiseta: string,
+    nombreJugador: string,
+    apellidoJugador: string,
+    numeroCamiseta: string,
     categoria: string,
-    edadjugador: string,
-    fotoperfiljugador: File,
-    fotocijugador: File,
-    nacionalidadjugador: string,
-    posicionjugador: string,
-    tallajugador: string,
+    edadJugador: string,
+    fotoPerfilJugador: File,
+    fotoCiJugador: File,
+    nacionalidadJugador: string,
+    posicionJugador: string,
+    tallaJugador: string,
     //created_at: string,
     //updated_at: string
 

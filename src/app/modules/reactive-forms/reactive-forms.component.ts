@@ -8,6 +8,7 @@ import {
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ElementolistaService } from "src/app/services/elementolista.service";
+import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import data from "../../../assets/Archivos/data.json";
 import { PreinscripcionI } from "../models/preinscripcion.interface";
@@ -26,8 +27,11 @@ interface CountryOption {
 export class ReactiveFormsComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
+
+
   public paises: CountryOption[] = [];
   private file: File | null = null;
+  public listaEquipos: any = [];
   public listaPaises: any = [];
   public listaCategorias: any = [];
 
@@ -35,6 +39,7 @@ export class ReactiveFormsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: PreinscripcionService,
     private elemento: ElementolistaService,
+    private serviceEquipo: EquipoService,
     private router: Router
   ) {
     this.registerForm = formBuilder.group({});
@@ -45,7 +50,11 @@ export class ReactiveFormsComponent implements OnInit {
     this.elemento
       .getAllCategorias()
       .subscribe((data) => (this.listaCategorias = data));
+
     this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
+
+    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
+    
     this.registerForm = this.formBuilder.group({
       nombreDelegado: ["", [Validators.required]],
       nombreEquipo: ["", [Validators.required]],

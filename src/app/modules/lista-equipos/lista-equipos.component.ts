@@ -8,11 +8,12 @@ import { EquipoService } from 'src/app/services/equipo.service';
   styleUrls: ['./lista-equipos.component.css']
 })
 export class ListaEquiposComponent implements OnInit {
-  equipos: EquipoI[] = [];
-  constructor(private api:EquipoService, private router:Router) { }
+
+  public listaEquipos: any = [];
+  constructor(private serviceEquipo: EquipoService,) { }
 
   ngOnInit(): void {
-    this.api.getAllEquipos()
-  } 
+    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
+  }
 
 }
