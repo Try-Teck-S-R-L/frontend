@@ -1,6 +1,6 @@
 export interface EquipoI{
+    equipoid: String,
     nombreEquipo: String,
-    nombreDelegado: String,
     paisEquipo: String,
     categoria: String
 }

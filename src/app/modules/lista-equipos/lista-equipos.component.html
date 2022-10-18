@@ -17,11 +17,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            
-            <td>Martha</td>
-            <td>Otto</td>
-            <td>Bolivia</td>
+          <tr *ngFor="let equipo of equipos">
+            <th scope="row">{{equipo.equipoid}}</th>
+            <td>{{equipo.nombreEquipo}}</td>
+            <td>{{equipo.paisEquipo}}</td>
+            <td>{{equipo.categoria}}</td>
            
           </tr>
 
