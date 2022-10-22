@@ -14,6 +14,7 @@
     <input
       type="text"
       ngModel maxlength="50"
+      placeholder="Ingrese su nombre"
       (keydown.space)="$event.preventDefault();" required 
       formControlName="nombreDelegado"
       class="form-control"
@@ -37,6 +38,7 @@
     <div class="col-sm-10">
     <input
       type="text"
+      placeholder="Ingrese nombre del equipo"
       (keydown.space)="$event.preventDefault();" required 
       formControlName="nombreEquipo"
       class="form-control"
@@ -68,6 +70,7 @@
       class="form-select form-select-sm"
       formControlName="categoria"
     >
+      <option value="" disabled>Seleccionar categoria</option>
       <option value="+35">mayores de 35</option>
       <option value="+45">mayores de 45</option>
       <option value="+55">mayores de 55</option>

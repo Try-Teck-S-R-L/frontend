@@ -54,6 +54,7 @@
           (keydown.space)="$event.preventDefault();" required 
           ngModel
           maxlength="50"
+          placeholder="Ingrese sus nombres"
           formControlName="nombreJugador"
           class="form-control"
           [ngClass]="{
@@ -86,6 +87,7 @@
           (keydown.space)="$event.preventDefault();" required 
           ngModel
           maxlength="50"
+          placeholder="Ingrese sus apellidos"
           formControlName="apellidoJugador"
           class="form-control"
           [ngClass]="{
@@ -138,18 +140,20 @@
       </div>
     </div>
 
-    <!--INPUT Categorias-->
+    <!--INPUT Tallas-->
     <div class="mb-3 row">
       <label for="talla" class="col-sm-2 col-form-label form-label"
         >Talla:</label
       >
       <div class="col-sm-10">
         <select
+
           name="tallaJugador"
           id="tallaJugador"
           class="form-select form-select-sm"
           formControlName="tallaJugador"
         >
+          <option value="" disabled>Seleccionar talla</option>
           <option value="x">XL</option>
           <option value="l">L</option>
           <option value="m">M</option>
@@ -178,6 +182,7 @@
       <div class="col-sm-10">
         <input
           type="number"
+          placeholder="Ingrese nro de camiseta"
           formControlName="numeroCamiseta"
           class="form-control"
           [ngClass]="{
@@ -200,12 +205,12 @@
     </div>
 
     <!--INPUT edad-->
-
     <div class="mb-3 row">
       <label for="edad" class="col-sm-2 col-form-label">Edad:</label>
       <div class="col-sm-10">
         <input
           type="number"
+          placeholder="Ingrese su edad"
           formControlName="edadJugador"
           class="form-control"
           [ngClass]="{
@@ -237,6 +242,7 @@
           class="form-select form-select-sm"
           formControlName="posicionJugador"
         >
+          <option value="" disabled>Seleccionar posición</option>
           <option value="Base">Base</option>
           <option value="Escolta">Escolta</option>
           <option value="Alero">Alero</option>
@@ -257,6 +263,31 @@
       </div>
     </div>
 
+    <!--INPUT CI-->
+    <div class="mb-3 row">
+      <label for="edad" class="col-sm-2 col-form-label">Número CI:</label>
+      <div class="col-sm-10">
+        <input
+          type="number"
+          placeholder="Ingrese su número CI"
+          formControlName="ciJugador"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': form.ciJugador.invalid && form.ciJugador.touched
+          }"
+        />
+        <div
+          *ngIf="
+            (form.ciJugador.touched && form.ciJugador.invalid) || submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.ciJugador.errors?.required">
+            Este campo no puede estar vacio.
+          </div>
+        </div>
+      </div>
+    </div>
     <br />
 
     <!--INPUT subir imagen-->

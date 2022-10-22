@@ -23,6 +23,7 @@
           (keydown.space)="$event.preventDefault();" required 
           ngModel
           maxlength="50"
+          placeholder="Ingrese su nombre"
           formControlName="nombreDelegado"
           class="form-control"
           [ngClass]="{
@@ -54,6 +55,7 @@
           type="text"
           (keydown.space)="$event.preventDefault();" required 
           formControlName="nombreEquipo"
+          placeholder="Ingrese nombre del equipo"
           class="form-control"
           [ngClass]="{
             'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
@@ -81,6 +83,7 @@
           type="text"
           (keydown.space)="$event.preventDefault();" required 
           formControlName="emailDelegado"
+          placeholder="Ingrese su email"
           class="form-control"
           [ngClass]="{
             'is-invalid':
@@ -116,6 +119,7 @@
           class="form-select form-select-sm"
           formControlName="categoria"
         >
+        <option value="" disabled>Seleccionar categoria</option>
           <option value="+35">mayores de 35</option>
           <option value="+45">mayores de 45</option>
           <option value="+55">mayores de 55</option>

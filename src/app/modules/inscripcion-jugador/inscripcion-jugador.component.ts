@@ -67,6 +67,7 @@ export class InscripcionJugadorComponent implements OnInit {
       numeroCamiseta: ["", [Validators.required]],
       
       edadJugador: ["", [Validators.required]],
+      ciJugador: ["", [Validators.required]],
     });
   }
 
