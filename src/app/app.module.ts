@@ -18,7 +18,12 @@ import { ListaEquiposComponent } from "./modules/lista-equipos/lista-equipos.com
 import { CredencialComponent } from './modules/credencial/credencial.component';
 import { QRCodeModule } from 'angular2-qrcode';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import { VistaPrincipalComponent } from './modules/vista-principal/vista-principal.component';
+import { ListaJugadoresComponent } from './modules/lista-jugadores/lista-jugadores.component';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +37,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegistrarEquipoComponent,
     ListaEquiposComponent,
     CredencialComponent,
+    VistaPrincipalComponent,
+    ListaJugadoresComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QRCodeModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QRCodeModule, 
+            BrowserAnimationsModule,MatTableModule,MatSortModule,MatListModule,MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
   

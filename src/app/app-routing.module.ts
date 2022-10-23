@@ -1,3 +1,5 @@
+import { ListaJugadoresComponent } from './modules/lista-jugadores/lista-jugadores.component';
+import { VistaPrincipalComponent } from './modules/vista-principal/vista-principal.component';
 import { CredencialComponent } from './modules/credencial/credencial.component';
 import { ListaEquiposComponent } from './modules/lista-equipos/lista-equipos.component';
 
@@ -35,8 +37,15 @@ const routes: Routes = [
   {
     path:'credencial',
     component:CredencialComponent
+  },
+  {
+    path:'',
+    component:VistaPrincipalComponent
+  },
+  {
+    path:'listajugadores',
+    component:ListaJugadoresComponent
   }
-
 ];
 
 @NgModule({

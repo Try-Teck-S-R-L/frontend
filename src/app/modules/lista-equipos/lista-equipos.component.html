@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="container">
+<!--<div class="container">
   <div class="row">
     <div class="col">
       <div class="table-responsive">
@@ -23,4 +23,48 @@
     </div>
   </div>
 </div>
+-->
+
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+    class="mat-elevation-z8">
+
+  <!-- Position Column 
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+      No.
+    </th>
+    <td mat-cell *matCellDef="let equipo of listaEquipos"> {{equipo.nombreEquipo}} </td>
+  </ng-container>
+-->
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by nombreEquipo">
+      Nombre equipo
+    </th>
+    <td mat-cell *matCellDef="let equipo of listaEquipos"> {{equipo.nombreEquipo}} </td>
+  </ng-container>
+  
+<!-- Name Column -->
+<ng-container matColumnDef="categoria">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by categoria">
+    Categoría
+  </th>
+  <td mat-cell *matCellDef="let equipo of listaEquipos"> {{equipo.categoria}} </td>
+</ng-container>
+
+<!-- Name Column -->
+<ng-container matColumnDef="pais">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by paisEquipo">
+    País
+  </th>
+  <td mat-cell *matCellDef="let equipo of listaEquipos"> {{equipo.paisEquipo}} </td>
+</ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+
 <app-footer></app-footer>

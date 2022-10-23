@@ -1,19 +1,66 @@
 import { Router } from '@angular/router';
 import { EquipoI } from './../models/equipo.interface';
-import { Component, OnInit } from '@angular/core';
+import {  OnInit } from '@angular/core';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {MatSort, Sort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import { EquipoService } from 'src/app/services/equipo.service';
+export interface PeriodicElement {
+  nombreEquipo: string;
+  //position: number;
+  categoria: string;
+  paisEquipo: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {nombreEquipo: 'Hydrogen', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Helium', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Lithium', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Beryllium', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Boron', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Carbon', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Nitrogen', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Oxygen', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Fluorine', categoria: '+35', paisEquipo: 'Bolivia'},
+  {nombreEquipo: 'Neon', categoria: '+35', paisEquipo: 'Bolivia'},
+];
 @Component({
   selector: 'app-lista-equipos',
   templateUrl: './lista-equipos.component.html',
   styleUrls: ['./lista-equipos.component.css']
 })
-export class ListaEquiposComponent implements OnInit {
 
+export class ListaEquiposComponent implements AfterViewInit,OnInit {
+
+  displayedColumns: string[] = ['name', 'categoria', 'pais'];
+    
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaEquipos: any = [];
-  constructor(private serviceEquipo: EquipoService,) { }
-
+  
+  constructor(private _liveAnnouncer: LiveAnnouncer,private serviceEquipo: EquipoService,) {}
   ngOnInit(): void {
     this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
   }
 
+
+
+
+  @ViewChild(MatSort)
+  sort: MatSort = new MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+  announceSortChange(sortState: Sort) {
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
+  }
 }
