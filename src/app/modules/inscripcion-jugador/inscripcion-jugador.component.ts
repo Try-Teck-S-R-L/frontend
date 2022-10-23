@@ -55,8 +55,8 @@ export class InscripcionJugadorComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
 
-      nombreJugador: ["", [Validators.required]],
-      apellidoJugador: ["", [Validators.required]],
+      nombreJugador: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+      apellidoJugador: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       
       
       categoria: ["", [Validators.required]],
@@ -139,4 +139,12 @@ export class InscripcionJugadorComponent implements OnInit {
       this.file = file;
     }
   }
+
+  get nombreJugador(): FormControl {
+    return this.registerForm.get("nombreJugador") as FormControl;
+  }
+  get apellidoJugador(): FormControl {
+    return this.registerForm.get("apellidoJugador") as FormControl;
+  }
+
 }

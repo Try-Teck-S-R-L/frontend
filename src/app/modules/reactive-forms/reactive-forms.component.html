@@ -6,7 +6,7 @@
     <h3>Preinscripción</h3>
     <!--INPUT nombre delegado-->
 
-    <!-- categorias <br />
+    <!--categorias <br />
     {{ listaEquipos | json }} <br />
     {{ listaCategorias | json }} <br />
     paises <br />
@@ -20,9 +20,9 @@
       <div class="col-sm-10">
         <input
           type="text"
-          (keydown.space)="$event.preventDefault();" required 
           ngModel
           maxlength="50"
+          placeholder="ingrese su nombre"
           formControlName="nombreDelegado"
           class="form-control"
           [ngClass]="{
@@ -30,16 +30,22 @@
               form.nombreDelegado.invalid && form.nombreDelegado.touched
           }"
         />
+
         <div
-          *ngIf="
-            (form.nombreDelegado.touched && form.nombreDelegado.invalid) ||
-            submitted
-          "
           class="text-danger"
+          *ngIf="nombreDelegado.errors?.required && nombreDelegado.touched"
         >
-          <div *ngIf="form.nombreDelegado.errors?.required">
-            Este campo no puede estar vacio.
-          </div>
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            nombreDelegado.value != '' &&
+            nombreDelegado.invalid &&
+            nombreDelegado.touched
+          "
+        >
+          Por favor, ingresa caracteres validos
         </div>
       </div>
     </div>
@@ -52,23 +58,29 @@
       <div class="col-sm-10">
         <input
           type="text"
-          (keydown.space)="$event.preventDefault();" required 
+          ngModel
           formControlName="nombreEquipo"
+          maxlength="50"
           class="form-control"
           [ngClass]="{
             'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
           }"
         />
         <div
-          *ngIf="
-            (form.nombreEquipo.touched && form.nombreEquipo.invalid) ||
-            submitted
-          "
           class="text-danger"
+          *ngIf="nombreEquipo.errors?.required && nombreEquipo.touched"
         >
-          <div *ngIf="form.nombreEquipo.errors?.required">
-            Este campo no puede estar vacio.
-          </div>
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+          nombreEquipo.value != '' &&
+          nombreEquipo.invalid &&
+          nombreEquipo.touched
+          "
+        >
+          Por favor, ingresa caracteres validos
         </div>
       </div>
     </div>
@@ -79,7 +91,6 @@
       <div class="col-sm-10">
         <input
           type="text"
-          (keydown.space)="$event.preventDefault();" required 
           formControlName="emailDelegado"
           class="form-control"
           [ngClass]="{
@@ -104,62 +115,7 @@
         </div>
       </div>
     </div>
-    <!--INPUT Categorias-->
-    <div class="mb-3 row">
-      <label for="categorias" class="col-sm-2 col-form-label form-label"
-        >Categoría:</label
-      >
-      <div class="col-sm-10">
-        <select
-          name="categoria"
-          id="categoria"
-          class="form-select form-select-sm"
-          formControlName="categoria"
-        >
-          <option value="+35">mayores de 35</option>
-          <option value="+45">mayores de 45</option>
-          <option value="+55">mayores de 55</option>
-        </select>
-        <div
-          *ngIf="
-            (form.categoria.touched && form.categoria.invalid) || submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.categoria.errors?.required">
-            Elija una de las opciones
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--INPUT PAIS-->
-    <div class="mb-3 row">
-      <label for="pais" class="col-sm-2 col-form-labelform-label">País:</label>
-      <div class="col-sm-10">
-        <select
-          class="form-control"
-          name="paisEquipo"
-          formControlName="paisEquipo"
-          required
-        >
-          <option value="" disabled>Seleccionar pais</option>
-          <option *ngFor="let pais of paises" [value]="pais.value">
-            {{ pais.name }}
-          </option>
-        </select>
-        <div
-          *ngIf="
-            (form.paisEquipo.touched && form.paisEquipo.invalid) || submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.paisEquipo.errors?.required">
-            Elija una de las opciones
-          </div>
-        </div>
-      </div>
-    </div>
+  
     <br />
     <!--imagen voucher-->
     <label class="form-label">Voucher de pago:</label>
@@ -195,6 +151,7 @@
     <!--INPUT subir-->
     <div class="text-center">
       <button class="btn btn-primary mr-1">Registrarse</button>
+
       <button class="btn btn-secondary" type="reset" (click)="onReset()">
         Cancelar
       </button>

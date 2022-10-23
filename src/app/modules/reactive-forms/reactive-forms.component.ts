@@ -28,7 +28,6 @@ export class ReactiveFormsComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-
   public paises: CountryOption[] = [];
   private file: File | null = null;
   public listaEquipos: any = [];
@@ -53,14 +52,18 @@ export class ReactiveFormsComponent implements OnInit {
 
     this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
 
-    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
-    
+    this.serviceEquipo
+      .getAllEquipos()
+      .subscribe((res: any) => (this.listaEquipos = res));
+
     this.registerForm = this.formBuilder.group({
-      nombreDelegado: ["", [Validators.required]],
-      nombreEquipo: ["", [Validators.required]],
+      nombreDelegado: [
+        "",
+        [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)],
+      ],
+      nombreEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       emailDelegado: ["", [Validators.required, Validators.email]],
-      categoria: ["", [Validators.required]],
-      paisEquipo: ["", [Validators.required]],
+      
       fechaPreinscripcion: ["2022-10-01", [Validators.required]],
     });
   }
@@ -121,6 +124,8 @@ export class ReactiveFormsComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
+    this.registerForm.clearValidators();
+    this.registerForm.updateValueAndValidity();
   }
 
   onFileSelected(event: any) {
@@ -129,5 +134,12 @@ export class ReactiveFormsComponent implements OnInit {
     if (file) {
       this.file = file;
     }
+  }
+
+  get nombreDelegado(): FormControl {
+    return this.registerForm.get("nombreDelegado") as FormControl;
+  }
+  get nombreEquipo(): FormControl {
+    return this.registerForm.get("nombreEquipo") as FormControl;
   }
 }

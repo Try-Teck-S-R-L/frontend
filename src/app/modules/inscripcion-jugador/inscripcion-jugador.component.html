@@ -17,41 +17,14 @@
 
     -->
 
-    <!--INPUT Categorias-->
-    <div class="mb-3 row">
-      <label for="categorias" class="col-sm-2 col-form-label form-label"
-        >Categoría:</label
-      >
-      <div class="col-sm-10">
-        <select
-          name="categoria"
-          id="categoria"
-          class="form-select form-select-sm"
-          formControlName="categoria"
-        >
-          <option value="+35">mayores de 35</option>
-          <option value="+45">mayores de 45</option>
-          <option value="+55">mayores de 55</option>
-        </select>
-        <div
-          *ngIf="
-            (form.categoria.touched && form.categoria.invalid) || submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.categoria.errors?.required">
-            Elija una de las opciones
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
     <div class="mb-3 row">
       <label for="inputnombres" class="col-sm-2 col-form-label">Nombres:</label>
       <div class="col-sm-10">
         <input
           type="text"
-          (keydown.space)="$event.preventDefault();" required 
+          
           ngModel
           maxlength="50"
           formControlName="nombreJugador"
@@ -62,15 +35,20 @@
           }"
         />
         <div
-          *ngIf="
-            (form.nombreJugador.touched && form.nombreJugador.invalid) ||
-            submitted
-          "
           class="text-danger"
+          *ngIf="nombreJugador.errors?.required && nombreJugador.touched"
         >
-          <div *ngIf="form.nombreJugador.errors?.required">
-            Este campo no puede estar vacio.
-          </div>
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+          nombreJugador.value != '' &&
+          nombreJugador.invalid &&
+          nombreJugador.touched
+          "
+        >
+          Por favor, ingresa caracteres validos
         </div>
       </div>
     </div>
@@ -83,7 +61,7 @@
       <div class="col-sm-10">
         <input
           type="text"
-          (keydown.space)="$event.preventDefault();" required 
+         
           ngModel
           maxlength="50"
           formControlName="apellidoJugador"
@@ -94,15 +72,20 @@
           }"
         />
         <div
-          *ngIf="
-            (form.apellidoJugador.touched && form.apellidoJugador.invalid) ||
-            submitted
-          "
           class="text-danger"
+          *ngIf="apellidoJugador.errors?.required && apellidoJugador.touched"
         >
-          <div *ngIf="form.apellidoJugador.errors?.required">
-            Este campo no puede estar vacio.
-          </div>
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+          apellidoJugador.value != '' &&
+          apellidoJugador.invalid &&
+          apellidoJugador.touched
+          "
+        >
+          Por favor, ingresa caracteres validos
         </div>
       </div>
     </div>
@@ -118,7 +101,7 @@
           formControlName="nacionalidadJugador"
           required
         >
-          <option value="" disabled>Seleccionar país</option>
+          <option value="" disabled selected>Seleccionar país</option>
           <option *ngFor="let pais of paises" [value]="pais.value">
             {{ pais.name }}
           </option>
@@ -138,7 +121,7 @@
       </div>
     </div>
 
-    <!--INPUT Categorias-->
+    <!--INPUT Talla-->
     <div class="mb-3 row">
       <label for="talla" class="col-sm-2 col-form-label form-label"
         >Talla:</label
@@ -150,6 +133,7 @@
           class="form-select form-select-sm"
           formControlName="tallaJugador"
         >
+        <option value="" disabled selected>Seleccionar Talla</option>
           <option value="x">XL</option>
           <option value="l">L</option>
           <option value="m">M</option>
@@ -237,6 +221,7 @@
           class="form-select form-select-sm"
           formControlName="posicionJugador"
         >
+        <option value="" disabled selected>Seleccionar posicion</option>
           <option value="Base">Base</option>
           <option value="Escolta">Escolta</option>
           <option value="Alero">Alero</option>

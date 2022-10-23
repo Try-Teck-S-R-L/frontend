@@ -17,6 +17,7 @@ import { RegistrarEquipoComponent } from './modules/registrar-equipo/registrar-e
 import { ListaEquiposComponent } from "./modules/lista-equipos/lista-equipos.component";
 import { CredencialComponent } from './modules/credencial/credencial.component';
 import { QRCodeModule } from 'angular2-qrcode';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { QRCodeModule } from 'angular2-qrcode';
     ListaEquiposComponent,
     CredencialComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QRCodeModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QRCodeModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
   
