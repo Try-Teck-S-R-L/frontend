@@ -24,6 +24,11 @@ import { VistaPrincipalComponent } from './modules/vista-principal/vista-princip
 import { ListaJugadoresComponent } from './modules/lista-jugadores/lista-jugadores.component';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import { VistaAdministradorComponent } from './modules/vista-administrador/vista-administrador.component';
+import {MatButtonModule} from '@angular/material/button';
+import { InformacionequiposComponent } from './modules/informacionequipos/informacionequipos.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +44,11 @@ import {MatIconModule} from '@angular/material/icon';
     CredencialComponent,
     VistaPrincipalComponent,
     ListaJugadoresComponent,
+    VistaAdministradorComponent,
+    InformacionequiposComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, QRCodeModule, 
-            BrowserAnimationsModule,MatTableModule,MatSortModule,MatListModule,MatIconModule],
+            BrowserAnimationsModule,MatTableModule,MatSortModule,MatListModule,MatIconModule,MatButtonModule,MatGridListModule,MatCardModule],
   providers: [],
   bootstrap: [AppComponent],
   
