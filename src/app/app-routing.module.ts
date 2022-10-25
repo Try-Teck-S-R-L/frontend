@@ -1,3 +1,5 @@
+import { InformacionequiposComponent } from './modules/informacionequipos/informacionequipos.component';
+import { VistaAdministradorComponent } from './modules/vista-administrador/vista-administrador.component';
 import { ListaJugadoresComponent } from './modules/lista-jugadores/lista-jugadores.component';
 import { VistaPrincipalComponent } from './modules/vista-principal/vista-principal.component';
 import { CredencialComponent } from './modules/credencial/credencial.component';
@@ -45,6 +47,14 @@ const routes: Routes = [
   {
     path:'listajugadores',
     component:ListaJugadoresComponent
+  },
+  {
+    path:'vistaadmin',
+    component:VistaAdministradorComponent
+  },
+  {
+    path:'informacionequipo',
+    component:InformacionequiposComponent
   }
 ];
 

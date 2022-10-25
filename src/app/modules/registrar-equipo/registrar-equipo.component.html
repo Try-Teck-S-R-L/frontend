@@ -11,52 +11,71 @@
     <div class="mb-3 row">
     <label for="inputnombreDelegado" class="col-sm-2 col-form-label">Nombre delegado:</label>
     <div class="col-sm-10">
-    <input
-      type="text"
-      ngModel maxlength="50"
-      placeholder="Ingrese su nombre"
-      (keydown.space)="$event.preventDefault();" required 
-      formControlName="nombreDelegado"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid': form.nombreDelegado.invalid && form.nombreDelegado.touched
-      }"
-    />
-    <div
-    *ngIf="(form.nombreDelegado.touched && form.nombreDelegado.invalid) || submitted"
-    class="text-danger"
-  >
-    <div *ngIf="form.nombreDelegado .errors?.required">
-      Este campo no puede estar vacio.
+      <input
+        type="text"
+        ngModel
+        maxlength="50"
+        placeholder="Ingrese su nombre"
+        formControlName="nombreDelegado"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid':
+            form.nombreDelegado.invalid && form.nombreDelegado.touched
+        }"
+      />
+
+      <div
+        class="text-danger"
+        *ngIf="nombreDelegado.errors?.required && nombreDelegado.touched"
+      >
+        Este campo no puede estar vacio.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="
+        nombreDelegado.value != '' &&
+        nombreDelegado.invalid &&
+        nombreDelegado.touched
+        "
+      >
+        Por favor, ingresa caracteres validos
+      </div>
     </div>
-  </div>
-</div>
 </div>
 <!--INPUT nombreequipo-->
     <div class="mb-3 row">
     <label for="inputnombreEquipo" class="col-sm-2 col-form-label">Nombre del equipo:</label>
     <div class="col-sm-10">
-    <input
-      type="text"
-      placeholder="Ingrese nombre del equipo"
-      (keydown.space)="$event.preventDefault();" required 
-      formControlName="nombreEquipo"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
-      }"
-      
-      
-    />
-    <div
-      *ngIf="(form.nombreEquipo.touched && form.nombreEquipo.invalid) || submitted"
-      class="text-danger"
-    >
-      <div *ngIf="form.nombreEquipo.errors?.required">
+      <input
+        type="text"
+        ngModel
+        maxlength="50"
+        placeholder="Ingrese su nombre"
+        formControlName="nombreEquipo"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid':
+            form.nombreEquipo.invalid && form.nombreEquipo.touched
+        }"
+      />
+
+      <div
+        class="text-danger"
+        *ngIf="nombreEquipo.errors?.required && nombreEquipo.touched"
+      >
         Este campo no puede estar vacio.
       </div>
+      <div
+        class="text-danger"
+        *ngIf="
+        nombreEquipo.value != '' &&
+        nombreEquipo.invalid &&
+        nombreEquipo.touched
+        "
+      >
+        Por favor, ingresa caracteres validos
+      </div>
     </div>
-  </div>
 </div>
 
 

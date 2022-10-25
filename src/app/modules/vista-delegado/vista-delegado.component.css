@@ -1,96 +1,16 @@
-.btn {
-    padding: 1.3em 3em;
-    font-size: 20px;
-   position: fixed;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: rgb(235, 238, 190);
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .btn:hover {
-    background-color: #23c483;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-  }
-  
-  .btn:active {
-    transform: translateY(-1px);
-  }
+/* From uiverse.io by @felipesntr */
+button {
+  font-size: 2rem;
+  padding: 40px 250px;
+  background-color: #000;
+  border: 15px solid rgb(255, 176, 7);
+  border-radius: 1em;
+  color: #fff;
+  font-weight: bolder;
+  transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
+  box-shadow: -5px 5px 0px 0px rgb(255, 166, 0);
+}
 
-
-
-  .boton-email {
-    --border-radius: 15px;
-    --border-width: 4px;
-    appearance: none;
-    position: relative;
-    padding: 1em 2em;
-    border: 0;
-    background-color: #212121;
-    font-family: "Roboto", Arial, "Segoe UI", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: #fff;
-    z-index: 2;
-   }
-   
-   .boton-email::after {
-    --m-i: linear-gradient(#000, #000);
-    --m-o: content-box, padding-box;
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding: var(--border-width);
-    border-radius: var(--border-radius);
-    background-image: conic-gradient(
-           #488cfb,
-           #29dbbc,
-           #ddf505,
-           #ff9f0e,
-           #e440bb,
-           #655adc,
-           #488cfb
-       );
-    -webkit-mask-image: var(--m-i), var(--m-i);
-    mask-image: var(--m-i), var(--m-i);
-    -webkit-mask-origin: var(--m-o);
-    mask-origin: var(--m-o);
-    -webkit-mask-clip: var(--m-o);
-    mask-composite: exclude;
-    -webkit-mask-composite: destination-out;
-    filter: hue-rotate(0);
-    animation: rotate-hue linear 500ms infinite;
-    animation-play-state: paused;
-   }
-   
-   .boton-email:hover::after {
-    animation-play-state: running;
-   }
-   
-   @keyframes rotate-hue {
-    to {
-     filter: hue-rotate(1turn);
-    }
-   }
-   
-   .boton-email,
-   .boton-email::after {
-    box-sizing: border-box;
-   }
-   
-   .boton-email:active {
-    --border-width: 5px;
-   }
-
-   
+button:hover {
+  transform: translate(5px, -5px);
+}
