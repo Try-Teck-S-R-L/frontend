@@ -101,11 +101,16 @@ export class ReactiveFormsComponent implements OnInit {
       return;
     }
 
+
+
+
+
     this.http
       .Preinscripcion({
         ...this.registerForm.value,
         voucherPreinscripcion: this.file,
       })
+      
       .subscribe((data) => {
         let response: ResponseI = data;
         console.log("File:", this.file);
