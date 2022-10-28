@@ -1,4 +1,3 @@
-
 <app-header></app-header>
 <app-navar></app-navar>
 
@@ -78,59 +77,56 @@
     </div>
 </div>
 
-
-    <!--INPUT Categorias-->
-    <div class="mb-3 row">
-    <label for="categorias" class="col-sm-2 col-form-label form-label">Categoría:</label>
-    <div class="col-sm-10">   
-    <select
-      name="categoria"
-      id="categoria"
-      class="form-select form-select-sm"
-      formControlName="categoria"
-    >
-      <option value="" disabled>Seleccionar categoria</option>
-      <option value="+35">mayores de 35</option>
-      <option value="+45">mayores de 45</option>
-      <option value="+55">mayores de 55</option>
-    </select>
-    <div
-    *ngIf="(form.categoria.touched && form.categoria.invalid) || submitted"
-    class="text-danger"
-  >
-    <div *ngIf="form.categoria.errors?.required">
-      Elija una de las opciones
-    </div>
-  </div>
-</div>
-</div>
-
-    <!--INPUT PAIS-->
-    <div class="mb-3 row">
-    <label class="col-sm-2 col-form-label form-label">País:</label>
-    <div class="col-sm-10">
-    <select
+<!--INPUT colorEquipo-->
+<div class="mb-3 row">
+  <label for="inputcolorEquipo" class="col-sm-2 col-form-label">Color de camiseta:</label>
+  <div class="col-sm-10">
+    <input
+      type="text"
+      ngModel
+      maxlength="50"
+      placeholder="Ingrese el color de camiseta"
+      formControlName="colorEquipo"
       class="form-control"
-      name="paisEquipo"
-      formControlName="paisEquipo"
-      required
-    >
-      <option value="" disabled>Seleccionar pais</option>
-      <option *ngFor="let pais of paises" [value]="pais.value">
-        {{ pais.name }}
-      </option>
-    </select>
+      [ngClass]="{
+        'is-invalid':
+          form.colorEquipo.invalid && form.colorEquipo.touched
+      }"
+    />
+
     <div
-      *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
       class="text-danger"
+      *ngIf="colorEquipo.errors?.required && colorEquipo.touched"
     >
-      <div *ngIf="form.paisEquipo.errors?.required">
-        Elija una de las opciones
-      </div>
+      Este campo no puede estar vacio.
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+      colorEquipo.value != '' &&
+      colorEquipo.invalid &&
+      colorEquipo.touched
+      "
+    >
+      Por favor, ingresa caracteres validos
     </div>
   </div>
 </div>
-<br>
+<!--imagen voucher-->
+<label class="form-label">Logo:</label>
+<input 
+  type="file"
+  name="logoEquipo"
+  id="logoEquipo"
+  accept="image/*"
+  (change)="onFileSelected($event)"
+  required
+/>
+<br /><br />
+
+
+   
+
  
     <!--INPUT subir-->
     <div class="text-center">
@@ -138,23 +134,7 @@
         Inscribir equipo
       
       </button>
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          Su solicitud fue enviada correctamente.
-          Espere a que un administrador lo apruebe.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
       
     </div>

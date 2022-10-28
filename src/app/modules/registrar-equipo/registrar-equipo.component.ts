@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 import { EquipoService } from "src/app/services/equipo.service";
 import data from "../../../assets/Archivos/data.json";
 import { ResponseI } from "../models/response.interface";
+
 import { ElementolistaService } from 'src/app/services/elementolista.service';
 
 interface CountryOption {
@@ -55,7 +56,9 @@ export class RegistrarEquipoComponent implements OnInit {
     .subscribe((data) => (this.listaCategorias = data));
 
   this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
-
+  this.serviceEquipo
+  .getAllEquipos()
+  .subscribe((res: any) => (this.listaEquipos = res));
 
 
     this.registerForm = this.formBuilder.group({
@@ -63,6 +66,7 @@ export class RegistrarEquipoComponent implements OnInit {
       nombreEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       categoria: ["", [Validators.required]],
       paisEquipo: ["", [Validators.required]],
+      colorEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
     });
   }
 
@@ -99,10 +103,21 @@ export class RegistrarEquipoComponent implements OnInit {
       return;
     }
 
-    this.http.Equipo(this.registerForm.value).subscribe(data => {
-      let response:ResponseI = data;
-      console.log({ ...this.registerForm.value});
-    })
+    this.http
+      .RegistrarEquipo({
+        ...this.registerForm.value,
+        logoEquipo: this.file,
+      })
+      .subscribe((data: ResponseI) => {
+        let response: ResponseI = data;
+        console.log("File:", this.file);
+        console.log({
+          ...this.registerForm.value,
+          logoEquipo: this.file,
+        });
+      });
+
+    
 
 
 
@@ -113,7 +128,13 @@ export class RegistrarEquipoComponent implements OnInit {
       "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
     );
   }
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
 
+    if (file) {
+      this.file = file;
+    }
+  }
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
@@ -122,6 +143,9 @@ export class RegistrarEquipoComponent implements OnInit {
   }
   get nombreDelegado(): FormControl {
     return this.registerForm.get("nombreDelegado") as FormControl;
+  }
+  get colorEquipo(): FormControl {
+    return this.registerForm.get("colorEquipo") as FormControl;
   }
   get nombreEquipo(): FormControl {
     return this.registerForm.get("nombreEquipo") as FormControl;

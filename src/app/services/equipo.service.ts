@@ -10,6 +10,7 @@ import { EquipoI } from "../modules/models/equipo.interface";
   })
   export class EquipoService {
     base_url:string = 'http://localhost:8000/'
+  RegistrarEquipo: any;
   
     constructor(private http:HttpClient) { }
   
