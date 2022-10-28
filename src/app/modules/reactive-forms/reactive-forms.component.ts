@@ -61,9 +61,14 @@ export class ReactiveFormsComponent implements OnInit {
         "",
         [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)],
       ],
-      nombreEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       emailDelegado: ["", [Validators.required, Validators.email]],
+      nombreEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+      paisEquipo: ["", [Validators.required]],
+
+      categoria: ["", [Validators.required]],
       
+      nroComprobante: ["", [Validators.required]],
+      montoPago: ["", [Validators.required]],
       fechaPreinscripcion: ["2022-10-01", [Validators.required]],
     });
   }
@@ -101,11 +106,16 @@ export class ReactiveFormsComponent implements OnInit {
       return;
     }
 
+
+
+
+
     this.http
       .Preinscripcion({
         ...this.registerForm.value,
         voucherPreinscripcion: this.file,
       })
+      
       .subscribe((data) => {
         let response: ResponseI = data;
         console.log("File:", this.file);

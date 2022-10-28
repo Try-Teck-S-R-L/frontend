@@ -45,11 +45,43 @@
             nombreDelegado.touched
           "
         >
-          Por favor, ingresa caracteres validos
+          Por favor, ingrese caracteres validos
         </div>
       </div>
     </div>
 
+     <!--INPUT email-->
+     <div class="mb-3 row">
+      <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          placeholder="Ingrese su email"
+          formControlName="emailDelegado"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              form.emailDelegado.invalid && form.emailDelegado.touched
+          }"
+        />
+
+        <div
+          *ngIf="
+            (form.emailDelegado.touched && form.emailDelegado.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.emailDelegado.errors?.required">
+            Este campo no puede estar vacio.
+          </div>
+          <div *ngIf="form.emailDelegado.errors?.email">
+            El email debe de ser válido
+          </div>
+        </div>
+      </div>
+    </div>
+  
     <!--INPUT nombreequipo-->
     <div class="mb-3 row">
       <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
@@ -81,47 +113,122 @@
           nombreEquipo.touched
           "
         >
-          Por favor, ingresa caracteres validos
+          Por favor, ingrese caracteres validos
         </div>
       </div>
     </div>
 
-    <!--INPUT email-->
-    <div class="mb-3 row">
-      <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
+     <!--INPUT PAIS-->
+     <div class="mb-3 row">
+      <label class="col-sm-2 col-form-label form-label">País:</label>
       <div class="col-sm-10">
-        <input
-          type="text"
-          placeholder="Ingrese su email"
-          formControlName="emailDelegado"
-          class="form-control"
-          [ngClass]="{
-            'is-invalid':
-              form.emailDelegado.invalid && form.emailDelegado.touched
-          }"
-        />
-
-        <div
-          *ngIf="
-            (form.emailDelegado.touched && form.emailDelegado.invalid) ||
-            submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.emailDelegado.errors?.required">
-            Este campo no puede estar vacio.
-          </div>
-          <div *ngIf="form.emailDelegado.errors?.email">
-            El email debe de ser válido
-          </div>
+      <select
+        class="form-control"
+        name="paisEquipo"
+        formControlName="paisEquipo"
+        required
+      >
+        <option value="" disabled>Seleccionar pais</option>
+        <option *ngFor="let pais of paises" [value]="pais.value">
+          {{ pais.name }}
+        </option>
+      </select>
+      <div
+        *ngIf="(form.paisEquipo.touched && form.paisEquipo.invalid) || submitted"
+        class="text-danger"
+      >
+        <div *ngIf="form.paisEquipo.errors?.required">
+          Elija una de las opciones
         </div>
       </div>
     </div>
-  
-    <br />
-    <!--imagen voucher-->
-    <label class="form-label">Voucher de pago:</label>
+  </div>
+
+   <!--INPUT Categorias-->
+   <div class="mb-3 row">
+    <label for="categorias" class="col-sm-2 col-form-label form-label">Categoría:</label>
+    <div class="col-sm-10">   
+    <select
+      name="categoria"
+      id="categoria"
+      class="form-select form-select-sm"
+      formControlName="categoria"
+    >
+      <option value="" disabled>Seleccionar categoria</option>
+      <option value="+35">Mayores de 35</option>
+      <option value="+45">Mayores de 45</option>
+      <option value="+55">Mayores de 55</option>
+    </select>
+    <div
+    *ngIf="(form.categoria.touched && form.categoria.invalid) || submitted"
+    class="text-danger"
+  >
+    <div *ngIf="form.categoria.errors?.required">
+      Elija una de las opciones
+    </div>
+  </div>
+</div>
+</div>
+
+<!--INPUT nro de comprobante-->
+
+<div class="mb-3 row">
+  <label for="nroComprobante" class="col-sm-2 col-form-label">Nro de comprobante de pago:</label>
+  <div class="col-sm-10">
     <input
+      type="number"
+      placeholder="Ingrese el número de comprobante de pago"
+      formControlName="nroComprobante"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.nroComprobante.invalid && form.nroComprobante.touched
+      }"
+    />
+    <div
+      *ngIf="
+        (form.nroComprobante.touched && form.nroComprobante.invalid) || submitted
+      "
+      class="text-danger"
+    >
+      <div *ngIf="form.nroComprobante.errors?.required">
+        Por favor ingrese un nro de comprobante valido.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--INPUT monto de pago-->
+
+<div class="mb-3 row">
+  <label for="montoPago" class="col-sm-2 col-form-label">Monto de pago:</label>
+  <div class="col-sm-10">
+    <input
+      type="number"
+      placeholder="Ingrese monto de pago"
+      formControlName="montoPago"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.montoPago.invalid && form.montoPago.touched
+      }"
+    />
+    <div
+      *ngIf="
+        (form.montoPago.touched && form.montoPago.invalid) || submitted
+      "
+      class="text-danger"
+    >
+      <div *ngIf="form.montoPago.errors?.required">
+        Por favor ingrese un monto valido.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!--imagen voucher-->
+    <label class="form-label">Comprobante de pago:</label>
+    <input 
       type="file"
       name="voucherPreinscripcion"
       id="voucherPreinscripcion"
@@ -138,21 +245,21 @@
       </div>
     </div> -->
     <br /><br />
-    <!--INPUT agregar fecha-->
-    <label class="form-label">Fecha:</label>
-    <input
-      type="date"
-      name="fechaPreinscripcion"
-      id="fechaPreinscripcion"
-      formControlName="fechaPreinscripcion"
-      min="2022-01-01"
-      max="2022-12-31"
-      required
-    />
 
+    <!--INPUT agregar fecha-->
+<label class="form-label">Fecha:</label>
+<input
+  type="date"
+  name="fechaPreinscripcion"
+  id="fechaPreinscripcion"
+  formControlName="fechaPreinscripcion"
+  min="2022-01-01"
+  max="2022-12-31"
+  required
+/>
     <!--INPUT subir-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1">Registrarse</button>
+      <button class="btn btn-primary mr-1">Registrar</button>
 
       <button class="btn btn-secondary" type="reset" (click)="onReset()">
         Cancelar
@@ -160,5 +267,4 @@
     </div>
   </form>
 </div>
-
 <app-footer></app-footer>

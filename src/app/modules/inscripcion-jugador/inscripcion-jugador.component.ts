@@ -9,6 +9,7 @@ import {
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ElementolistaService } from "src/app/services/elementolista.service";
+import { EquipoService } from "src/app/services/equipo.service";
 import { JugadorService } from "src/app/services/jugador.service";
 import data from "../../../assets/Archivos/data.json";
 import { ResponseI } from "../models/response.interface";
@@ -55,16 +56,21 @@ export class InscripcionJugadorComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
 
-      nombreJugador: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+      nombreJugador: [
+        "",
+        [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)],
+      ],
       apellidoJugador: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       
       
-      categoria: ["", [Validators.required]],
+      
+      
+      //categoria: ["", [Validators.required]],
       nacionalidadJugador: ["", [Validators.required]],
       tallaJugador: ["", [Validators.required]],
       posicionJugador: ["", [Validators.required]],
       
-      numeroCamiseta: ["", [Validators.required]],
+numeroCamiseta: ["", [Validators.required]],
       
       edadJugador: ["", [Validators.required]],
       ciJugador: ["", [Validators.required]],
@@ -116,8 +122,8 @@ export class InscripcionJugadorComponent implements OnInit {
       console.log("File:", this.file);
       console.log({
         ...this.registerForm.value,
-        fotoPerfilJugador: this.file,
-        fotoCiJugador:this.file,
+       fotoPerfilJugador: this.file,
+       fotoCiJugador:this.file,
       });
     });
 
@@ -131,6 +137,8 @@ export class InscripcionJugadorComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.registerForm.reset();
+    this.registerForm.clearValidators();
+    this.registerForm.updateValueAndValidity();
   }
   
   onFileSelected(event: any) {
@@ -141,7 +149,7 @@ export class InscripcionJugadorComponent implements OnInit {
     }
   }
 
-  get nombreJugador(): FormControl {
+ get nombreJugador(): FormControl {
     return this.registerForm.get("nombreJugador") as FormControl;
   }
   get apellidoJugador(): FormControl {
