@@ -12,13 +12,24 @@ import { ResponseI } from "../modules/models/response.interface";
 
     constructor(private http:HttpClient) { }
 
-    iniciarDelegado(correo: string, contrasena: string):Observable<ResponseI>{
-        let final_url =this.base_url + "auth/verificar";
+    iniciarDelegado(correo: string, contrasena: string):void{
+        let final_url =this.base_url + "api/auth/verificar";
         const delegadoEj = new FormData();
         //const delegadoEj : DelegadoI;
         delegadoEj.append("correoDelegado", correo);
         delegadoEj.append("contraseniaDelegado", contrasena);
-      return this.http.post<ResponseI>(final_url, delegadoEj);
+
+        const data = {
+          correoDelegado: correo,
+          contraseniaDelegado: contrasena
+        };
+
+      
+      this.http.post(final_url, data).subscribe(data => {
+        //let response:ResponseI = data;
+        //console.log("success");
+        console.log(data);
+      });
     }
 
   }
