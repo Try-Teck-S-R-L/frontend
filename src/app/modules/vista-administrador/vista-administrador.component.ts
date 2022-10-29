@@ -15,7 +15,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {nombreEquipo: 'Hydrogen', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
+  /*{nombreEquipo: 'Hydrogen', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
   {nombreEquipo: 'Helium', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
   {nombreEquipo: 'Lithium', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
   {nombreEquipo: 'Beryllium', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
@@ -24,7 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {nombreEquipo: 'Nitrogen', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
   {nombreEquipo: 'Oxygen', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
   {nombreEquipo: 'Fluorine', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
-  {nombreEquipo: 'Neon', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
+  {nombreEquipo: 'Neon', nombreDelegado: '+35', urlequipo: 'Ver detalle'},*/
 ];
 
 @Component({
@@ -40,13 +40,12 @@ export class VistaAdministradorComponent implements AfterViewInit,OnInit {
   //public listaEquipos: any = [];
   public listaPreinscripciones: any = [];
 
-  //dataSource = new MatTableDataSource(this.listaPreinscripciones);
 
   constructor(private _liveAnnouncer: LiveAnnouncer,private servicePreinscricion: PreinscripcionService,) {}
   ngOnInit(): void {
     //this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.listaPreinscripciones = res);
     this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
-    this.dataSource = new MatTableDataSource(this.listaPreinscripciones);
+    //dataSource = new MatTableDataSource(this.listaPreinscripciones);
   }
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;
@@ -65,6 +64,17 @@ export class VistaAdministradorComponent implements AfterViewInit,OnInit {
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
+
+  /*abrirDetalle($idpreInscripcion: string){
+    this.servicePreinscricion.getPreinscripcionBuscada($idpreInscripcion).subscribe((res : any)=>this.valorPreinscripcion = res);;
+  }*/
+
+  guardarPreinscripcion($idpreInscripcion: string){
+    let idpreInscripcion = $idpreInscripcion;
+    localStorage.setItem("idpreInscripcion",idpreInscripcion);
+  }
+
+  
 }
   
 

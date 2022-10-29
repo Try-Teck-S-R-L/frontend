@@ -30,4 +30,9 @@ export class PreinscripcionService {
     return this.http.get<PreinscripcionI[]>(this.base_url + 'api/preinscripciones');
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
+
+  getPreinscripcionBuscada($idpreInscripcion: string):Observable<PreinscripcionI>{
+    return this.http.post<PreinscripcionI>(this.base_url + 'api/preinscripcionBuscada', $idpreInscripcion);
+    //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
+  }
 }
