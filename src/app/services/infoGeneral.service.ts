@@ -14,6 +14,7 @@ import { ResponseI } from "../modules/models/response.interface";
 
     iniciarDelegado(correo: string, contrasena: string):void{
         let final_url =this.base_url + "api/auth/verificar";
+        //let final_url =this.base_url + "auth/verificar";
         const delegadoEj = new FormData();
         //const delegadoEj : DelegadoI;
         delegadoEj.append("correoDelegado", correo);

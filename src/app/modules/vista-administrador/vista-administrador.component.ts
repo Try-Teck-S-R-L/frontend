@@ -6,6 +6,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { EquipoService } from 'src/app/services/equipo.service';
+import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
 export interface PeriodicElement {
   nombreEquipo: string;
   //position: number;
@@ -36,11 +37,16 @@ export class VistaAdministradorComponent implements AfterViewInit,OnInit {
   displayedColumns: string[] = ['nombreEquipo', 'nombreDelegado', 'urlequipo'];
     
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  public listaEquipos: any = [];
-  
-  constructor(private _liveAnnouncer: LiveAnnouncer,private serviceEquipo: EquipoService,) {}
+  //public listaEquipos: any = [];
+  public listaPreinscripciones: any = [];
+
+  //dataSource = new MatTableDataSource(this.listaPreinscripciones);
+
+  constructor(private _liveAnnouncer: LiveAnnouncer,private servicePreinscricion: PreinscripcionService,) {}
   ngOnInit(): void {
-    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
+    //this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.listaPreinscripciones = res);
+    this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
+    this.dataSource = new MatTableDataSource(this.listaPreinscripciones);
   }
   @ViewChild(MatSort)
   sort: MatSort = new MatSort;

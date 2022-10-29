@@ -14,16 +14,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {nombreEquipo: 'Hydrogen', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Helium', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Lithium', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Beryllium', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Boron', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Carbon', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Nitrogen', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Oxygen', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Fluorine', categoria: '+35', paisEquipo: 'Bolivia'},
-  {nombreEquipo: 'Neon', categoria: '+35', paisEquipo: 'Bolivia'},
+
 ];
 @Component({
   selector: 'app-lista-equipos',
@@ -38,11 +29,15 @@ export class ListaEquiposComponent implements AfterViewInit,OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaEquipos: any = [];
   
+  
   constructor(private _liveAnnouncer: LiveAnnouncer,private serviceEquipo: EquipoService,) {}
   ngOnInit(): void {
-    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
+    //this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
+    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
   }
 
+  //dataSource = new MatTableDataSource(ELEMENT_DATA);
+  //dataSource = new MatTableDataSource(this.listaEquipos);
 
 
 

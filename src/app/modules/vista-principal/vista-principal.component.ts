@@ -17,6 +17,8 @@ export class VistaPrincipalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   iniciarSesion($correoDelegado: string, $contraseniaDelegado: string ){
     /*const delegadoEj = new DelegadoI();
     delegadoEj.append("correoDelegado", $correo);
@@ -28,4 +30,25 @@ export class VistaPrincipalComponent implements OnInit {
       console.log(data);
   });*/
   }
+
+
+  grabar_local_storage($idDelegado: string){
+
+    let idDelegado = $idDelegado;
+    let delegado = {
+      idDelegado: $idDelegado,
+      correoDelegado: 'luis@gmail.com'
+    }
+
+
+    localStorage.setItem("idDelegado",idDelegado);
+    localStorage.setItem('delegado', JSON.stringify(delegado));
+
+    let aux = JSON.parse( localStorage.getItem('delegado') || '{}' );
+    console.log( localStorage.getItem('delegado') );
+  }
+
+
+
+
 }

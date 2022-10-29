@@ -25,4 +25,9 @@ export class PreinscripcionService {
     formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
     return this.http.post<ResponseI>(url, formData);
   }
+
+  getPreinscripciones():Observable<PreinscripcionI[]>{
+    return this.http.get<PreinscripcionI[]>(this.base_url + 'api/preinscripciones');
+    //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
+  }
 }

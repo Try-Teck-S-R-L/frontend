@@ -15,11 +15,18 @@ import { EquipoI } from "../modules/models/equipo.interface";
     constructor(private http:HttpClient) { }
   
     getAllEquipos():Observable<EquipoI[]>{
-      return this.http.get<EquipoI[]>(this.base_url + 'api/equipo');
+
+      const formData = new FormData();
+      let aux = JSON.parse( localStorage.getItem('idDelegado') || '{}' );
+    formData.append("idDelegado", aux);
+    console.log( localStorage.getItem('idDelegado') );
+
+      return this.http.post<EquipoI[]>(this.base_url + 'api/pedirequipos', formData);
+      //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
     }
 
     Equipo(form:EquipoI):Observable<ResponseI>{
-      let url = this.base_url + "api/equipo/"
+      let url = this.base_url + "api/equipos/"
       return this.http.post<ResponseI>(url, form)
     }
 
