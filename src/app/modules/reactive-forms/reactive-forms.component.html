@@ -128,7 +128,7 @@
           formControlName="paisEquipo"
           required
         >
-          <option value="" disabled>Seleccionar pais</option>
+          <option value="" disabled>Seleccionar país</option>
           <option *ngFor="let pais of paises" [value]="pais.value">
             {{ pais.name }}
           </option>
@@ -184,8 +184,10 @@
       >
       <div class="col-sm-10">
         <input
-          type="number"
-          placeholder="Ingrese el número de comprobante de pago"
+          type="text"
+          ngModel
+          maxlength="50"
+          placeholder="Ingrese el nro de comprobante de pago"
           formControlName="nroComprobante"
           class="form-control"
           [ngClass]="{
@@ -193,16 +195,22 @@
               form.nroComprobante.invalid && form.nroComprobante.touched
           }"
         />
+
         <div
-          *ngIf="
-            (form.nroComprobante.touched && form.nroComprobante.invalid) ||
-            submitted
-          "
           class="text-danger"
+          *ngIf="nroComprobante.errors?.required && nroComprobante.touched"
         >
-          <div *ngIf="form.nroComprobante.errors?.required">
-            Por favor ingrese un nro de comprobante valido.
-          </div>
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            nroComprobante.value != '' &&
+            nroComprobante.invalid &&
+            nroComprobante.touched
+          "
+        >
+          Por favor, ingrese caracteres validos
         </div>
       </div>
     </div>
@@ -257,7 +265,7 @@
     <br /><br />
 
     <!--INPUT agregar fecha-->
-    <label class="form-label">Fecha:</label>
+    <label class="form-label">Fecha de pago:</label>
     <input
       type="date"
       name="fechaPreinscripcion"

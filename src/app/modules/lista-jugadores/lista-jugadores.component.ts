@@ -1,26 +1,62 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EquipoI } from './../models/equipo.interface';
+import {  OnInit } from '@angular/core';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {MatSort, Sort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import { JugadorService } from 'src/app/services/jugador.service';
+export interface PeriodicElement {
+  nombreJugador: string;
+  //position: number;
+  apellidoJugador: string;
+  numeroCi: number;
+}
+const ELEMENT_DATA: PeriodicElement[] = [
+
+];
 @Component({
   selector: 'app-lista-jugadores',
   templateUrl: './lista-jugadores.component.html',
   styleUrls: ['./lista-jugadores.component.css']
 })
 export class ListaJugadoresComponent implements OnInit {
-
+  displayedColumns: string[] = ['nombreJugador', 'apellidoJugador', 'numeroCi'];
+    
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaJugadores: any = [];
 
-  constructor( private http: JugadorService) { 
-
-  }
+  constructor(private _liveAnnouncer: LiveAnnouncer,private serviceJugador: JugadorService,) {}
 
   ngOnInit(): void {
-    this.http.getAllJugadores().subscribe(data => (this.listaJugadores = data));
-    console.log(this.listaJugadores);
+    this.serviceJugador.getAllJugadores().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
+    
   }
 
-  delete($id: number){
-    this.http.eliminarJugador($id).subscribe((data)=>{
-      console.log("success");
-  });
+  @ViewChild(MatSort)
+  sort: MatSort = new MatSort;
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+  announceSortChange(sortState: Sort) {
+    // This example uses English messages. If your application supports
+    // multiple language, you would internationalize these strings.
+    // Furthermore, you can customize the message to add additional
+    // details about the values being sorted.
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
+  }
+
+
+
+  
+  //delete($id: number){
+    //.http.eliminarJugador($id).subscribe((data)=>{
+      //.log("success");
+ // });
  }
-}
+
