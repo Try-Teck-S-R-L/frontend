@@ -1,4 +1,4 @@
-import { JugadorI } from './../models/jugador.interface';
+import { JugadorI } from "./../models/jugador.interface";
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import {
@@ -14,7 +14,7 @@ import { JugadorService } from "src/app/services/jugador.service";
 import data from "../../../assets/Archivos/data.json";
 import { ResponseI } from "../models/response.interface";
 
-interface CountryOption {
+export interface CountryOption {
   name: string;
   value: string;
 }
@@ -28,50 +28,39 @@ export class InscripcionJugadorComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   public paises: CountryOption[] = [];
-  private file: File | null = null;
+  private idPhoto: File | null = null;
+  private profilePhoto: File | null = null;
 
-  @HostListener("change", ["$event.target.files"]) emitFiles(event: FileList) {
-    const file = event && event.item(0);
-    // usar esta variable en el momento de enviar el fomulario
-    if (file) {
-      this.file = file;
-    }
-  }
-
-  public listaTallas:any = [];
-  public listaPaises:any = [];
-  public listaCategorias:any = [];
-  public listaPosiciones:any = [];
+  public listaTallas: any = [];
+  public listaPaises: any = [];
+  public listaCategorias: any = [];
+  public listaPosiciones: any = [];
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: JugadorService, 
-    private elemento: ElementolistaService, 
-    private router: Router) {
-
+    private http: JugadorService,
+    private elemento: ElementolistaService,
+    private router: Router
+  ) {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
   }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-
       nombreJugador: [
         "",
         [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)],
       ],
-      apellidoJugador: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
-      
-      
-      
-      
+      apellidoJugador: [
+        "",
+        [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)],
+      ],
       //categoria: ["", [Validators.required]],
       nacionalidadJugador: ["", [Validators.required]],
       tallaJugador: ["", [Validators.required]],
       posicionJugador: ["", [Validators.required]],
-      
-numeroCamiseta: ["", [Validators.required]],
-      
+      numeroCamiseta: ["", [Validators.required]],
       edadJugador: ["", [Validators.required]],
       ciJugador: ["", [Validators.required]],
     });
@@ -111,22 +100,20 @@ numeroCamiseta: ["", [Validators.required]],
     }
 
     this.http
-    .jugador({
-      ...this.registerForm.value,
-      fotoPerfilJugador: this.file,
-      fotoCiJugador: this.file,
-    })
-    
-    .subscribe((data) => {
-      let response: ResponseI = data;
-      console.log("File:", this.file);
-      console.log({
+      .jugador({
         ...this.registerForm.value,
-       fotoPerfilJugador: this.file,
-       fotoCiJugador:this.file,
-      });
-    });
+        fotoPerfilJugador: this.profilePhoto,
+        fotoCiJugador: this.idPhoto,
+      })
 
+      .subscribe((data) => {
+        let response: ResponseI = data;
+        console.log({
+          ...this.registerForm.value,
+          fotoPerfilJugador: this.profilePhoto,
+          fotoCiJugador: this.idPhoto,
+        });
+      });
 
     // display form values on success
     alert(
@@ -140,20 +127,26 @@ numeroCamiseta: ["", [Validators.required]],
     this.registerForm.clearValidators();
     this.registerForm.updateValueAndValidity();
   }
-  
-  onFileSelected(event: any) {
+
+  onFileSelected(event: any, fileType: "ID" | "PROFILE") {
     const file: File = event.target.files[0];
 
     if (file) {
-      this.file = file;
+      switch (fileType) {
+        case "ID":
+          this.idPhoto = file;
+          break;
+        case "PROFILE":
+          this.profilePhoto = file;
+          break;
+      }
     }
   }
 
- get nombreJugador(): FormControl {
+  get nombreJugador(): FormControl {
     return this.registerForm.get("nombreJugador") as FormControl;
   }
   get apellidoJugador(): FormControl {
     return this.registerForm.get("apellidoJugador") as FormControl;
   }
-
 }

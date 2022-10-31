@@ -1,46 +1,43 @@
 <app-header></app-header>
 
-<div class="container" style="min-width: 100%;">
-    <!--<form (ngSubmit)="onSubmit()" [formGroup]="registerForm"></form>-->
-    <h1>Vista administrador</h1>
-<h2>Preinscripción</h2>
-    <form >
-    
-      <!--INPUT nombre delegado-->
-  
-      <!--categorias <br />s
+<div class="container" style="min-width: 100%">
+  {{id}}
+  <!--<form (ngSubmit)="onSubmit()" [formGroup]="registerForm"></form>-->
+  <h1>Vista administrador</h1>
+  <h2>Preinscripción</h2>
+  <form>
+    <!--INPUT nombre delegado-->
+
+    <!--categorias <br />s
       {{ listaEquipos | json }} <br />
       {{ listaCategorias | json }} <br />
       paises <br />
       {{ listaPaises | json }} <br />
       -->
-  
-      <div class="mb-3 row">
-        <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
-          >Nombre delegado:</label
-        >
-        
-      </div>
-  
-      <!--INPUT nombreequipo-->
-      <div class="mb-3 row">
-        <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
-          >Nombre del equipo:</label
-        >
-        
-      </div>
-  
-      <!--INPUT email-->
-      <div class="mb-3 row">
-        <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
-        
-      </div>
-    
-      <br />
-      <!--imagen voucher-->
-      <label class="form-label">Voucher de pago:</label>
-      
-      <!-- <div
+
+    <div class="mb-3 row">
+      <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
+        >Nombre delegado:</label
+      >
+    </div>
+
+    <!--INPUT nombreequipo-->
+    <div class="mb-3 row">
+      <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
+        >Nombre del equipo:</label
+      >
+    </div>
+
+    <!--INPUT email-->
+    <div class="mb-3 row">
+      <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
+    </div>
+
+    <br />
+    <!--imagen voucher-->
+    <label class="form-label">Voucher de pago:</label>
+
+    <!-- <div
         *ngIf="submitted"
         class="text-danger"
       >
@@ -48,22 +45,17 @@
           Por favor, suba el comprobante
         </div>
       </div> -->
-      <br /><br />
-      <!--INPUT agregar fecha-->
-      <label class="form-label">Fecha:</label>
-      
-      
-  
-      <!--INPUT aprobar-->
-      <div class="text-center">
-        <button class="btn btn-primary mr-1">Aprobar</button>
-  
-        <button class="btn btn-secondary" >
-          Denegar
-        </button>
-      </div>
-    </form>
-  </div>
+    <br /><br />
+    <!--INPUT agregar fecha-->
+    <label class="form-label">Fecha:</label>
 
+    <!--INPUT aprobar-->
+    <div class="text-center">
+      <button class="btn btn-primary mr-1">Aprobar</button>
+
+      <button class="btn btn-secondary">Denegar</button>
+    </div>
+  </form>
+</div>
 
 <app-footer></app-footer>

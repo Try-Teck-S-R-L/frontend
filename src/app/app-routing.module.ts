@@ -53,7 +53,7 @@ const routes: Routes = [
     component:VistaAdministradorComponent
   },
   {
-    path:'informacionequipo',
+    path:'informacionequipo/:id',
     component:InformacionequiposComponent
   }
 ];
