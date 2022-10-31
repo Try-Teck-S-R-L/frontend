@@ -78,9 +78,17 @@
 
     <!--INPUT aprobar-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1">Aprobar</button>
+      <button class="btn btn-primary mr-1" (click)="aceptarPreinscripcion(id)">
+        Aprobar
+      </button>
 
-      <button class="btn btn-secondary">Denegar</button>
+      <button
+        id="{{ id }}"
+        class="btn btn-secondary"
+        (click)="rechazarPreinscripcion(id)"
+      >
+        Denegar
+      </button>
     </div>
   </form>
 </div>

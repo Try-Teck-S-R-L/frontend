@@ -24,6 +24,15 @@ export class InformacionequiposComponent implements OnInit {
   }
 
 
+  rechazarPreinscripcion($id: string){
+    this.servicePreinscripcion.rechazarPreinsc(this.id);
+  }
+  aceptarPreinscripcion($id: string){
+    console.log($id);
+    this.servicePreinscripcion.aceptarPreinsc(this.id).subscribe((res : any)=>console.log('hi'));
+  }
+
+
 
   //async fetchData(): void {}
 }
