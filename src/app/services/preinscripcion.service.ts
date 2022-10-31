@@ -35,4 +35,7 @@ export class PreinscripcionService {
     return this.http.post<PreinscripcionI>(this.base_url + 'api/preinscripcionBuscada', $idpreInscripcion);
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
+
+
+  
 }
