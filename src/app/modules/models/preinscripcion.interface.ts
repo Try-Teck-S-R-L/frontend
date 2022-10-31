@@ -6,5 +6,7 @@ export interface PreinscripcionI {
   fechaPreinscripcion: string,
   voucherPreinscripcion: File,
   nombreEquipo: string,
+  nroComprobante: string,
+  montoPago: string,
   paisEquipo: string
 }

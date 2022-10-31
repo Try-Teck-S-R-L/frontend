@@ -22,7 +22,12 @@ export class PreinscripcionService {
     formData.append("fechaPreinscripcion", form.fechaPreinscripcion);
     formData.append("nombreEquipo", form.nombreDelegado);
     formData.append("paisEquipo", form.paisEquipo);
+    formData.append("numeroComprobante", form.nroComprobante);
+    formData.append("montoPago", form.montoPago);
     formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
+    formData.append("idCategoria",'1');
+    let aux = JSON.parse( localStorage.getItem('idDelegado') || '{}' );
+    formData.append("idDelegado", aux);
     return this.http.post<ResponseI>(url, formData);
   }
 
@@ -31,10 +36,11 @@ export class PreinscripcionService {
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
 
-  getPreinscripcionBuscada($idpreInscripcion: string):Observable<PreinscripcionI>{
-    return this.http.post<PreinscripcionI>(this.base_url + 'api/preinscripcionBuscada', $idpreInscripcion);
+  getPreinscripcionBuscada($idpreInscripcion: string):Observable<any>{
+    return this.http.post<any>(this.base_url + 'api/preinscripcionBuscada', $idpreInscripcion);
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
+
 
 
   
