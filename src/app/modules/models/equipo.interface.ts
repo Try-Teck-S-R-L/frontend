@@ -1,5 +1,5 @@
 export interface EquipoI{
-    //equipoid: String,
+    idEquipo: String,
     //nombreDelegado: String,
     delegado_idDelegado:string,
     nombreEquipo: String,

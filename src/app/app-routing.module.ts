@@ -25,7 +25,7 @@ const routes: Routes = [
     component:InscripcionJugadorComponent
   },
   {
-    path:'vistadelegado',
+    path:'vistadelegado/:id',
     component:VistaDelegadoComponent
   },
   {
