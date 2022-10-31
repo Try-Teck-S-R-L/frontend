@@ -20,7 +20,7 @@ export class PreinscripcionService {
     formData.append("emailDelegado", form.emailDelegado);
     formData.append("nombreDelegado", form.nombreDelegado);
     formData.append("fechaPreinscripcion", form.fechaPreinscripcion);
-    formData.append("nombreEquipo", form.nombreDelegado);
+    formData.append("nombreEquipo", form.nombreEquipo);
     formData.append("paisEquipo", form.paisEquipo);
     formData.append("numeroComprobante", form.nroComprobante);
     formData.append("montoPago", form.montoPago);
@@ -31,13 +31,15 @@ export class PreinscripcionService {
     return this.http.post<ResponseI>(url, formData);
   }
 
-  getPreinscripciones():Observable<PreinscripcionI[]>{
-    return this.http.get<PreinscripcionI[]>(this.base_url + 'api/preinscripciones');
+  getPreinscripciones():Observable<PreinscripcionI>{
+    return this.http.get<PreinscripcionI>(this.base_url + 'api/preinscripciones');
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
 
   getPreinscripcionBuscada($idpreInscripcion: string):Observable<any>{
-    return this.http.post<any>(this.base_url + 'api/preinscripcionBuscada', $idpreInscripcion);
+    const formData = new FormData();
+    formData.append('idPreinscripcion', $idpreInscripcion);
+    return this.http.post<any>(this.base_url + 'api/preinscripcionBuscada', formData);
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
 
