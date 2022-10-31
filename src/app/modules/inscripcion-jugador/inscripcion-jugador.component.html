@@ -96,17 +96,15 @@
           name="nacionalidadJugador"
           formControlName="nacionalidadJugador"
           required
-        >
-          <option value="" disabled>Seleccionar pais</option>
+          >
+          <option value="" disabled selected>Seleccionar pais</option>
           <option *ngFor="let pais of paises" [value]="pais.value">
             {{ pais.name }}
           </option>
         </select>
         <div
           *ngIf="
-            (form.nacionalidadJugador.touched &&
-              form.nacionalidadJugador.invalid) ||
-            submitted
+            (form.nacionalidadJugador.touched && form.nacionalidadJugador.invalid) || submitted
           "
           class="text-danger"
         >
@@ -128,23 +126,22 @@
           class="form-select form-select-sm"
           formControlName="tallaJugador"
         >
-          <option value="" disabled>Seleccionar talla</option>
+        <option value="" disabled selected>Seleccionar pais</option>
           <option value="x">XL</option>
           <option value="l">L</option>
           <option value="m">M</option>
           <option value="s">S</option>
         </select>
         <div
-          *ngIf="
-            (form.tallaJugador.touched && form.tallaJugador.invalid) ||
-            submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.tallaJugador.errors?.required">
-            Elija una de las opciones
-          </div>
+        *ngIf="
+          (form.tallaJugador.touched && form.tallaJugador.invalid) || submitted
+        "
+        class="text-danger"
+      >
+        <div *ngIf="form.tallaJugador.errors?.required">
+          Elija una de las opciones
         </div>
+      </div>
       </div>
     </div>
     <!--INPUT posicion-->
@@ -159,7 +156,7 @@
           class="form-select form-select-sm"
           formControlName="posicionJugador"
         >
-          <option value="" disabled>Seleccionar posición</option>
+          <option value="" disabled selected>Seleccionar posición</option>
           <option value="Base">Base</option>
           <option value="Escolta">Escolta</option>
           <option value="Alero">Alero</option>
@@ -269,16 +266,17 @@
       (change)="onFileSelected($event, 'PROFILE')"
       required
     />
-    <!-- <div
+    <div
       *ngIf="submitted"
       class="text-danger"
     >
-      <div *ngIf="form.voucherPreinscripcion.errors?.required">
-        Por favor, suba el comprobante
+    
+      <div *ngIf="form.fotoPerfilJugador.errors?.required">
+        Por favor, suba su foto
       </div>
-    </div> -->
+    </div> 
     <br /><br />
-    <!--imagen fechaPreinscripcion-->
+    <!--imagen fotoci-->
     <label class="form-label">Foto CI:</label>
     <input
       type="file"
@@ -288,14 +286,14 @@
       (change)="onFileSelected($event, 'ID')"
       required
     />
-    <!-- <div
+    <div
       *ngIf="submitted"
       class="text-danger"
     >
-      <div *ngIf="form.voucherPreinscripcion.errors?.required">
-        Por favor, suba el comprobante
+      <div *ngIf="form.fotoCiJugador.errors?.required">
+        Por favor, suba su foto
       </div>
-    </div> -->
+    </div> 
     <br /><br />
 
     <!--INPUT subir-->
