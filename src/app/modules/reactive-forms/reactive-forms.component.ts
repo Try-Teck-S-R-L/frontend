@@ -67,7 +67,7 @@ export class ReactiveFormsComponent implements OnInit {
 
       categoria: ["", [Validators.required]],
       
-      nroComprobante: ["", [Validators.required]],
+      nroComprobante: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       montoPago: ["", [Validators.required]],
       fechaPreinscripcion: ["2022-10-01", [Validators.required]],
     });
@@ -151,5 +151,8 @@ export class ReactiveFormsComponent implements OnInit {
   }
   get nombreEquipo(): FormControl {
     return this.registerForm.get("nombreEquipo") as FormControl;
+  }
+  get nroComprobante(): FormControl {
+    return this.registerForm.get("nroComprobante") as FormControl;
   }
 }

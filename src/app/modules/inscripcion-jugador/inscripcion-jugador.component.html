@@ -3,7 +3,7 @@
 
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-    <h3>Preinscripción</h3>
+    <h3>Inscripción de jugador</h3>
     <!--INPUT nombre delegado-->
 
     <!--categorias <br />
@@ -53,7 +53,7 @@
     <!--INPUT nombreequipo-->
     <div class="mb-3 row">
       <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
-        >Apelldio jugador:</label
+        >Apellido jugador:</label
       >
       <div class="col-sm-10">
         <input
@@ -97,7 +97,7 @@
           formControlName="nacionalidadJugador"
           required
         >
-          <option value="" disabled>Seleccionar pais</option>
+          <option value="" disabled>Seleccionar país</option>
           <option *ngFor="let pais of paises" [value]="pais.value">
             {{ pais.name }}
           </option>
@@ -129,10 +129,10 @@
           formControlName="tallaJugador"
         >
           <option value="" disabled>Seleccionar talla</option>
-          <option value="x">XL</option>
-          <option value="l">L</option>
-          <option value="m">M</option>
           <option value="s">S</option>
+          <option value="m">M</option>
+          <option value="l">L</option>
+          <option value="x">XL</option>
         </select>
         <div
           *ngIf="
@@ -237,7 +237,7 @@
       <div class="col-sm-10">
         <input
           type="number"
-          placeholder="Ingrese su de camiseta"
+          placeholder="Ingrese su nro de camiseta"
           formControlName="numeroCamiseta"
           class="form-control"
           [ngClass]="{
