@@ -32,8 +32,8 @@ export class ListaEquiposComponent implements AfterViewInit,OnInit {
   
   constructor(private _liveAnnouncer: LiveAnnouncer,private serviceEquipo: EquipoService,) {}
   ngOnInit(): void {
-    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
-    //this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
+    //this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
+    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
   }
 
   //dataSource = new MatTableDataSource(ELEMENT_DATA);

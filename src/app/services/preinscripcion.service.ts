@@ -25,7 +25,7 @@ export class PreinscripcionService {
     formData.append("numeroComprobante", form.nroComprobante);
     formData.append("montoPago", form.montoPago);
     formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
-    formData.append("idCategoria",'1');
+    formData.append("idCategoria",form.categoria);
     let aux = JSON.parse( localStorage.getItem('idDelegado') || '{}' );
     formData.append("idDelegado", aux);
     return this.http.post<ResponseI>(url, formData);
