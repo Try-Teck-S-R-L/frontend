@@ -12,7 +12,7 @@ export class PreinscripcionService {
 
   constructor(private http: HttpClient) {}
 
-  Preinscripcion(form: PreinscripcionI): Observable<ResponseI> {
+  Preinscripcion(form: PreinscripcionI, idDelegado:string): Observable<ResponseI> {
     let url = this.base_url + "api/preinscripciones/";
     console.log("Service log: ", form);
     const formData = new FormData();
@@ -26,8 +26,7 @@ export class PreinscripcionService {
     formData.append("montoPago", form.montoPago);
     formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
     formData.append("idCategoria",form.categoria);
-    let aux = JSON.parse( localStorage.getItem('idDelegado') || '{}' );
-    formData.append("idDelegado", aux);
+    formData.append("idDelegado", idDelegado);
     return this.http.post<ResponseI>(url, formData);
   }
 

@@ -1,4 +1,4 @@
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { EquipoI } from "./../models/equipo.interface";
 import { OnInit } from "@angular/core";
 import { LiveAnnouncer } from "@angular/cdk/a11y";
@@ -23,17 +23,24 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class ListaEquiposComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ["name", "categoria", "pais"];
 
+  public id: string = "";
+
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaEquipos: any = [];
 
   constructor(
+    router: ActivatedRoute,
     private _liveAnnouncer: LiveAnnouncer,
     private serviceEquipo: EquipoService
-  ) {}
+  ) {
+    router.params.subscribe((params) => {
+      this.id = params["id"];
+    });
+  }
   ngOnInit(): void {
     //this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
     this.serviceEquipo
-      .getAllEquipos()
+      .getAllEquipos(this.id)
       .subscribe((res: any) => (this.dataSource = new MatTableDataSource(res)));
   }
 

@@ -6,7 +6,7 @@ import {
   Validators,
   FormBuilder,
 } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ElementolistaService } from "src/app/services/elementolista.service";
 import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
@@ -33,16 +33,21 @@ export class ReactiveFormsComponent implements OnInit {
   public listaEquipos: any = [];
   public listaPaises: any = [];
   public listaCategorias: any = [];
+  public idDel: string = "";
 
   constructor(
+    router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private http: PreinscripcionService,
     private elemento: ElementolistaService,
     private serviceEquipo: EquipoService,
-    private router: Router
+    //private router: Router
   ) {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
+    router.params.subscribe((params) => {
+      this.idDel = params["id"];
+    });
   }
 
   ngOnInit() {
@@ -52,9 +57,9 @@ export class ReactiveFormsComponent implements OnInit {
 
     this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
 
-    this.serviceEquipo
+    /*this.serviceEquipo
       .getAllEquipos()
-      .subscribe((res: any) => (this.listaEquipos = res));
+      .subscribe((res: any) => (this.listaEquipos = res));*/
 
     this.registerForm = this.formBuilder.group({
       nombreDelegado: [
@@ -113,8 +118,8 @@ export class ReactiveFormsComponent implements OnInit {
     this.http
       .Preinscripcion({
         ...this.registerForm.value,
-        voucherPreinscripcion: this.file,
-      })
+        voucherPreinscripcion: this.file
+      }, this.idDel)
       
       .subscribe((data) => {
         let response: ResponseI = data;

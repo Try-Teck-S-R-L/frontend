@@ -56,9 +56,9 @@ export class RegistrarEquipoComponent implements OnInit {
     .subscribe((data) => (this.listaCategorias = data));
 
   this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
-  this.serviceEquipo
+  /*this.serviceEquipo
   .getAllEquipos()
-  .subscribe((res: any) => (this.listaEquipos = res));
+  .subscribe((res: any) => (this.listaEquipos = res));*/
 
 
     this.registerForm = this.formBuilder.group({

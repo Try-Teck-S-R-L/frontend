@@ -1,6 +1,7 @@
 import { JugadorI } from './../models/jugador.interface';
 import { Component, OnInit } from '@angular/core';
 import { JugadorService } from 'src/app/services/jugador.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,10 +11,13 @@ import { JugadorService } from 'src/app/services/jugador.service';
 })
 export class VistaDelegadoComponent implements OnInit {
 
+  public id: string = "";
   public listaJugadores: any = [];
 
-  constructor( private http: JugadorService) { 
-
+  constructor( router: ActivatedRoute,private http: JugadorService) { 
+    router.params.subscribe((params) => {
+      this.id = params["id"];
+    });
   }
 
   ngOnInit(): void {

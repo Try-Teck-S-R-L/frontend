@@ -1,44 +1,31 @@
 <app-header></app-header>
 <mat-grid-list cols="1" rowHeight="150px">
-    <mat-grid-tile>
-        <a href="/registrarequipo">
-        <button>
-            Inscribir equipos
-        </button>
-        </a>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <a href="/listaequipos">
-        <button>
-            Ver mi lista de equipos inscritos
-        </button>
+  <mat-grid-tile>
+    <a href="/registrarequipo">
+      <button>Inscribir equipos</button>
     </a>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <a href="/preinscripcion">
-            <button>
-                Preinscribir
-            </button>
-        </a>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <a href="/credencial">
-            <button>
-                Credenciales
-            </button>
-        </a>
-    </mat-grid-tile>
-    <mat-grid-tile>
-       
-
-
-        <a
-  class="boton-email"
-  href="mailto:administrador@gmail.com?Subject=solicito%20su%20ayuda%20porfavor"
-  ><button>
-    Comunicate con el administrador
-</button>
-</a>
-    </mat-grid-tile>
-  </mat-grid-list>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a id="{{ id }}" href="/listaequipos/{{ id }}">
+      <button>Ver mi lista de equipos inscritos</button>
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a href="/preinscripcion/{{ id }}">
+      <button>Preinscribir</button>
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a href="/credencial">
+      <button>Credenciales</button>
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a
+      class="boton-email"
+      href="mailto:administrador@gmail.com?Subject=solicito%20su%20ayuda%20porfavor"
+      ><button>Comunicate con el administrador</button>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>
 <app-footer> </app-footer>

@@ -15,7 +15,7 @@ import { RegistrarEquipoComponent } from "./modules/registrar-equipo/registrar-e
 
 const routes: Routes = [
   {
-    path: "preinscripcion",
+    path: "preinscripcion/:id",
     component: ReactiveFormsComponent,
   },
   {
@@ -31,7 +31,7 @@ const routes: Routes = [
     component: RegistrarEquipoComponent,
   },
   {
-    path: "listaequipos",
+    path: "listaequipos/:id",
     component: ListaEquiposComponent,
   },
   {

@@ -24,7 +24,7 @@ export class VistaPrincipalComponent implements OnInit {
     const data: DelegadoI[] = [
       {
         idDelegado: 1,
-        nombreDelegado: "Demo",
+        nombreDelegado: "Luis",
         apellidoDelegado: "Demo",
         nacionalidadDelegado: "Boliviano",
         edadDelegado: "21",
@@ -33,14 +33,14 @@ export class VistaPrincipalComponent implements OnInit {
       },
       {
         idDelegado: 2,
-        nombreDelegado: "Demo",
+        nombreDelegado: "Pablo",
         apellidoDelegado: "Demo",
         nacionalidadDelegado: "Boliviano",
         edadDelegado: "21",
         correoDelegado: "demo@mail.com",
         contraseniaDelegado: null,
       },
-      {
+      /*{
         idDelegado: 3,
         nombreDelegado: "Demo",
         apellidoDelegado: "Demo",
@@ -75,7 +75,7 @@ export class VistaPrincipalComponent implements OnInit {
         edadDelegado: "21",
         correoDelegado: "demo@mail.com",
         contraseniaDelegado: null,
-      },
+      },*/
     ];
 
     // TODO: formatear repuesta de la llamada
@@ -87,11 +87,13 @@ export class VistaPrincipalComponent implements OnInit {
     });
   }
 
-  iniciarSesion($correoDelegado: string, $contraseniaDelegado: string) {
+  //iniciarSesion($correoDelegado: string, $contraseniaDelegado: string) {
+    iniciarSesion($idDelegado: string) {
     /*const delegadoEj = new DelegadoI();
     delegadoEj.append("correoDelegado", $correo);
     delegadoEj.append("contraseniaDelegado", $contrasena);*/
-    this.http.iniciarDelegado($correoDelegado, $contraseniaDelegado);
+    //this.http.iniciarDelegado($correoDelegado, $contraseniaDelegado);
+    //this.http.iniciarDel($idDelegado);
     /*.subscribe(data => {
       //let response:ResponseI = data;
       console.log("success");
