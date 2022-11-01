@@ -8,7 +8,8 @@ import {
   Validators,
   FormBuilder,
 } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+
 import { EquipoService } from "src/app/services/equipo.service";
 import data from "../../../assets/Archivos/data.json";
 import { ResponseI } from "../models/response.interface";
@@ -35,17 +36,22 @@ export class RegistrarEquipoComponent implements OnInit {
   public listaEquipos: any = [];
   public listaPaises: any = [];
   public listaCategorias: any = []; 
+  public idDel: string = "";
 
   constructor(
+    router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private http:EquipoService,
     private elemento: ElementolistaService, 
     private serviceEquipo: EquipoService,
-    private router:Router) 
-    {
-    this.registerForm = formBuilder.group({});
-    this.paises = data.paises;
-  }
+    //private router:Router) 
+  ){
+      this.registerForm = formBuilder.group({});
+      this.paises = data.paises;
+      router.params.subscribe((params) => {
+        this.idDel = params["id"];
+      });
+    }
   
 
   ngOnInit() {
@@ -107,7 +113,7 @@ export class RegistrarEquipoComponent implements OnInit {
       .RegistrarEquipo({
         ...this.registerForm.value,
         logoEquipo: this.file,
-      })
+      }, this.idDel)
       .subscribe((data: ResponseI) => {
         let response: ResponseI = data;
         console.log("File:", this.file);
