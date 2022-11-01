@@ -1,11 +1,11 @@
 <app-header></app-header>
 
 <div class="container" style="min-width: 100%">
-  {{ id }}
-  {{ preinscripcionActual | json }} -->
+  <!--{{ id }}-->
+  <!--{{ preinscripcionActual | json }} -->
   <!--<form (ngSubmit)="onSubmit()" [formGroup]="registerForm"></form>-->
   <h1>Vista administrador</h1>
-  <h2>Preinscripción</h2>
+  <h3>Preinscripción</h3>
   <form>
     <!--INPUT nombre delegado-->
 
@@ -18,51 +18,54 @@
 
     <div class="mb-3 row">
       <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
-        >Nombre delegado:</label
-      >
+        ><h2>Nombre delegado:</h2></label
+      ><label>{{preinscripcionActual?.nombreDelegado}}</label>
     </div>
 
     <!--INPUT email-->
     <div class="mb-3 row">
-      <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
+      <label for="inputemail" class="col-sm-2 col-form-label" > <h2>Email:</h2></label>
+      <label>{{preinscripcionActual?.email}}</label>
     </div>
 
     <!--INPUT nombreequipo-->
     <div class="mb-3 row">
       <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
-        >Nombre del equipo:</label
-      >
+        ><h2>Nombre del equipo:</h2></label
+      ><label>{{preinscripcionActual?.nombreEquipo}}</label>
     </div>
 
     <!--INPUT PAIS-->
     <div class="mb-3 row">
-      <label for="inputpaisEquipo" class="col-sm-2 col-form-label">Pais:</label>
+      <label for="inputpaisEquipo" class="col-sm-2 col-form-label"><h2>Pais:</h2></label>
+      <label>{{preinscripcionActual?.pais}}</label>
     </div>
 
     <!--INPUT categorias-->
     <div class="mb-3 row">
       <label for="inputcategoria" class="col-sm-2 col-form-label"
-        >Categoria:</label
-      >
+        ><h2>Categoria:</h2></label
+      ><label>{{preinscripcionActual?.idCategoria}}</label>
     </div>
 
     <!--INPUT nro de comprobante-->
     <div class="mb-3 row">
       <label for="inputnroComprobante" class="col-sm-2 col-form-label"
-        >Nro de comprobante de pago:</label
-      >
+        ><h2>Nro de comprobante de pago:</h2></label
+      ><label>{{preinscripcionActual?.numeroComprobante}}</label>
     </div>
 
     <!--INPUT monto de pago-->
     <div class="mb-3 row">
       <label for="inputmontoPago" class="col-sm-2 col-form-label"
-        >Monto de pago:</label
-      >
+        ><h2>Monto de pago:</h2></label
+      ><label>{{preinscripcionActual?.montoPago}}</label>
     </div>
 
     <br />
     <!--imagen voucher-->
-    <label class="form-label">Comprobante de pago:</label>
+    <label class="inputmontoPago" class="col-sm-2 col-form-label"><h2>Comprobante de pago:</h2></label>
+    <label>{{preinscripcionActual?.nombreEquipo}}</label>
 
     <!-- <div
         *ngIf="submitted"
@@ -74,7 +77,8 @@
       </div> -->
     <br /><br />
     <!--INPUT agregar fecha-->
-    <label class="form-label">Fecha de pago:</label>
+    <label class="inputmontoPago" class="col-sm-2 col-form-label"><h2>Fecha de pago:</h2></label>
+    <label>{{preinscripcionActual?.fechaPreinscripcion}}</label>
 
     <!--INPUT aprobar-->
     <div class="text-center">
@@ -91,6 +95,12 @@
       </button>
     </div>
   </form>
+
+
+
+
+  
+
 </div>
 
 <app-footer></app-footer>
