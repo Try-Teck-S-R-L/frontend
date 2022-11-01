@@ -15,7 +15,7 @@
 
     <div class="mb-3 row">
       <label for="inputnombreJugador" class="col-sm-2 col-form-label"
-        >Nombre Jugador:</label
+        >Nombre:</label
       >
       <div class="col-sm-10">
         <input
@@ -45,15 +45,15 @@
             nombreJugador.touched
           "
         >
-          Por favor, ingresa caracteres validos
+          Por favor, ingrese caracteres validos
         </div>
       </div>
     </div>
 
     <!--INPUT nombreequipo-->
     <div class="mb-3 row">
-      <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
-        >Apellido jugador:</label
+      <label for="inputapellidoJugador" class="col-sm-2 col-form-label"
+        >Apellido:</label
       >
       <div class="col-sm-10">
         <input
@@ -82,7 +82,7 @@
             apellidoJugador.touched
           "
         >
-          Por favor, ingresa caracteres validos
+          Por favor, ingrese caracteres validos
         </div>
       </div>
     </div>
@@ -129,10 +129,10 @@
           formControlName="tallaJugador"
         >
           <option value="" disabled selected>Seleccionar talla</option>
-          <option value="x">XL</option>
-          <option value="l">L</option>
-          <option value="m">M</option>
           <option value="s">S</option>
+          <option value="m">M</option>
+          <option value="l">L</option>
+          <option value="x">XL</option>
         </select>
         <div
           *ngIf="
@@ -296,7 +296,7 @@
 
     <!--INPUT subir-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1">Registrarse</button>
+      <button class="btn btn-primary mr-1">Registrar</button>
 
       <button class="btn btn-secondary" type="reset" (click)="onReset()">
         Cancelar
