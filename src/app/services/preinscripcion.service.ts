@@ -43,16 +43,16 @@ export class PreinscripcionService {
   }
 
 
-  aceptarPreinsc($idpreInscripcion: string):Observable<any>{
+  aceptarPreinsc($idPreinscripcion: string):Observable<any>{
     const formData = new FormData();
-    formData.append('idPreinscripcion', $idpreInscripcion);
+    formData.append('idPreinscripcion', $idPreinscripcion);
     return this.http.post<any>(this.base_url + 'api/aceptarpreinscripcion', formData);
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
 
-  rechazarPreinsc($idpreInscripcion: string):Observable<any>{
+  rechazarPreinsc($idPreinscripcion: string):Observable<any>{
     const formData = new FormData();
-    formData.append('idPreinscripcion', $idpreInscripcion);
+    formData.append('idPreinscripcion', $idPreinscripcion);
     return this.http.post<any>(this.base_url + 'api/rechazarpreinscripcion', formData);
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }

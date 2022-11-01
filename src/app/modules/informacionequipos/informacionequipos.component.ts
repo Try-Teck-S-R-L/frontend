@@ -31,14 +31,14 @@ export class InformacionequiposComponent implements OnInit {
   }
 
   rechazarPreinscripcion($id: string) {
-    this.servicePreinscripcion.rechazarPreinsc(this.id);
+    this.servicePreinscripcion.rechazarPreinsc(this.id).subscribe((res: any) => console.log(res));
   }
 
   aceptarPreinscripcion($id: string) {
     console.log($id);
     this.servicePreinscripcion
       .aceptarPreinsc(this.id)
-      .subscribe((res: any) => console.log("hi"));
+      .subscribe((res: any) => console.log(res));
   }
 
   //async fetchData(): void {}
