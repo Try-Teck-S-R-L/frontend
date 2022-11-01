@@ -62,9 +62,12 @@ export class ListaJugadoresComponent implements OnInit {
 
 
   
-  //delete($id: number){
-    //.http.eliminarJugador($id).subscribe((data)=>{
-      //.log("success");
- // });
+  eliminarJug($id: number){
+    this.serviceJugador.eliminarJugador($id).subscribe((data)=>{
+      console.log("success");
+  });
+    console.log($id);
+  }
+
  }
 
