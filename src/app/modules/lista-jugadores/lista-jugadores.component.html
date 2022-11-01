@@ -42,7 +42,7 @@
               <td>{{ jugador.fotoCiJugador }}</td>
 -->
            
-<br /><br /><br /><br /><br />
+<br />
 
 <table
   mat-table
@@ -108,8 +108,18 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-
-
-
+<br>
+<a href="/inscripcion">
+<button>
+  <span class="button_top"> Inscribir Jugadores
+  </span>
+</button>
+</a>
+<a href="/credencial">
+  <button>
+    <span class="button_top"> Mostrar Credenciales
+    </span>
+  </button>
+  </a>
 </body>
 <app-footer> </app-footer>

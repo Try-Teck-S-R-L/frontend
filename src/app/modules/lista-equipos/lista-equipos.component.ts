@@ -12,6 +12,7 @@ export interface PeriodicElement {
   //position: number;
   categoria: string;
   paisEquipo: string;
+  vermas: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [];
@@ -21,7 +22,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
   styleUrls: ["./lista-equipos.component.css"],
 })
 export class ListaEquiposComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ["name", "categoria", "pais"];
+  displayedColumns: string[] = ["name", "categoria", "pais", "vermas"];
 
   public id: string = "";
 
