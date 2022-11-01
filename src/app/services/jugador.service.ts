@@ -14,8 +14,11 @@ import { ResponseI } from '../modules/models/response.interface';
   
     constructor(private http:HttpClient) { }
   
-    getAllJugadores():Observable<JugadorI[]>{
-      return this.http.get<JugadorI[]>(this.base_url + "api/jugador/");
+    getAllJugadores($id: string):Observable<JugadorI[]>{
+      const formData = new FormData();
+      
+      formData.append("idEquipo", $id);
+      return this.http.post<JugadorI[]>(this.base_url + "api/buscarjugadores", formData);
     }
 
     eliminarJugador($id:number){

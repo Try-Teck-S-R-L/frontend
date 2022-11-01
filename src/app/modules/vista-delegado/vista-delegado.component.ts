@@ -21,8 +21,8 @@ export class VistaDelegadoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.getAllJugadores().subscribe(data => (this.listaJugadores = data));
-    console.log(this.listaJugadores);
+    /*this.http.getAllJugadores().subscribe(data => (this.listaJugadores = data));
+    console.log(this.listaJugadores);*/
   }
 
   delete($id: number){

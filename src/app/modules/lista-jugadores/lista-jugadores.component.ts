@@ -24,7 +24,7 @@ export class ListaJugadoresComponent implements OnInit {
   displayedColumns: string[] = ['nombreJugador', 'apellidoJugador', 'numeroCi'];
     
   public id: string = "";
-  
+
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaJugadores: any = [];
 
@@ -35,7 +35,7 @@ export class ListaJugadoresComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.serviceJugador.getAllJugadores().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
+    this.serviceJugador.getAllJugadores(this.id).subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
     
   }
 

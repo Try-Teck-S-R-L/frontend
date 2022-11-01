@@ -24,7 +24,7 @@ export class CredencialComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.getAllJugadores().subscribe(data => (this.listaJugadores = data, console.log(data)));
+    //this.http.getAllJugadores().subscribe(data => (this.listaJugadores = data, console.log(data)));
   }
   get equipoJugador(){ return this.credencial.value.equipos; }
 }
