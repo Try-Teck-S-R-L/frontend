@@ -11,6 +11,8 @@ export interface PeriodicElement {
   //position: number;
   apellidoJugador: string;
   numeroCi: number;
+  vermas: string;
+  eliminarJugador:string;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
 
@@ -21,7 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./lista-jugadores.component.css']
 })
 export class ListaJugadoresComponent implements OnInit {
-  displayedColumns: string[] = ['nombreJugador', 'apellidoJugador', 'numeroCi'];
+  displayedColumns: string[] = ['nombreJugador', 'apellidoJugador', 'numeroCi','vermas','eliminarJugador'];
     
   public id: string = "";
 
