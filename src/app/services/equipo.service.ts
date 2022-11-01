@@ -17,9 +17,11 @@ import { EquipoI } from "../modules/models/equipo.interface";
     getAllEquipos():Observable<any[]>{
 
       const formData = new FormData();
-      let aux = JSON.parse( localStorage.getItem('idDelegado') || '{}' );
+     /* let aux = JSON.parse( localStorage.getItem('idDelegado') || '{}' );
     formData.append("idDelegado", aux);
-    console.log( localStorage.getItem('idDelegado') );
+    console.log( localStorage.getItem('idDelegado') );*/
+
+
 
       return this.http.post<any[]>(this.base_url + 'api/filtrarequipos', formData);
       //return this.http.get<EquipoI[]>(this.base_url + 'api/equipos');

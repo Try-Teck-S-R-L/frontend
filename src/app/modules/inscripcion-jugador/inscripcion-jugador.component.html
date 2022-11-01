@@ -128,7 +128,7 @@
           class="form-select form-select-sm"
           formControlName="tallaJugador"
         >
-          <option value="" disabled selected>Seleccionar pais</option>
+          <option value="" disabled selected>Seleccionar talla</option>
           <option value="x">XL</option>
           <option value="l">L</option>
           <option value="m">M</option>
@@ -285,11 +285,13 @@
       (change)="onFileSelected($event, 'ID')"
       required
     />
+    <!---
     <div *ngIf="submitted" class="text-danger">
       <div *ngIf="form.fotoCiJugador.errors?.required">
         Por favor, suba su foto
       </div>
     </div>
+  -->
     <br /><br />
 
     <!--INPUT subir-->

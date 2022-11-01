@@ -9,9 +9,14 @@ import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 })
 export class InformacionequiposComponent implements OnInit {
   public id: string = "";
-  public preinscripcionActual: any;
+  public preinscripcionActual = { "idPreinscripcion": 17, "habilitado": 0, "nombreDelegado": "luis", "email": "luis@gmail.com", "nombreEquipo": "equipoRojo", "pais": "honduras", "numeroComprobante": "123123", "montoPago": 123, "fechaPreinscripcion": "2022-10--31 23:02:58", "idDelegado": 1, "idCategoria": 1 };
 
-  constructor(router: ActivatedRoute, private servicePreinscripcion: PreinscripcionService) {
+  
+
+  constructor(
+    router: ActivatedRoute,
+    private servicePreinscripcion: PreinscripcionService
+  ) {
     router.params.subscribe((params) => {
       this.id = params["id"];
     });
@@ -20,19 +25,21 @@ export class InformacionequiposComponent implements OnInit {
   public formularioEquipo: any;
 
   ngOnInit(): void {
-    this.servicePreinscripcion.getPreinscripcionBuscada(this.id).subscribe((res : any)=>this.preinscripcionActual = res);
+    this.servicePreinscripcion
+      .getPreinscripcionBuscada(this.id)
+      .subscribe((res: any) => (this.preinscripcionActual = res));
   }
 
-
-  rechazarPreinscripcion($id: string){
+  rechazarPreinscripcion($id: string) {
     this.servicePreinscripcion.rechazarPreinsc(this.id);
   }
-  aceptarPreinscripcion($id: string){
+
+  aceptarPreinscripcion($id: string) {
     console.log($id);
-    this.servicePreinscripcion.aceptarPreinsc(this.id).subscribe((res : any)=>console.log('hi'));
+    this.servicePreinscripcion
+      .aceptarPreinsc(this.id)
+      .subscribe((res: any) => console.log("hi"));
   }
-
-
 
   //async fetchData(): void {}
 }

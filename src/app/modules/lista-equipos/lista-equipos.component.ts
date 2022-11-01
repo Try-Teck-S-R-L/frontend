@@ -1,11 +1,12 @@
-import { Router } from '@angular/router';
-import { EquipoI } from './../models/equipo.interface';
-import {  OnInit } from '@angular/core';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatSort, Sort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import { EquipoService } from 'src/app/services/equipo.service';
+import { Router } from "@angular/router";
+import { EquipoI } from "./../models/equipo.interface";
+import { OnInit } from "@angular/core";
+import { LiveAnnouncer } from "@angular/cdk/a11y";
+import { AfterViewInit, Component, ViewChild } from "@angular/core";
+import { MatSort, Sort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
+import { EquipoService } from "src/app/services/equipo.service";
+
 export interface PeriodicElement {
   nombreEquipo: string;
   //position: number;
@@ -13,36 +14,34 @@ export interface PeriodicElement {
   paisEquipo: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-
-];
+const ELEMENT_DATA: PeriodicElement[] = [];
 @Component({
-  selector: 'app-lista-equipos',
-  templateUrl: './lista-equipos.component.html',
-  styleUrls: ['./lista-equipos.component.css']
+  selector: "app-lista-equipos",
+  templateUrl: "./lista-equipos.component.html",
+  styleUrls: ["./lista-equipos.component.css"],
 })
+export class ListaEquiposComponent implements AfterViewInit, OnInit {
+  displayedColumns: string[] = ["name", "categoria", "pais"];
 
-export class ListaEquiposComponent implements AfterViewInit,OnInit {
-
-  displayedColumns: string[] = ['name', 'categoria', 'pais'];
-    
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaEquipos: any = [];
-  
-  
-  constructor(private _liveAnnouncer: LiveAnnouncer,private serviceEquipo: EquipoService,) {}
+
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    private serviceEquipo: EquipoService
+  ) {}
   ngOnInit(): void {
     //this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
-    this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
+    this.serviceEquipo
+      .getAllEquipos()
+      .subscribe((res: any) => (this.dataSource = new MatTableDataSource(res)));
   }
 
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
   //dataSource = new MatTableDataSource(this.listaEquipos);
 
-
-
   @ViewChild(MatSort)
-  sort: MatSort = new MatSort;
+  sort: MatSort = new MatSort();
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -55,7 +54,7 @@ export class ListaEquiposComponent implements AfterViewInit,OnInit {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
-      this._liveAnnouncer.announce('Sorting cleared');
+      this._liveAnnouncer.announce("Sorting cleared");
     }
   }
 }

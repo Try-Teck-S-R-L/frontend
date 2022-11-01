@@ -18,8 +18,11 @@
   <!--<a mat-list-item (click)="iniciarSesion('kevin@gmail', '123123123')">
     delegado Kevin
   </a>-->
-  <a mat-list-item (click)="grabar_local_storage('3')"> delegado Kevin </a>
-  <a mat-list-item href=""> delegado4 </a>
+
+  <a mat-list-item *ngFor="let url of urls; index as i" [routerLink]="url.href">
+    {{ url.titulo }}
+  </a>
+
   <a mat-list-item href="/vistaadmin"> administrador1 </a>
   <a mat-list-item href="/vistaadmin"> administrador2 </a>
   <a mat-list-item href="/vistaadmin"> administrador3 </a>
