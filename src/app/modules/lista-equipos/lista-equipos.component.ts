@@ -38,7 +38,7 @@ export class ListaEquiposComponent implements AfterViewInit, OnInit {
     });
   }
   ngOnInit(): void {
-    //this.serviceEquipo.getAllEquipos().subscribe((res : any)=>this.listaEquipos = res);
+    //this.serviceEquipo.getAllEquipos(this.id).subscribe((res : any)=>this.listaEquipos = res);
     this.serviceEquipo
       .getAllEquipos(this.id)
       .subscribe((res: any) => (this.dataSource = new MatTableDataSource(res)));

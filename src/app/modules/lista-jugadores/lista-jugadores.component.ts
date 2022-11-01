@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EquipoI } from './../models/equipo.interface';
 import {  OnInit } from '@angular/core';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
@@ -23,10 +23,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ListaJugadoresComponent implements OnInit {
   displayedColumns: string[] = ['nombreJugador', 'apellidoJugador', 'numeroCi'];
     
+  public id: string = "";
+  
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaJugadores: any = [];
 
-  constructor(private _liveAnnouncer: LiveAnnouncer,private serviceJugador: JugadorService,) {}
+  constructor(private _liveAnnouncer: LiveAnnouncer,router: ActivatedRoute, private serviceJugador: JugadorService,) {
+    router.params.subscribe((params) => {
+      this.id = params["id"];
+    });
+  }
 
   ngOnInit(): void {
     this.serviceJugador.getAllJugadores().subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
