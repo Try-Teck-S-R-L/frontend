@@ -7,10 +7,12 @@ import {
   FormBuilder,
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { DelegadoService } from "src/app/services/delegado.service";
 import { ElementolistaService } from "src/app/services/elementolista.service";
 import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import data from "../../../assets/Archivos/data.json";
+import { DelegadoI } from "../models/delegado.interface";
 import { PreinscripcionI } from "../models/preinscripcion.interface";
 import { ResponseI } from "../models/response.interface";
 
@@ -34,12 +36,15 @@ export class ReactiveFormsComponent implements OnInit {
   public listaPaises: any = [];
   public listaCategorias: any = [];
   public idDel: string = "";
+  public delegadoAct: DelegadoI[] = [];
+  public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
 
   constructor(
     router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private http: PreinscripcionService,
     private elemento: ElementolistaService,
+    private delegadoService: DelegadoService,
     private serviceEquipo: EquipoService,
     //private router: Router
   ) {
@@ -60,6 +65,8 @@ export class ReactiveFormsComponent implements OnInit {
     /*this.serviceEquipo
       .getAllEquipos()
       .subscribe((res: any) => (this.listaEquipos = res));*/
+
+    this.delegadoService.getInfoDelegado(this.idDel).subscribe((data) => (this.delegadoAct =  data));
 
     this.registerForm = this.formBuilder.group({
       nombreDelegado: [
@@ -160,4 +167,7 @@ export class ReactiveFormsComponent implements OnInit {
   get nroComprobante(): FormControl {
     return this.registerForm.get("nroComprobante") as FormControl;
   }
+
+
+
 }

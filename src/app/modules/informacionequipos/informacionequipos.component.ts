@@ -9,7 +9,7 @@ import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 })
 export class InformacionequiposComponent implements OnInit {
   public id: string = "";
-  public preinscripcionActual = { "idPreinscripcion": 17, "habilitado": 0, "nombreDelegado": "luis", "email": "luis@gmail.com", "nombreEquipo": "equipoRojo", "pais": "honduras", "numeroComprobante": "123123", "montoPago": 123, "fechaPreinscripcion": "2022-10--31 23:02:58", "idDelegado": 1, "idCategoria": 1 };
+  public preinscripcionActual = { "idPreinscripcion": '', "habilitado": '', "nombreDelegado": "", "email": "", "nombreEquipo": "", "pais": "", "numeroComprobante": "", "montoPago": '', "fechaPreinscripcion": "", "idDelegado": '', "idCategoria": '' };
 
   
 

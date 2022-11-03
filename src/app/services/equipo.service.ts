@@ -18,12 +18,6 @@ import { EquipoI } from "../modules/models/equipo.interface";
 
       const formData = new FormData();
       formData.append("idDelegado", $idDelegado);
-     /* let aux = JSON.parse( localStorage.getItem('idDelegado') || '{}' );
-    formData.append("idDelegado", aux);
-    console.log( localStorage.getItem('idDelegado') );*/
-
-
-
       return this.http.post<any[]>(this.base_url + 'api/filtrarequipos', formData);
       //return this.http.get<EquipoI[]>(this.base_url + 'api/equipos');
     }

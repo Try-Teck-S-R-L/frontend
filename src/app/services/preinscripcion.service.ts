@@ -58,5 +58,11 @@ export class PreinscripcionService {
   }
 
 
+  preinscripcionesAceptadas($idDelegado: string):Observable<any[]>{
+    const formData = new FormData();
+    formData.append('idDelegado', $idDelegado);
+    return this.http.post<any[]>(this.base_url + 'api/preinscripcionesAprobadas', formData);
+  }
+
   
 }

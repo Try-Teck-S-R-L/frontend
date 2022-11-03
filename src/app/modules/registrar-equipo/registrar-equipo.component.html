@@ -1,152 +1,144 @@
 <app-header></app-header>
 <app-navar></app-navar>
 
+{{ listaPreinscripciones | json }} -->
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Inscripción de equipo</h3>
-    
 
     <!--INPUT nombre delegado-->
     <div class="mb-3 row">
-    <label for="inputnombreDelegado" class="col-sm-2 col-form-label">Nombre delegado:</label>
-    <div class="col-sm-10">
-      <input
-        type="text"
-        ngModel
-        maxlength="50"
-        placeholder="Ingrese su nombre"
-        formControlName="nombreDelegado"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid':
-            form.nombreDelegado.invalid && form.nombreDelegado.touched
-        }"
-      />
+      <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
+        >Nombre delegado:</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          maxlength="50"
+          placeholder="Ingrese su nombre"
+          formControlName="nombreDelegado"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              form.nombreDelegado.invalid && form.nombreDelegado.touched
+          }"
+        />
 
-      <div
-        class="text-danger"
-        *ngIf="nombreDelegado.errors?.required && nombreDelegado.touched"
-      >
-        Este campo no puede estar vacio.
-      </div>
-      <div
-        class="text-danger"
-        *ngIf="
-        nombreDelegado.value != '' &&
-        nombreDelegado.invalid &&
-        nombreDelegado.touched
-        "
-      >
-        Por favor, ingrese caracteres validos
+        <div
+          class="text-danger"
+          *ngIf="nombreDelegado.errors?.required && nombreDelegado.touched"
+        >
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            nombreDelegado.value != '' &&
+            nombreDelegado.invalid &&
+            nombreDelegado.touched
+          "
+        >
+          Por favor, ingrese caracteres validos
+        </div>
       </div>
     </div>
-</div>
-<!--INPUT nombreequipo-->
+    <!--INPUT nombreequipo-->
     <div class="mb-3 row">
-    <label for="inputnombreEquipo" class="col-sm-2 col-form-label">Nombre del equipo:</label>
-    <div class="col-sm-10">
-      <input
-        type="text"
-        ngModel
-        maxlength="50"
-        placeholder="Ingrese su nombre"
-        formControlName="nombreEquipo"
-        class="form-control"
-        [ngClass]="{
-          'is-invalid':
-            form.nombreEquipo.invalid && form.nombreEquipo.touched
-        }"
-      />
+      <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
+        >Nombre del equipo:</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          maxlength="50"
+          placeholder="Ingrese su nombre"
+          formControlName="nombreEquipo"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
+          }"
+        />
 
-      <div
-        class="text-danger"
-        *ngIf="nombreEquipo.errors?.required && nombreEquipo.touched"
-      >
-        Este campo no puede estar vacio.
-      </div>
-      <div
-        class="text-danger"
-        *ngIf="
-        nombreEquipo.value != '' &&
-        nombreEquipo.invalid &&
-        nombreEquipo.touched
-        "
-      >
-        Por favor, ingrese caracteres validos
+        <div
+          class="text-danger"
+          *ngIf="nombreEquipo.errors?.required && nombreEquipo.touched"
+        >
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            nombreEquipo.value != '' &&
+            nombreEquipo.invalid &&
+            nombreEquipo.touched
+          "
+        >
+          Por favor, ingrese caracteres validos
+        </div>
       </div>
     </div>
-</div>
 
-<!--INPUT colorEquipo-->
-<div class="mb-3 row">
-  <label for="inputcolorEquipo" class="col-sm-2 col-form-label">Color de camiseta:</label>
-  <div class="col-sm-10">
+    <!--INPUT colorEquipo-->
+    <div class="mb-3 row">
+      <label for="inputcolorEquipo" class="col-sm-2 col-form-label"
+        >Color de camiseta:</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          maxlength="50"
+          placeholder="Ingrese el color de camiseta"
+          formControlName="colorEquipo"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': form.colorEquipo.invalid && form.colorEquipo.touched
+          }"
+        />
+
+        <div
+          class="text-danger"
+          *ngIf="colorEquipo.errors?.required && colorEquipo.touched"
+        >
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            colorEquipo.value != '' &&
+            colorEquipo.invalid &&
+            colorEquipo.touched
+          "
+        >
+          Por favor, ingrese caracteres validos
+        </div>
+      </div>
+    </div>
+    <!--imagen logo-->
+    <label class="form-label">Logo:</label>
     <input
-      type="text"
-      ngModel
-      maxlength="50"
-      placeholder="Ingrese el color de camiseta"
-      formControlName="colorEquipo"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid':
-          form.colorEquipo.invalid && form.colorEquipo.touched
-      }"
+      type="file"
+      name="logoEquipo"
+      id="logoEquipo"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      required
     />
+    <br /><br />
 
-    <div
-      class="text-danger"
-      *ngIf="colorEquipo.errors?.required && colorEquipo.touched"
-    >
-      Este campo no puede estar vacio.
-    </div>
-    <div
-      class="text-danger"
-      *ngIf="
-      colorEquipo.value != '' &&
-      colorEquipo.invalid &&
-      colorEquipo.touched
-      "
-    >
-      Por favor, ingrese caracteres validos
-    </div>
-  </div>
-</div>
-<!--imagen logo-->
-<label class="form-label">Logo:</label>
-<input 
-  type="file"
-  name="logoEquipo"
-  id="logoEquipo"
-  accept="image/*"
-  (change)="onFileSelected($event)"
-  required
-/>
-<br /><br />
-
-
-   
-
- 
     <!--INPUT subir-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <button
+        class="btn btn-primary mr-1"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
         Inscribir equipo
-      
       </button>
-
-
-      
     </div>
-</form>
+  </form>
 </div>
 
-
-
-
 <app-footer></app-footer>
-
-
-
-
-

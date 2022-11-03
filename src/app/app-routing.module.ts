@@ -27,7 +27,7 @@ const routes: Routes = [
     component: VistaDelegadoComponent,
   },
   {
-    path: "registrarequipo",
+    path: "registrarequipo/:id",
     component: RegistrarEquipoComponent,
   },
   {

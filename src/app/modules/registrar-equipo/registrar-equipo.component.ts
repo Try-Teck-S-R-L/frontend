@@ -15,6 +15,7 @@ import data from "../../../assets/Archivos/data.json";
 import { ResponseI } from "../models/response.interface";
 
 import { ElementolistaService } from 'src/app/services/elementolista.service';
+import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
 
 interface CountryOption {
   name: string;
@@ -37,6 +38,7 @@ export class RegistrarEquipoComponent implements OnInit {
   public listaPaises: any = [];
   public listaCategorias: any = []; 
   public idDel: string = "";
+  public listaPreinscripciones: any = [];
 
   constructor(
     router: ActivatedRoute,
@@ -44,6 +46,7 @@ export class RegistrarEquipoComponent implements OnInit {
     private http:EquipoService,
     private elemento: ElementolistaService, 
     private serviceEquipo: EquipoService,
+    private preinscripcionService: PreinscripcionService
     //private router:Router) 
   ){
       this.registerForm = formBuilder.group({});
@@ -61,11 +64,12 @@ export class RegistrarEquipoComponent implements OnInit {
     .getAllCategorias()
     .subscribe((data) => (this.listaCategorias = data));
 
-  this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
-  /*this.serviceEquipo
-  .getAllEquipos()
-  .subscribe((res: any) => (this.listaEquipos = res));*/
+    this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
+    /*this.serviceEquipo
+    .getAllEquipos()
+    .subscribe((res: any) => (this.listaEquipos = res));*/
 
+    this.preinscripcionService.preinscripcionesAceptadas(this.idDel).subscribe((data) => (this.listaPreinscripciones = data ))
 
     this.registerForm = this.formBuilder.group({
       nombreDelegado: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
