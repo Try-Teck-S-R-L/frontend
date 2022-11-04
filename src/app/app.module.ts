@@ -29,6 +29,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { InformacionequiposComponent } from "./modules/informacionequipos/informacionequipos.component";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
+import { PreinscipcionMenuComponent } from './modules/preinscipcion-menu/preinscipcion-menu.component';
+import { EquiposMenuComponent } from './modules/equipos-menu/equipos-menu.component';
+import { MiequipoComponent } from './modules/miequipo/miequipo.component';
+import { EquiposAprobadosComponent } from './modules/equipos-aprobados/equipos-aprobados.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,10 @@ import { MatCardModule } from "@angular/material/card";
     ListaJugadoresComponent,
     VistaAdministradorComponent,
     InformacionequiposComponent,
+    PreinscipcionMenuComponent,
+    EquiposMenuComponent,
+    MiequipoComponent,
+    EquiposAprobadosComponent,
   ],
   imports: [
     BrowserModule,

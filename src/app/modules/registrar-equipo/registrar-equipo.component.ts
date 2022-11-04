@@ -40,6 +40,8 @@ export class RegistrarEquipoComponent implements OnInit {
   public idDel: string = "";
   public listaPreinscripciones: any = [];
 
+
+  
   constructor(
     router: ActivatedRoute,
     private formBuilder: FormBuilder,

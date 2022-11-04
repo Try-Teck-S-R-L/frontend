@@ -1,23 +1,23 @@
 <app-header></app-header>
 <mat-grid-list cols="1" rowHeight="150px">
   <mat-grid-tile>
-    <a href="/registrarequipo/{{ id }}">
+    <a href="/preinscripcion/{{ id }}">
+      <button>Preinscribir Equipos</button>
+    </a>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <a href="/equipoaprobado/{{ id }}">
       <button>Inscribir equipos</button>
     </a>
   </mat-grid-tile>
   <mat-grid-tile>
     <a id="{{ id }}" href="/listaequipos/{{ id }}">
-      <button>Ver mi lista de equipos inscritos</button>
+      <button>Mis equipos</button>
     </a>
   </mat-grid-tile>
   <mat-grid-tile>
     <a href="/preinscripcion/{{ id }}">
-      <button>Preinscribir</button>
-    </a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <a href="/credencial">
-      <button>Credenciales</button>
+      <button>Mis Preinscripciónes</button>
     </a>
   </mat-grid-tile>
   <mat-grid-tile>

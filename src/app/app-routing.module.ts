@@ -12,7 +12,10 @@ import { RouterModule, Routes } from "@angular/router";
 import { ReactiveFormsComponent } from "./modules/reactive-forms/reactive-forms.component";
 import { InscripcionJugadorComponent } from "./modules/inscripcion-jugador/inscripcion-jugador.component";
 import { RegistrarEquipoComponent } from "./modules/registrar-equipo/registrar-equipo.component";
-
+import { EquiposMenuComponent } from "./modules/equipos-menu/equipos-menu.component";
+import { MiequipoComponent } from "./modules/miequipo/miequipo.component";
+import { PreinscipcionMenuComponent } from "./modules/preinscipcion-menu/preinscipcion-menu.component";
+import { EquiposAprobadosComponent } from "./modules/equipos-aprobados/equipos-aprobados.component";
 const routes: Routes = [
   {
     path: "preinscripcion/:id",
@@ -54,6 +57,24 @@ const routes: Routes = [
     path: "informacionequipo/:id",
     component: InformacionequiposComponent,
   },
+  {
+    path: "equiposmenu",
+    component: EquiposMenuComponent,
+  },
+  {
+    path: "preinscipcionesmenu",
+    component: PreinscipcionMenuComponent,
+  }
+  ,
+  {
+    path: "miequipo",
+    component: MiequipoComponent,
+  },
+  {
+    path: "equipoaprobado/:id",
+    component: EquiposAprobadosComponent,
+  }
+
 ];
 
 @NgModule({
