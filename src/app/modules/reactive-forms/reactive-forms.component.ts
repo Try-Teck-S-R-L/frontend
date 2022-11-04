@@ -36,8 +36,8 @@ export class ReactiveFormsComponent implements OnInit {
   public listaPaises: any = [];
   public listaCategorias: any = [];
   public idDel: string = "";
-  public delegadoAct: DelegadoI[] = [];
-  public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
+  public delegadoAct: { "nombreDelegado": "string";"correoDelegado": "string" } | undefined;
+  //public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
 
   constructor(
     router: ActivatedRoute,
@@ -69,11 +69,8 @@ export class ReactiveFormsComponent implements OnInit {
     this.delegadoService.getInfoDelegado(this.idDel).subscribe((data) => (this.delegadoAct =  data));
 
     this.registerForm = this.formBuilder.group({
-      nombreDelegado: [
-        "",
-        [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)],
-      ],
-      emailDelegado: ["", [Validators.required, Validators.email]],
+      nombreDelegado: [],
+      emailDelegado: [],
       nombreEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       paisEquipo: ["", [Validators.required]],
 

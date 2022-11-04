@@ -18,68 +18,18 @@
       <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
         >Nombre delegado:</label
       >
-      <div class="col-sm-10">
-        <input
-          type="text"
-          ngModel
-          maxlength="50"
-          placeholder="Ingrese su nombre"
-          formControlName="nombreDelegado"
-          class="form-control"
-          [ngClass]="{
-            'is-invalid':
-              form.nombreDelegado.invalid && form.nombreDelegado.touched
-          }"
-        />
-
-        <div
-          class="text-danger"
-          *ngIf="nombreDelegado.errors?.required && nombreDelegado.touched"
-        >
-          Este campo no puede estar vacio.
-        </div>
-        <div
-          class="text-danger"
-          *ngIf="
-            nombreDelegado.value != '' &&
-            nombreDelegado.invalid &&
-            nombreDelegado.touched
-          "
-        >
-          Por favor, ingresa caracteres validos
-        </div>
-      </div>
+      <label >{{ delegadoAct?.nombreDelegado }}</label>
+     
+      
     </div>
 
     <!--INPUT email-->
     <div class="mb-3 row">
       <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
+      <label >{{ delegadoAct?.correoDelegado }}</label>
       <div class="col-sm-10">
-        <input
-          type="text"
-          placeholder="Ingrese su email"
-          formControlName="emailDelegado"
-          class="form-control"
-          [ngClass]="{
-            'is-invalid':
-              form.emailDelegado.invalid && form.emailDelegado.touched
-          }"
-        />
-
-        <div
-          *ngIf="
-            (form.emailDelegado.touched && form.emailDelegado.invalid) ||
-            submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.emailDelegado.errors?.required">
-            Este campo no puede estar vacio.
-          </div>
-          <div *ngIf="form.emailDelegado.errors?.email">
-            El email debe de ser válido
-          </div>
-        </div>
+        
+        
       </div>
     </div>
 
