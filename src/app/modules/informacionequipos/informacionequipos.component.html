@@ -2,7 +2,7 @@
 
 <div class="container" style="min-width: 100%">
   <!--{{ id }}-->
-  <!--{{ preinscripcionActual | json }} -->
+  --{{ preinscripcionActual | json }} --> foto wea: {{ fotoMostrar }}
   <!--<form (ngSubmit)="onSubmit()" [formGroup]="registerForm"></form>-->
   <h1>Vista administrador</h1>
   <h3>Preinscripción</h3>
@@ -71,7 +71,10 @@
     <label class="inputmontoPago" class="col-sm-2 col-form-label"
       ><h2>Comprobante de pago:</h2></label
     >
-    <label><a href="">ver imagen</a></label>
+    <label
+      ><a [href]="[fotoMostrar]"> {{ fotoMostrar }} </a></label
+    >
+    <img [src]="fotoMostrar" />
 
     <!-- <div
         *ngIf="submitted"
