@@ -33,7 +33,6 @@ import { ResponseI } from '../modules/models/response.interface';
       
       formData.append("nombreJugador", form.nombreJugador);
       formData.append("apellidoJugador", form.apellidoJugador);
-      formData.append("categoria", form.categoria);
       formData.append("nacionalidadJugador", form.nacionalidadJugador);
       formData.append("tallaJugador", form.tallaJugador);
       formData.append("posicionJugador", form.posicionJugador);

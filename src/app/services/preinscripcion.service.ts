@@ -16,16 +16,16 @@ export class PreinscripcionService {
     let url = this.base_url + "api/preinscripciones/";
     console.log("Service log: ", form);
     const formData = new FormData();
-    formData.append("categoria", form.categoria);
-    formData.append("emailDelegado", form.emailDelegado);
-    formData.append("nombreDelegado", form.nombreDelegado);
+
+    /*formData.append("emailDelegado", form.emailDelegado);
+    formData.append("nombreDelegado", form.nombreDelegado);*/
     formData.append("fechaPreinscripcion", form.fechaPreinscripcion);
     formData.append("nombreEquipo", form.nombreEquipo);
     formData.append("paisEquipo", form.paisEquipo);
-    formData.append("numeroComprobante", form.nroComprobante);
+    formData.append("numeroComprobante", form.numeroComprobante);
     formData.append("montoPago", form.montoPago);
     formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
-    formData.append("idCategoria",form.categoria);
+    formData.append("idCategoria",form.idCategoria);
     formData.append("idDelegado", idDelegado);
     return this.http.post<ResponseI>(url, formData);
   }
@@ -35,9 +35,9 @@ export class PreinscripcionService {
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
 
-  getPreinscripcionBuscada($idpreInscripcion: string):Observable<any>{
+  getPreinscripcionBuscada($idPreinscripcion: string):Observable<any>{
     const formData = new FormData();
-    formData.append('idPreinscripcion', $idpreInscripcion);
+    formData.append('idPreinscripcion', $idPreinscripcion);
     return this.http.post<any>(this.base_url + 'api/preinscripcionBuscada', formData);
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }

@@ -1,12 +1,13 @@
 export interface PreinscripcionI {
-  idpreInscipcion:number,
-  nombreDelegado: string,
-  categoria: string,
-  emailDelegado: string,
+  idPreinscipcion:number,
   fechaPreinscripcion: string,
-  voucherPreinscripcion: File,
+  voucherPreinscripcion: string,
   nombreEquipo: string,
-  nroComprobante: string,
+  numeroComprobante: string,
   montoPago: string,
-  paisEquipo: string
+  paisEquipo: string,
+
+  idDelegado: string,
+  idCategoria: string
+
 }
