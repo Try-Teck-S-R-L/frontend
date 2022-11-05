@@ -11,7 +11,7 @@ import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser'
 export class InformacionequiposComponent implements OnInit {
   public id: string = "";
   public preinscripcionActual = { "idPreinscripcion": '', "habilitado": '', "nombreDelegado": "", "email": "", "nombreEquipo": "", "pais": "", "numeroComprobante": "", "montoPago": '', "fechaPreinscripcion": "", "idDelegado": '', "idCategoria": '', "fotoComprobante": '' };
-  public fotoMostrar= 'http://127.0.0.1:8000/fotosPerfiles/cheems-694624560_1667181351.jpg';
+  public fotoMostrar= 'http://127.0.0.1:8000/';
   
 
   constructor(
@@ -32,10 +32,13 @@ export class InformacionequiposComponent implements OnInit {
       //.subscribe((res: any) => (this.preinscripcionActual = res, this.fotoMostrar = this.sanitizer.bypassSecurityTrustResourceUrl(res.fotoComprobante)));
       .subscribe((res: any) => (this.preinscripcionActual = res,
 
-                                console.log('esta es ',this.fotoMostrar))
+                                this.fotoMostrar.concat(this.preinscripcionActual.fotoComprobante),
+                                this.fotoMostrar += res.fotoComprobante,
+                                console.log(this.fotoMostrar),
+                                console.log(res))
                                 
       );
-
+      //console.log(this.preinscripcionActual);
 
       //console.log(this.preinscripcionActual);
   }
