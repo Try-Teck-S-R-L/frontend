@@ -35,14 +35,21 @@ export class EquiposAprobadosComponent implements AfterViewInit, OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   //public listaEquipos: any = [];
   public listaPreinscripciones: any = [];
+  public idDel: string = '';
   constructor(
+    router: ActivatedRoute,
     private _liveAnnouncer: LiveAnnouncer,
     private servicePreinscricion: PreinscripcionService
-  ) {}
+  ) {
+    router.params.subscribe((params) => {
+      this.idDel = params["id"];
+    });
+  }
   ngOnInit(): void {
     //this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.listaPreinscripciones = res);
-    this.servicePreinscricion.getPreinscripciones().subscribe((res: any) => {
-      this.dataSource = new MatTableDataSource(res);
+    this.servicePreinscricion.preinscripcionesAceptadas(this.idDel).subscribe((res: any) => {
+      //this.dataSource = new MatTableDataSource(res);
+      this.listaPreinscripciones = res;
       console.log(res);
     });
     //dataSource = new MatTableDataSource(this.listaPreinscripciones);
