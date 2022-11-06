@@ -9,11 +9,11 @@ import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import { DelegadoService } from "src/app/services/delegado.service";
 export interface PeriodicElement {
-  nombreDelegado: string;
-  categoria: string;
+  nombreEquipo: string;
+  idCategoria: string;
   urlinscripcion: string;
 }const ELEMENT_DATA: PeriodicElement[] = [
-  /*{nombreEquipo: 'Hydrogen', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
+  /*{nombreEquipo: 'Hydrogen', idCategoria: '+35', urlinscripcion: 'Ver detalle'},
   {nombreEquipo: 'Helium', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
   {nombreEquipo: 'Lithium', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
   {nombreEquipo: 'Beryllium', nombreDelegado: '+35', urlequipo: 'Ver detalle'},
@@ -30,7 +30,7 @@ export interface PeriodicElement {
   styleUrls: ['./equipos-aprobados.component.css']
 })
 export class EquiposAprobadosComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ["nombreEquipo", "categoria", "urlinscripcion"];
+  displayedColumns: string[] = ["nombreEquipo", "idCategoria", "urlinscripcion"];
 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   //public listaEquipos: any = [];
@@ -48,7 +48,7 @@ export class EquiposAprobadosComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     //this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.listaPreinscripciones = res);
     this.servicePreinscricion.preinscripcionesAceptadas(this.idDel).subscribe((res: any) => {
-      //this.dataSource = new MatTableDataSource(res);
+      this.dataSource = new MatTableDataSource(res);
       this.listaPreinscripciones = res;
       console.log(res);
     });
@@ -71,7 +71,10 @@ export class EquiposAprobadosComponent implements AfterViewInit, OnInit {
       this._liveAnnouncer.announce("Sorting cleared");
     }
   }
-
+  guardarPreinscripcion($idpreInscripcion: string) {
+    let idpreInscripcion = $idpreInscripcion;
+    localStorage.setItem("idpreInscripcion", idpreInscripcion);
+  }
  
 
 }

@@ -1,3 +1,4 @@
+
 import { EquipoI } from './../models/equipo.interface';
 
 import { HostListener } from "@angular/core";
@@ -10,12 +11,16 @@ import {
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 
-import { EquipoService } from "src/app/services/equipo.service";
+
 import data from "../../../assets/Archivos/data.json";
 import { ResponseI } from "../models/response.interface";
 
 import { ElementolistaService } from 'src/app/services/elementolista.service';
-import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
+import { EquipoService } from "src/app/services/equipo.service";
+import { PreinscripcionService } from "src/app/services/preinscripcion.service";
+import { DelegadoService } from "src/app/services/delegado.service";
+
+
 
 interface CountryOption {
   name: string;
