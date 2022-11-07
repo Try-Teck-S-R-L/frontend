@@ -18,19 +18,14 @@
       <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
         >Nombre delegado:</label
       >
-      <label >{{ delegadoAct?.nombreDelegado }}</label>
-     
-      
+      <label>{{ delegadoAct?.nombreDelegado }}</label>
     </div>
 
     <!--INPUT email-->
     <div class="mb-3 row">
       <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
-      <label >{{ delegadoAct?.correoDelegado }}</label>
-      <div class="col-sm-10">
-        
-        
-      </div>
+      <label>{{ delegadoAct?.correoDelegado }}</label>
+      <div class="col-sm-10"></div>
     </div>
 
     <!--INPUT nombreequipo-->
@@ -104,10 +99,10 @@
       >
       <div class="col-sm-10">
         <select
-          name="categoria"
-          id="categoria"
+          name="idCategoria"
+          id="idCategoria"
           class="form-select form-select-sm"
-          formControlName="categoria"
+          formControlName="idCategoria"
         >
           <option value="" disabled>Seleccionar categoria</option>
           <option value="1">Mayores de 35</option>
@@ -116,11 +111,11 @@
         </select>
         <div
           *ngIf="
-            (form.categoria.touched && form.categoria.invalid) || submitted
+            (form.idCategoria.touched && form.idCategoria.invalid) || submitted
           "
           class="text-danger"
         >
-          <div *ngIf="form.categoria.errors?.required">
+          <div *ngIf="form.idCategoria.errors?.required">
             Elija una de las opciones
           </div>
         </div>

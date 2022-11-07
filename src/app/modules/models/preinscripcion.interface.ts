@@ -3,7 +3,7 @@ export interface PreinscripcionI {
   fechaPreinscripcion: string,
   voucherPreinscripcion: string,
   nombreEquipo: string,
-  numeroComprobante: string,
+  nroComprobante: string,
   montoPago: string,
   paisEquipo: string,
 

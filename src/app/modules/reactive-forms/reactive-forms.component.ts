@@ -74,7 +74,7 @@ export class ReactiveFormsComponent implements OnInit {
       nombreEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       paisEquipo: ["", [Validators.required]],
 
-      categoria: ["", [Validators.required]],
+      idCategoria: ["", [Validators.required]],
       
       nroComprobante: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       montoPago: ["", [Validators.required]],

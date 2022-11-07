@@ -22,7 +22,7 @@ export class PreinscripcionService {
     formData.append("fechaPreinscripcion", form.fechaPreinscripcion);
     formData.append("nombreEquipo", form.nombreEquipo);
     formData.append("paisEquipo", form.paisEquipo);
-    formData.append("numeroComprobante", form.numeroComprobante);
+    formData.append("nroComprobante", form.nroComprobante);
     formData.append("montoPago", form.montoPago);
     formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
     formData.append("idCategoria",form.idCategoria);
