@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<!--{{ listaEquipos | json }} -->
+{{ listaEquipos | json }}
 
 <!--<div class="container">
   <div class="row">
@@ -44,7 +44,7 @@
   </ng-container>
 -->
   <!-- Name Column -->
-  <ng-container matColumnDef="name">
+  <ng-container matColumnDef="nombreEquipo">
     <th
       mat-header-cell
       *matHeaderCellDef
@@ -74,7 +74,7 @@
     </td>
   </ng-container>
 
-  <!-- Name Column -->
+  <!-- Name Column 
   <ng-container matColumnDef="pais">
     <th
       mat-header-cell
@@ -88,12 +88,12 @@
       {{ equipo.procedenciaEquipo }}
     </td>
   </ng-container>
-
+-->
   <!-- Name Column -->
   <ng-container matColumnDef="vermas">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Ver Jugadores</th>
     <td mat-cell *matCellDef="let equipo">
-      <a [routerLink]="['/listajugadores/', equipo.idEquipo]">
+      <a [routerLink]="['/equiposmenu/', equipo.idEquipo]">
         Ver Jugadores
       </a>
     </td>
