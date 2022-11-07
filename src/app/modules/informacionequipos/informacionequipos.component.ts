@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
+import { PreinscripcionI } from "../models/preinscripcion.interface";
 
 @Component({
   selector: "app-informacionequipos",
@@ -10,7 +11,8 @@ import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser'
 })
 export class InformacionequiposComponent implements OnInit {
   public id: string = "";
-  public preinscripcionActual = { "idPreinscripcion": '', "habilitado": '', "nombreDelegado": "", "email": "", "nombreEquipo": "", "pais": "", "numeroComprobante": "", "montoPago": '', "fechaPreinscripcion": "", "idDelegado": '', "idCategoria": '', "fotoComprobante": '' };
+  public preinscripcionActual = { "idPreinscripcion": '', "fechaPreinscripcion": '', "voucherPreinscripcion": "", "nombreEquipo": "", "habilitado": "", "paisEquipo": "", "montoPago": "", "nroComprobante": '', "idDelegado": "", "idCategoria": '',"correoDelegado": '',"nombreDelegado": '',"apellidoDelegado": '', "nombreCategoria": ''};
+  //public preinscripcionActual: PreinscripcionI;
   public fotoMostrar= 'http://127.0.0.1:8000/';
   
 
@@ -32,8 +34,8 @@ export class InformacionequiposComponent implements OnInit {
       //.subscribe((res: any) => (this.preinscripcionActual = res, this.fotoMostrar = this.sanitizer.bypassSecurityTrustResourceUrl(res.fotoComprobante)));
       .subscribe((res: any) => (this.preinscripcionActual = res,
 
-                                this.fotoMostrar.concat(this.preinscripcionActual.fotoComprobante),
-                                this.fotoMostrar += res.fotoComprobante,
+                                this.fotoMostrar.concat(this.preinscripcionActual.voucherPreinscripcion),
+                                this.fotoMostrar += res.voucherPreinscripcion,
                                 console.log(this.fotoMostrar),
                                 console.log(res))
                                 
