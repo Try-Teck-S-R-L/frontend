@@ -43,7 +43,7 @@ export class RegistrarEquipoComponent implements OnInit {
   public listaPaises: any = [];
   public listaCategorias: any = []; 
   public idDel: string = "";
-  public listaPreinscripciones: any = [];
+  public preinscripcionAprob: any = '';
 
 
   
@@ -76,7 +76,7 @@ export class RegistrarEquipoComponent implements OnInit {
     .getAllEquipos()
     .subscribe((res: any) => (this.listaEquipos = res));*/
 
-    this.preinscripcionService.preinscripcionesAceptadas(this.idDel).subscribe((data) => (this.listaPreinscripciones = data ))
+    this.preinscripcionService.getDatosPreinscripcionAprobada(this.idDel).subscribe((data) => (this.preinscripcionAprob = data ))
 
     this.registerForm = this.formBuilder.group({
       nombreDelegado: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],

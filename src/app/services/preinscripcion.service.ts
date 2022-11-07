@@ -42,6 +42,14 @@ export class PreinscripcionService {
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
 
+  getDatosPreinscripcionAprobada($idPreinscripcion: string):Observable<any>{
+    const formData = new FormData();
+    formData.append('idPreinscripcion', $idPreinscripcion);
+    return this.http.post<any>(this.base_url + 'api/preinscripcion_inscribir', formData);
+    //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
+  }
+
+
 
   aceptarPreinsc($idPreinscripcion: string):Observable<any>{
     const formData = new FormData();
