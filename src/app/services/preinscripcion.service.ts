@@ -1,8 +1,12 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
 import { PreinscripcionI } from "../modules/models/preinscripcion.interface";
 import { ResponseI } from "../modules/models/response.interface";
+
+
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: "root",
@@ -17,8 +21,6 @@ export class PreinscripcionService {
     console.log("Service log: ", form);
     const formData = new FormData();
 
-    /*formData.append("emailDelegado", form.emailDelegado);
-    formData.append("nombreDelegado", form.nombreDelegado);*/
     formData.append("fechaPreinscripcion", form.fechaPreinscripcion);
     formData.append("nombreEquipo", form.nombreEquipo);
     formData.append("paisEquipo", form.paisEquipo);
@@ -27,8 +29,13 @@ export class PreinscripcionService {
     formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
     formData.append("idCategoria",form.idCategoria);
     formData.append("idDelegado", idDelegado);
-    return this.http.post<ResponseI>(url, formData);
+    return this.http.post<ResponseI>(url, formData).pipe(catchError( this.errorHandler));
   }
+
+  errorHandler(error: HttpErrorResponse){
+    return throwError(error.error.message || 'Error del server');
+  }
+
 
   getPreinscripciones():Observable<PreinscripcionI>{
     return this.http.get<PreinscripcionI>(this.base_url + 'api/preinscripciones');

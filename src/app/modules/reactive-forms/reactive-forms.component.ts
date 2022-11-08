@@ -1,3 +1,4 @@
+import { error } from "@angular/compiler/src/util";
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import {
@@ -36,6 +37,7 @@ export class ReactiveFormsComponent implements OnInit {
   public listaPaises: any = [];
   public listaCategorias: any = [];
   public idDel: string = "";
+  public mensajeError: any = [];
   public delegadoAct: { "nombreDelegado": "string";"correoDelegado": "string" } | undefined;
   //public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
 
@@ -125,14 +127,16 @@ export class ReactiveFormsComponent implements OnInit {
         voucherPreinscripcion: this.file
       }, this.idDel)
       
-      .subscribe((data) => {
+      /*.subscribe((data) => {
         let response: ResponseI = data;
         console.log("File:", this.file);
         console.log({
           ...this.registerForm.value,
           voucherPreinscripcion: this.file,
         });
-      });
+      });*/
+      .subscribe(data => console.log('nice'),
+                 error => this.mensajeError = error);
 
     // display form values on success
     alert(
