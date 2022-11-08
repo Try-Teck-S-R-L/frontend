@@ -79,11 +79,10 @@ export class RegistrarEquipoComponent implements OnInit {
     this.preinscripcionService.getDatosPreinscripcionAprobada(this.idDel).subscribe((data) => (this.preinscripcionAprob = data ))
 
     this.registerForm = this.formBuilder.group({
-      nombreDelegado: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
-      nombreEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
-      categoria: ["", [Validators.required]],
-      paisEquipo: ["", [Validators.required]],
-      colorEquipo: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+      
+      
+      colorCamisetaPrincipal: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+      colorCamisetaSecundario: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
     });
   }
 
@@ -158,13 +157,13 @@ export class RegistrarEquipoComponent implements OnInit {
     this.registerForm.clearValidators();
     this.registerForm.updateValueAndValidity();
   }
-  get nombreDelegado(): FormControl {
-    return this.registerForm.get("nombreDelegado") as FormControl;
+  
+  get colorCamisetaPrincipal(): FormControl {
+    return this.registerForm.get("colorCamisetaPrincipal") as FormControl;
   }
-  get colorEquipo(): FormControl {
-    return this.registerForm.get("colorEquipo") as FormControl;
+  get colorCamisetaSecundario(): FormControl {
+    return this.registerForm.get("colorCamisetaSecundario") as FormControl;
   }
-  get nombreEquipo(): FormControl {
-    return this.registerForm.get("nombreEquipo") as FormControl;
-  }
+  
+ 
 }

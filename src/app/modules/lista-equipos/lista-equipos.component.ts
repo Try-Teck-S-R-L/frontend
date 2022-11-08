@@ -16,10 +16,10 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-
+/*
   {nombreEquipo: 'Hydrogen', categoria: 'Hydrogen', vermas: 'Ver detalle'},
   {nombreEquipo: 'Helium', categoria: '+35', vermas: 'Ver detalle'},
-  {nombreEquipo: 'Lithium', categoria: '+35', vermas: 'Ver detalle'}
+  {nombreEquipo: 'Lithium', categoria: '+35', vermas: 'Ver detalle'}*/
 
 ];
 @Component({

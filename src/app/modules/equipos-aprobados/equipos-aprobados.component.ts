@@ -8,6 +8,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import { DelegadoService } from "src/app/services/delegado.service";
+
 export interface PeriodicElement {
   nombreEquipo: string;
   idCategoria: string;
