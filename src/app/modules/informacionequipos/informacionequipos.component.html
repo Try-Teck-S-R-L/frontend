@@ -1,12 +1,13 @@
 <app-header></app-header>
 
-<div class="container" style="min-width: 100%">
+
   <!--{{ id }}-->
-  --{{ preinscripcionActual | json }} --> foto wea: {{ fotoMostrar }}
+  <!--{{ preinscripcionActual | json }}  foto wea: {{ fotoMostrar }}-->
   <!--<form (ngSubmit)="onSubmit()" [formGroup]="registerForm"></form>-->
   <h1>Vista administrador</h1>
   <h3>Preinscripción</h3>
-  <form>
+  
+  
     <!--INPUT nombre delegado-->
 
     <!--categorias <br />s
@@ -15,68 +16,61 @@
       paises <br />
       {{ listaPaises | json }} <br />
       -->
-
-    <div class="mb-3 row">
-      <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
-        ><h2>Nombre delegado:</h2></label
-      ><label>{{ preinscripcionActual?.nombreDelegado }}</label>
-    </div>
+      <div class="container">
+      <div class="uno">
+      
+      <label type="text" name="text" class="input" >nombre del Delegado: {{ preinscripcionActual?.nombreDelegado }}</label>
+    <br><br>
 
     <!--INPUT email-->
-    <div class="mb-3 row">
-      <label for="inputemail" class="col-sm-2 col-form-label">
-        <h2>Email:</h2></label
-      >
-      <label>{{ preinscripcionActual?.correoDelegado }}</label>
-    </div>
+    
+      
+
+      <label type="text" name="text" class="input" >Email: {{ preinscripcionActual?.correoDelegado }}</label>
+      <br><br>
+    
 
     <!--INPUT nombreequipo-->
-    <div class="mb-3 row">
-      <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
-        ><h2>Nombre del equipo:</h2></label
-      ><label>{{ preinscripcionActual?.nombreEquipo }}</label>
-    </div>
+    
+      
+      <label type="text" name="text" class="input" >Nombre del equipo: {{ preinscripcionActual?.nombreEquipo }}</label>
+      <br><br>
 
     <!--INPUT PAIS-->
-    <div class="mb-3 row">
-      <label for="inputpaisEquipo" class="col-sm-2 col-form-label"
-        ><h2>Pais:</h2></label
-      >
-      <label>{{ preinscripcionActual?.paisEquipo }}</label>
-    </div>
+    
+      
+
+      <label type="text" name="text" class="input" >Pais: {{ preinscripcionActual?.paisEquipo }}</label>
+      <br><br>
+
+   
 
     <!--INPUT categorias-->
-    <div class="mb-3 row">
-      <label for="inputcategoria" class="col-sm-2 col-form-label"
-        ><h2>Categoria:</h2></label
-      ><label>{{ preinscripcionActual?.nombreCategoria }}</label>
-    </div>
+   
+     
+
+      <label type="text" name="text" class="input" >Categoria: {{ preinscripcionActual?.nombreCategoria }}</label>
+      <br><br>
 
     <!--INPUT nro de comprobante-->
-    <div class="mb-3 row">
-      <label for="inputnroComprobante" class="col-sm-2 col-form-label"
-        ><h2>Nro de comprobante de pago:</h2></label
-      ><label>{{ preinscripcionActual?.nroComprobante }}</label>
-    </div>
+    
+      
+      <label type="text" name="text" class="input" >Nro de comprobante de pago: {{ preinscripcionActual?.nroComprobante }}</label>
+      <br><br>
 
     <!--INPUT monto de pago-->
-    <div class="mb-3 row">
-      <label for="inputmontoPago" class="col-sm-2 col-form-label"
-        ><h2>Monto de pago:</h2></label
-      ><label>{{ preinscripcionActual?.montoPago }}</label>
-    </div>
+    
+      
+      <label type="text" name="text" class="input" >Monto de pago: {{ preinscripcionActual?.montoPago }}</label>
+      <br><br>
 
     <br />
     <!--imagen voucher-->
-    <label class="inputmontoPago" class="col-sm-2 col-form-label"
-      ><h2>Comprobante de pago:</h2></label
-    >
-    <label
-      ><a [href]="fotoMostrar">
-        {{ fotoMostrar }}
-      </a></label
-    >
-    <img [src]="fotoMostrar" />
+    
+    <label type="text" name="text" class="input" >Comprobante de pago: {{ fotoMostrar }} </label>
+    <br><br>
+
+    
 
     <!-- <div
         *ngIf="submitted"
@@ -88,11 +82,16 @@
       </div> -->
     <br /><br />
     <!--INPUT agregar fecha-->
-    <label class="inputmontoPago" class="col-sm-2 col-form-label"
-      ><h2>Fecha de pago:</h2></label
-    >
-    <label>{{ preinscripcionActual?.fechaPreinscripcion }}</label>
+    
+    <label type="text" name="text" class="input" >Fecha de pago: {{ preinscripcionActual?.fechaPreinscripcion }}</label>
 
+      </div>
+
+      <div class="dos">
+        <img [src]="fotoMostrar" />
+      </div>
+      </div>
+<br>
     <!--INPUT aprobar-->
     <div class="text-center">
       <button
@@ -112,7 +111,6 @@
         Denegar
       </button>
     </div>
-  </form>
-</div>
+  <br>
 
 <app-footer></app-footer>
