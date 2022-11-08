@@ -8,22 +8,28 @@
     <h3>Inscripción de equipo</h3>
 
     <!--INPUT nombre delegado-->
-    <div class="mb-3 row">
-      <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
+    <div class="inputnombreDelegado">
+      <label for="inputnombreDelegado" class="nombreDelegado col-sm-2 col-form-label"
         >Nombre delegado:</label
-      > <label>{{preinscripcionAprob?.nombreDelegado}} {{preinscripcionAprob?.apellidoDelegado}}</label>
+      > <label>{{preinscripcionAprob?.nombreDelegado}} </label>
       
     </div>
     <!--INPUT nombreequipo-->
-    <div class="mb-3 row">
-      <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
+    <div class="inputnombreEquipo">
+      <label for="inputnombreEquipo" class="nombreEquipo col-sm-2 col-form-label"
         >Nombre del equipo:</label>
       <label>{{preinscripcionAprob?.nombreEquipo}}</label>
     </div>
-
+    <!--categoria-->
+    <div class="inputcategoria">
+      <label for="inputcategoria" class="categoria col-sm-2 col-form-label"
+        >Categoria:</label
+      > <label>{{preinscripcionAprob?.nombreCategoria}} </label>
+      
+    </div>
     <!--INPUT colorEquipo-->
     <div class="mb-3 row">
-      <label for="inputcolorEquipo" class="col-sm-2 col-form-label"
+      <label for="inputcolorEquipo" class="colorEquipo col-sm-2 col-form-label"
         >Color de camiseta:</label
       >
       <div class="col-sm-10">
@@ -32,25 +38,61 @@
           ngModel
           maxlength="50"
           placeholder="Ingrese el color de camiseta"
-          formControlName="colorEquipo"
+          formControlName="colorCamisetaPrincipal"
           class="form-control"
           [ngClass]="{
-            'is-invalid': form.colorEquipo.invalid && form.colorEquipo.touched
+            'is-invalid': form.colorCamisetaPrincipal.invalid && form.colorCamisetaPrincipal.touched
           }"
         />
 
         <div
           class="text-danger"
-          *ngIf="colorEquipo.errors?.required && colorEquipo.touched"
+          *ngIf="colorCamisetaPrincipal.errors?.required && colorCamisetaPrincipal.touched"
         >
           Este campo no puede estar vacio.
         </div>
         <div
           class="text-danger"
           *ngIf="
-            colorEquipo.value != '' &&
-            colorEquipo.invalid &&
-            colorEquipo.touched
+          colorCamisetaPrincipal.value != '' &&
+          colorCamisetaPrincipal.invalid &&
+          colorCamisetaPrincipal.touched
+          "
+        >
+          Por favor, ingrese caracteres validos
+        </div>
+      </div>
+    </div>
+    <!--INPUT ALTERNATIVOcolorEquipo-->
+    <div class="mb-3 row">
+      <label for="inputcolorsecundarioEquipo" class="colorSecundario col-sm-2 col-form-label"
+        >Color de camiseta secundario:</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          maxlength="50"
+          placeholder="Ingrese el color de camiseta"
+          formControlName="colorCamisetaSecundario"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': form.colorCamisetaSecundario.invalid && form.colorCamisetaSecundario.touched
+          }"
+        />
+
+        <div
+          class="text-danger"
+          *ngIf="colorCamisetaSecundario.errors?.required && colorCamisetaSecundario.touched"
+        >
+          Este campo no puede estar vacio.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+          colorCamisetaSecundario.value != '' &&
+          colorCamisetaSecundario.invalid &&
+          colorCamisetaSecundario.touched
           "
         >
           Por favor, ingrese caracteres validos
@@ -58,7 +100,7 @@
       </div>
     </div>
     <!--imagen logo-->
-    <label class="form-label">Logo:</label>
+    <label class="logo form-label">Logo:</label>
     <input
       type="file"
       name="logoEquipo"
@@ -71,15 +113,9 @@
 
     <!--INPUT subir-->
     <div class="text-center">
-      <button
-        class="btn btn-primary mr-1"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
-      >
-        Inscribir equipo
-      </button>
-    </div>
+    <button class="btn btn-primary mr-1">Registrar</button></div>
   </form>
 </div>
 
 <app-footer></app-footer>
+

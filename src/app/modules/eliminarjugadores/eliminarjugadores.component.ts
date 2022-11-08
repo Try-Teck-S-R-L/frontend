@@ -11,18 +11,22 @@ export interface PeriodicElement {
   //position: number;
   apellidoJugador: string;
   numeroCi: number;
-  vermas: string;
+  eliminarJugador:string;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
-
-];
+  /*
+    {nombreEquipo: 'Hydrogen', categoria: 'Hydrogen', vermas: 'Ver detalle'},
+    {nombreEquipo: 'Helium', categoria: '+35', vermas: 'Ver detalle'},
+    {nombreEquipo: 'Lithium', categoria: '+35', vermas: 'Ver detalle'}*/
+  
+  ];
 @Component({
-  selector: 'app-lista-jugadores',
-  templateUrl: './lista-jugadores.component.html',
-  styleUrls: ['./lista-jugadores.component.css']
+  selector: 'app-eliminarjugadores',
+  templateUrl: './eliminarjugadores.component.html',
+  styleUrls: ['./eliminarjugadores.component.css']
 })
-export class ListaJugadoresComponent implements OnInit {
-  displayedColumns: string[] = ['nombreJugador', 'apellidoJugador', 'numeroCi','vermas'];
+export class EliminarjugadoresComponent implements AfterViewInit,OnInit {
+  displayedColumns: string[] = ['nombreJugador', 'apellidoJugador', 'numeroCi','eliminarJugador'];
     
   public id: string = "";
 
@@ -61,7 +65,7 @@ export class ListaJugadoresComponent implements OnInit {
 
 
   
-  eliminarJug($id: number){
+  eliminarJugador($id: number){
     this.serviceJugador.eliminarJugador($id).subscribe((data)=>{
       console.log("success");
   });
@@ -69,4 +73,3 @@ export class ListaJugadoresComponent implements OnInit {
   }
 
  }
-

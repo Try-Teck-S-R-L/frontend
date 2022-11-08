@@ -25,7 +25,9 @@ import { EquipoI } from "../modules/models/equipo.interface";
 
     Equipo(form:EquipoI):Observable<ResponseI>{
       let url = this.base_url + "api/equipos/"
+      
       return this.http.post<ResponseI>(url, form)
+
     }
 
     equipoXid($id: string){
