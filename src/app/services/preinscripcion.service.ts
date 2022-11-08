@@ -33,7 +33,7 @@ export class PreinscripcionService {
   }
 
   errorHandler(error: HttpErrorResponse){
-    return throwError(error.error.message || 'Error del server');
+    return throwError(error.error.errors || 'Error del server');
   }
 
 
