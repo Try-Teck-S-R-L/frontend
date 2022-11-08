@@ -1,1 +1,40 @@
-
+.container{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+h3{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+    color: rgba(243, 70, 2, 0.842);
+}
+.nombreJugador{
+    font-weight: bold; 
+}
+.apellidoJugador{
+    font-weight: bold; 
+}
+.pais{
+    font-weight: bold; 
+}
+.talla{
+    font-weight: bold; 
+}
+.posicion{
+    font-weight: bold; 
+}
+.edad{
+    font-weight: bold; 
+}
+.ci{
+    font-weight: bold; 
+}
+.nroCamiseta{
+    font-weight: bold;
+}
+.fotoJugador{
+    font-weight: bold;
+}
+.fotoCI{
+    font-weight: bold;
+}

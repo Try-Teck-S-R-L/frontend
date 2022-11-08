@@ -6,7 +6,7 @@
     <h3>Preinscripción</h3>
     <!--INPUT nombre delegado-->
 
-    {{ delegadoAct | json }}-->
+    <!--{{ delegadoAct | json }}-->
     <!--categorias <br />
     {{ listaEquipos | json }} <br />
     {{ listaCategorias | json }} <br />
@@ -14,23 +14,23 @@
     {{ listaPaises | json }} <br />
     -->
 
-    <div class="mb-3 row">
-      <label for="inputnombreDelegado" class="col-sm-2 col-form-label"
+    <div class="inputnombreDelegado">
+      <label for="inputnombreDelegado" class="nombreDelegado col-sm-2 col-form-label"
         >Nombre delegado:</label
       >
-      <label>{{delegadoAct?.nombreDelegado}} </label>
+      <label>{{ delegadoAct?.nombreDelegado }}</label>
     </div>
 
     <!--INPUT email-->
-    <div class="mb-3 row">
-      <label for="inputemail" class="col-sm-2 col-form-label"> Email:</label>
+    <div class="inputemail">
+      <label for="inputemail" class="email col-sm-2 col-form-label"> Email:</label>
       <label>{{ delegadoAct?.correoDelegado }}</label>
       <div class="col-sm-10"></div>
     </div>
 
     <!--INPUT nombreequipo-->
     <div class="mb-3 row">
-      <label for="inputnombreEquipo" class="col-sm-2 col-form-label"
+      <label for="inputnombreEquipo" class="nombreEquipo col-sm-2 col-form-label"
         >Nombre del equipo:</label
       >
       <div class="col-sm-10">
@@ -66,7 +66,7 @@
 
     <!--INPUT PAIS-->
     <div class="mb-3 row">
-      <label class="col-sm-2 col-form-label form-label">País:</label>
+      <label class="pais col-sm-2 col-form-label form-label">País:</label>
       <div class="col-sm-10">
         <select
           class="form-control"
@@ -74,7 +74,7 @@
           formControlName="paisEquipo"
           required
         >
-          <option value="" disabled selected>Seleccionar país</option>
+          <option value="" disabled>Seleccionar país</option>
           <option *ngFor="let pais of paises" [value]="pais.value">
             {{ pais.name }}
           </option>
@@ -94,7 +94,7 @@
 
     <!--INPUT Categorias-->
     <div class="mb-3 row">
-      <label for="categorias" class="col-sm-2 col-form-label form-label"
+      <label for="categorias" class="categoria col-sm-2 col-form-label form-label"
         >Categoría:</label
       >
       <div class="col-sm-10">
@@ -104,7 +104,7 @@
           class="form-select form-select-sm"
           formControlName="idCategoria"
         >
-          <option value="" disabled selected>Seleccionar categoria</option>
+          <option value="" disabled>Seleccionar categoria</option>
           <option value="1">Mayores de 35</option>
           <option value="2">Mayores de 45</option>
           <option value="3">Mayores de 55</option>
@@ -125,7 +125,7 @@
     <!--INPUT nro de comprobante-->
 
     <div class="mb-3 row">
-      <label for="nroComprobante" class="col-sm-2 col-form-label"
+      <label for="nroComprobante" class="nroComprobante col-sm-2 col-form-label"
         >Nro de comprobante de pago:</label
       >
       <div class="col-sm-10">
@@ -164,7 +164,7 @@
     <!--INPUT monto de pago-->
 
     <div class="mb-3 row">
-      <label for="montoPago" class="col-sm-2 col-form-label"
+      <label for="montoPago" class="montoPago col-sm-2 col-form-label"
         >Monto de pago:</label
       >
       <div class="col-sm-10">
@@ -191,7 +191,7 @@
     </div>
 
     <!--imagen voucher-->
-    <label class="form-label">Comprobante de pago:</label>
+    <label class="voucher form-label">Comprobante de pago:</label>
     <input
       type="file"
       name="voucherPreinscripcion"
@@ -211,7 +211,7 @@
     <br /><br />
 
     <!--INPUT agregar fecha-->
-    <label class="form-label">Fecha de pago:</label>
+    <label class="fechaPago form-label">Fecha de pago:</label>
     <input
       type="date"
       name="fechaPreinscripcion"
