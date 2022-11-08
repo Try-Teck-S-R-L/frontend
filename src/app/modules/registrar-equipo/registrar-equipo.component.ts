@@ -42,7 +42,7 @@ export class RegistrarEquipoComponent implements OnInit {
   public listaEquipos: any = [];
   public listaPaises: any = [];
   public listaCategorias: any = []; 
-  public idDel: string = "";
+  public idPreinscripcion: string = "";
   public preinscripcionAprob: any = '';
 
 
@@ -59,7 +59,7 @@ export class RegistrarEquipoComponent implements OnInit {
       this.registerForm = formBuilder.group({});
       this.paises = data.paises;
       router.params.subscribe((params) => {
-        this.idDel = params["id"];
+        this.idPreinscripcion = params["id"];
       });
     }
   
@@ -76,7 +76,7 @@ export class RegistrarEquipoComponent implements OnInit {
     .getAllEquipos()
     .subscribe((res: any) => (this.listaEquipos = res));*/
 
-    this.preinscripcionService.getDatosPreinscripcionAprobada(this.idDel).subscribe((data) => (this.preinscripcionAprob = data ))
+    this.preinscripcionService.getDatosPreinscripcionAprobada(this.idPreinscripcion).subscribe((data) => (this.preinscripcionAprob = data ))
 
     this.registerForm = this.formBuilder.group({
       
@@ -123,14 +123,16 @@ export class RegistrarEquipoComponent implements OnInit {
       .RegistrarEquipo({
         ...this.registerForm.value,
         logoEquipo: this.file,
-      }, this.idDel)
+        idPreinscripcion: this.idPreinscripcion
+      }, this.idPreinscripcion)
       .subscribe((data: ResponseI) => {
-        let response: ResponseI = data;
+        /*let response: ResponseI = data;
         console.log("File:", this.file);
         console.log({
           ...this.registerForm.value,
           logoEquipo: this.file,
-        });
+        });*/
+        console.log(data);
       });
 
     

@@ -1,15 +1,15 @@
 export interface EquipoI{
-    idEquipo: String,
+    idEquipo: string,
     //delegado_idDelegado:string,
-    nombreEquipo: String,
-    paisEquipo: String,
+    nombreEquipo: string,
+    paisEquipo: string,
     //categoria_idCategoria: String,
-    logoEquipo: String,
-    colorCamisetaPrincipal: String,
-    colorCamisetaSecundario: String,
+    logoEquipo: string,
+    colorCamisetaPrincipal: string,
+    colorCamisetaSecundario: string,
     
-    idPreinscripcion: number,
-    idDelegado: number,
+    idPreinscripcion: string,
+    idDelegado: string,
     idCategoria: number
 
 

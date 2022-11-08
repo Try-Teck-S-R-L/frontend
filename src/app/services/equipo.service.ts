@@ -10,7 +10,7 @@ import { EquipoI } from "../modules/models/equipo.interface";
   })
   export class EquipoService {
     base_url:string = 'http://localhost:8000/'
-  RegistrarEquipo: any;
+  //RegistrarEquipo: any;
   
     constructor(private http:HttpClient) { }
   
@@ -23,10 +23,20 @@ import { EquipoI } from "../modules/models/equipo.interface";
     }
 
 
-    Equipo(form:EquipoI):Observable<ResponseI>{
+    RegistrarEquipo(form:EquipoI, idPreinscripcion:string):Observable<ResponseI>{
       let url = this.base_url + "api/equipos/"
-      
-      return this.http.post<ResponseI>(url, form)
+
+      const formData  = new FormData();
+      console.log("Service log: ", form);
+      formData.append('logoEquipo', form.logoEquipo);
+      formData.append('idPreinscripcion', form.idPreinscripcion);
+      formData.append('colorCamisetaPrincipal', form.colorCamisetaPrincipal);
+      formData.append('colorCamisetaSecundario', form.colorCamisetaSecundario);
+    
+      console.log('formu')
+      console.log(JSON.stringify(formData))
+
+      return this.http.post<ResponseI>(url, formData)
 
     }
 

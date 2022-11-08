@@ -135,7 +135,7 @@ export class ReactiveFormsComponent implements OnInit {
           voucherPreinscripcion: this.file,
         });
       });*/
-      .subscribe(data => console.log('nice'),
+      .subscribe(data => console.log(data),
                  error => this.mensajeError = error);
 
     // display form values on success
