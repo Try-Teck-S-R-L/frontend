@@ -11,18 +11,24 @@ export interface PeriodicElement {
   nombreEquipo: string;
   //position: number;
   categoria: string;
-  paisEquipo: string;
+  //paisEquipo: string;
   vermas: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [];
+const ELEMENT_DATA: PeriodicElement[] = [
+
+  {nombreEquipo: 'Hydrogen', categoria: 'Hydrogen', vermas: 'Ver detalle'},
+  {nombreEquipo: 'Helium', categoria: '+35', vermas: 'Ver detalle'},
+  {nombreEquipo: 'Lithium', categoria: '+35', vermas: 'Ver detalle'}
+
+];
 @Component({
   selector: "app-lista-equipos",
   templateUrl: "./lista-equipos.component.html",
   styleUrls: ["./lista-equipos.component.css"],
 })
 export class ListaEquiposComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ["name", "categoria", "pais", "vermas"];
+  displayedColumns: string[] = ["nombreEquipo", "categoria", "vermas"];
 
   public id: string = "";
 

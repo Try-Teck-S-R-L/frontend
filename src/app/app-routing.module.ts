@@ -58,7 +58,7 @@ const routes: Routes = [
     component: InformacionequiposComponent,
   },
   {
-    path: "equiposmenu",
+    path: "equiposmenu/:id",
     component: EquiposMenuComponent,
   },
   {
