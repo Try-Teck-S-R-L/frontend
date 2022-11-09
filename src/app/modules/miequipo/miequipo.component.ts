@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 
 import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
 import { EquipoI } from '../models/equipo.interface';
+import { JugadorService } from 'src/app/services/jugador.service';
 
 @Component({
   selector: 'app-miequipo',
@@ -14,11 +15,14 @@ export class MiequipoComponent implements OnInit {
   public idEquipo: string = "";
   //public equipoActual = { "idEquipo": '', "nombreEquipo": '', "paisEquipo": "", "logoEquipo": "", "colorCamisetaPrincipal": "", "colorCamisetaSecundario": "","nombreCategoria":""};
   public equipoActual: any = '';
+  public listaJugadores: any = '';
   //public preinscripcionActual: PreinscripcionI;
   public fotoMostrar= 'http://127.0.0.1:8000/';
+
   constructor(
     router: ActivatedRoute,
     private serviceEquipo: EquipoService,
+    private serviceJugador: JugadorService,
     private sanitizer:DomSanitizer
   ) {
     router.params.subscribe((params) => {
@@ -39,6 +43,9 @@ export class MiequipoComponent implements OnInit {
                                 console.log(res))
                                 
       );
+
+      this.serviceJugador.getAllJugadores(this.idEquipo).subscribe((res : any)=>this.listaJugadores = res);
+    
       //console.log(this.preinscripcionActual);
 
       //console.log(this.preinscripcionActual);
