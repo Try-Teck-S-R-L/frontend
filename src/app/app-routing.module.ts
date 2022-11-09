@@ -82,11 +82,11 @@ const routes: Routes = [
     component: EliminarjugadoresComponent,
   } ,
   {
-    path: "credencialinterna",
+    path: "credencialinterna/:id",
     component: CredencialesInternasComponent,
   }
 
-];
+];    
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
