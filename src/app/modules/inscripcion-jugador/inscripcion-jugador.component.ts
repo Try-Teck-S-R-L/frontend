@@ -7,7 +7,7 @@ import {
   Validators,
   FormBuilder,
 } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ElementolistaService } from "src/app/services/elementolista.service";
 import { EquipoService } from "src/app/services/equipo.service";
 import { JugadorService } from "src/app/services/jugador.service";
@@ -30,6 +30,7 @@ export class InscripcionJugadorComponent implements OnInit {
   public paises: CountryOption[] = [];
   private idPhoto: File | null = null;
   private profilePhoto: File | null = null;
+  public idEquipo: string = '';
 
   public listaTallas: any = [];
   public listaPaises: any = [];
@@ -40,10 +41,13 @@ export class InscripcionJugadorComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: JugadorService,
     private elemento: ElementolistaService,
-    private router: Router
+    private router: ActivatedRoute
   ) {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
+    router.params.subscribe((params) => {
+      this.idEquipo = params["id"];
+    });
   }
 
   ngOnInit() {
@@ -97,24 +101,26 @@ export class InscripcionJugadorComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.registerForm.invalid) {
+    /*if (this.registerForm.invalid) {
       return;
-    }
+    }*/
 
     this.http
       .jugador({
         ...this.registerForm.value,
         fotoPerfilJugador: this.profilePhoto,
         fotoCiJugador: this.idPhoto,
-      })
+      }, this.idEquipo)
+      //.getAllJugadores(this.idEquipo)
 
       .subscribe((data) => {
-        let response: ResponseI = data;
+        /*let response: ResponseI = data;
         console.log({
           ...this.registerForm.value,
           fotoPerfilJugador: this.profilePhoto,
           fotoCiJugador: this.idPhoto,
-        });
+        });*/
+        console.log(data)
       });
 
     // display form values on success

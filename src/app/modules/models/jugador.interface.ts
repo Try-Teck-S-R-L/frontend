@@ -1,6 +1,6 @@
 export interface JugadorI{
   
-    ciJugador:number,
+    ciJugador:string,
     nombreJugador: string,
     apellidoJugador: string,
     numeroCamiseta: string,
@@ -11,7 +11,7 @@ export interface JugadorI{
     posicionJugador: string,
     tallaJugador: string,
 
-    idEquipo: number
+    idEquipo: string
     //created_at: string,
     //updated_at: string
 

@@ -26,11 +26,12 @@ import { ResponseI } from '../modules/models/response.interface';
       return this.http.delete(this.base_url+"api/jugador/"+$id);
     }
 
-    jugador(form: JugadorI): Observable<ResponseI> {
+    jugador(form: JugadorI, idEquipo: string): Observable<ResponseI> {
       let url = this.base_url + "api/jugador/";
       console.log("Service log: ", form);
       const formData = new FormData();
       
+      formData.append("ciJugador", form.ciJugador);
       formData.append("nombreJugador", form.nombreJugador);
       formData.append("apellidoJugador", form.apellidoJugador);
       formData.append("nacionalidadJugador", form.nacionalidadJugador);
@@ -40,8 +41,9 @@ import { ResponseI } from '../modules/models/response.interface';
       formData.append("edadJugador", form.edadJugador);
       
       formData.append("fotoPerfilJugador", form.fotoPerfilJugador);
-
       formData.append("fotoCiJugador", form.fotoCiJugador);
+
+      formData.append('idEquipo', idEquipo)
       return this.http.post<ResponseI>(url, formData);
     }
   }
