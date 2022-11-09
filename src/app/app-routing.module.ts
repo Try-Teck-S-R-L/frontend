@@ -17,7 +17,7 @@ import { MiequipoComponent } from "./modules/miequipo/miequipo.component";
 import { PreinscipcionMenuComponent } from "./modules/preinscipcion-menu/preinscipcion-menu.component";
 import { EquiposAprobadosComponent } from "./modules/equipos-aprobados/equipos-aprobados.component";
 import { EliminarjugadoresComponent } from "./modules/eliminarjugadores/eliminarjugadores.component";
-
+import { CredencialesInternasComponent } from "./modules/credenciales-internas/credenciales-internas.component";
 
 const routes: Routes = [
   {
@@ -80,6 +80,10 @@ const routes: Routes = [
   {
     path: "eliminarjugador/:id",
     component: EliminarjugadoresComponent,
+  } ,
+  {
+    path: "credencialinterna",
+    component: CredencialesInternasComponent,
   }
 
 ];
