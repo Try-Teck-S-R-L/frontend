@@ -17,7 +17,7 @@ export class MiequipoComponent implements OnInit {
   public equipoActual: any = '';
   public listaJugadores: any = '';
   //public preinscripcionActual: PreinscripcionI;
-  public fotoMostrar= 'http://127.0.0.1:8000/';
+  public fotoMostrar= '';
 
   constructor(
     router: ActivatedRoute,
