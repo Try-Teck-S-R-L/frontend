@@ -11,8 +11,9 @@ import { EquipoI } from '../models/equipo.interface';
   styleUrls: ['./miequipo.component.css']
 })
 export class MiequipoComponent implements OnInit {
-  public id: string = "";
-  public equipoActual = { "idEquipo": '', "nombreEquipo": '', "paisEquipo": "", "logoEquipo": "", "colorCamisetaPrincipal": "", "colorCamisetaSecundario": "","nombreCategoria":""};
+  public idEquipo: string = "";
+  //public equipoActual = { "idEquipo": '', "nombreEquipo": '', "paisEquipo": "", "logoEquipo": "", "colorCamisetaPrincipal": "", "colorCamisetaSecundario": "","nombreCategoria":""};
+  public equipoActual: any = '';
   //public preinscripcionActual: PreinscripcionI;
   public fotoMostrar= 'http://127.0.0.1:8000/';
   constructor(
@@ -21,13 +22,14 @@ export class MiequipoComponent implements OnInit {
     private sanitizer:DomSanitizer
   ) {
     router.params.subscribe((params) => {
-      this.id = params["id"];
+      this.idEquipo = params["id"];
     });
   }
 
   ngOnInit(): void {
     this.serviceEquipo
-      .getAllEquipos(this.id)
+      //.getAllEquipos(this.id)
+      .getEquipoXid(this.idEquipo)
       //.subscribe((res: any) => (this.preinscripcionActual = res, this.fotoMostrar = this.sanitizer.bypassSecurityTrustResourceUrl(res.fotoComprobante)));
       .subscribe((res: any) => (this.equipoActual = res,
 

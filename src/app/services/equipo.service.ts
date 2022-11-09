@@ -40,8 +40,16 @@ import { EquipoI } from "../modules/models/equipo.interface";
 
     }
 
-    equipoXid($id: string){
+    equipoXid($idEquipo: string){
       let url = this.base_url + "api/equipos/"
     }
 
+    getEquipoXid(idEquipo: string): Observable<ResponseI>{
+      let url = this.base_url + "api/equipoId/"
+
+      const formData  = new FormData();
+      formData.append('idEquipo', idEquipo);
+
+      return this.http.post<ResponseI>(url, formData);
+    }
   }
