@@ -34,6 +34,7 @@ import { EquiposMenuComponent } from './modules/equipos-menu/equipos-menu.compon
 import { MiequipoComponent } from './modules/miequipo/miequipo.component';
 import { EquiposAprobadosComponent } from './modules/equipos-aprobados/equipos-aprobados.component';
 import { EliminarjugadoresComponent } from './modules/eliminarjugadores/eliminarjugadores.component';
+import { CredencialesInternasComponent } from './modules/credenciales-internas/credenciales-internas.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { EliminarjugadoresComponent } from './modules/eliminarjugadores/eliminar
     MiequipoComponent,
     EquiposAprobadosComponent,
     EliminarjugadoresComponent,
+    CredencialesInternasComponent,
   ],
   imports: [
     BrowserModule,
