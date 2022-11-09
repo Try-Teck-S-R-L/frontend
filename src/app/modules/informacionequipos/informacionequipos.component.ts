@@ -13,7 +13,7 @@ export class InformacionequiposComponent implements OnInit {
   public id: string = "";
   public preinscripcionActual = { "idPreinscripcion": '', "fechaPreinscripcion": '', "voucherPreinscripcion": "", "nombreEquipo": "", "habilitado": "", "paisEquipo": "", "montoPago": "", "nroComprobante": '', "idDelegado": "", "idCategoria": '',"correoDelegado": '',"nombreDelegado": '',"apellidoDelegado": '', "nombreCategoria": ''};
   //public preinscripcionActual: PreinscripcionI;
-  public fotoMostrar= 'http://127.0.0.1:8000/';
+  public fotoMostrar= '';
   
 
   constructor(
