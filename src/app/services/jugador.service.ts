@@ -21,9 +21,17 @@ import { ResponseI } from '../modules/models/response.interface';
       return this.http.post<JugadorI[]>(this.base_url + "api/buscarjugadores", formData);
     }
 
-    eliminarJugador($id:number){
+    eliminarJugador(ciJugador:number):Observable<JugadorI>{
 
-      return this.http.delete(this.base_url+"api/jugador/"+$id);
+
+      console.log(ciJugador);
+      const formData = new FormData();
+      
+      var aux = ciJugador+'';
+      formData.append("ciJugador", aux);
+
+      console.log(aux);
+      return this.http.post<JugadorI>(this.base_url+"api/borrarJugador", formData);
     }
 
     jugador(form: JugadorI, idEquipo: string): Observable<ResponseI> {

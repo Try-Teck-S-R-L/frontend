@@ -66,6 +66,7 @@ export class EliminarjugadoresComponent implements AfterViewInit,OnInit {
 
   
   eliminarJugador($id: number){
+
     this.serviceJugador.eliminarJugador($id).subscribe((data)=>{
       console.log("success");
   });

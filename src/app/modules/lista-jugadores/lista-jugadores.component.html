@@ -125,12 +125,7 @@
         Eliminar jugador
       </th>
       <td mat-cell *matCellDef="let jugador">
-        <a
-          [routerLink]="['/listajugadores/', jugador.idEquipo]"
-          (click)="eliminarJug(jugador.id)"
-        >
-          eliminar
-        </a>
+        <a [routerLink]="['/listajugadores/', jugador.idEquipo]"> eliminar </a>
       </td>
     </ng-container>
 
@@ -139,6 +134,5 @@
   </table>
 
   <br />
-  
 </body>
 <app-footer> </app-footer>

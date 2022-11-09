@@ -61,12 +61,12 @@ export class ListaJugadoresComponent implements OnInit {
 
 
   
-  eliminarJug($id: number){
+  /*eliminarJug($id: number){
     this.serviceJugador.eliminarJugador($id).subscribe((data)=>{
       console.log("success");
   });
     console.log($id);
-  }
+  }*/
 
  }
 
