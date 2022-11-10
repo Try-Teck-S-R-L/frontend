@@ -6,33 +6,36 @@ jugadores: <br />
 <div class="container">
   <div class="uno">
     <label type="text" name="text" class="input"
-      >Nombre del delegado: {{ equipoActual?.nombreEquipo }}</label
-    >
-    <br /><br />
-    <label type="text" name="text" class="input"
-      >Nombre del equipo: {{ equipoActual?.paisEquipo }}</label
-    >
-    <br /><br />
-    <label type="text" name="text" class="input"
-      >Nombre del equipo: {{ equipoActual?.nombreCategoria }}</label
-    >
-    <br /><br />
-    <label type="text" name="text" class="input"
       >Nombre del equipo: {{ equipoActual?.nombreEquipo }}</label
     >
     <br /><br />
     <label type="text" name="text" class="input"
-      >Nombre del equipo: {{ equipoActual?.nombreEquipo }}</label
+      >Nombre del equipo: {{ equipoActual?.nombreDelegado }}</label
     >
     <br /><br />
     <label type="text" name="text" class="input"
-      >Nombre del equipo: {{ equipoActual?.nombreEquipo }}</label
+      >Categoria del equipo: {{ equipoActual?.nombreCategoria }}</label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Pais del equipo: {{ equipoActual?.paisEquipo }}</label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Color del equipo: {{ equipoActual?.colorCamisetaPrincipal }}</label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Color alternativo del equipo: {{ equipoActual?.colorCamisetaSecundario }}</label
     >
     <br /><br />
   </div>
   <div class="tres">
-    <label type="text" name="text" class="input">Nombre del equipo</label>
+    <img [src]="fotoMostrar"/>
+    <label type="text" name="text" class="input"
+      >Logo del equipo</label
+    >
   </div>
 </div>
-
+<br>
 <app-footer></app-footer>
