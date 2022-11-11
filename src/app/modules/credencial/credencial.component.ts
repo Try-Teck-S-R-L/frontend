@@ -50,6 +50,7 @@ export class CredencialComponent implements OnInit {
       background: 'white',
       scale: 3
     };
+    
     html2canvas(DATA, options).then((canvas) => {
 
       const img = canvas.toDataURL('image/PNG');
