@@ -17,7 +17,7 @@
       <label
         for="inputnombreJugador"
         class="nombreJugador col-sm-2 col-form-label"
-        >Nombre:</label
+        >Nombres:</label
       >
       <div class="col-sm-10">
         <input
@@ -37,7 +37,7 @@
           class="text-danger"
           *ngIf="nombreJugador.errors?.required && nombreJugador.touched"
         >
-          Este campo no puede estar vacio.
+          Este campo no puede estar vacío.
         </div>
         <div
           class="text-danger"
@@ -47,7 +47,7 @@
             nombreJugador.touched
           "
         >
-          Por favor, ingrese caracteres validos
+          Por favor, ingrese caracteres válidos
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
       <label
         for="inputapellidoJugador"
         class="apellidoJugador col-sm-2 col-form-label"
-        >Apellido:</label
+        >Apellidos:</label
       >
       <div class="col-sm-10">
         <input
@@ -76,7 +76,7 @@
           class="text-danger"
           *ngIf="apellidoJugador.errors?.required && apellidoJugador.touched"
         >
-          Este campo no puede estar vacio.
+          Este campo no puede estar vacío.
         </div>
         <div
           class="text-danger"
@@ -86,7 +86,7 @@
             apellidoJugador.touched
           "
         >
-          Por favor, ingrese caracteres validos
+          Por favor, ingrese caracteres válidos
         </div>
       </div>
     </div>
@@ -203,7 +203,7 @@
           class="text-danger"
         >
           <div *ngIf="form.edadJugador.errors?.required">
-            Este campo no puede estar vacio.
+            Este campo no puede estar vacío.
           </div>
         </div>
       </div>
@@ -229,7 +229,7 @@
           class="text-danger"
         >
           <div *ngIf="form.ciJugador.errors?.required">
-            Este campo no puede estar vacio.
+            Este campo no puede estar vacío.
           </div>
         </div>
       </div>
@@ -259,7 +259,7 @@
           class="text-danger"
         >
           <div *ngIf="form.numeroCamiseta.errors?.required">
-            Este campo no puede estar vacio.
+            Este campo no puede estar vacío.
           </div>
         </div>
       </div>
