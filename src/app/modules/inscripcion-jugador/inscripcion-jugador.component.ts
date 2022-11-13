@@ -1,6 +1,8 @@
 import { JugadorI } from "./../models/jugador.interface";
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
+import {Location} from '@angular/common';
+
 import {
   FormGroup,
   FormControl,
@@ -41,7 +43,10 @@ export class InscripcionJugadorComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: JugadorService,
     private elemento: ElementolistaService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private routerView: Router,
+    private activatedRoute: ActivatedRoute,
+    private _location: Location
   ) {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
@@ -120,7 +125,11 @@ export class InscripcionJugadorComponent implements OnInit {
           fotoPerfilJugador: this.profilePhoto,
           fotoCiJugador: this.idPhoto,
         });*/
-        console.log(data)
+        console.log(data),
+        //this._location.back();
+        //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { skipLocationChange: true });
+        this.routerView.navigate(['equiposmenu/'+this.idEquipo], { replaceUrl: true });
+        //this.routerView.navigate([this._location.back()], { replaceUrl: true });
       });
 
     // display form values on success

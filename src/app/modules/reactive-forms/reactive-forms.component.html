@@ -82,7 +82,7 @@
           formControlName="paisEquipo"
           required
         >
-          <option value="" disabled>Seleccionar país</option>
+          <option value="" disabled selected>Seleccionar país</option>
           <option *ngFor="let pais of paises" [value]="pais.value">
             {{ pais.name }}
           </option>
@@ -114,7 +114,7 @@
           class="form-select form-select-sm"
           formControlName="idCategoria"
         >
-          <option value="" disabled>Seleccionar categoria</option>
+          <option value="" disabled selected>Seleccionar categoria</option>
           <option value="1">Mayores de 35</option>
           <option value="2">Mayores de 45</option>
           <option value="3">Mayores de 55</option>
