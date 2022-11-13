@@ -44,7 +44,7 @@ export class RegistrarEquipoComponent implements OnInit {
   public listaCategorias: any = []; 
   public idPreinscripcion: string = "";
   public preinscripcionAprob: any = '';
-
+  public mensajeError: string = '';
 
   
   constructor(
@@ -113,7 +113,7 @@ export class RegistrarEquipoComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+    this.mensajeError = '';
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
@@ -125,15 +125,10 @@ export class RegistrarEquipoComponent implements OnInit {
         logoEquipo: this.file,
         idPreinscripcion: this.idPreinscripcion
       }, this.idPreinscripcion)
-      .subscribe((data: ResponseI) => {
-        /*let response: ResponseI = data;
-        console.log("File:", this.file);
-        console.log({
-          ...this.registerForm.value,
-          logoEquipo: this.file,
-        });*/
-        console.log(data);
-      });
+      .subscribe(error => {
+        if(error != null){
+          this.mensajeError = error[0]
+        }; console.log(error)});
 
     
 
