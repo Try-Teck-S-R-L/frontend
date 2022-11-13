@@ -111,6 +111,7 @@ export class ReactiveFormsComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.mensajeError = '';
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
@@ -135,8 +136,11 @@ export class ReactiveFormsComponent implements OnInit {
           voucherPreinscripcion: this.file,
         });
       });*/
-      .subscribe(data => console.log(data),
-                 error => this.mensajeError = error);
+      .subscribe(//data => console.log(data),
+                 error => {
+                  if(error != null){
+                    this.mensajeError = error[0]
+                  }; console.log(error)});
 
     // display form values on success
     alert(
