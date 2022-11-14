@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-navar></app-navar>
+
 
 {{ preinscripcionAprob | json }} -->
 
@@ -56,13 +56,14 @@
         />
 
         <div
-          class="text-danger"
           *ngIf="
-            colorCamisetaPrincipal.errors?.required &&
-            colorCamisetaPrincipal.touched
+            (form.colorCamisetaPrincipal.touched && form.colorCamisetaPrincipal.invalid) || submitted
           "
+          class="text-danger"
         >
-          Este campo no puede estar vacío.
+          <div *ngIf="form.colorCamisetaPrincipal.errors?.required">
+            no puede estar vacio
+          </div>
         </div>
         <div
           class="text-danger"
@@ -99,13 +100,14 @@
         />
 
         <div
-          class="text-danger"
           *ngIf="
-            colorCamisetaSecundario.errors?.required &&
-            colorCamisetaSecundario.touched
+            (form.colorCamisetaSecundario.touched && form.colorCamisetaSecundario.invalid) || submitted
           "
+          class="text-danger"
         >
-          Este campo no puede estar vacío.
+          <div *ngIf="form.colorCamisetaSecundario.errors?.required">
+            no puede estar vacio
+          </div>
         </div>
         <div
           class="text-danger"
@@ -133,7 +135,28 @@
 
     <!--INPUT subir-->
     <div class="text-center">
-      <button class="btn btn-primary mr-1">Registrar</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Registrar
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminar jugador</h1>
+             
+            </div>
+            <div class="modal-body">
+             Su preinscripcion esta realizada
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button class="btn btn-primary mr-1" (click)="Home()">aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </div>

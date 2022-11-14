@@ -54,7 +54,8 @@ export class RegistrarEquipoComponent implements OnInit {
     private elemento: ElementolistaService, 
     private serviceEquipo: EquipoService,
     private preinscripcionService: PreinscripcionService,
-    private _location: Location
+    
+    private location: Location
     //private router:Router) 
   ){
       this.registerForm = formBuilder.group({});
@@ -111,9 +112,24 @@ export class RegistrarEquipoComponent implements OnInit {
   get form() {
     return this.registerForm.controls;
   }
-
+  Home(): void {
+    window.location.reload();
+}
   onSubmit() {
     this.submitted = true;
+
+
+    this.submitted = true;
+
+
+    if (this.registerForm.valid) {
+      console.log("Form Submitted!");
+
+      this.location.back();
+      
+    }
+
+
     this.mensajeError = '';
     // stop here if form is invalid
     if (this.registerForm.invalid) {
@@ -138,9 +154,7 @@ export class RegistrarEquipoComponent implements OnInit {
 
 
     // display form values on success
-    alert(
-      "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
-    );
+    
   }
   onFileSelected(event: any) {
     const file: File = event.target.files[0];

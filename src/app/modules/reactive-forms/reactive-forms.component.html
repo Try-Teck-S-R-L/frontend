@@ -51,10 +51,14 @@
           }"
         />
         <div
+          *ngIf="
+            (form.nombreEquipo.touched && form.nombreEquipo.invalid) || submitted
+          "
           class="text-danger"
-          *ngIf="nombreEquipo.errors?.required && nombreEquipo.touched"
         >
-          Este campo no puede estar vacío.
+          <div *ngIf="form.nombreEquipo.errors?.required">
+            no puede estar vacio
+          </div>
         </div>
         <div
           class="text-danger"
@@ -143,18 +147,20 @@
           placeholder="Ingrese el nro de comprobante de pago"
           formControlName="nroComprobante"
           class="form-control"
-          [ngClass]="{
-            'is-invalid':
-              form.nroComprobante.invalid && form.nroComprobante.touched
-          }"
+          
         />
 
         <div
+          *ngIf="
+            (form.nroComprobante.touched && form.nroComprobante.invalid) || submitted
+          "
           class="text-danger"
-          *ngIf="nroComprobante.errors?.required && nroComprobante.touched"
         >
-          Este campo no puede estar vacío.
+          <div *ngIf="form.nroComprobante.errors?.required">
+            no puede estar vacio
+          </div>
         </div>
+
         <div
           class="text-danger"
           *ngIf="
@@ -253,7 +259,7 @@
        Su preinscripcion esta realizada
       </div>
       <div class="modal-footer">
-        
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button class="btn btn-primary mr-1" >aceptar</button>
       </div>
     </div>

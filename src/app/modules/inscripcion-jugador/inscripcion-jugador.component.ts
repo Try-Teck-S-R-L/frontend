@@ -105,6 +105,7 @@ export class InscripcionJugadorComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    
     this.mensajeError = '';
 
 
@@ -127,7 +128,7 @@ export class InscripcionJugadorComponent implements OnInit {
         }; console.log(error)});
         //this._location.back();
         //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { skipLocationChange: true });
-        this.routerView.navigate(['equiposmenu/'+this.idEquipo], { replaceUrl: true });
+        //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { replaceUrl: true });
         //this.routerView.navigate([this._location.back()], { replaceUrl: true });
 
 

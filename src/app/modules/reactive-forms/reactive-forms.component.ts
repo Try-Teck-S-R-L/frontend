@@ -52,7 +52,7 @@ export class ReactiveFormsComponent implements OnInit {
     private elemento: ElementolistaService,
     private delegadoService: DelegadoService,
     private serviceEquipo: EquipoService,
-    private _location: Location
+    private location: Location
     //private router: Router
   ) {
     this.registerForm = formBuilder.group({});
@@ -85,7 +85,7 @@ export class ReactiveFormsComponent implements OnInit {
       
       nroComprobante: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       montoPago: ["50", [Validators.required]],
-      fechaPreinscripcion: ["2023-01-01", [Validators.required]],
+      fechaPreinscripcion: ["2022-08-01", [Validators.required]],
     });
   }
 
@@ -113,8 +113,19 @@ export class ReactiveFormsComponent implements OnInit {
   get form() {
     return this.registerForm.controls;
   }
-
+  
   onSubmit() {
+
+    this.submitted = true;
+
+
+    if (this.registerForm.valid) {
+      console.log("Form Submitted!");
+
+      this.location.back();
+    }
+
+    
     this.submitted = true;
     this.mensajeError = '';
 
