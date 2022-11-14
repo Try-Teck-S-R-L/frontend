@@ -85,4 +85,5 @@ export class PreinscripcionService {
     return this.http.post<any[]>(this.base_url + 'api/preinscripcionesDelegado', formData);
   }
   
+  
 }

@@ -8,13 +8,22 @@ import { ActivatedRoute } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  
+  estado: string;
+ 
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-
+  { name: 'Hydrogen', estado: 'Hsd'},
+  { name: 'Helium', estado:'He'},
+  { name: 'Lithium', estado: 'Li'},
+  { name: 'Beryllium', estado:'Be'},
+  { name: 'Boron', estado:  'B'},
+  { name: 'Carbon', estado:  'C'},
+  { name: 'Nitrogen', estado: 'N'},
+  { name: 'Oxygen', estado: 'O'},
+  {name: 'Fluorine', estado: 'F'},
+  { name: 'Neon', estado: 'Ne'},
 ];
 @Component({
   selector: 'app-lista-preinscripcion-delegado',
@@ -23,7 +32,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ListaPreinscripcionDelegadoComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = [ 'name', 'estado'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public idDelegado: string = "";
 

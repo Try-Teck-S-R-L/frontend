@@ -1,0 +1,33 @@
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "uno . dos"
+      ". tres ."
+      ". . .";
+  }
+  
+  .uno { grid-area: uno; }
+  
+  .dos { grid-area: dos; }
+  
+  .tres { grid-area: tres; }
+  /*botnes*/
+  button {
+    font-size: 2rem;
+    padding: 10% 22%;
+    background-color: #000;
+    border: 15px solid rgb(255, 176, 7);
+    border-radius: 1em;
+    color: #fff;
+    font-weight: bolder;
+    transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
+    box-shadow: -5px 5px 0px 0px rgb(255, 166, 0);
+    margin-top: 15%;
+  }
+  
+  button:hover {
+    transform: translate(5px, -5px);
+  }
