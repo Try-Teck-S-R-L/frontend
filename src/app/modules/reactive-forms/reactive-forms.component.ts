@@ -38,7 +38,7 @@ export class ReactiveFormsComponent implements OnInit {
   public listaCategorias: any = [];
   public idDel: string = "";
   public mensajeError: string = '';
-  public delegadoAct: { "nombreDelegado": "string";"correoDelegado": "string" } | undefined;
+  public delegadoAct: { "nombreDelegado": "string";"apellidoDelegado" : "string" ;"correoDelegado": "string" } | undefined;
   //public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
 
   constructor(

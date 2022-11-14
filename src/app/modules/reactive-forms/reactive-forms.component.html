@@ -9,12 +9,6 @@
     <!-- {{ delegadoAct | json }}
     {{ mensajeError | json }}-->
     {{ mensajeError }}
-    <!--categorias <br />
-    {{ listaEquipos | json }} <br />
-    {{ listaCategorias | json }} <br />
-    paises <br />
-    {{ listaPaises | json }} <br />
-    -->
 
     <div class="inputnombreDelegado">
       <label
@@ -22,7 +16,10 @@
         class="nombreDelegado col-sm-2 col-form-label"
         >Nombre delegado:</label
       >
-      <label>{{ delegadoAct?.nombreDelegado }}</label>
+      <label
+        >{{ delegadoAct?.nombreDelegado }}
+        {{ delegadoAct?.apellidoDelegado }}</label
+      >
     </div>
 
     <!--INPUT email-->

@@ -9,23 +9,31 @@
 
     <!--INPUT nombre delegado-->
     <div class="inputnombreDelegado">
-      <label for="inputnombreDelegado" class="nombreDelegado col-sm-2 col-form-label"
+      <label
+        for="inputnombreDelegado"
+        class="nombreDelegado col-sm-2 col-form-label"
         >Nombre delegado:</label
-      > <label>{{preinscripcionAprob?.nombreDelegado}} </label>
-      
+      >
+      <label
+        >{{ preinscripcionAprob?.nombreDelegado }}
+        {{ preinscripcionAprob?.apellidoDelegado }}
+      </label>
     </div>
     <!--INPUT nombreequipo-->
     <div class="inputnombreEquipo">
-      <label for="inputnombreEquipo" class="nombreEquipo col-sm-2 col-form-label"
-        >Nombre del equipo:</label>
-      <label>{{preinscripcionAprob?.nombreEquipo}}</label>
+      <label
+        for="inputnombreEquipo"
+        class="nombreEquipo col-sm-2 col-form-label"
+        >Nombre del equipo:</label
+      >
+      <label>{{ preinscripcionAprob?.nombreEquipo }}</label>
     </div>
     <!--categoria-->
     <div class="inputcategoria">
       <label for="inputcategoria" class="categoria col-sm-2 col-form-label"
         >Categoria:</label
-      > <label>{{preinscripcionAprob?.nombreCategoria}} </label>
-      
+      >
+      <label>{{ preinscripcionAprob?.nombreCategoria }} </label>
     </div>
     <!--INPUT colorEquipo-->
     <div class="mb-3 row">
@@ -41,22 +49,27 @@
           formControlName="colorCamisetaPrincipal"
           class="form-control"
           [ngClass]="{
-            'is-invalid': form.colorCamisetaPrincipal.invalid && form.colorCamisetaPrincipal.touched
+            'is-invalid':
+              form.colorCamisetaPrincipal.invalid &&
+              form.colorCamisetaPrincipal.touched
           }"
         />
 
         <div
           class="text-danger"
-          *ngIf="colorCamisetaPrincipal.errors?.required && colorCamisetaPrincipal.touched"
+          *ngIf="
+            colorCamisetaPrincipal.errors?.required &&
+            colorCamisetaPrincipal.touched
+          "
         >
           Este campo no puede estar vacío.
         </div>
         <div
           class="text-danger"
           *ngIf="
-          colorCamisetaPrincipal.value != '' &&
-          colorCamisetaPrincipal.invalid &&
-          colorCamisetaPrincipal.touched
+            colorCamisetaPrincipal.value != '' &&
+            colorCamisetaPrincipal.invalid &&
+            colorCamisetaPrincipal.touched
           "
         >
           Por favor, ingrese caracteres válidos
@@ -65,7 +78,9 @@
     </div>
     <!--INPUT ALTERNATIVOcolorEquipo-->
     <div class="mb-3 row">
-      <label for="inputcolorsecundarioEquipo" class="colorSecundario col-sm-2 col-form-label"
+      <label
+        for="inputcolorsecundarioEquipo"
+        class="colorSecundario col-sm-2 col-form-label"
         >Color de camiseta secundario:</label
       >
       <div class="col-sm-10">
@@ -77,22 +92,27 @@
           formControlName="colorCamisetaSecundario"
           class="form-control"
           [ngClass]="{
-            'is-invalid': form.colorCamisetaSecundario.invalid && form.colorCamisetaSecundario.touched
+            'is-invalid':
+              form.colorCamisetaSecundario.invalid &&
+              form.colorCamisetaSecundario.touched
           }"
         />
 
         <div
           class="text-danger"
-          *ngIf="colorCamisetaSecundario.errors?.required && colorCamisetaSecundario.touched"
+          *ngIf="
+            colorCamisetaSecundario.errors?.required &&
+            colorCamisetaSecundario.touched
+          "
         >
           Este campo no puede estar vacío.
         </div>
         <div
           class="text-danger"
           *ngIf="
-          colorCamisetaSecundario.value != '' &&
-          colorCamisetaSecundario.invalid &&
-          colorCamisetaSecundario.touched
+            colorCamisetaSecundario.value != '' &&
+            colorCamisetaSecundario.invalid &&
+            colorCamisetaSecundario.touched
           "
         >
           Por favor, ingrese caracteres válidos
@@ -113,9 +133,9 @@
 
     <!--INPUT subir-->
     <div class="text-center">
-    <button class="btn btn-primary mr-1">Registrar</button></div>
+      <button class="btn btn-primary mr-1">Registrar</button>
+    </div>
   </form>
 </div>
 
 <app-footer></app-footer>
-
