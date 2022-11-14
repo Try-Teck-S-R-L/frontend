@@ -65,7 +65,7 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('#exampleModal').modal('show');
+    //$('#exampleModal').modal('show');
     this.elemento
       .getAllCategorias()
       .subscribe((data) => (this.listaCategorias = data));
