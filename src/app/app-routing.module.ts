@@ -20,6 +20,9 @@ import { EliminarjugadoresComponent } from "./modules/eliminarjugadores/eliminar
 import { CredencialesInternasComponent } from "./modules/credenciales-internas/credenciales-internas.component";
 import { VistaErrorComponent } from "./modules/vista-error/vista-error.component";
 import { ListaPreinscripcionDelegadoComponent } from "./modules/lista-preinscripcion-delegado/lista-preinscripcion-delegado.component";
+import { MenuPreinscripcionDelegadoComponent } from "./modules/menu-preinscripcion-delegado/menu-preinscripcion-delegado.component";
+import { EliminarPreinscripcionDelegadoComponent } from "./modules/eliminar-preinscripcion-delegado/eliminar-preinscripcion-delegado.component";
+import { EditarPreinscripcionDelegadoComponent } from "./modules/editar-preinscripcion-delegado/editar-preinscripcion-delegado.component";
 
 const routes: Routes = [
   {
@@ -94,6 +97,18 @@ const routes: Routes = [
   {
     path: "listapredelegado/:id",
     component: ListaPreinscripcionDelegadoComponent,
+  },
+  {
+    path: "menupredelegado/:id",
+    component: MenuPreinscripcionDelegadoComponent,
+  },
+  {
+    path: "eliminarpredelegado/:id",
+    component: EliminarPreinscripcionDelegadoComponent,
+  },
+  {
+    path: "editarpredelegado/:id",
+    component: EditarPreinscripcionDelegadoComponent,
   }
 
 ];    
