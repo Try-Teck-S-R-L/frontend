@@ -2,11 +2,11 @@
 
 {{ listaPreinscripciones | json }} -->
 
-
 <table
   mat-table
   [dataSource]="dataSource"
   matSort
+  *ngIf="dataSource.data.length > 0"
   (matSortChange)="announceSortChange($event)"
   class="mat-elevation-z8"
 >
@@ -60,19 +60,24 @@
     </th>
     <td mat-cell *matCellDef="let equipo">
       <button>
-        <span><a class="nav-link"
-          [routerLink]="['/registrarequipo/', equipo.idPreinscripcion]">
-          Inscribir</a></span>
+        <span
+          ><a
+            class="nav-link"
+            [routerLink]="['/registrarequipo/', equipo.idPreinscripcion]"
+          >
+            Inscribir</a
+          ></span
+        >
       </button>
-      
-      
-
-      
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<ng-container *ngIf="dataSource.data.length === 0">
+  <p>No tienes preinscripciones de equipo aprobadas</p>
+</ng-container>
 
 <app-footer></app-footer>
