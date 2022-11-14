@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
 import { PreinscripcionI } from "../models/preinscripcion.interface";
@@ -19,7 +19,9 @@ export class InformacionequiposComponent implements OnInit {
   constructor(
     router: ActivatedRoute,
     private servicePreinscripcion: PreinscripcionService,
-    private sanitizer:DomSanitizer
+    private sanitizer:DomSanitizer,
+    private routerView:Router,
+    private activatedRoute: ActivatedRoute
   ) {
     router.params.subscribe((params) => {
       this.id = params["id"];
@@ -46,7 +48,11 @@ export class InformacionequiposComponent implements OnInit {
   }
 
   rechazarPreinscripcion($id: string) {
-    this.servicePreinscripcion.rechazarPreinsc(this.id).subscribe((res: any) => console.log(res));
+    this.servicePreinscripcion.rechazarPreinsc(this.id)
+    .subscribe((res: any) => {
+      console.log(res), this.routerView.navigate(['../'], {relativeTo: this.activatedRoute})
+    }
+    );
   }
 
   aceptarPreinscripcion($id: string) {

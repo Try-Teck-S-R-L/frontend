@@ -1,4 +1,4 @@
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { EquipoI } from "./../models/equipo.interface";
 import { OnInit } from "@angular/core";
 import { LiveAnnouncer } from "@angular/cdk/a11y";

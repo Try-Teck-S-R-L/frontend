@@ -1,6 +1,8 @@
 import { JugadorI } from "./../models/jugador.interface";
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
+import {Location} from '@angular/common';
+
 import {
   FormGroup,
   FormControl,
@@ -36,12 +38,16 @@ export class InscripcionJugadorComponent implements OnInit {
   public listaPaises: any = [];
   public listaCategorias: any = [];
   public listaPosiciones: any = [];
+  public mensajeError: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
     private http: JugadorService,
     private elemento: ElementolistaService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private routerView: Router,
+    private activatedRoute: ActivatedRoute,
+    private _location: Location
   ) {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
@@ -99,6 +105,8 @@ export class InscripcionJugadorComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.mensajeError = '';
+
 
     // stop here if form is invalid
     /*if (this.registerForm.invalid) {
@@ -113,20 +121,20 @@ export class InscripcionJugadorComponent implements OnInit {
       }, this.idEquipo)
       //.getAllJugadores(this.idEquipo)
 
-      .subscribe((data) => {
-        /*let response: ResponseI = data;
-        console.log({
-          ...this.registerForm.value,
-          fotoPerfilJugador: this.profilePhoto,
-          fotoCiJugador: this.idPhoto,
-        });*/
-        console.log(data)
-      });
+      .subscribe(error => {
+        if(error != null){
+          this.mensajeError = error[0]
+        }; console.log(error)});
+        //this._location.back();
+        //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { skipLocationChange: true });
+        this.routerView.navigate(['equiposmenu/'+this.idEquipo], { replaceUrl: true });
+        //this.routerView.navigate([this._location.back()], { replaceUrl: true });
+
 
     // display form values on success
-    alert(
+    /*alert(
       "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
-    );
+    );*/
   }
 
   onReset() {

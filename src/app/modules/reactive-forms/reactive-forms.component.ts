@@ -41,8 +41,8 @@ export class ReactiveFormsComponent implements OnInit {
   public listaPaises: any = [];
   public listaCategorias: any = [];
   public idDel: string = "";
-  public mensajeError: any = [];
-  public delegadoAct: { "nombreDelegado": "string";"correoDelegado": "string" } | undefined;
+  public mensajeError: string = '';
+  public delegadoAct: { "nombreDelegado": "string";"apellidoDelegado" : "string" ;"correoDelegado": "string" } | undefined;
   //public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
 
   constructor(
@@ -115,22 +115,8 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
   onSubmit() {
-
-    
-    if (this.registerForm.valid) {
-      console.log("Form Submitted!");
-      
-      alert(
-        "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
-      );
-
-
-
-      this._location.back();
-    }
-    
-    
-    
+    this.submitted = true;
+    this.mensajeError = '';
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
@@ -156,8 +142,11 @@ export class ReactiveFormsComponent implements OnInit {
           voucherPreinscripcion: this.file,
         });
       });*/
-      .subscribe(data => console.log(data),
-                 error => this.mensajeError = error);
+      .subscribe(//data => console.log(data),
+                 error => {
+                  if(error != null){
+                    this.mensajeError = error[0]
+                  }; console.log(error)});
 
     // display form values on success
     

@@ -9,12 +9,6 @@
     <!-- {{ delegadoAct | json }}
     {{ mensajeError | json }}-->
     {{ mensajeError }}
-    <!--categorias <br />
-    {{ listaEquipos | json }} <br />
-    {{ listaCategorias | json }} <br />
-    paises <br />
-    {{ listaPaises | json }} <br />
-    -->
 
     <div class="inputnombreDelegado">
       <label
@@ -22,7 +16,10 @@
         class="nombreDelegado col-sm-2 col-form-label"
         >Nombre delegado:</label
       >
-      <label>{{ delegadoAct?.nombreDelegado }}</label>
+      <label
+        >{{ delegadoAct?.nombreDelegado }}
+        {{ delegadoAct?.apellidoDelegado }}</label
+      >
     </div>
 
     <!--INPUT email-->
@@ -82,7 +79,7 @@
           formControlName="paisEquipo"
           required
         >
-          <option value="" disabled>Seleccionar país</option>
+          <option value="" disabled selected>Seleccionar país</option>
           <option *ngFor="let pais of paises" [value]="pais.value">
             {{ pais.name }}
           </option>
@@ -114,7 +111,7 @@
           class="form-select form-select-sm"
           formControlName="idCategoria"
         >
-          <option value="" disabled>Seleccionar categoria</option>
+          <option value="" disabled selected>Seleccionar categoria</option>
           <option value="1">Mayores de 35</option>
           <option value="2">Mayores de 45</option>
           <option value="3">Mayores de 55</option>
