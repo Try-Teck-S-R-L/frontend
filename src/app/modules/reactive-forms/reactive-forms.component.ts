@@ -18,7 +18,7 @@ import { PreinscripcionI } from "../models/preinscripcion.interface";
 import { ResponseI } from "../models/response.interface";
 import {Location} from '@angular/common';
 
-
+declare var $: any;
 
 
 interface CountryOption {
@@ -35,6 +35,7 @@ export class ReactiveFormsComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
+  
   public paises: CountryOption[] = [];
   private file: File | null = null;
   public listaEquipos: any = [];
@@ -44,6 +45,7 @@ export class ReactiveFormsComponent implements OnInit {
   public mensajeError: string = '';
   public delegadoAct: { "nombreDelegado": "string";"apellidoDelegado" : "string" ;"correoDelegado": "string" } | undefined;
   //public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
+
 
   constructor(
     router: ActivatedRoute,
@@ -63,6 +65,7 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
   ngOnInit() {
+    //$('#exampleModal').modal('show');
     this.elemento
       .getAllCategorias()
       .subscribe((data) => (this.listaCategorias = data));
