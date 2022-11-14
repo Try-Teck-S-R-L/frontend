@@ -112,12 +112,8 @@ export class RegistrarEquipoComponent implements OnInit {
   get form() {
     return this.registerForm.controls;
   }
-  Home(): void {
-    window.location.reload();
-}
+  
   onSubmit() {
-    this.submitted = true;
-
 
     this.submitted = true;
 
@@ -129,11 +125,14 @@ export class RegistrarEquipoComponent implements OnInit {
       
     }
 
-
+    
+    this.submitted = true;
     this.mensajeError = '';
+
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
+
     }
 
     this.http

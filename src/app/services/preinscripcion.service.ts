@@ -29,7 +29,7 @@ export class PreinscripcionService {
     formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
     formData.append("idCategoria",form.idCategoria);
     formData.append("idDelegado", idDelegado);
-    return this.http.post<ResponseI>(url, formData).pipe(catchError( this.errorHandler));
+    return this.http.post<ResponseI>(url, formData);
   }
 
   errorHandler(error: HttpErrorResponse){

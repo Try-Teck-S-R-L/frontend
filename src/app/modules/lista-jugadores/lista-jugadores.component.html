@@ -42,10 +42,10 @@
 
   <br />
 
-  <table
-    mat-table
+  <mat-table
     [dataSource]="dataSource"
     matSort
+    *ngIf="dataSource.data.length > 0"
     (matSortChange)="announceSortChange($event)"
     class="mat-elevation-z8"
   >
@@ -131,7 +131,11 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+  </mat-table>
+
+  <ng-container *ngIf="dataSource.data.length === 0">
+    <p>No tiene jugadores registrados en este equipo</p>
+  </ng-container>
 
   <br />
 </body>

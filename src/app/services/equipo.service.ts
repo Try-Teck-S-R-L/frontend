@@ -1,9 +1,10 @@
-import { HttpClient } from "@angular/common/http"
+
 import { Injectable } from "@angular/core"
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
 import { ResponseI } from '../modules/models/response.interface';
 import { EquipoI } from "../modules/models/equipo.interface";
-
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -33,12 +34,17 @@ import { EquipoI } from "../modules/models/equipo.interface";
       formData.append('colorCamisetaPrincipal', form.colorCamisetaPrincipal);
       formData.append('colorCamisetaSecundario', form.colorCamisetaSecundario);
     
-      console.log('formu')
+
       console.log(JSON.stringify(formData))
 
-      return this.http.post<ResponseI>(url, formData)
+      return this.http.post<ResponseI>(url, formData).pipe(catchError( this.errorHandler));
 
     }
+
+    errorHandler(error: HttpErrorResponse){
+      return throwError(error.error || 'Error del server');
+    }
+
 
     equipoXid($idEquipo: string){
       let url = this.base_url + "api/equipos/"

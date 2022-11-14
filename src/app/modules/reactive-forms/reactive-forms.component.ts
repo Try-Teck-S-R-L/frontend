@@ -120,13 +120,14 @@ export class ReactiveFormsComponent implements OnInit {
 
 
     if (this.registerForm.valid) {
+      
       console.log("Form Submitted!");
 
       this.location.back();
     }
 
     
-    this.submitted = true;
+    
     this.mensajeError = '';
 
     // stop here if form is invalid
@@ -191,3 +192,4 @@ export class ReactiveFormsComponent implements OnInit {
 
 
 }
+

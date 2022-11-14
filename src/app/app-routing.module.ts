@@ -18,6 +18,8 @@ import { PreinscipcionMenuComponent } from "./modules/preinscipcion-menu/preinsc
 import { EquiposAprobadosComponent } from "./modules/equipos-aprobados/equipos-aprobados.component";
 import { EliminarjugadoresComponent } from "./modules/eliminarjugadores/eliminarjugadores.component";
 import { CredencialesInternasComponent } from "./modules/credenciales-internas/credenciales-internas.component";
+import { VistaErrorComponent } from "./modules/vista-error/vista-error.component";
+import { ListaPreinscripcionDelegadoComponent } from "./modules/lista-preinscripcion-delegado/lista-preinscripcion-delegado.component";
 
 const routes: Routes = [
   {
@@ -84,6 +86,14 @@ const routes: Routes = [
   {
     path: "credencialinterna/:id",
     component: CredencialesInternasComponent,
+  },
+  {
+    path: "vistaerror",
+    component: VistaErrorComponent,
+  },
+  {
+    path: "listapredelegado/:id",
+    component: ListaPreinscripcionDelegadoComponent,
   }
 
 ];    
