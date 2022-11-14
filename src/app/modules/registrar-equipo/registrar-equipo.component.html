@@ -37,90 +37,80 @@
     </div>
     <!--INPUT colorEquipo-->
     <div class="mb-3 row">
-      <label for="inputcolorEquipo" class="colorEquipo col-sm-2 col-form-label"
+      <label for="inputcolorCamisetaPrincipal" class="colorEquipo col-sm-2 col-form-label"
         >Color de camiseta:</label
       >
       <div class="col-sm-10">
-        <input
-          type="text"
-          ngModel
-          maxlength="50"
-          placeholder="Ingrese el color de camiseta"
-          formControlName="colorCamisetaPrincipal"
-          class="form-control"
-          [ngClass]="{
-            'is-invalid':
-              form.colorCamisetaPrincipal.invalid &&
-              form.colorCamisetaPrincipal.touched
-          }"
-        />
-
-        <div
-          *ngIf="
-            (form.colorCamisetaPrincipal.touched && form.colorCamisetaPrincipal.invalid) || submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.colorCamisetaPrincipal.errors?.required">
-            no puede estar vacio
-          </div>
-        </div>
-        <div
-          class="text-danger"
-          *ngIf="
-            colorCamisetaPrincipal.value != '' &&
-            colorCamisetaPrincipal.invalid &&
-            colorCamisetaPrincipal.touched
-          "
-        >
-          Por favor, ingrese caracteres válidos
+        <select
+        name="colorCamisetaPrincipal"
+        class="form-select form-select-sm"
+        formControlName="colorCamisetaPrincipal"
+        required
+      >
+        <option value="" disabled selected>Seleccionar color</option>
+        <option value="Negro">Negro</option>
+        <option value="Azul">Azul</option>
+        <option value="Café">Café</option>
+        <option value="Plomo">Plomo</option>
+        <option value="Verde">Verde</option>
+        <option value="Naranja">Naranja</option>
+        <option value="Rosa">Rosa</option>
+        <option value="Morado">Morado</option>
+        <option value="Rojo">Rojo</option>
+        <option value="Blanco">Blanco</option>
+        <option value="Amarillo">Amarillo</option>
+      </select>
+      <div
+        *ngIf="
+          (form.colorCamisetaPrincipal.touched && form.colorCamisetaPrincipal.invalid) || submitted
+        "
+        class="text-danger"
+      >
+        <div *ngIf="form.colorCamisetaPrincipal.errors?.required">
+          Elija una de las opciones
         </div>
       </div>
     </div>
+   </div>
     <!--INPUT ALTERNATIVOcolorEquipo-->
     <div class="mb-3 row">
       <label
-        for="inputcolorsecundarioEquipo"
+        for="inputcolorCamisetaSecundario"
         class="colorSecundario col-sm-2 col-form-label"
         >Color de camiseta secundario:</label
       >
       <div class="col-sm-10">
-        <input
-          type="text"
-          ngModel
-          maxlength="50"
-          placeholder="Ingrese el color de camiseta"
-          formControlName="colorCamisetaSecundario"
-          class="form-control"
-          [ngClass]="{
-            'is-invalid':
-              form.colorCamisetaSecundario.invalid &&
-              form.colorCamisetaSecundario.touched
-          }"
-        />
-
-        <div
-          *ngIf="
-            (form.colorCamisetaSecundario.touched && form.colorCamisetaSecundario.invalid) || submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.colorCamisetaSecundario.errors?.required">
-            no puede estar vacio
-          </div>
-        </div>
-        <div
-          class="text-danger"
-          *ngIf="
-            colorCamisetaSecundario.value != '' &&
-            colorCamisetaSecundario.invalid &&
-            colorCamisetaSecundario.touched
-          "
-        >
-          Por favor, ingrese caracteres válidos
+        <select
+        name="colorCamisetaSecundario"
+        class="form-select form-select-sm"
+        formControlName="colorCamisetaSecundario"
+        required
+      >
+        <option value="" disabled selected>Seleccionar color</option>
+        <option value="Negro">Negro</option>
+        <option value="Azul">Azul</option>
+        <option value="Café">Café</option>
+        <option value="Plomo">Plomo</option>
+        <option value="Verde">Verde</option>
+        <option value="Naranja">Naranja</option>
+        <option value="Rosa">Rosa</option>
+        <option value="Morado">Morado</option>
+        <option value="Rojo">Rojo</option>
+        <option value="Blanco">Blanco</option>
+        <option value="Amarillo">Amarillo</option>
+      </select>
+      <div
+        *ngIf="
+          (form.colorCamisetaSecundario.touched && form.colorCamisetaSecundario.invalid) || submitted
+        "
+        class="text-danger"
+      >
+        <div *ngIf="form.colorCamisetaSecundario.errors?.required">
+          Elija una de las opciones
         </div>
       </div>
     </div>
+   </div>
     <!--imagen logo-->
     <label class="logo form-label">Logo del equipo:</label>
     <input

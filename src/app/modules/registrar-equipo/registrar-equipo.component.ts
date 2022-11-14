@@ -72,6 +72,7 @@ export class RegistrarEquipoComponent implements OnInit {
     this.elemento
     .getAllCategorias()
     .subscribe((data) => (this.listaCategorias = data));
+    
 
     this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
     /*this.serviceEquipo
@@ -83,8 +84,8 @@ export class RegistrarEquipoComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       
       
-      colorCamisetaPrincipal: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
-      colorCamisetaSecundario: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+      colorCamisetaPrincipal: ["", [Validators.required]],
+      colorCamisetaSecundario: ["", [Validators.required]],
     });
   }
 
@@ -169,12 +170,7 @@ export class RegistrarEquipoComponent implements OnInit {
     this.registerForm.updateValueAndValidity();
   }
   
-  get colorCamisetaPrincipal(): FormControl {
-    return this.registerForm.get("colorCamisetaPrincipal") as FormControl;
-  }
-  get colorCamisetaSecundario(): FormControl {
-    return this.registerForm.get("colorCamisetaSecundario") as FormControl;
-  }
+
   
  
 }
