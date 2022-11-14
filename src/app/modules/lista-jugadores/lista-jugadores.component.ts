@@ -42,7 +42,7 @@ export class ListaJugadoresComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.serviceJugador.getAllJugadores(this.id).subscribe((res : any)=>this.dataSource = new MatTableDataSource(res));
-    
+    this.listaVacia();
   }
 
   @ViewChild(MatSort)
@@ -68,6 +68,13 @@ export class ListaJugadoresComponent implements OnInit, AfterViewInit {
 
 
 
+  listaVacia(){
+    if (this.listaJugadores.length > 0){
+      console.log('ta llena');
+    }else{
+      console.log('ta vacia');
+    }
+  }
 
 
 
