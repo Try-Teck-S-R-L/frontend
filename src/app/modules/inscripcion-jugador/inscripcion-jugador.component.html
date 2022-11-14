@@ -2,7 +2,7 @@
 <app-navar></app-navar>
 
 <div class="container">
-  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(); myForm.resetForm()" [formGroup]="registerForm">
     <h3>Inscripción de jugador</h3>
     <!--INPUT nombre delegado-->
 
@@ -42,9 +42,9 @@
         <div
           class="text-danger"
           *ngIf="
-            nombreJugador.value != '' &&
-            nombreJugador.invalid &&
-            nombreJugador.touched
+          nombreJugador.value != '' &&
+          nombreJugador.invalid &&
+          nombreJugador.touched
           "
         >
           Por favor, ingrese caracteres válidos
@@ -62,14 +62,14 @@
       <div class="col-sm-10">
         <input
           type="text"
-          ngModel
+          
           formControlName="apellidoJugador"
           maxlength="50"
           placeholder="Ingrese apellido del jugador"
           class="form-control"
           [ngClass]="{
             'is-invalid':
-              form.apellidoJugador.invalid && form.apellidoJugador.touched
+            apellidoJugador.errors?.required && apellidoJugador.touched
           }"
         />
         <div
