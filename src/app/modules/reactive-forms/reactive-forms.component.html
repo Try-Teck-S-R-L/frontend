@@ -51,15 +51,10 @@
           }"
         />
         <div
-          *ngIf="
-            (form.nombreEquipo.touched && form.nombreEquipo.invalid) ||
-            submitted
-          "
           class="text-danger"
+          *ngIf="nombreEquipo.errors?.required && nombreEquipo.touched"
         >
-          <div *ngIf="form.nombreEquipo.errors?.required">
-            no puede estar vacio
-          </div>
+          Este campo no puede estar vacío.
         </div>
         <div
           class="text-danger"
@@ -148,20 +143,18 @@
           placeholder="Ingrese el nro de comprobante de pago"
           formControlName="nroComprobante"
           class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              form.nroComprobante.invalid && form.nroComprobante.touched
+          }"
         />
 
         <div
-          *ngIf="
-            (form.nroComprobante.touched && form.nroComprobante.invalid) ||
-            submitted
-          "
           class="text-danger"
+          *ngIf="nroComprobante.errors?.required && nroComprobante.touched"
         >
-          <div *ngIf="form.nroComprobante.errors?.required">
-            no puede estar vacio
-          </div>
+          Este campo no puede estar vacío.
         </div>
-
         <div
           class="text-danger"
           *ngIf="
@@ -241,15 +234,7 @@
     </div>
     <!--INPUT subir-->
     <div class="text-center">
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Registrar
-      </button>
-
+      <button class="btn btn-primary mr-1">Registrar</button>
       <!-- Modal -->
       <div
         class="modal fade"
@@ -272,19 +257,10 @@
               ></button>
             </div>
             <div class="modal-body">
-              Para que el registro sea exitoso haga click en Registrar
-              <br />
-              Para seguir con el registro haga click en volver
+              Felicidades! Su Preinscripción a sido registrada
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Volver
-              </button>
-              <button class="btn btn-primary mr-1">Registrar</button>
+              <button (click)="regresar()">Aceptar</button>
             </div>
           </div>
         </div>

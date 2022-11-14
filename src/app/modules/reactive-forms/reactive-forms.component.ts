@@ -18,8 +18,8 @@ import { PreinscripcionI } from "../models/preinscripcion.interface";
 import { ResponseI } from "../models/response.interface";
 import {Location} from '@angular/common';
 
-declare var $: any;
 
+declare var $: any;
 
 interface CountryOption {
   name: string;
@@ -35,7 +35,6 @@ export class ReactiveFormsComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  
   public paises: CountryOption[] = [];
   private file: File | null = null;
   public listaEquipos: any = [];
@@ -46,7 +45,6 @@ export class ReactiveFormsComponent implements OnInit {
   public delegadoAct: { "nombreDelegado": "string";"apellidoDelegado" : "string" ;"correoDelegado": "string" } | undefined;
   //public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
 
-
   constructor(
     router: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -54,7 +52,7 @@ export class ReactiveFormsComponent implements OnInit {
     private elemento: ElementolistaService,
     private delegadoService: DelegadoService,
     private serviceEquipo: EquipoService,
-    private location: Location
+    private _location: Location
     //private router: Router
   ) {
     this.registerForm = formBuilder.group({});
@@ -88,7 +86,7 @@ export class ReactiveFormsComponent implements OnInit {
       
       nroComprobante: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       montoPago: ["50", [Validators.required]],
-      fechaPreinscripcion: ["2022-08-01", [Validators.required]],
+      fechaPreinscripcion: ["2023-01-01", [Validators.required]],
     });
   }
 
@@ -116,26 +114,15 @@ export class ReactiveFormsComponent implements OnInit {
   get form() {
     return this.registerForm.controls;
   }
-  
+
   onSubmit() {
-
     this.submitted = true;
-
-
-    if (this.registerForm.valid) {
-      
-      console.log("Form Submitted!");
-
-      this.location.back();
-    }
-
-    
-    
     this.mensajeError = '';
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
+
 
     }
 
@@ -161,10 +148,16 @@ export class ReactiveFormsComponent implements OnInit {
                  error => {
                   if(error != null){
                     this.mensajeError = error[0]
-                  }; console.log(error)});
+                  }; console.log('errores'),
+                  console.log(error);
+                  if(error == null){
+                    $('#exampleModal').modal('show');
+                  };
+                });
 
     // display form values on success
     
+
   }
 
   onReset() {
@@ -193,6 +186,9 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
 
+  regresar(){
+    this.onReset();
+    this._location.back();
+  }
 
 }
-
