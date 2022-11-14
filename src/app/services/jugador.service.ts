@@ -1,7 +1,8 @@
-import { HttpClient } from "@angular/common/http"
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
+import { catchError } from 'rxjs/operators';
 import { Injectable } from "@angular/core"
 import { JugadorI } from "../modules/models/jugador.interface"
-import { Observable } from 'rxjs';
 import { ResponseI } from '../modules/models/response.interface';
 
 
@@ -52,6 +53,10 @@ import { ResponseI } from '../modules/models/response.interface';
       formData.append("fotoCiJugador", form.fotoCiJugador);
 
       formData.append('idEquipo', idEquipo)
-      return this.http.post<ResponseI>(url, formData);
+      return this.http.post<ResponseI>(url, formData).pipe(catchError( this.errorHandler));
+    }
+
+    errorHandler(error: HttpErrorResponse){
+      return throwError(error.error || 'Error del server');
     }
   }
