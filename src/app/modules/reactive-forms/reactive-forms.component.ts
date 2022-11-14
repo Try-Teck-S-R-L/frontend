@@ -16,6 +16,10 @@ import data from "../../../assets/Archivos/data.json";
 import { DelegadoI } from "../models/delegado.interface";
 import { PreinscripcionI } from "../models/preinscripcion.interface";
 import { ResponseI } from "../models/response.interface";
+import {Location} from '@angular/common';
+
+
+
 
 interface CountryOption {
   name: string;
@@ -48,6 +52,7 @@ export class ReactiveFormsComponent implements OnInit {
     private elemento: ElementolistaService,
     private delegadoService: DelegadoService,
     private serviceEquipo: EquipoService,
+    private _location: Location
     //private router: Router
   ) {
     this.registerForm = formBuilder.group({});
@@ -79,8 +84,8 @@ export class ReactiveFormsComponent implements OnInit {
       idCategoria: ["", [Validators.required]],
       
       nroComprobante: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
-      montoPago: ["", [Validators.required]],
-      fechaPreinscripcion: ["2022-10-01", [Validators.required]],
+      montoPago: ["50", [Validators.required]],
+      fechaPreinscripcion: ["2023-01-01", [Validators.required]],
     });
   }
 
@@ -110,11 +115,27 @@ export class ReactiveFormsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
+
+    
+    if (this.registerForm.valid) {
+      console.log("Form Submitted!");
+      
+      alert(
+        "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
+      );
+
+
+
+      this._location.back();
+    }
+    
+    
+    
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
+
     }
 
 
@@ -139,9 +160,7 @@ export class ReactiveFormsComponent implements OnInit {
                  error => this.mensajeError = error);
 
     // display form values on success
-    alert(
-      "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
-    );
+    
   }
 
   onReset() {

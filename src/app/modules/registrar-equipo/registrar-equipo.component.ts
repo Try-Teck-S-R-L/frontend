@@ -19,7 +19,7 @@ import { ElementolistaService } from 'src/app/services/elementolista.service';
 import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import { DelegadoService } from "src/app/services/delegado.service";
-
+import {Location} from '@angular/common';
 
 
 interface CountryOption {
@@ -53,7 +53,8 @@ export class RegistrarEquipoComponent implements OnInit {
     private http:EquipoService,
     private elemento: ElementolistaService, 
     private serviceEquipo: EquipoService,
-    private preinscripcionService: PreinscripcionService
+    private preinscripcionService: PreinscripcionService,
+    private _location: Location
     //private router:Router) 
   ){
       this.registerForm = formBuilder.group({});
@@ -112,7 +113,11 @@ export class RegistrarEquipoComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
+    if (this.registerForm.valid) {
+      console.log("Form Submitted!");
+      
+      this._location.back();
+    }
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
