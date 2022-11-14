@@ -7,6 +7,7 @@ import { ElementolistaI } from "../modules/models/elementolista.interface";
     providedIn: 'root'
   })
   export class ElementolistaService {
+
     base_url:string = 'http://localhost:8000/'
   
     constructor(private http:HttpClient) { }
