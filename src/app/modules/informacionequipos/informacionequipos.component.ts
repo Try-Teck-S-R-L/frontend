@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
 import { PreinscripcionI } from "../models/preinscripcion.interface";
+import {Location} from '@angular/common';
 
 @Component({
   selector: "app-informacionequipos",
@@ -19,6 +20,7 @@ export class InformacionequiposComponent implements OnInit {
   constructor(
     router: ActivatedRoute,
     private servicePreinscripcion: PreinscripcionService,
+    private _location: Location,
     private sanitizer:DomSanitizer,
     private routerView:Router,
     private activatedRoute: ActivatedRoute
@@ -53,6 +55,7 @@ export class InformacionequiposComponent implements OnInit {
       console.log(res), this.routerView.navigate(['../'], {relativeTo: this.activatedRoute})
     }
     );
+    this.regresar();
   }
 
   aceptarPreinscripcion($id: string) {
@@ -60,10 +63,15 @@ export class InformacionequiposComponent implements OnInit {
     this.servicePreinscripcion
       .aceptarPreinsc(this.id)
       .subscribe((res: any) => console.log(res));
+      this.regresar();
   }
 
   sanitizeURL(url:string){
     return this.sanitizer.bypassSecurityTrustUrl(url);
 }
   //async fetchData(): void {}
+
+  regresar(){
+    this._location.back();
+  }
 }
