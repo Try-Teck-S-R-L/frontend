@@ -1,68 +1,67 @@
 <app-header></app-header>
 <body>
-  {{ listaJugadores | json }} -->
+ 
   <h1>Vista del delegado</h1>
   <!--{{ listaJugadores | json }} 
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="table-responsive">
-        <table class="mt-4 table table-hover table-striped table-secondary">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombres</th>
-              <th scope="col">Apellidos</th>
-              <th scope="col">Nacionalidad</th>
-              <th scope="col">Posición</th>
-              <th scope="col">Edad</th>
-              <th scope="col">Talla</th>
-              <th scope="col">Nro Camiseta</th>
-              <th scope="col">Foto jugador</th>
-              <th scope="col">Foto carnet</th>
-              <th scope="col">Eliminar jugador</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr></tr>
-            <tr *ngFor="let jugador of listaJugadores">
-              <th scope="row">{{ jugador.id }}</th>
-              <td>{{ jugador.nombreJugador }}</td>
-              <td>{{ jugador.apellidoJugador }}</td>
-              <td>{{ jugador.nacionalidadJugador }}</td>
-              <td>{{ jugador.posicionJugador }}</td>
-              <td>{{ jugador.edadJugador }}</td>
-              <td>{{ jugador.tallaJugador }}</td>
-              <td>{{ jugador.numeroCamiseta }}</td>
-
-              <td>{{ jugador.fotoPerfilJugador }}</td>
-              <td>{{ jugador.fotoCiJugador }}</td>
--->
+  
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="table-responsive">
+          <table class="mt-4 table table-hover table-striped table-secondary">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Nacionalidad</th>
+                <th scope="col">Posición</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Talla</th>
+                <th scope="col">Nro Camiseta</th>
+                <th scope="col">Foto jugador</th>
+                <th scope="col">Foto carnet</th>
+                <th scope="col">Eliminar jugador</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr></tr>
+              <tr *ngFor="let jugador of listaJugadores">
+                <th scope="row">{{ jugador.id }}</th>
+                <td>{{ jugador.nombreJugador }}</td>
+                <td>{{ jugador.apellidoJugador }}</td>
+                <td>{{ jugador.nacionalidadJugador }}</td>
+                <td>{{ jugador.posicionJugador }}</td>
+                <td>{{ jugador.edadJugador }}</td>
+                <td>{{ jugador.tallaJugador }}</td>
+                <td>{{ jugador.numeroCamiseta }}</td>
+  
+                <td>{{ jugador.fotoPerfilJugador }}</td>
+                <td>{{ jugador.fotoCiJugador }}</td>
+  -->
 
   <br />
 
-  <mat-table
+  <table
+    mat-table
     [dataSource]="dataSource"
-    matSort
-    *ngIf="dataSource.data.length > 0"
-    (matSortChange)="announceSortChange($event)"
+    
     class="mat-elevation-z8"
   >
     <!-- Position Column 
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
-      No.
-    </th>
-    <td mat-cell *matCellDef="let equipo of listaEquipos"> {{equipo.nombreEquipo}} </td>
-  </ng-container>
--->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+        No.
+      </th>
+      <td mat-cell *matCellDef="let equipo of listaEquipos"> {{equipo.nombreEquipo}} </td>
+    </ng-container>
+  -->
     <!-- Name Column -->
     <ng-container matColumnDef="nombreJugador">
       <th
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
+        
         sortActionDescription="Sort by nombreJugador"
       >
         Nombres
@@ -77,7 +76,7 @@
       <th
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
+        
         sortActionDescription="Sort by apellidoJugador"
       >
         Apellidos
@@ -92,33 +91,39 @@
       <th
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
+        
         sortActionDescription="Sort by numeroCi"
       >
-        Nro carnet
+        Documento de identidad
       </th>
       <td mat-cell *matCellDef="let jugador">
-        {{ jugador.id }}
+        {{ jugador.numeroCi }}
       </td>
     </ng-container>
     <!-- Name Column -->
-    <!-- Name Column -->
-  <ng-container matColumnDef="vermas">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>
-      Ver mas información
-    </th>
-    <td mat-cell *matCellDef="let jugador">
-      <a [routerLink]="['/infojugador/', jugador.idJugador]">
-       <button>Ver más información</button> 
-      </a>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="vermas">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        
+        sortActionDescription="Sort by numeroCi"
+      >
+        Ver más información
+      </th>
+      <td mat-cell *matCellDef="let jugador">ver más</td>
+    </ng-container>
 
     
 
+    <!--<a
+          [routerLink]="['/eliminarjugador/', jugador.idEquipo]"
+          (click)="eliminarJugador(jugador.ciJugador)"
+        >
+          eliminar
+        </a>-->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </mat-table>
+  </table>
 
   <ng-container *ngIf="dataSource.data.length === 0">
     <p>No tiene jugadores registrados en este equipo</p>
@@ -126,4 +131,3 @@
 
   <br />
 </body>
-

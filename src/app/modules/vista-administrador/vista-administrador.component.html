@@ -6,9 +6,9 @@
 <table
   mat-table
   [dataSource]="dataSource"
-  matSort
-  *ngIf="dataSource.data.length > 0"
-  (matSortChange)="announceSortChange($event)"
+
+  
+  
   class="mat-elevation-z8"
 >
   <!-- Position Column 
@@ -24,7 +24,7 @@
     <th
       mat-header-cell
       *matHeaderCellDef
-      mat-sort-header
+      
       sortActionDescription="Sort by nombreEquipo"
     >
       Nombre equipo
@@ -39,7 +39,7 @@
     <th
       mat-header-cell
       *matHeaderCellDef
-      mat-sort-header
+      
       sortActionDescription="Sort by nombreDelegado"
     >
       Nombre del delegado
@@ -54,7 +54,7 @@
     <th
       mat-header-cell
       *matHeaderCellDef
-      mat-sort-header
+      
       sortActionDescription="Sort by urlequipo"
     >
       Ver detalle
