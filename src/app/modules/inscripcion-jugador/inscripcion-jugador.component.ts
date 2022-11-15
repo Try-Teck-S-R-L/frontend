@@ -16,6 +16,8 @@ import { JugadorService } from "src/app/services/jugador.service";
 import data from "../../../assets/Archivos/data.json";
 import { ResponseI } from "../models/response.interface";
 
+declare var $: any;
+
 export interface CountryOption {
   name: string;
   value: string;
@@ -122,20 +124,22 @@ export class InscripcionJugadorComponent implements OnInit {
       }, this.idEquipo)
       //.getAllJugadores(this.idEquipo)
 
-      .subscribe(error => {
-        if(error != null){
-          this.mensajeError = error[0]
-        }; console.log(error)});
+      .subscribe(//data => console.log(data),
+                 error => {
+                  if(error != null){
+                    this.mensajeError = error[0]
+                  }; console.log('errores'),
+                  console.log(error);
+                  if(error == null){
+                    $('#exampleModal').modal('show');
+                  };
+                });
         //this._location.back();
         //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { skipLocationChange: true });
         //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { replaceUrl: true });
         //this.routerView.navigate([this._location.back()], { replaceUrl: true });
 
 
-    // display form values on success
-    /*alert(
-      "SUCCESS!! :-)\n\n" + JSON.stringify(this.registerForm.value, null, 4)
-    );*/
   }
 
   onReset() {
@@ -166,4 +170,11 @@ export class InscripcionJugadorComponent implements OnInit {
   get apellidoJugador(): FormControl {
     return this.registerForm.get("apellidoJugador") as FormControl;
   }
+
+  regresar(){
+    $('#exampleModal').modal('hide');
+    this.onReset();
+    //this._location.back();
+  }
+
 }
