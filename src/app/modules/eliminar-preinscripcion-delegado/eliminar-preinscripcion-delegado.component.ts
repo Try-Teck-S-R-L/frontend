@@ -35,7 +35,7 @@ export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterVie
       });
     }
   ngOnInit(): void {
-    this.servicePreinscripcion.getPreinscripcionesDelegado(this.idDelegado).subscribe((res : any)=>{this.dataSource = new MatTableDataSource(res), console.log(res)});
+    this.servicePreinscripcion.getPreinscripcionesEditables(this.idDelegado).subscribe((res : any)=>{this.dataSource = new MatTableDataSource(res), console.log(res)});
     
   }
 

@@ -42,6 +42,17 @@ export class PreinscripcionService {
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
 
+  getPreinscripcionesEditables(idDelegado:string):Observable<PreinscripcionI>{
+    console.log(idDelegado);
+    const formData = new FormData();
+    
+    var aux = idDelegado+'';
+    formData.append("idDelegado", aux);
+
+    console.log(aux);
+    return this.http.post<PreinscripcionI>(this.base_url+"api/preinscripcionesEditables", formData);
+  }
+
   getPreinscripcionBuscada($idPreinscripcion: string):Observable<any>{
     const formData = new FormData();
     formData.append('idPreinscripcion', $idPreinscripcion);
