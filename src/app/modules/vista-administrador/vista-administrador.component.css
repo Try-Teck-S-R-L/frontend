@@ -25,3 +25,11 @@ table {
     transform: translate(0.05em, 0.05em);
     box-shadow: 0.05em 0.05em;
    }
+   p{
+    font-size: 50px;
+    color: rgb(185, 123, 7);
+    
+    display: flex;
+    justify-content: center;
+  
+  }
