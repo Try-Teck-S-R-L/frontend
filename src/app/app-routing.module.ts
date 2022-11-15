@@ -91,7 +91,7 @@ const routes: Routes = [
     component: CredencialesInternasComponent,
   },
   {
-    path: "vistaerror",
+    path: "vistaerror/:mensaje",
     component: VistaErrorComponent,
   },
   {

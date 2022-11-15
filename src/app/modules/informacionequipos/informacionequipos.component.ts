@@ -36,14 +36,19 @@ export class InformacionequiposComponent implements OnInit {
     this.servicePreinscripcion
       .getPreinscripcionBuscada(this.id)
       //.subscribe((res: any) => (this.preinscripcionActual = res, this.fotoMostrar = this.sanitizer.bypassSecurityTrustResourceUrl(res.fotoComprobante)));
-      .subscribe((res: any) => (this.preinscripcionActual = res,
-
-                                this.fotoMostrar.concat(this.preinscripcionActual.voucherPreinscripcion),
-                                this.fotoMostrar += res.voucherPreinscripcion,
-                                console.log(this.fotoMostrar),
-                                console.log(res))
-                                
-      );
+      .subscribe((res: any) => 
+        {console.log(res);
+        if(res != null){
+          this.preinscripcionActual = res;
+                                this.fotoMostrar.concat(this.preinscripcionActual.voucherPreinscripcion);
+                                this.fotoMostrar += res.voucherPreinscripcion;
+                                console.log(this.fotoMostrar);        
+        }
+        if(res == null){
+          this.routerView.navigate(['vistaerror/Esta preinscripcion ya fue evaluada'], { skipLocationChange: true });
+    
+        }
+        });
       //console.log(this.preinscripcionActual);
 
       //console.log(this.preinscripcionActual);

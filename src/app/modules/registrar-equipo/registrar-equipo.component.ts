@@ -51,6 +51,7 @@ export class RegistrarEquipoComponent implements OnInit {
   
   constructor(
     router: ActivatedRoute,
+    private routerView: Router,
     private formBuilder: FormBuilder,
     private http:EquipoService,
     private elemento: ElementolistaService, 
@@ -178,6 +179,7 @@ export class RegistrarEquipoComponent implements OnInit {
 
   regresar(){
     $('#exampleModal').modal('hide');
+    this.routerView.navigate(['vistaerror/Este equipo ya fue registrado correctamente'], { skipLocationChange: true });
     this.onReset();
     this._location.back();
   }
