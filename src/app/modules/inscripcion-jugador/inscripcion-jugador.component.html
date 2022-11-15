@@ -24,6 +24,7 @@
           type="text"
           ngModel
           maxlength="50"
+          pattern="[A-Za-z ]"
           placeholder="Ingrese el nombre del jugador"
           formControlName="nombreJugador"
           class="form-control"
@@ -68,6 +69,8 @@
           type="text"
           formControlName="apellidoJugador"
           maxlength="50"
+          pattern="[A-Za-z ]"
+          
           placeholder="Ingrese apellido del jugador"
           class="form-control"
           [ngClass]="{
@@ -226,6 +229,7 @@
           type="number"
           placeholder="Ingrese su DNI"
           formControlName="ciJugador"
+          max="100"
           class="form-control"
           [ngClass]="{
             'is-invalid': form.ciJugador.invalid && form.ciJugador.touched
@@ -254,7 +258,9 @@
           type="number"
           placeholder="Ingrese su nro de camiseta"
           formControlName="numeroCamiseta"
+            
           class="form-control"
+       
           [ngClass]="{
             'is-invalid':
               form.numeroCamiseta.invalid && form.numeroCamiseta.touched
@@ -308,8 +314,8 @@
     </div>
   -->
     <br /><br />
-
-    {{ mensajeError | json }}
+<h3 class="errorb">{{ mensajeError | json }}</h3>
+    
     <!--INPUT subir-->
     <div class="text-center">
       <button class="btn btn-primary mr-1">Registrar</button>
