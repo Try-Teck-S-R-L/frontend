@@ -83,7 +83,16 @@ export class RegistrarEquipoComponent implements OnInit {
     .getAllEquipos()
     .subscribe((res: any) => (this.listaEquipos = res));*/
 
-    this.preinscripcionService.getDatosPreinscripcionAprobada(this.idPreinscripcion).subscribe((data) => (this.preinscripcionAprob = data ))
+    this.preinscripcionService.getDatosPreinscripcionAprobada(this.idPreinscripcion)
+    .subscribe((data) => {
+      if(data != null){
+        this.preinscripcionAprob = data ;
+      };
+      if(data == null){
+        this.routerView.navigate(['vistaerror/Este equipo ya fue inscrito'], { skipLocationChange: true });
+    
+      }
+        })
 
     this.registerForm = this.formBuilder.group({
       
