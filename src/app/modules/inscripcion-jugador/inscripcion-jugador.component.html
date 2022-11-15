@@ -46,9 +46,9 @@
         <div
           class="text-danger"
           *ngIf="
-          nombreJugador.value != '' &&
-          nombreJugador.invalid &&
-          nombreJugador.touched
+            nombreJugador.value != '' &&
+            nombreJugador.invalid &&
+            nombreJugador.touched
           "
         >
           Por favor, ingrese caracteres válidos
@@ -66,14 +66,13 @@
       <div class="col-sm-10">
         <input
           type="text"
-          
           formControlName="apellidoJugador"
           maxlength="50"
           placeholder="Ingrese apellido del jugador"
           class="form-control"
           [ngClass]="{
             'is-invalid':
-            apellidoJugador.errors?.required && apellidoJugador.touched
+              apellidoJugador.errors?.required && apellidoJugador.touched
           }"
         />
         <div
@@ -316,6 +315,30 @@
       <button class="btn btn-secondary" type="reset" (click)="onReset()">
         Cancelar
       </button>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          </div>
+          <div class="modal-body">
+            Felicidades! Su Jugador a sido registrado
+          </div>
+          <div class="modal-footer">
+            <button (click)="regresar()">Aceptar</button>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </div>

@@ -35,7 +35,7 @@ export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterVie
       });
     }
   ngOnInit(): void {
-    this.servicePreinscripcion.getPreinscripcionesDelegado(this.idDelegado).subscribe((res : any)=>{this.dataSource = new MatTableDataSource(res), console.log(res)});
+    this.servicePreinscripcion.getPreinscripcionesEditables(this.idDelegado).subscribe((res : any)=>{this.dataSource = new MatTableDataSource(res), console.log(res)});
     
   }
 
@@ -61,5 +61,13 @@ export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterVie
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+
+  eliminarPreinscripcion($id: number){
+
+    this.servicePreinscripcion.eliminarPreinscripcion($id).subscribe((data)=>{
+      console.log("success");
+  });
+    console.log($id);
   }
 }
