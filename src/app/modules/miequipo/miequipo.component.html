@@ -1,8 +1,10 @@
-<app-header></app-header> {{ equipoActual | json }} foto wea: {{ fotoMostrar }}
+<app-header></app-header>
+<br />
+<!--{{ equipoActual | json }} foto wea: {{ fotoMostrar }}
 <br />
 jugadores: <br />
 {{ listaJugadores | json }}
-<!---->
+-->
 <div class="container">
   <div class="uno">
     <label type="text" name="text" class="input"
@@ -26,16 +28,15 @@ jugadores: <br />
     >
     <br /><br />
     <label type="text" name="text" class="input"
-      >Color alternativo del equipo: {{ equipoActual?.colorCamisetaSecundario }}</label
+      >Color alternativo del equipo:
+      {{ equipoActual?.colorCamisetaSecundario }}</label
     >
     <br /><br />
   </div>
   <div class="tres">
     <img [src]="fotoMostrar" />
-    <label type="text" name="text" class="input"
-      >Logo del equipo</label
-    >
+    <label type="text" name="text" class="input">Logo del equipo</label>
   </div>
 </div>
-<br>
+<br />
 <app-footer></app-footer>
