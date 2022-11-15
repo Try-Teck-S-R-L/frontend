@@ -42,14 +42,7 @@
 
   <br />
 
-  <table
-    mat-table
-    [dataSource]="dataSource"
-    matSort
-    *ngIf="dataSource.data.length > 0"
-    (matSortChange)="announceSortChange($event)"
-    class="mat-elevation-z8"
-  >
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Position Column 
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
@@ -63,7 +56,6 @@
       <th
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
         sortActionDescription="Sort by nombreJugador"
       >
         Nombres
@@ -78,7 +70,6 @@
       <th
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
         sortActionDescription="Sort by apellidoJugador"
       >
         Apellidos
@@ -93,7 +84,6 @@
       <th
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
         sortActionDescription="Sort by numeroCi"
       >
         Documento de Identidad
@@ -107,7 +97,6 @@
       <th
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
         sortActionDescription="Sort by numeroCi"
       >
         Ver más información
@@ -120,7 +109,6 @@
       <th
         mat-header-cell
         *matHeaderCellDef
-        mat-sort-header
         sortActionDescription="Sort by numeroCi"
       >
         Eliminar jugador

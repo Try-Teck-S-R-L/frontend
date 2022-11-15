@@ -1,13 +1,13 @@
 <app-header></app-header>
 {{listapre| json }}
-<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+<table mat-table [dataSource]="dataSource"
     class="mat-elevation-z8">
 
   
 
   <!-- Name Column -->
   <ng-container matColumnDef="nombreEquipo">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by nombreEquipo">
+    <th mat-header-cell *matHeaderCellDef  sortActionDescription="Sort by nombreEquipo">
       Nombre del equipo
     </th>
     <td mat-cell *matCellDef="let listapre">{{ listapre.nombreEquipo }}</td>
@@ -15,14 +15,14 @@
 
   <!-- Weight Column -->
   <ng-container matColumnDef="habilitado">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by habilitado">
+    <th mat-header-cell *matHeaderCellDef  sortActionDescription="Sort by habilitado">
       Estado actual
     </th>
     <td mat-cell *matCellDef="let listapre"> {{listapre.habilitado}} </td>
   </ng-container>
   <!-- ver informacion -->
   <ng-container matColumnDef="vermas">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+    <th mat-header-cell *matHeaderCellDef >
       Ver mas información
     </th>
     <td mat-cell *matCellDef="let listapre">

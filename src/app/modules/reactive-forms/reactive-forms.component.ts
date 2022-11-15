@@ -85,8 +85,8 @@ export class ReactiveFormsComponent implements OnInit {
       idCategoria: ["", [Validators.required]],
       
       nroComprobante: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
-      montoPago: ["50", [Validators.required]],
-      fechaPreinscripcion: ["2023-01-01", [Validators.required]],
+      montoPago: ["350", [Validators.required]],
+      fechaPreinscripcion: ["2022-08-01", [Validators.required]],
     });
   }
 

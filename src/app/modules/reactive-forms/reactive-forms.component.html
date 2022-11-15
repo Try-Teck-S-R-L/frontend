@@ -51,10 +51,15 @@
           }"
         />
         <div
+          *ngIf="
+            (form.nombreEquipo.touched && form.nombreEquipo.invalid) ||
+            submitted
+          "
           class="text-danger"
-          *ngIf="nombreEquipo.errors?.required && nombreEquipo.touched"
         >
-          Este campo no puede estar vacío.
+          <div *ngIf="form.nombreEquipo.errors?.required">
+            Este campo no puede estar vacío.
+          </div>
         </div>
         <div
           class="text-danger"
@@ -150,10 +155,15 @@
         />
 
         <div
+          *ngIf="
+            (form.nroComprobante.touched && form.nroComprobante.invalid) ||
+            submitted
+          "
           class="text-danger"
-          *ngIf="nroComprobante.errors?.required && nroComprobante.touched"
         >
-          Este campo no puede estar vacío.
+          <div *ngIf="form.nroComprobante.errors?.required">
+            Este campo no puede estar vacío.
+          </div>
         </div>
         <div
           class="text-danger"
