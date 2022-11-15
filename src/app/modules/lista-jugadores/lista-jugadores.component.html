@@ -102,32 +102,19 @@
       </td>
     </ng-container>
     <!-- Name Column -->
-    <ng-container matColumnDef="vermas">
-      <th
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-        sortActionDescription="Sort by numeroCi"
-      >
-        Ver más información
-      </th>
-      <td mat-cell *matCellDef="let jugador">ver más</td>
-    </ng-container>
-
     <!-- Name Column -->
-    <ng-container matColumnDef="eliminarJugador">
-      <th
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-        sortActionDescription="Sort by numeroCi"
-      >
-        Eliminar jugador
-      </th>
-      <td mat-cell *matCellDef="let jugador">
-        <a [routerLink]="['/listajugadores/', jugador.idEquipo]"> eliminar </a>
-      </td>
-    </ng-container>
+  <ng-container matColumnDef="vermas">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      Ver mas información
+    </th>
+    <td mat-cell *matCellDef="let jugador">
+      <a [routerLink]="['/infojugador/', jugador.idJugador]">
+       <button>Ver más información</button> 
+      </a>
+    </td>
+  </ng-container>
+
+    
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
