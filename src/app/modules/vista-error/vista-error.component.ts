@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vista-error',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VistaErrorComponent implements OnInit {
 
-  constructor() { }
+  public mensajeContenido: string = "";
+
+  constructor(router: ActivatedRoute) {
+    router.params.subscribe((params) => {
+      this.mensajeContenido = params["mensaje"];
+    });
+   }
 
   ngOnInit(): void {
+    
   }
 
 }

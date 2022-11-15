@@ -21,6 +21,8 @@ import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import { DelegadoService } from "src/app/services/delegado.service";
 import {Location} from '@angular/common';
 
+declare var $: any;
+
 
 interface CountryOption {
   name: string;
@@ -49,10 +51,12 @@ export class RegistrarEquipoComponent implements OnInit {
   
   constructor(
     router: ActivatedRoute,
+    private routerView: Router,
     private formBuilder: FormBuilder,
     private http:EquipoService,
     private elemento: ElementolistaService, 
     private serviceEquipo: EquipoService,
+    private _location: Location,
     private preinscripcionService: PreinscripcionService,
     
     private location: Location
@@ -79,7 +83,16 @@ export class RegistrarEquipoComponent implements OnInit {
     .getAllEquipos()
     .subscribe((res: any) => (this.listaEquipos = res));*/
 
-    this.preinscripcionService.getDatosPreinscripcionAprobada(this.idPreinscripcion).subscribe((data) => (this.preinscripcionAprob = data ))
+    this.preinscripcionService.getDatosPreinscripcionAprobada(this.idPreinscripcion)
+    .subscribe((data) => {
+      if(data != null){
+        this.preinscripcionAprob = data ;
+      };
+      if(data == null){
+        this.routerView.navigate(['vistaerror/Este equipo ya fue inscrito'], { skipLocationChange: true });
+    
+      }
+        })
 
     this.registerForm = this.formBuilder.group({
       
@@ -122,7 +135,7 @@ export class RegistrarEquipoComponent implements OnInit {
     if (this.registerForm.valid) {
       console.log("Form Submitted!");
 
-      this.location.back();
+      //this.location.back();
       
     }
 
@@ -145,6 +158,9 @@ export class RegistrarEquipoComponent implements OnInit {
       .subscribe(error => {
         if(error != null){
           this.mensajeError = error[0]
+        };
+        if(error == null){
+          $('#exampleModal').modal('show');
         }; console.log(error)});
 
     
@@ -168,6 +184,13 @@ export class RegistrarEquipoComponent implements OnInit {
     this.registerForm.reset();
     this.registerForm.clearValidators();
     this.registerForm.updateValueAndValidity();
+  }
+
+  regresar(){
+    $('#exampleModal').modal('hide');
+    this.routerView.navigate(['vistaerror/Este equipo ya fue registrado correctamente'], { skipLocationChange: true });
+    this.onReset();
+    this._location.back();
   }
   
 
