@@ -62,4 +62,12 @@ export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterVie
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
+
+  eliminarPreinscripcion($id: number){
+
+    this.servicePreinscripcion.eliminarPreinscripcion($id).subscribe((data)=>{
+      console.log("success");
+  });
+    console.log($id);
+  }
 }

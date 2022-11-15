@@ -56,6 +56,19 @@ export class PreinscripcionService {
     //return this.http.get<EquipoI[]>(this.base_url + 'equipos');
   }
 
+  eliminarPreinscripcion(idPreinscripcion:number):Observable<PreinscripcionI>{
+
+
+    console.log(idPreinscripcion);
+    const formData = new FormData();
+    
+    var aux = idPreinscripcion+'';
+    formData.append("idPreinscripcion", aux);
+
+    console.log(aux);
+    return this.http.post<PreinscripcionI>(this.base_url+"api/borrarPreinscripcion", formData);
+  }
+
 
 
   aceptarPreinsc($idPreinscripcion: string):Observable<any>{
