@@ -1,6 +1,5 @@
 <app-header></app-header>
 
-
 {{ preinscripcionAprob | json }} -->
 
 <div class="container">
@@ -37,41 +36,45 @@
     </div>
     <!--INPUT colorEquipo-->
     <div class="mb-3 row">
-      <label for="inputcolorCamisetaPrincipal" class="colorEquipo col-sm-2 col-form-label"
+      <label
+        for="inputcolorCamisetaPrincipal"
+        class="colorEquipo col-sm-2 col-form-label"
         >Color de camiseta:</label
       >
       <div class="col-sm-10">
         <select
-        name="colorCamisetaPrincipal"
-        class="form-select form-select-sm"
-        formControlName="colorCamisetaPrincipal"
-        required
-      >
-        <option value="" disabled selected>Seleccionar color</option>
-        <option value="Negro">Negro</option>
-        <option value="Azul">Azul</option>
-        <option value="Café">Café</option>
-        <option value="Plomo">Plomo</option>
-        <option value="Verde">Verde</option>
-        <option value="Naranja">Naranja</option>
-        <option value="Rosa">Rosa</option>
-        <option value="Morado">Morado</option>
-        <option value="Rojo">Rojo</option>
-        <option value="Blanco">Blanco</option>
-        <option value="Amarillo">Amarillo</option>
-      </select>
-      <div
-        *ngIf="
-          (form.colorCamisetaPrincipal.touched && form.colorCamisetaPrincipal.invalid) || submitted
-        "
-        class="text-danger"
-      >
-        <div *ngIf="form.colorCamisetaPrincipal.errors?.required">
-          Elija una de las opciones
+          name="colorCamisetaPrincipal"
+          class="form-select form-select-sm"
+          formControlName="colorCamisetaPrincipal"
+          required
+        >
+          <option value="" disabled selected>Seleccionar color</option>
+          <option value="Negro">Negro</option>
+          <option value="Azul">Azul</option>
+          <option value="Café">Café</option>
+          <option value="Plomo">Plomo</option>
+          <option value="Verde">Verde</option>
+          <option value="Naranja">Naranja</option>
+          <option value="Rosa">Rosa</option>
+          <option value="Morado">Morado</option>
+          <option value="Rojo">Rojo</option>
+          <option value="Blanco">Blanco</option>
+          <option value="Amarillo">Amarillo</option>
+        </select>
+        <div
+          *ngIf="
+            (form.colorCamisetaPrincipal.touched &&
+              form.colorCamisetaPrincipal.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.colorCamisetaPrincipal.errors?.required">
+            Elija una de las opciones
+          </div>
         </div>
       </div>
     </div>
-   </div>
     <!--INPUT ALTERNATIVOcolorEquipo-->
     <div class="mb-3 row">
       <label
@@ -81,36 +84,38 @@
       >
       <div class="col-sm-10">
         <select
-        name="colorCamisetaSecundario"
-        class="form-select form-select-sm"
-        formControlName="colorCamisetaSecundario"
-        required
-      >
-        <option value="" disabled selected>Seleccionar color</option>
-        <option value="Negro">Negro</option>
-        <option value="Azul">Azul</option>
-        <option value="Café">Café</option>
-        <option value="Plomo">Plomo</option>
-        <option value="Verde">Verde</option>
-        <option value="Naranja">Naranja</option>
-        <option value="Rosa">Rosa</option>
-        <option value="Morado">Morado</option>
-        <option value="Rojo">Rojo</option>
-        <option value="Blanco">Blanco</option>
-        <option value="Amarillo">Amarillo</option>
-      </select>
-      <div
-        *ngIf="
-          (form.colorCamisetaSecundario.touched && form.colorCamisetaSecundario.invalid) || submitted
-        "
-        class="text-danger"
-      >
-        <div *ngIf="form.colorCamisetaSecundario.errors?.required">
-          Elija una de las opciones
+          name="colorCamisetaSecundario"
+          class="form-select form-select-sm"
+          formControlName="colorCamisetaSecundario"
+          required
+        >
+          <option value="" disabled selected>Seleccionar color</option>
+          <option value="Negro">Negro</option>
+          <option value="Azul">Azul</option>
+          <option value="Café">Café</option>
+          <option value="Plomo">Plomo</option>
+          <option value="Verde">Verde</option>
+          <option value="Naranja">Naranja</option>
+          <option value="Rosa">Rosa</option>
+          <option value="Morado">Morado</option>
+          <option value="Rojo">Rojo</option>
+          <option value="Blanco">Blanco</option>
+          <option value="Amarillo">Amarillo</option>
+        </select>
+        <div
+          *ngIf="
+            (form.colorCamisetaSecundario.touched &&
+              form.colorCamisetaSecundario.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.colorCamisetaSecundario.errors?.required">
+            Elija una de las opciones
+          </div>
         </div>
       </div>
     </div>
-   </div>
     <!--imagen logo-->
     <label class="logo form-label">Logo del equipo:</label>
     <input
@@ -127,26 +132,32 @@
 
     <!--INPUT subir-->
     <div class="text-center">
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Registrar
-      </button>
-      
+      <button class="btn btn-primary mr-1">Registrar</button>
+
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="exampleModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modal title
+              </h1>
             </div>
             <div class="modal-body">
-                Para que el registro sea exitoso haga click en Registrar
-                <br>
-                Para seguir con el registro haga click en volver
+              Felicidades! Su equip a sido inscrito exitosamente.
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
-              <button class="btn btn-primary mr-1">Registrar</button>
+              <button class="btn btn-primary mr-1" (click)="regresar()">
+                Aceptar
+              </button>
             </div>
           </div>
         </div>

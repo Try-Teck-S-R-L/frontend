@@ -21,6 +21,8 @@ import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import { DelegadoService } from "src/app/services/delegado.service";
 import {Location} from '@angular/common';
 
+declare var $: any;
+
 
 interface CountryOption {
   name: string;
@@ -53,6 +55,7 @@ export class RegistrarEquipoComponent implements OnInit {
     private http:EquipoService,
     private elemento: ElementolistaService, 
     private serviceEquipo: EquipoService,
+    private _location: Location,
     private preinscripcionService: PreinscripcionService,
     
     private location: Location
@@ -122,7 +125,7 @@ export class RegistrarEquipoComponent implements OnInit {
     if (this.registerForm.valid) {
       console.log("Form Submitted!");
 
-      this.location.back();
+      //this.location.back();
       
     }
 
@@ -145,6 +148,9 @@ export class RegistrarEquipoComponent implements OnInit {
       .subscribe(error => {
         if(error != null){
           this.mensajeError = error[0]
+        };
+        if(error == null){
+          $('#exampleModal').modal('show');
         }; console.log(error)});
 
     
@@ -168,6 +174,12 @@ export class RegistrarEquipoComponent implements OnInit {
     this.registerForm.reset();
     this.registerForm.clearValidators();
     this.registerForm.updateValueAndValidity();
+  }
+
+  regresar(){
+    $('#exampleModal').modal('hide');
+    this.onReset();
+    this._location.back();
   }
   
 
