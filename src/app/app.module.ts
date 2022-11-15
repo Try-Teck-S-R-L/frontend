@@ -40,6 +40,9 @@ import { ListaPreinscripcionDelegadoComponent } from './modules/lista-preinscrip
 import { MenuPreinscripcionDelegadoComponent } from './modules/menu-preinscripcion-delegado/menu-preinscripcion-delegado.component';
 import { EliminarPreinscripcionDelegadoComponent } from './modules/eliminar-preinscripcion-delegado/eliminar-preinscripcion-delegado.component';
 import { EditarPreinscripcionDelegadoComponent } from './modules/editar-preinscripcion-delegado/editar-preinscripcion-delegado.component';
+import { InformacionPreDeleComponent } from './modules/informacion-pre-dele/informacion-pre-dele.component';
+import { EditarPreDeleComponent } from './modules/editar-pre-dele/editar-pre-dele.component';
+import { InformacionjugadorComponent } from './modules/informacionjugador/informacionjugador.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { EditarPreinscripcionDelegadoComponent } from './modules/editar-preinscr
     MenuPreinscripcionDelegadoComponent,
     EliminarPreinscripcionDelegadoComponent,
     EditarPreinscripcionDelegadoComponent,
+    InformacionPreDeleComponent,
+    EditarPreDeleComponent,
+    InformacionjugadorComponent,
   ],
   imports: [
     BrowserModule,

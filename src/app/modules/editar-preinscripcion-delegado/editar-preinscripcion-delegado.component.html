@@ -20,6 +20,17 @@
     </th>
     <td mat-cell *matCellDef="let listapre"> {{listapre.habilitado}} </td>
   </ng-container>
+  <!-- Weight Column -->
+  <ng-container matColumnDef="vermas">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      Editar Preinscricion
+    </th>
+    <td mat-cell *matCellDef="let listapre">
+      <a [routerLink]="['/editarformulariopre/', listapre.idPreinscripcion]">
+        <button>Editar Preinscricion</button> 
+      </a>
+    </td>
+  </ng-container>
 
   
 

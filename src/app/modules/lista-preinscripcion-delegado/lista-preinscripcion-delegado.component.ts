@@ -23,7 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ListaPreinscripcionDelegadoComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = [ 'nombreEquipo', 'habilitado'];
+  displayedColumns: string[] = [ 'nombreEquipo', 'habilitado','vermas'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public idDelegado: string = "";
   public listapre: any = [];

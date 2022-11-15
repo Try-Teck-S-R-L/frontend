@@ -23,6 +23,9 @@ import { ListaPreinscripcionDelegadoComponent } from "./modules/lista-preinscrip
 import { MenuPreinscripcionDelegadoComponent } from "./modules/menu-preinscripcion-delegado/menu-preinscripcion-delegado.component";
 import { EliminarPreinscripcionDelegadoComponent } from "./modules/eliminar-preinscripcion-delegado/eliminar-preinscripcion-delegado.component";
 import { EditarPreinscripcionDelegadoComponent } from "./modules/editar-preinscripcion-delegado/editar-preinscripcion-delegado.component";
+import { EditarPreDeleComponent } from "./modules/editar-pre-dele/editar-pre-dele.component";
+import { InformacionPreDeleComponent } from "./modules/informacion-pre-dele/informacion-pre-dele.component";
+import { InformacionjugadorComponent } from "./modules/informacionjugador/informacionjugador.component";
 
 const routes: Routes = [
   {
@@ -109,6 +112,18 @@ const routes: Routes = [
   {
     path: "editarpredelegado/:id",
     component: EditarPreinscripcionDelegadoComponent,
+  },
+  {
+    path: "editarformulariopre/:id",
+    component: EditarPreDeleComponent,
+  },
+  {
+    path: "inforformulariopre/:id",
+    component: InformacionPreDeleComponent,
+  },
+  {
+    path: "infojugador/:id",
+    component: InformacionjugadorComponent,
   }
 
 ];    
