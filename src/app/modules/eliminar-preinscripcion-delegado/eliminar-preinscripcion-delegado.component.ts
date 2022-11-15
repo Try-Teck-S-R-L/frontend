@@ -7,24 +7,16 @@ import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
 import { ActivatedRoute } from '@angular/router';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  nombreEquipo: string;
+  
+  habilitado: number;
+ 
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+ 
 ];
+
 @Component({
   selector: 'app-eliminar-preinscripcion-delegado',
   templateUrl: './eliminar-preinscripcion-delegado.component.html',
@@ -32,10 +24,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = [ 'nombreEquipo', 'habilitado','eliminarPreinscricion'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public idDelegado: string = "";
-
+  public listapre: any = [];
   constructor(private _liveAnnouncer: LiveAnnouncer,router: ActivatedRoute,
     private servicePreinscripcion: PreinscripcionService) {
       router.params.subscribe((params) => {
@@ -46,6 +38,11 @@ export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterVie
     this.servicePreinscripcion.getPreinscripcionesDelegado(this.idDelegado).subscribe((res : any)=>{this.dataSource = new MatTableDataSource(res), console.log(res)});
     
   }
+
+
+
+
+
 
   @ViewChild(MatSort) sort: MatSort;
 
