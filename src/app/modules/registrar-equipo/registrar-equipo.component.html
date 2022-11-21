@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container" *ngIf="fechaValida === 1">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Inscripción de equipo</h3>
 
@@ -163,5 +163,9 @@
     </div>
   </form>
 </div>
+
+<ng-container *ngIf="fechaValida === 0">
+  <p>Usted no puede registrar equipos, esta fuera de la fecha limite</p>
+</ng-container>
 
 <app-footer></app-footer>

@@ -20,6 +20,7 @@ import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import { DelegadoService } from "src/app/services/delegado.service";
 import {Location} from '@angular/common';
+import { InfoGeneralService } from 'src/app/services/infoGeneral.service';
 
 declare var $: any;
 
@@ -47,6 +48,7 @@ export class RegistrarEquipoComponent implements OnInit {
   public idPreinscripcion: string = "";
   public preinscripcionAprob: any = '';
   public mensajeError: string = '';
+  public fechaValida: number;
 
   
   constructor(
@@ -56,6 +58,7 @@ export class RegistrarEquipoComponent implements OnInit {
     private http:EquipoService,
     private elemento: ElementolistaService, 
     private serviceEquipo: EquipoService,
+    private generalService: InfoGeneralService,
     private _location: Location,
     private preinscripcionService: PreinscripcionService,
     
@@ -73,6 +76,9 @@ export class RegistrarEquipoComponent implements OnInit {
   ngOnInit() {
 
 
+    this.generalService.verificarFechaValida().subscribe(data => {this.fechaValida = data;
+    });
+    
     this.elemento
     .getAllCategorias()
     .subscribe((data) => (this.listaCategorias = data));
