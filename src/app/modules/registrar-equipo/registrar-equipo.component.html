@@ -1,8 +1,6 @@
 <app-header></app-header>
 
-{{ preinscripcionAprob | json }} -->
-
-<div class="container">
+<div class="container" *ngIf="fechaValida === 1">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Inscripción de equipo</h3>
 
@@ -148,11 +146,11 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Modal title
+                Felicidades!
               </h1>
             </div>
             <div class="modal-body">
-              Felicidades! Su equip a sido inscrito exitosamente.
+              Su equipo a sido inscrito exitosamente.
             </div>
             <div class="modal-footer">
               <button class="btn btn-primary mr-1" (click)="regresar()">
@@ -165,5 +163,9 @@
     </div>
   </form>
 </div>
+
+<ng-container *ngIf="fechaValida === 0">
+  <p>Usted no puede registrar equipos, esta fuera de la fecha limite</p>
+</ng-container>
 
 <app-footer></app-footer>

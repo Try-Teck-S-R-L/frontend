@@ -1,4 +1,42 @@
 <app-header></app-header>
-<!--{{ listaJugadores | json }}-->
-
+<br />
+<!--{{ equipoActual | json }} foto wea: {{ fotoMostrar }}
+<br />
+jugadores: <br />
+{{ listaJugadores | json }}
+-->
+<div class="container">
+  <div class="uno">
+    <label type="text" name="text" class="input"
+      >  Nombre del equipo: {{ infoJugador?.nombreJugador }} <hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Nombre del delegado: {{ infoJugador?.nombreDelegado }}<hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Categoría del equipo: {{ infoJugador?.nombreCategoria }}<hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >País del equipo: {{ infoJugador?.paisEquipo }}<hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Color del equipo: {{ infoJugador?.colorCamisetaPrincipal }}<hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Color alternativo del equipo:
+      {{ infoJugador?.colorCamisetaSecundario }}<hr></label
+    >
+    <br /><br />
+  </div>
+  <!--<div class="tres">
+    <img [src]="fotoMostrar" />
+    <label type="text" name="text" class="input">Logo del equipo</label>
+  </div>-->
+</div>
+<br />
 <app-footer></app-footer>

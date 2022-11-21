@@ -38,4 +38,13 @@ import { ResponseI } from "../modules/models/response.interface";
       
     }
 
+
+    verificarFechaValida():Observable<number>{
+      let url = this.base_url + "api/fecha";
+
+      let resp:number;
+      return this.http.get<number>(url);
+
+    }
+
   }

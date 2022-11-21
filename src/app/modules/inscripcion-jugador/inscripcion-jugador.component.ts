@@ -15,6 +15,7 @@ import { EquipoService } from "src/app/services/equipo.service";
 import { JugadorService } from "src/app/services/jugador.service";
 import data from "../../../assets/Archivos/data.json";
 import { ResponseI } from "../models/response.interface";
+import { InfoGeneralService } from "src/app/services/infoGeneral.service";
 
 declare var $: any;
 
@@ -35,7 +36,7 @@ export class InscripcionJugadorComponent implements OnInit {
   private idPhoto: File | null = null;
   private profilePhoto: File | null = null;
   public idEquipo: string = '';
-
+  public fechaValida: number;
   public listaTallas: any = [];
   public listaPaises: any = [];
   public listaCategorias: any = [];
@@ -47,6 +48,7 @@ export class InscripcionJugadorComponent implements OnInit {
     private http: JugadorService,
     private elemento: ElementolistaService,
     private router: ActivatedRoute,
+    private generalService: InfoGeneralService,
     private routerView: Router,
     private activatedRoute: ActivatedRoute,
     private _location: Location
@@ -59,6 +61,10 @@ export class InscripcionJugadorComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.generalService.verificarFechaValida().subscribe(data => {this.fechaValida = data;
+    });
+
     this.registerForm = this.formBuilder.group({
       nombreJugador: [
         "",
