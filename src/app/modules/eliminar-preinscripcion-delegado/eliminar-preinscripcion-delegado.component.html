@@ -1,5 +1,10 @@
 <app-header></app-header>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  *ngIf="fechaValida === 1"
+>
   <!-- Name Column -->
   <ng-container matColumnDef="nombreEquipo">
     <th
@@ -84,6 +89,10 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<ng-container *ngIf="fechaValida === 0">
+  <p>Usted no puede eliminar preinscripciones, esta fuera de la fecha limite</p>
+</ng-container>
 
 <ng-container *ngIf="dataSource.data.length === 0">
   <p>No tiene preinscripciones registradas en el sistema</p>

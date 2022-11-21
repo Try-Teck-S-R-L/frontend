@@ -31,7 +31,7 @@ export class InformacionPreDeleComponent implements OnInit {
 
   ngOnInit(): void {
     this.servicePreinscripcion
-      .getPreinscripcionBuscada(this.id)
+      .getPreinscripcionGeneral(this.id)
       //.subscribe((res: any) => (this.preinscripcionActual = res, this.fotoMostrar = this.sanitizer.bypassSecurityTrustResourceUrl(res.fotoComprobante)));
       .subscribe((res: any) => (this.preinscripcionActual = res,
 

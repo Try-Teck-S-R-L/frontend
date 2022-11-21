@@ -25,7 +25,7 @@ import { ResponseI } from '../modules/models/response.interface';
     getJugador($id: string):Observable<JugadorI[]>{
       const formData = new FormData();
       
-      formData.append("idJugador", $id);
+      formData.append("ciJugador", $id);
       return this.http.post<JugadorI[]>(this.base_url + "api/buscarJugador", formData);
     }
 
