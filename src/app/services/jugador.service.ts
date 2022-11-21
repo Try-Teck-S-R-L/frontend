@@ -22,6 +22,16 @@ import { ResponseI } from '../modules/models/response.interface';
       return this.http.post<JugadorI[]>(this.base_url + "api/buscarjugadores", formData);
     }
 
+    getJugador($id: string):Observable<JugadorI[]>{
+      const formData = new FormData();
+      
+      formData.append("idJugador", $id);
+      return this.http.post<JugadorI[]>(this.base_url + "api/buscarJugador", formData);
+    }
+
+
+
+
     eliminarJugador(ciJugador:number):Observable<JugadorI>{
 
 

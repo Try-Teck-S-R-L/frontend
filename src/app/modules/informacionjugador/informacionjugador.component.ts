@@ -14,24 +14,28 @@ import { JugadorI } from "../models/jugador.interface";
   styleUrls: ['./informacionjugador.component.css']
 })
 export class InformacionjugadorComponent implements OnInit {
-  public id: string = "";
+  public idJugador: string = "";
   private fechaValida: boolean;
+  public infoJugador: any;
 
   constructor(
     router: ActivatedRoute,
     private servicePreinscripcion: PreinscripcionService,
     private _location: Location,
     private sanitizer:DomSanitizer,
+    private serviceJugador: JugadorService,
     private routerView:Router,
     private activatedRoute: ActivatedRoute
   ) {
     router.params.subscribe((params) => {
-      this.id = params["id"];
+      this.idJugador = params["id"];
     });
   }
   public formularioEquipo: any;
 
   ngOnInit(): void {
+    this.serviceJugador
+      .getJugador(this.idJugador)
+      .subscribe((res: any) => (this.infoJugador = res ));
   }
-
 }
