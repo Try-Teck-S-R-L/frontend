@@ -44,6 +44,8 @@ import { InformacionPreDeleComponent } from './modules/informacion-pre-dele/info
 import { EditarPreDeleComponent } from './modules/editar-pre-dele/editar-pre-dele.component';
 import { InformacionjugadorComponent } from './modules/informacionjugador/informacionjugador.component';
 
+import { LoginComponent } from './modules/login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +77,7 @@ import { InformacionjugadorComponent } from './modules/informacionjugador/inform
     InformacionPreDeleComponent,
     EditarPreDeleComponent,
     InformacionjugadorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

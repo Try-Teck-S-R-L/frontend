@@ -26,6 +26,9 @@ import { EditarPreinscripcionDelegadoComponent } from "./modules/editar-preinscr
 import { EditarPreDeleComponent } from "./modules/editar-pre-dele/editar-pre-dele.component";
 import { InformacionPreDeleComponent } from "./modules/informacion-pre-dele/informacion-pre-dele.component";
 import { InformacionjugadorComponent } from "./modules/informacionjugador/informacionjugador.component";
+import { LoginComponent } from "./modules/login/login.component";
+
+
 
 const routes: Routes = [
   {
@@ -124,6 +127,11 @@ const routes: Routes = [
   {
     path: "infojugador/:id",
     component: InformacionjugadorComponent,
+  }
+  ,
+  {
+    path: "login",
+    component: LoginComponent,
   }
 
 ];    

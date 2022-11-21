@@ -34,7 +34,10 @@ export class ListaJugadoresComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaJugadores: any = [];
 
-  constructor(private _liveAnnouncer: LiveAnnouncer,router: ActivatedRoute, private serviceJugador: JugadorService,) {
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    router: ActivatedRoute, 
+    private serviceJugador: JugadorService,) {
     router.params.subscribe((params) => {
       this.id = params["id"];
     });
