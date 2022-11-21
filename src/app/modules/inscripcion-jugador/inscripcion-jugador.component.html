@@ -1,7 +1,7 @@
 <app-header></app-header>
 <app-navar></app-navar>
 
-<div class="container">
+<div class="container" *ngIf="fechaValida === 1">
   <form #myForm="ngForm" (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Inscripción de jugador</h3>
     <!--INPUT nombre delegado-->
@@ -36,7 +36,8 @@
 
         <div
           *ngIf="
-            (form.nombreJugador.touched && form.nombreJugador.invalid) || submitted
+            (form.nombreJugador.touched && form.nombreJugador.invalid) ||
+            submitted
           "
           class="text-danger"
         >
@@ -70,7 +71,6 @@
           formControlName="apellidoJugador"
           maxlength="50"
           pattern="[A-Za-z ]"
-          
           placeholder="Ingrese apellido del jugador"
           class="form-control"
           [ngClass]="{
@@ -79,15 +79,16 @@
           }"
         />
         <div
-        *ngIf="
-          (form.apellidoJugador.touched && form.apellidoJugador.invalid) || submitted
-        "
-        class="text-danger"
-      >
-        <div *ngIf="form.apellidoJugador.errors?.required">
-          Este campo no puede estar vacío.
+          *ngIf="
+            (form.apellidoJugador.touched && form.apellidoJugador.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.apellidoJugador.errors?.required">
+            Este campo no puede estar vacío.
+          </div>
         </div>
-      </div>
         <div
           class="text-danger"
           *ngIf="
@@ -258,9 +259,7 @@
           type="number"
           placeholder="Ingrese su nro de camiseta"
           formControlName="numeroCamiseta"
-            
           class="form-control"
-       
           [ngClass]="{
             'is-invalid':
               form.numeroCamiseta.invalid && form.numeroCamiseta.touched
@@ -314,8 +313,8 @@
     </div>
   -->
     <br /><br />
-<h3 class="errorb">{{ mensajeError | json }}</h3>
-    
+    <h3 class="errorb">{{ mensajeError | json }}</h3>
+
     <!--INPUT subir-->
     <div class="text-center">
       <button class="btn btn-primary mr-1">Registrar</button>
@@ -350,5 +349,9 @@
     </div>
   </form>
 </div>
+
+<ng-container *ngIf="fechaValida === 0">
+  <p>Usted no puede registrar jugadores, esta fuera de la fecha limite</p>
+</ng-container>
 
 <app-footer></app-footer>
