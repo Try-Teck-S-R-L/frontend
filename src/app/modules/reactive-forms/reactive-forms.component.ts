@@ -17,6 +17,7 @@ import { DelegadoI } from "../models/delegado.interface";
 import { PreinscripcionI } from "../models/preinscripcion.interface";
 import { ResponseI } from "../models/response.interface";
 import {Location} from '@angular/common';
+import { InfoGeneralService } from "src/app/services/infoGeneral.service";
 
 
 declare var $: any;
@@ -42,6 +43,7 @@ export class ReactiveFormsComponent implements OnInit {
   public listaCategorias: any = [];
   public idDel: string = "";
   public mensajeError: string = '';
+  public fechaValida: number;
   public delegadoAct: { "nombreDelegado": "string";"apellidoDelegado" : "string" ;"correoDelegado": "string" } | undefined;
   //public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
 
@@ -50,6 +52,7 @@ export class ReactiveFormsComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: PreinscripcionService,
     private elemento: ElementolistaService,
+    private generalService: InfoGeneralService,
     private delegadoService: DelegadoService,
     private serviceEquipo: EquipoService,
     private _location: Location
@@ -64,6 +67,11 @@ export class ReactiveFormsComponent implements OnInit {
 
   ngOnInit() {
     //$('#exampleModal').modal('show');
+
+    this.generalService.verificarFechaValida().subscribe(data => {this.fechaValida = data;
+      });
+
+
     this.elemento
       .getAllCategorias()
       .subscribe((data) => (this.listaCategorias = data));

@@ -15,6 +15,8 @@ import { JugadorI } from "../models/jugador.interface";
 })
 export class InformacionjugadorComponent implements OnInit {
   public id: string = "";
+  private fechaValida: boolean;
+
   constructor(
     router: ActivatedRoute,
     private servicePreinscripcion: PreinscripcionService,
