@@ -36,6 +36,6 @@ export class InformacionjugadorComponent implements OnInit {
   ngOnInit(): void {
     this.serviceJugador
       .getJugador(this.idJugador)
-      .subscribe((res: any) => (this.infoJugador = res ));
+      .subscribe((res: any) => (this.infoJugador = res, console.log(res) ));
   }
 }
