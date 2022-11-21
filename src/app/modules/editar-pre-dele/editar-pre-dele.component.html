@@ -1,9 +1,10 @@
 <app-header></app-header>
 
+{{ datosPreinscripcion | json }}
 
-
-
-
-
-
+<ng-container *ngIf="fechaValida === 0">
+  <p>
+    Usted no puede editar esta preinscripción, esta fuera de la fecha limite
+  </p>
+</ng-container>
 <app-footer></app-footer>
