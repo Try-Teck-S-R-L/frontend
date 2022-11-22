@@ -2,6 +2,295 @@
 
 {{ datosPreinscripcion | json }}
 
+<div class="container" *ngIf="fechaValida === 1">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <h3>Editar Preinscripción</h3>
+    <!--INPUT nombre delegado-->
+
+    <!-- {{ delegadoAct | json }}
+    {{ mensajeError | json }}-->
+    {{ mensajeError }}
+
+    <div class="inputnombreDelegado">
+      <label
+        for="inputnombreDelegado"
+        class="nombreDelegado col-sm-2 col-form-label"
+        >Nombre delegado:</label
+      >
+      <label
+        >{{ datosPreinscripcion?.nombreDelegado }}
+        {{ datosPreinscripcion?.apellidoDelegado }}</label
+      >
+    </div>
+
+    <!--INPUT email-->
+    <div class="inputemail">
+      <label for="inputemail" class="email col-sm-2 col-form-label">
+        Email:</label
+      >
+      <label>{{ datosPreinscripcion?.correoDelegado }}</label>
+      <div class="col-sm-10"></div>
+    </div>
+
+    <!--INPUT nombreequipo-->
+    <div class="mb-3 row">
+      <label
+        for="inputnombreEquipo"
+        class="nombreEquipo col-sm-2 col-form-label"
+        >Nombre del equipo:</label
+      >
+      <div class="col-sm-10">
+        <input
+        
+       
+          type="text"
+          ngModel
+          formControlName="nombreEquipo"
+          maxlength="50"
+          
+          placeholder="Ingrese nombre del equipo"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
+          }"
+          value= "{{ datosPreinscripcion?.nombreEquipo }}"
+        />
+        <div
+          *ngIf="
+            (form.nombreEquipo.touched && form.nombreEquipo.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+        
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            nombreEquipo.value != '' &&
+            nombreEquipo.invalid &&
+            nombreEquipo.touched
+          "
+        >
+          Por favor, ingrese caracteres válidos
+        </div>
+      </div>
+    </div>
+
+    <!--INPUT PAIS-->
+    <div class="mb-3 row">
+      <label class="pais col-sm-2 col-form-label form-label">País:</label>
+      <div class="col-sm-10">
+        <select
+          class="form-control"
+          name="paisEquipo"
+          formControlName="paisEquipo"
+          required
+        >
+          <option value="" disabled selected>Seleccionar país</option>
+          <option *ngFor="let pais of paises" [value]="pais.value">
+            {{ pais.name }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            (form.paisEquipo.touched && form.paisEquipo.invalid) || submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.paisEquipo.errors?.required">
+            Elija una de las opciones
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--INPUT Categorias-->
+    <div class="mb-3 row">
+      <label
+        for="categorias"
+        class="categoria col-sm-2 col-form-label form-label"
+        >Categoría:</label
+      >
+      <div class="col-sm-10">
+        <select
+          name="idCategoria"
+          id="idCategoria"
+          class="form-select form-select-sm"
+          formControlName="idCategoria"
+        >
+          <option value="" disabled selected>Seleccionar categoria</option>
+          <option value="1">Mayores de 35</option>
+          <option value="2">Mayores de 45</option>
+          <option value="3">Mayores de 55</option>
+        </select>
+        <div
+          *ngIf="
+            (form.idCategoria.touched && form.idCategoria.invalid) || submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.idCategoria.errors?.required">
+            Elija una de las opciones
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--INPUT nro de comprobante-->
+
+    <div class="mb-3 row">
+      <label for="nroComprobante" class="nroComprobante col-sm-2 col-form-label"
+        >Nro de comprobante de pago:</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          maxlength="50"
+          placeholder="Ingrese el nro de comprobante de pago"
+          formControlName="nroComprobante"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              form.nroComprobante.invalid && form.nroComprobante.touched
+          }"
+          value= "{{ datosPreinscripcion?.nroComprobante }}"
+        />
+
+        <div
+          *ngIf="
+            (form.nroComprobante.touched && form.nroComprobante.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.nroComprobante.errors?.required">
+            Este campo no puede estar vacío.
+          </div>
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            nroComprobante.value != '' &&
+            nroComprobante.invalid &&
+            nroComprobante.touched
+          "
+        >
+          Por favor, ingrese caracteres válidos
+        </div>
+      </div>
+    </div>
+
+    <!--INPUT monto de pago-->
+
+    <div class="mb-3 row">
+      <label for="montoPago" class="montoPago col-sm-2 col-form-label"
+        >Monto de pago (en $):</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="number"
+          placeholder="Ingrese monto de pago"
+          formControlName="montoPago"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': form.montoPago.invalid && form.montoPago.touched
+          }"
+          value= "{{ datosPreinscripcion?.montoPago }}"
+        />
+        <div
+          *ngIf="
+            (form.montoPago.touched && form.montoPago.invalid) || submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.montoPago.errors?.required">
+            Este campo no puede estar vacío.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--imagen voucher-->
+    <label class="voucher form-label">Comprobante de pago:</label>
+    <input
+      type="file"
+      name="voucherPreinscripcion"
+      id="voucherPreinscripcion"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      required
+    />
+    <!-- <div
+      *ngIf="submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.voucherPreinscripcion.errors?.required">
+        Por favor, suba el comprobante
+      </div>
+    </div> -->
+    <br /><br />
+
+    <!--INPUT agregar fecha-->
+    <label class="fechaPago form-label">Fecha de pago:</label>
+    <input
+      type="date"
+      name="fechaPreinscripcion"
+      id="fechaPreinscripcion"
+      formControlName="fechaPreinscripcion"
+      min="2022-01-01"
+      max="2022-12-31"
+      required
+      value= "{{ datosPreinscripcion?.fechaPreinscripcion }}"
+    />
+
+    <div class="text-danger">
+      <h3>{{ mensajeError | json }}</h3>
+    </div>
+    <!--INPUT subir-->
+    <div class="text-center">
+      <button class="btn btn-primary mr-1">Registrar</button>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Felicidades!
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Su Preinscripción a sido registrada</div>
+            <div class="modal-footer">
+              <button (click)="regresar()">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-secondary" type="reset" (click)="onReset()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
+
+
+
 <ng-container *ngIf="fechaValida === 0">
   <p>
     Usted no puede editar esta preinscripción, esta fuera de la fecha limite

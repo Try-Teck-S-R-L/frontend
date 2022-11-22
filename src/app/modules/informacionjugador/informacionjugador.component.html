@@ -8,35 +8,33 @@ jugadores: <br />
 <div class="container">
   <div class="uno">
     <label type="text" name="text" class="input"
-      >  Nombre del equipo: {{ infoJugador?.nombreJugador }} <hr></label
+      >  Nombre Completo: {{ infoJugador?.nombreJugador+ " " +infoJugador?.apellidoJugador }} <hr></label
     >
     <br /><br />
     <label type="text" name="text" class="input"
-      >Nombre del delegado: {{ infoJugador?.nombreDelegado }}<hr></label
+      >Edad del jugador: {{ infoJugador?.edadJugador }}<hr></label
     >
     <br /><br />
     <label type="text" name="text" class="input"
-      >Categoría del equipo: {{ infoJugador?.nombreCategoria }}<hr></label
+      >Numero de camiseta: {{ infoJugador?.numeroCamiseta }}<hr></label
     >
     <br /><br />
     <label type="text" name="text" class="input"
-      >País del equipo: {{ infoJugador?.paisEquipo }}<hr></label
+      >País del jugador: {{ infoJugador?.nacionalidadJugador }}<hr></label
     >
     <br /><br />
     <label type="text" name="text" class="input"
-      >Color del equipo: {{ infoJugador?.colorCamisetaPrincipal }}<hr></label
+      >Posicion del jugador: {{ infoJugador?.posicionJugador }}<hr></label
     >
-    <br /><br />
-    <label type="text" name="text" class="input"
-      >Color alternativo del equipo:
-      {{ infoJugador?.colorCamisetaSecundario }}<hr></label
-    >
-    <br /><br />
+    <br /><br /><label type="text" name="text" class="input"
+    >Talla del jugador: {{ infoJugador?.tallaJugador }}<hr></label
+  >
+  
   </div>
-  <!--<div class="tres">
-    <img [src]="fotoMostrar" />
+  <div class="tres">
+    <img [src]="infoJugador?.fotoPerfilJugador" />
     <label type="text" name="text" class="input">Logo del equipo</label>
-  </div>-->
+  </div>
 </div>
 <br />
 <app-footer></app-footer>
