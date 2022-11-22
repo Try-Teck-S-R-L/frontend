@@ -46,6 +46,7 @@ import { InformacionjugadorComponent } from './modules/informacionjugador/inform
 
 import { LoginComponent } from './modules/login/login.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +79,7 @@ import { LoginComponent } from './modules/login/login.component';
     EditarPreDeleComponent,
     InformacionjugadorComponent,
     LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
