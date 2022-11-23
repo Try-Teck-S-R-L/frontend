@@ -44,8 +44,8 @@ import { ResponseI } from "../modules/models/response.interface";
       console.log("Service log: ", form);
       const formData = new FormData();
       
-      formData.append("correoDelegado", form.correoDelegado);
-      formData.append("contrasenaDelegado", form.contrasenaDelegado);
+      formData.append("email", form.correoDelegado);
+      formData.append("password", form.contrasenaDelegado);
 
 
       return this.http.post<ResponseI>(url, formData).pipe(catchError( this.errorHandler));
