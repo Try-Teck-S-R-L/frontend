@@ -21,7 +21,7 @@ export class VistaPrincipalComponent implements OnInit {
   ngOnInit(): void {
     // TODO: llamada al api
     // api() => {{ id: 1, delegado: "Rafael", ... }]
-    const data: DelegadoI[] = [
+    const data: any[] = [
       {
         idDelegado: 1,
         nombreDelegado: "Luis",
