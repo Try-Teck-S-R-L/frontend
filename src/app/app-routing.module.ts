@@ -27,7 +27,7 @@ import { EditarPreDeleComponent } from "./modules/editar-pre-dele/editar-pre-del
 import { InformacionPreDeleComponent } from "./modules/informacion-pre-dele/informacion-pre-dele.component";
 import { InformacionjugadorComponent } from "./modules/informacionjugador/informacionjugador.component";
 import { LoginComponent } from "./modules/login/login.component";
-
+import { MainPageComponent } from "./modules/main-page/main-page.component";
 
 
 const routes: Routes = [
@@ -132,6 +132,10 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent,
+  },
+  {
+    path: "mainpage",
+    component: MainPageComponent,
   }
 ];    
 

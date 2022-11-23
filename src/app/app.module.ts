@@ -1,3 +1,4 @@
+import { MainPageComponent } from './modules/main-page/main-page.component';
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -79,7 +80,7 @@ import { LoginComponent } from './modules/login/login.component';
     EditarPreDeleComponent,
     InformacionjugadorComponent,
     LoginComponent,
-    
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
