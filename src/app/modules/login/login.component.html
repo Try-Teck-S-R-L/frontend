@@ -21,17 +21,17 @@
     <div class="forms">
         <div class="form-content">
           <div class="login-form">
-            
+            <div class="text sign-up-text">No tienes una cuenta? <label for="flip">Registrate ahora</label></div>
               <h2 class="head py-2">Login</h2>
-              <form class="user-login" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+              <!--<form class="user-login" [formGroup]="loginForm" (ngSubmit)="onLogin()">
                 
                   <div class="input-box">
                     
                     <label>Correo</label>
                     <i class="fas fa-user"></i>
                     <input type="email" class="form mb-2" id="inputEmail" formControlName="email" placeholder="Ingrese su correo">
-                    <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> -->
-                    <div *ngIf="submitted && form.email.errors" class="text-danger">
+                    <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> 
+                    <div *ngIf="submitted" class="text-danger">
                       <div *ngIf="form.email.errors.email">Este correo es invalido</div>
                       <div *ngIf="form.email.errors.required">El correo es requerido</div>
                     </div>
@@ -40,10 +40,10 @@
                     <label>Password</label>
                     <i class="fas fa-envelope"></i>
                     <input type="password" class="form-control mb-2" id="inputPassword" formControlName="password" placeholder="Enter Password">
-                    <div *ngIf="submitted && form.password.errors" class="text-danger">
+                    <div *ngIf="submitted" class="text-danger">
                       <div *ngIf="form.password.errors.required">Password is required.</div>
                       <div *ngIf="form.password.errors.pattern">
-                        <!-- <h3>Password must contain the following:</h3> -->
+                        <!-- <h3>Password must contain the following:</h3> 
                         <ul>
                           <li>Password should be alphanumeric</li>
                           <li>A letter of the password should be capital</li>
@@ -53,13 +53,12 @@
                       </div>
                     </div>
                   </div>
-                
                 <br>
-                <div class="buttons text-center">
+                <!--<div class="buttons text-center">
                   <button class="btn-customBlue mr-2" type="submit">Login</button>
                 </div>
-                <div class="text sign-up-text">No tienes una cuenta? <label for="flip">Registrate ahora</label></div>
-              </form>
+                
+              </form>-->
             
           </div>
 
