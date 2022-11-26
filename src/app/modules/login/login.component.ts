@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
       
       nombreDelegado: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
       apellidoDelegado: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
-      paisEquipo: ["", [Validators.required]],
+      nacionalidadDelegado: ["", [Validators.required]],
       correoDelegado: ["", [Validators.required, Validators.email]],
       idCategoria: ["", [Validators.required]],
       ciJugador: ["", [Validators.required]],

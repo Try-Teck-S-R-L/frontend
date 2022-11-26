@@ -32,10 +32,12 @@ import { ResponseI } from "../modules/models/response.interface";
       formData.append("nombreDelegado", form.nombreDelegado);
       formData.append("apellidoDelegado", form.apellidoDelegado);
       formData.append("edadDelegado", form.edadDelegado);
+      formData.append("nacionalidadDelegado", form.nacionalidadDelegado);
       formData.append("fotoPerfilDelegado", form.fotoPerfilDelegado);
       formData.append("fotoCiDelegado", form.fotoCiDelegado);
+      formData.append("contraseniaDelegado", '123123123');
 
-      return this.http.post<ResponseI>(url, formData).pipe(catchError( this.errorHandler));
+      return this.http.post<ResponseI>(url, formData) //.pipe(catchError( this.errorHandler));
     }
 
 
@@ -48,7 +50,7 @@ import { ResponseI } from "../modules/models/response.interface";
       formData.append("password", form.contrasenaDelegado);
 
 
-      return this.http.post<ResponseI>(url, formData).pipe(catchError( this.errorHandler));
+      return this.http.post<ResponseI>(url, formData) //.pipe(catchError( this.errorHandler));
     }
 
 

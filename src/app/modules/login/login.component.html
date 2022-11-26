@@ -1,72 +1,95 @@
 <app-header></app-header>
 
 <head>
-    <meta charset="UTF-8">
-    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
-    
-    <!-- Fontawesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+  <meta charset="UTF-8" />
+  <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+
+  <!-- Fontawesome CDN Link -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 <body>
   <div class="container">
-    <input type="checkbox" id="flip">
+    <input type="checkbox" id="flip" />
     <div class="cover">
       <div class="front">
-        <img src="../../../assets/Imagenes/loginpic.jpg" alt="">
-        
+        <img src="../../../assets/Imagenes/loginpic.jpg" alt="" />
       </div>
-      
     </div>
     <div class="forms">
-        <div class="form-content">
-          <div class="login-form">
-            
-              <h2 class="head py-2">Login</h2>
-              <form class="user-login" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-                
-                  <div class="input-box">
-                    
-                    <label>Correo</label>
-                    <i class="fas fa-user"></i>
-                    <input type="email" class="form mb-2" id="inputEmail" formControlName="email" placeholder="Ingrese su correo">
-                    <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> -->
-                    <div *ngIf="submitted && form.email.errors" class="text-danger">
-                      <div *ngIf="form.email.errors.email">Este correo es invalido</div>
-                      <div *ngIf="form.email.errors.required">El correo es requerido</div>
-                    </div>
-                  </div>
-                  <div class="input-box">
-                    <label>Password</label>
-                    <i class="fas fa-envelope"></i>
-                    <input type="password" class="form-control mb-2" id="inputPassword" formControlName="password" placeholder="Enter Password">
-                    <div *ngIf="submitted && form.password.errors" class="text-danger">
-                      <div *ngIf="form.password.errors.required">Password is required.</div>
-                      <div *ngIf="form.password.errors.pattern">
-                        <!-- <h3>Password must contain the following:</h3> -->
-                        <ul>
-                          <li>Password should be alphanumeric</li>
-                          <li>A letter of the password should be capital</li>
-                          <li>Password must contain a special character (@, $, !, &, etc)</li>
-                          <li>Password length must be greater than 7 characters</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                
-                <br>
-                <div class="buttons text-center">
-                  <button class="btn-customBlue mr-2" type="submit">Login</button>
+      <div class="form-content">
+        <div class="login-form">
+          <h2 class="head py-2">Login</h2>
+          <form
+            class="user-login"
+            [formGroup]="loginForm"
+            (ngSubmit)="onLogin()"
+          >
+            <div class="input-box">
+              <label>Correo</label>
+              <i class="fas fa-user"></i>
+              <input
+                type="email"
+                class="form mb-2"
+                id="inputEmail"
+                formControlName="email"
+                placeholder="Ingrese su correo"
+              />
+              <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> -->
+              <div *ngIf="submitted" class="text-danger">
+                <!--<div *ngIf="form.email.errors.email">
+                  Este correo es invalido
                 </div>
-                <div class="text sign-up-text">No tienes una cuenta? <label for="flip">Registrate ahora</label></div>
-              </form>
-            
-          </div>
+                <div *ngIf="form.email.errors.required">
+                  El correo es requerido
+                </div> -->
+              </div>
+            </div>
+            <div class="input-box">
+              <label>Password</label>
+              <i class="fas fa-envelope"></i>
+              <input
+                type="password"
+                class="form-control mb-2"
+                id="inputPassword"
+                formControlName="password"
+                placeholder="Enter Password"
+              />
+              <!--<div *ngIf="submitted" class="text-danger">
+                <div *ngIf="form.password.errors.required">
+                  Password is required.
+                </div>
+                <div *ngIf="form.password.errors.pattern">
+                  <!-- <h3>Password must contain the following:</h3> 
+                  <ul>
+                    <li>Password should be alphanumeric</li>
+                    <li>A letter of the password should be capital</li>
+                    <li>
+                      Password must contain a special character (@, $, !, &,
+                      etc)
+                    </li>
+                    <li>Password length must be greater than 7 characters</li>
+                  </ul>
+                </div>
+              </div> -->
+            </div>
 
+            <br />
+            <div class="buttons text-center">
+              <button class="btn-customBlue mr-2" type="submit">Login</button>
+            </div>
+            <div class="text sign-up-text">
+              No tienes una cuenta? <label for="flip">Registrate ahora</label>
+            </div>
+          </form>
+        </div>
 
         <div class="signup-form">
           <div class="title">Registrate</div>
-        <!--<form action="#">
+          <!--<form action="#">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
@@ -87,316 +110,318 @@
             </div>
       </form>-->
 
-      <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-        <h3>Preinscripción</h3>
-        <!--INPUT nombre delegado-->
-    
-        <!-- {{ delegadoAct | json }}
+          <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+            <h3>Preinscripción</h3>
+            <!--INPUT nombre delegado-->
+
+            <!-- {{ delegadoAct | json }}
         {{ mensajeError | json }}-->
-        
-    
-        
-    
-        <!--INPUT nombre-->
-        <div class="mb-3 row">
-          <label
-            for="inputnombre"
-            class="nombreEquipo col-sm-2 col-form-label"
-            >Nombre:</label
-          >
-          <div class="col-sm-10">
-            <input
-              type="text"
-              ngModel
-              formControlName="nombreDelegado"
-              maxlength="50"
-              placeholder="Ingrese su nombre"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid': form.nombreDelegado.invalid && form.nombreDelegado.touched
-              }"
-            />
-            <div
-              *ngIf="
-                (form.nombreDelegado.touched && form.nombreDelegado.invalid) ||
-                submitted
-              "
-              class="text-danger"
-            >
-              <div *ngIf="form.nombreDelegado.errors?.required">
-                Este campo no puede estar vacío.
+
+            <!--INPUT nombre-->
+            <div class="mb-3 row">
+              <label
+                for="inputnombre"
+                class="nombreEquipo col-sm-2 col-form-label"
+                >Nombre:</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  ngModel
+                  formControlName="nombreDelegado"
+                  maxlength="50"
+                  placeholder="Ingrese su nombre"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.nombreDelegado.invalid && form.nombreDelegado.touched
+                  }"
+                />
+                <div
+                  *ngIf="
+                    (form.nombreDelegado.touched &&
+                      form.nombreDelegado.invalid) ||
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="form.nombreDelegado.errors?.required">
+                    Este campo no puede estar vacío.
+                  </div>
+                </div>
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    nombreDelegado.value != '' &&
+                    nombreDelegado.invalid &&
+                    nombreDelegado.touched
+                  "
+                >
+                  Por favor, ingrese caracteres válidos
+                </div>
               </div>
             </div>
-            <div
-              class="text-danger"
-              *ngIf="
-              nombreDelegado.value != '' &&
-              nombreDelegado.invalid &&
-              nombreDelegado.touched
-              "
-            >
-              Por favor, ingrese caracteres válidos
+            <!--INPUT apellido-->
+            <div class="mb-3 row">
+              <label
+                for="inputnombre"
+                class="nombreEquipo col-sm-2 col-form-label"
+                >Apellido:</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  ngModel
+                  formControlName="apellidoDelegado"
+                  maxlength="50"
+                  placeholder="Ingrese su apellido"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.apellidoDelegado.invalid &&
+                      form.apellidoDelegado.touched
+                  }"
+                />
+                <div
+                  *ngIf="
+                    (form.apellidoDelegado.touched &&
+                      form.apellidoDelegado.invalid) ||
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="form.apellidoDelegado.errors?.required">
+                    Este campo no puede estar vacío.
+                  </div>
+                </div>
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    apellidoDelegado.value != '' &&
+                    apellidoDelegado.invalid &&
+                    apellidoDelegado.touched
+                  "
+                >
+                  Por favor, ingrese caracteres válidos
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-<!--INPUT apellido-->
-<div class="mb-3 row">
-  <label
-    for="inputnombre"
-    class="nombreEquipo col-sm-2 col-form-label"
-    >Apellido:</label
-  >
-  <div class="col-sm-10">
-    <input
-      type="text"
-      ngModel
-      formControlName="apellidoDelegado"
-      maxlength="50"
-      placeholder="Ingrese su apellido"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid': form.apellidoDelegado.invalid && form.apellidoDelegado.touched
-      }"
-    />
-    <div
-      *ngIf="
-        (form.apellidoDelegado.touched && form.apellidoDelegado.invalid) ||
-        submitted
-      "
-      class="text-danger"
-    >
-      <div *ngIf="form.apellidoDelegado.errors?.required">
-        Este campo no puede estar vacío.
-      </div>
-    </div>
-    <div
-      class="text-danger"
-      *ngIf="
-      apellidoDelegado.value != '' &&
-      apellidoDelegado.invalid &&
-      apellidoDelegado.touched
-      "
-    >
-      Por favor, ingrese caracteres válidos
-    </div>
-  </div>
-</div>
-<!--INPUT email-->
-<div class="mb-3 row">
-  <label
-    for="correo"
-    class="correo col-sm-2 col-form-label"
-    >Correo:</label
-  >
-  <div class="col-sm-10">
-    <input
-      type="email"
-      ngModel
-      formControlName="correoDelegado"
-      maxlength="50"
-      placeholder="Ingrese su correo"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid': form.correoDelegado.invalid && form.correoDelegado.touched
-      }"
-    />
-    <div
-      *ngIf="
-        (form.correoDelegado.touched && form.correoDelegado.invalid) ||
-        submitted
-      "
-      class="text-danger"
-    >
-      <div *ngIf="form.correoDelegado.errors?.required">
-        Este campo no puede estar vacío.
-      </div>
-    </div>
-    <div
-      class="text-danger"
-      *ngIf="
-      correoDelegado.value != '' &&
-      correoDelegado.invalid &&
-      correoDelegado.touched
-      "
-    >
-      Por favor, ingrese caracteres válidos
-    </div>
-  </div>
-</div>
+            <!--INPUT email-->
+            <div class="mb-3 row">
+              <label for="correo" class="correo col-sm-2 col-form-label"
+                >Correo:</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="email"
+                  ngModel
+                  formControlName="correoDelegado"
+                  maxlength="50"
+                  placeholder="Ingrese su correo"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.correoDelegado.invalid && form.correoDelegado.touched
+                  }"
+                />
+                <div
+                  *ngIf="
+                    (form.correoDelegado.touched &&
+                      form.correoDelegado.invalid) ||
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="form.correoDelegado.errors?.required">
+                    Este campo no puede estar vacío.
+                  </div>
+                </div>
+                <div
+                  class="text-danger"
+                  *ngIf="
+                    correoDelegado.value != '' &&
+                    correoDelegado.invalid &&
+                    correoDelegado.touched
+                  "
+                >
+                  Por favor, ingrese caracteres válidos
+                </div>
+              </div>
+            </div>
 
+            <!--INPUT PAIS-->
+            <div class="mb-3 row">
+              <label class="pais col-sm-2 col-form-label form-label"
+                >País:</label
+              >
+              <div class="col-sm-10">
+                <select
+                  class="form-control"
+                  name="nacionalidadDelegado"
+                  formControlName="nacionalidadDelegado"
+                  required
+                >
+                  <option value="" disabled selected>Seleccionar país</option>
+                  <option *ngFor="let pais of paises" [value]="pais.value">
+                    {{ pais.name }}
+                  </option>
+                </select>
+                <div
+                  *ngIf="
+                    (form.nacionalidadDelegado.touched &&
+                      form.nacionalidadDelegado.invalid) ||
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="form.nacionalidadDelegado.errors?.required">
+                    Elija una de las opciones
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        <!--INPUT PAIS-->
-        <div class="mb-3 row">
-          <label class="pais col-sm-2 col-form-label form-label">País:</label>
-          <div class="col-sm-10">
-            <select
-              class="form-control"
-              name="paisEquipo"
-              formControlName="paisEquipo"
+            <!--INPUT CI-->
+            <div class="mb-3 row">
+              <label for="ci" class="ci col-sm-2 col-form-label"
+                >Documento de Identidad:</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="number"
+                  placeholder="Ingrese su DNI"
+                  formControlName="ciJugador"
+                  max="1000000000000000"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.ciJugador.invalid && form.ciJugador.touched
+                  }"
+                />
+                <div
+                  *ngIf="
+                    (form.ciJugador.touched && form.ciJugador.invalid) ||
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="form.ciJugador.errors?.required">
+                    Este campo no puede estar vacío.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--INPUT monto de pago-->
+
+            <div class="mb-3 row">
+              <label for="edad" class="montoPago col-sm-2 col-form-label"
+                >Edad:</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="number"
+                  placeholder="Ingrese su edad"
+                  formControlName="edad"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': form.edad.invalid && form.edad.touched
+                  }"
+                />
+                <div
+                  *ngIf="(form.edad.touched && form.edad.invalid) || submitted"
+                  class="text-danger"
+                >
+                  <div *ngIf="form.edad.errors?.required">
+                    Este campo no puede estar vacío.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--fotoPerfilJugador-->
+            <label class="fotoPerfilDelegado form-label">Foto:</label>
+            <input
+              type="file"
+              name="fotoPerfilDelegado"
+              id="fotoPerfilDelegado"
+              accept="image/*"
+              (change)="onFileSelected($event, 'PROFILE')"
               required
-            >
-              <option value="" disabled selected>Seleccionar país</option>
-              <option *ngFor="let pais of paises" [value]="pais.value">
-                {{ pais.name }}
-              </option>
-            </select>
-            <div
-              *ngIf="
-                (form.paisEquipo.touched && form.paisEquipo.invalid) || submitted
-              "
-              class="text-danger"
-            >
-              <div *ngIf="form.paisEquipo.errors?.required">
-                Elija una de las opciones
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-    <!--INPUT CI-->
-    <div class="mb-3 row">
-      <label for="ci" class="ci col-sm-2 col-form-label"
-        >Documento de Identidad:</label
-      >
-      <div class="col-sm-10">
-        <input
-          type="number"
-          placeholder="Ingrese su DNI"
-          formControlName="ciJugador"
-          max="1000000000000000"
-          class="form-control"
-          [ngClass]="{
-            'is-invalid': form.ciJugador.invalid && form.ciJugador.touched
-          }"
-        />
-        <div
-          *ngIf="
-            (form.ciJugador.touched && form.ciJugador.invalid) || submitted
-          "
-          class="text-danger"
-        >
-          <div *ngIf="form.ciJugador.errors?.required">
-            Este campo no puede estar vacío.
-          </div>
-        </div>
-      </div>
-    </div>
-    
-        <!--INPUT monto de pago-->
-    
-        <div class="mb-3 row">
-          <label for="edad" class="montoPago col-sm-2 col-form-label"
-            >Edad:</label
-          >
-          <div class="col-sm-10">
-            <input
-              type="number"
-              placeholder="Ingrese su edad"
-              formControlName="edad"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid': form.edad.invalid && form.edad.touched
-              }"
             />
-            <div
-              *ngIf="
-                (form.edad.touched && form.edad.invalid) || submitted
-              "
-              class="text-danger"
-            >
-              <div *ngIf="form.edad.errors?.required">
-                Este campo no puede estar vacío.
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <!--fotoPerfilJugador-->
-    <label class="fotoPerfilDelegado form-label">Foto:</label>
-    <input
-      type="file"
-      name="fotoPerfilDelegado"
-      id="fotoPerfilDelegado"
-      accept="image/*"
-      (change)="onFileSelected($event, 'PROFILE')"
-      required
-    />
-    <!--<div *ngIf="submitted" class="text-danger">
+            <!--<div *ngIf="submitted" class="text-danger">
       <div *ngIf="form.fotoPerfilJugador.errors?.required">
         Por favor, suba su foto
       </div>
     </div> -->
-    <br /><br />
-    <!--imagen fotoci-->
-    <label class="fotoCiDelegado form-label">Foto Documento Identidad:</label>
-    <input
-      type="file"
-      name="fotoCiDelegado"
-      id="fotoCiDelegado"
-      accept="image/*"
-      (change)="onFileSelected($event, 'ID')"
-      required
-    />
-    <!---
+            <br /><br />
+            <!--imagen fotoci-->
+            <label class="fotoCiDelegado form-label"
+              >Foto Documento Identidad:</label
+            >
+            <input
+              type="file"
+              name="fotoCiDelegado"
+              id="fotoCiDelegado"
+              accept="image/*"
+              (change)="onFileSelected($event, 'ID')"
+              required
+            />
+            <!---
     <div *ngIf="submitted" class="text-danger">
       <div *ngIf="form.fotoCiJugador.errors?.required">
         Por favor, suba su foto
       </div>
     </div>
   -->
-    <br />
-    
-    
-        <div class="text-danger">
-          <h3>{{ mensajeError | json }}</h3>
-        </div>
-        <!--INPUT subir-->
-        <div class="text-center">
-          <button class="btn btn-primary mr-1">Registrar</button>
-          <div class="text sign-up-text">Ya tiene una cuenta? <label for="flip">Inicia sesion ahora</label></div>
-          <!-- Modal -->
-          <div
-            class="modal fade"
-            id="exampleModal"
-            data-bs-backdrop="static"
-            data-bs-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">
-                    Felicidades!
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">Su Registro fue exitoso</div>
-                <div class="modal-footer">
-                  <button >Aceptar</button>
-                  
-                </div>
-                
-              </div>
+            <br />
+
+            <div class="text-danger">
+              <h3>{{ mensajeError | json }}</h3>
             </div>
-          </div>
-    
-          
+            <!--INPUT subir-->
+            <div class="text-center">
+              <button class="btn btn-primary mr-1">Registrar</button>
+              <div class="text sign-up-text">
+                Ya tiene una cuenta?
+                <label for="flip">Inicia sesion ahora</label>
+              </div>
+
+              <!-- Modal -->
+              <!--
+              <div
+                class="modal fade"
+                id="exampleModal"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Felicidades!
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">Su Registro fue exitoso</div>
+                    <div class="modal-footer">
+                      <button>Aceptar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            --></div>
+          </form>
         </div>
-      </form>
-
-
-
-    </div>
-    </div>
+      </div>
     </div>
   </div>
 </body>
