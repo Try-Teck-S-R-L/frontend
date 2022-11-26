@@ -145,8 +145,8 @@ export class LoginComponent implements OnInit {
     this.http
       .registrarDelegado({
         ...this.registerForm.value,
-        fotoPerfilJugador: this.profilePhoto,
-        fotoCiJugador: this.idPhoto,
+        fotoPerfilDelegado: this.profilePhoto,
+        fotoCiDelegado: this.idPhoto,
       },)
       //.getAllJugadores(this.idEquipo)
 
