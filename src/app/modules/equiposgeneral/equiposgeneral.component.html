@@ -1,27 +1,29 @@
 <app-header></app-header>
 
-{{ listaEquipos | json }}
+
 
 <br />
-InformacionEquipo <br />
+<br />
 
 <div class="contenedor-grid-cards" id="credencial">
-  <div class="card" *ngFor="let jugador of listaJugadores; index as i">
+  <div class="card" *ngFor="let equipo of listaEquipos; index as i">
     <div class="card-border-top"></div>
     <!-- <div class="{{}}"></div> -->
     <img
       class="card img"
-      [src]="jugador.fotoPerfilJugador"
-      [alt]="jugador.nombreJugador"
+      [src]="equipo.logoEquipo"
+      [alt]="equipo.nombreEquipo"
     />
-    <label>{{ jugador?.nombreJugador }}</label>
-    <p class="job">{{ infoEquipo?.nombreEquipo }}</p>
-    <button>
-      
-    </button>
+    <label>{{ equipo?.nombreEquipo }}</label>
+    <p class="job">{{ equipo?.paisEquipo }}</p>
+    <a href="listajugadores/{{ equipo?.idEquipo }}">
+      <button>Ver Jugadores</button></a
+    >
+    <br>
+    <br>
   </div>
 </div>
 
-
+<br><br><br><br><br>
 
 <app-footer></app-footer>
