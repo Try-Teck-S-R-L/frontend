@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
     private generalService: InfoGeneralService,
     private delegadoService: DelegadoService,
     private serviceEquipo: EquipoService,
+    private router2: Router,
     private _location: Location)
     {this.registerForm = formBuilder.group({});
     this.paises = data.paises;
@@ -62,6 +63,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //$('#exampleModal').modal('show');
 
 
     this.loginForm = this.formBuilder.group({
@@ -122,13 +124,13 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   onLogin(): void {
-    // console.log(this.loginForm.value);
+     console.log('inicio de sesion correcta');
     this.submitted = true;
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       localStorage.setItem("user-Data", JSON.stringify(this.loginForm.value));
       //donde te va a enviar si te logueas
-      //this.router.navigate(["/"]);
+      this.router2.navigate(['vistadelegado/1']);
     }
   }
   onSubmit() {
@@ -195,5 +197,9 @@ export class LoginComponent implements OnInit {
     return this.registerForm.get("nombreDelegado") as FormControl;
   }
   
+
+  redirigir() {
+    this.router2.navigate(['vistadelegado/1']);
+  }
 
 }

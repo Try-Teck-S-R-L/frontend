@@ -388,16 +388,7 @@
               </div>
 
               <!-- Modal -->
-              <!--
-              <div
-                class="modal fade"
-                id="exampleModal"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabindex="-1"
-                aria-labelledby="staticBackdropLabel"
-                aria-hidden="true"
-              >
+              <div class="modal fade" id="exampleModal">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -411,14 +402,16 @@
                         aria-label="Close"
                       ></button>
                     </div>
-                    <div class="modal-body">Su Registro fue exitoso</div>
+                    <div class="modal-body">
+                      Su Preinscripción a sido registrada
+                    </div>
                     <div class="modal-footer">
-                      <button>Aceptar</button>
+                      <button (click)="redirigir()">Aceptar</button>
                     </div>
                   </div>
                 </div>
               </div>
-            --></div>
+            </div>
           </form>
         </div>
       </div>
