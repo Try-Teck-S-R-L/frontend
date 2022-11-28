@@ -21,6 +21,7 @@ import { ResponseI } from "../models/response.interface";
 import { Location } from "@angular/common";
 import { InfoGeneralService } from "src/app/services/infoGeneral.service";
 import { AutenticacionService } from "src/app/services/autenticacion.service";
+import { TokenService } from "src/app/services/token.service";
 declare var $: any;
 
 interface CountryOption {
@@ -58,7 +59,8 @@ export class RegisterdelegadoComponent implements OnInit {
 
 
   constructor(
-    router: ActivatedRoute,
+    private tokenService: TokenService,
+    private router: Router,
     private formBuilder: FormBuilder,
     private http: DelegadoService,
     private elemento: ElementolistaService,
@@ -115,6 +117,10 @@ MustMatch(controlName: string, matchingControlName: string) {
   };
 }
 
+handleData(data){
+  this.tokenService.handle(data.access_token),
+  this.router.navigateByUrl('/todosequipos');
+}
 
 handleError(error){
   this.mensajeError = error.error.error;
@@ -128,8 +134,8 @@ onSubmit() {
   console.log(this.form);
 
   this.autenticacionService.registrar(this.form).subscribe(
-      data => console.log(data),
-      error => console.log(error)
+      data => this.handleData(data),
+      error => this.handleError(error)
     );
 
 

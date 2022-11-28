@@ -23,6 +23,7 @@ import { Location } from "@angular/common";
 import { InfoGeneralService } from "src/app/services/infoGeneral.service";
 import { AutenticacionService } from "src/app/services/autenticacion.service";
 import { Observable } from "rxjs";
+import { TokenService } from "src/app/services/token.service";
 declare var $: any;
 
 interface CountryOption {
@@ -43,11 +44,13 @@ export class LoginComponent implements OnInit {
   
 
   constructor(
-    router: ActivatedRoute,
+    //router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private http: DelegadoService,
     private cliente:HttpClient,
     private autenticacionService: AutenticacionService,
+    private tokenService: TokenService,
+    private router: Router,
     private serviceEquipo: EquipoService,
     private _location: Location
   ) {
@@ -109,6 +112,11 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
+  handleData(data){
+    this.tokenService.handle(data.access_token),
+    this.router.navigateByUrl('/todosequipos');
+  }
+
   handleError(error){
     this.mensajeError = error.error.error;
   }
@@ -126,7 +134,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.autenticacionService.iniciarSesion(this.loginForm.value).subscribe(
-      data => console.log(data),
+      data => this.handleData(data),
       error => this.handleError(error)
     );
 
