@@ -30,6 +30,8 @@ import { LoginComponent } from "./modules/login/login.component";
 import { MainPageComponent } from "./modules/main-page/main-page.component";
 import { EquiposgeneralComponent } from "./modules/equiposgeneral/equiposgeneral.component";
 import { RegisterdelegadoComponent } from "./modules/registerdelegado/registerdelegado.component";
+import { BeforeLoginService } from "./services/before-login.service";
+import { AfterLoginService } from "./services/after-login.service";
 
 
 const routes: Routes = [
@@ -37,26 +39,32 @@ const routes: Routes = [
     //
     path: "preinscripcion/:id",
     component: ReactiveFormsComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "inscripcion/:id",
     component: InscripcionJugadorComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "vistadelegado/:id",
     component: VistaDelegadoComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "registrarequipo/:id",
     component: RegistrarEquipoComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "listaequipos/:id",
     component: ListaEquiposComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "credencial/:id",
     component: CredencialComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "",
@@ -65,85 +73,105 @@ const routes: Routes = [
   {
     path: "listajugadores/:id",
     component: ListaJugadoresComponent,
+    canActivate: [AfterLoginService]
   },
   {
     //admin
     path: "vistaadmin",
     component: VistaAdministradorComponent,
+    canActivate: [AfterLoginService]
   },
   {
     //admin
     path: "informacionequipo/:id",
     component: InformacionequiposComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "equiposmenu/:id",
     component: EquiposMenuComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "preinscipcionesmenu",
     component: PreinscipcionMenuComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "miequipo/:id",
     component: MiequipoComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "equipoaprobado/:id",
     component: EquiposAprobadosComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "eliminarjugador/:id",
     component: EliminarjugadoresComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "credencialinterna/:id",
     component: CredencialesInternasComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "vistaerror/:mensaje",
     component: VistaErrorComponent,
+
   },
   {
     path: "listapredelegado/:id",
     component: ListaPreinscripcionDelegadoComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "menupredelegado/:id",
     component: MenuPreinscripcionDelegadoComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "eliminarpredelegado/:id",
     component: EliminarPreinscripcionDelegadoComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "editarpredelegado/:id",
     component: EditarPreinscripcionDelegadoComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "editarformulariopre/:id",
     component: EditarPreDeleComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "inforformulariopre/:id",
     component: InformacionPreDeleComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "infojugador/:id",
     component: InformacionjugadorComponent,
+    canActivate: [AfterLoginService]
   },
   {
     path: "login",
     component: LoginComponent,
+    canActivate: [BeforeLoginService]
   },
   {
     path: "todosequipos",
     component: EquiposgeneralComponent,
+    canActivate: [BeforeLoginService]
   },
   
   {
     path: "registro",
     component: RegisterdelegadoComponent,
+    canActivate: [BeforeLoginService]
   },
 ];
 

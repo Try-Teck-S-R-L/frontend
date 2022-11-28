@@ -1,9 +1,6 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { Injectable } from "@angular/core";
-import { catchError } from 'rxjs/operators';
-import { DelegadoI } from "../modules/models/delegado.interface";
-import { ResponseI } from "../modules/models/response.interface";
 
 @Injectable({
     providedIn: 'root'
