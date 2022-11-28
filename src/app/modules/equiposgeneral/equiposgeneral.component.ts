@@ -14,6 +14,7 @@ import html2canvas from 'html2canvas';
 })
 export class EquiposgeneralComponent implements OnInit {
   public credencial: FormGroup;
+  public listaEquipos: any = [];
   public listaJugadores: any = [];
   public infoEquipo: any = '';
 
@@ -35,8 +36,8 @@ export class EquiposgeneralComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.jugadorService.getAllJugadores(this.idEquipo).subscribe(data => (this.listaJugadores = data, console.log(data)));
-    this.equipoService.getEquipoXid(this.idEquipo).subscribe((data2: any) => (this.infoEquipo = data2));
+    //this.jugadorService.getAllJugadores(this.idEquipo).subscribe(data => (this.listaJugadores = data, console.log(data)));
+    this.equipoService.getAllEquiposTorneo().subscribe((data2: any) => (this.listaEquipos = data2));
 
   }
   get equipoJugador(){ return this.credencial.value.equipos; }

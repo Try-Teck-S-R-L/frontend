@@ -1,10 +1,9 @@
 <app-header></app-header>
 
+{{ listaEquipos | json }}
 
-
- <br />
+<br />
 InformacionEquipo <br />
-
 
 <div class="contenedor-grid-cards" id="credencial">
   <div class="card" *ngFor="let jugador of listaJugadores; index as i">
@@ -26,7 +25,5 @@ InformacionEquipo <br />
 </div>
 
 <button (click)="downloadPDF()">crear pdf</button>
-
-
 
 <app-footer></app-footer>

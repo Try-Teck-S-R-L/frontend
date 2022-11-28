@@ -23,6 +23,12 @@ import { catchError } from 'rxjs/operators';
       //return this.http.get<EquipoI[]>(this.base_url + 'api/equipos');
     }
 
+    getAllEquiposTorneo():Observable<any[]>{
+
+      return this.http.get<any[]>(this.base_url + 'api/equiposTorneo');
+      //return this.http.get<EquipoI[]>(this.base_url + 'api/equipos');
+    }
+
 
     RegistrarEquipo(form:EquipoI, idPreinscripcion:string):Observable<ResponseI>{
       let url = this.base_url + "api/equipos/"

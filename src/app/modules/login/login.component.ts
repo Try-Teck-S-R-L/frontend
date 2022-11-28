@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("user-data", JSON.stringify(this.loginForm.value));
 
       //donde te va a enviar si te logueas
-      this.router2.navigate(['vistadelegado/1']);
+      //this.router2.navigate(['vistadelegado/1']);
     }
   }
   
