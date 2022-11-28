@@ -180,6 +180,9 @@ export class InscripcionJugadorComponent implements OnInit {
   regresar(){
     $('#exampleModal').modal('hide');
     this.onReset();
+    window.location.reload();
+
+
     //this._location.back();
   }
 

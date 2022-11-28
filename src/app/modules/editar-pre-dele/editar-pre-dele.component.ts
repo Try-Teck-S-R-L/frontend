@@ -71,6 +71,7 @@ export class EditarPreDeleComponent implements OnInit {
     private servicePreinscripcion: PreinscripcionService) {
       router.params.subscribe((params) => {
         this.idDelegado = params["id"];
+        this.paises = data.paises;
       });
     }
 

@@ -1,6 +1,5 @@
 <app-header></app-header>
 
-{{ datosPreinscripcion | json }}
 
 <div class="container" *ngIf="fechaValida === 1">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
