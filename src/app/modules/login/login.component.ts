@@ -24,6 +24,7 @@ import { InfoGeneralService } from "src/app/services/infoGeneral.service";
 import { AutenticacionService } from "src/app/services/autenticacion.service";
 import { Observable } from "rxjs";
 import { TokenService } from "src/app/services/token.service";
+import { ControlAuthService } from "src/app/services/controlAuth.service";
 declare var $: any;
 
 interface CountryOption {
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
     private autenticacionService: AutenticacionService,
     private tokenService: TokenService,
     private router: Router,
+    private Auth: ControlAuthService,
     private serviceEquipo: EquipoService,
     private _location: Location
   ) {
@@ -114,6 +116,7 @@ export class LoginComponent implements OnInit {
 
   handleData(data){
     this.tokenService.handle(data.access_token),
+    this.Auth.changeStatus(true),
     this.router.navigateByUrl('/todosequipos');
   }
 
