@@ -22,6 +22,7 @@ import { ResponseI } from "../modules/models/response.interface";
 
     }
 
+
     registrarDelegado(form: DelegadoI): Observable<ResponseI> {
       let url = this.base_url + "api/registrarDelegado/";
       console.log("Service log: ", form);

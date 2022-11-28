@@ -2,6 +2,8 @@ import { DelegadoI } from "./../models/delegado.interface";
 import { error } from "@angular/compiler/src/util";
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+
 import {
   FormGroup,
   FormControl,
@@ -19,6 +21,8 @@ import { PreinscripcionI } from "../models/preinscripcion.interface";
 import { ResponseI } from "../models/response.interface";
 import { Location } from "@angular/common";
 import { InfoGeneralService } from "src/app/services/infoGeneral.service";
+import { AutenticacionService } from "src/app/services/autenticacion.service";
+import { Observable } from "rxjs";
 declare var $: any;
 
 interface CountryOption {
@@ -35,16 +39,15 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public submitted = false;
   public registerForm: FormGroup;
-
+  public mensajeError: any = '';
   
 
   constructor(
     router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private http: DelegadoService,
-    private elemento: ElementolistaService,
-    private generalService: InfoGeneralService,
-    private delegadoService: DelegadoService,
+    private cliente:HttpClient,
+    private autenticacionService: AutenticacionService,
     private serviceEquipo: EquipoService,
     private _location: Location
   ) {
@@ -53,6 +56,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    /*this.autenticacionService.vistaLogIn().subscribe(error => { console.log('errores');
+    if(error != null){
+      this.mensajeError = error[0]
+    }; console.log('errores'),
+    console.log(error);
+    if(error == null){
+      $('#exampleModal').modal('show');
+    };
+    });
+*/
     this.loginForm = this.formBuilder.group({
       email: ["", [Validators.email, Validators.required]],
       password: [
@@ -91,19 +105,44 @@ export class LoginComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get form() {
-    return this.registerForm.controls;
+    //return this.registerForm.controls;
     return this.loginForm.controls;
   }
+
+  handleError(error){
+    this.mensajeError = error.error.error;
+  }
+
   onLogin(): void {
-     console.log('inicio de sesion correcta');
+     //console.log('inicio de sesion correcta');
     this.submitted = true;
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       localStorage.setItem("user-data", JSON.stringify(this.loginForm.value));
 
+      
       //donde te va a enviar si te logueas
       //this.router2.navigate(['vistadelegado/1']);
     }
+
+    this.autenticacionService.iniciarSesion(this.loginForm.value).subscribe(
+      data => console.log(data),
+      error => this.handleError(error)
+    );
+
+
+    
+
+    /*this.http.loginDelegado({...this.loginForm.value}).subscribe(
+      //data => console.log(data),
+      (error) => {
+        if (error != null) {
+          this.mensajeError = error[0];
+        }
+        console.log("errores"), console.log(error);
+
+      }
+    );*/
   }
   
  

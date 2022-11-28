@@ -2,6 +2,7 @@ import { DelegadoI } from "./../models/delegado.interface";
 import { error } from "@angular/compiler/src/util";
 import { HostListener } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import {
   FormGroup,
   FormControl,
@@ -19,6 +20,7 @@ import { PreinscripcionI } from "../models/preinscripcion.interface";
 import { ResponseI } from "../models/response.interface";
 import { Location } from "@angular/common";
 import { InfoGeneralService } from "src/app/services/infoGeneral.service";
+import { AutenticacionService } from "src/app/services/autenticacion.service";
 declare var $: any;
 
 interface CountryOption {
@@ -45,11 +47,23 @@ export class RegisterdelegadoComponent implements OnInit {
   public idDel: string = "";
   public mensajeError: string = "";
   public fechaValida: number;
+
+  public form = {
+    email: null,
+    name: null,
+    password: null,
+    password_confirmation: null
+  };
+  public error = [];
+
+
   constructor(
     router: ActivatedRoute,
     private formBuilder: FormBuilder,
     private http: DelegadoService,
     private elemento: ElementolistaService,
+    private autenticacionService: AutenticacionService,
+    private cliente:HttpClient,
     private generalService: InfoGeneralService,
     private delegadoService: DelegadoService,
     private serviceEquipo: EquipoService,
@@ -100,21 +114,31 @@ MustMatch(controlName: string, matchingControlName: string) {
     }
   };
 }
-get form() {
-  return this.registerForm.controls;
-  return this.loginForm.controls;
+
+
+handleError(error){
+  this.mensajeError = error.error.error;
 }
+
 onSubmit() {
   this.submitted = true;
 
   this.mensajeError = "";
+
+  console.log(this.form);
+
+  this.autenticacionService.registrar(this.form).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
+
 
   // stop here if form is invalid
   /*if (this.registerForm.invalid) {
     return;
   }*/
 
-  this.http
+  /*this.http
     .registrarDelegado({
       ...this.registerForm.value,
       fotoPerfilDelegado: this.profilePhoto,
@@ -133,7 +157,7 @@ onSubmit() {
           $("#exampleModal").modal("show");
         }
       }
-    );
+    );*/
   //this._location.back();
   //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { skipLocationChange: true });
   //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { replaceUrl: true });
