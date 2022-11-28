@@ -95,14 +95,14 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   onLogin(): void {
-    // console.log(this.loginForm.value);
+     console.log('inicio de sesion correcta');
     this.submitted = true;
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       localStorage.setItem("user-data", JSON.stringify(this.loginForm.value));
 
       //donde te va a enviar si te logueas
-      //this.router.navigate(["/"]);
+      //this.router2.navigate(['vistadelegado/1']);
     }
   }
   
