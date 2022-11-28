@@ -28,10 +28,13 @@ import { InformacionPreDeleComponent } from "./modules/informacion-pre-dele/info
 import { InformacionjugadorComponent } from "./modules/informacionjugador/informacionjugador.component";
 import { LoginComponent } from "./modules/login/login.component";
 import { MainPageComponent } from "./modules/main-page/main-page.component";
+import { EquiposgeneralComponent } from "./modules/equiposgeneral/equiposgeneral.component";
+import { RegisterdelegadoComponent } from "./modules/registerdelegado/registerdelegado.component";
 
 
 const routes: Routes = [
   {
+    //
     path: "preinscripcion/:id",
     component: ReactiveFormsComponent,
   },
@@ -64,10 +67,12 @@ const routes: Routes = [
     component: ListaJugadoresComponent,
   },
   {
+    //admin
     path: "vistaadmin",
     component: VistaAdministradorComponent,
   },
   {
+    //admin
     path: "informacionequipo/:id",
     component: InformacionequiposComponent,
   },
@@ -78,8 +83,7 @@ const routes: Routes = [
   {
     path: "preinscipcionesmenu",
     component: PreinscipcionMenuComponent,
-  }
-  ,
+  },
   {
     path: "miequipo/:id",
     component: MiequipoComponent,
@@ -91,7 +95,7 @@ const routes: Routes = [
   {
     path: "eliminarjugador/:id",
     component: EliminarjugadoresComponent,
-  } ,
+  },
   {
     path: "credencialinterna/:id",
     component: CredencialesInternasComponent,
@@ -127,17 +131,21 @@ const routes: Routes = [
   {
     path: "infojugador/:id",
     component: InformacionjugadorComponent,
-  }
-  ,
+  },
   {
     path: "login",
     component: LoginComponent,
   },
   {
-    path: "mainpage",
-    component: MainPageComponent,
-  }
-];    
+    path: "todosequipos",
+    component: EquiposgeneralComponent,
+  },
+  
+  {
+    path: "registro",
+    component: RegisterdelegadoComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
