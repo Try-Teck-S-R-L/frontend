@@ -52,6 +52,7 @@ export class RegisterdelegadoComponent implements OnInit {
   public form = {
     email: null,
     name: null,
+    role: 'delegado',
     password: null,
     password_confirmation: null
   };
@@ -135,7 +136,8 @@ onSubmit() {
 
   this.autenticacionService.registrar(this.form).subscribe(
       data => this.handleData(data),
-      error => this.handleError(error)
+      //error => this.handleError(error)
+      error => console.log(error)
     );
 
 
