@@ -33,7 +33,7 @@ import { RegisterdelegadoComponent } from "./modules/registerdelegado/registerde
 import { BeforeLoginService } from "./services/before-login.service";
 import { AfterLoginService } from "./services/after-login.service";
 import { MenuAdminComponent } from "./modules/menu-admin/menu-admin.component";
-
+import { JugadoresgenealComponent } from "./modules/jugadoresgeneal/jugadoresgeneal.component";
 
 
 const routes: Routes = [
@@ -183,6 +183,10 @@ const routes: Routes = [
   {
     path: "mainpage",
     component: MainPageComponent,
+    //canActivate: [BeforeLoginService]
+  },{
+    path: "jugadoresgeneral/:id",
+    component: JugadoresgenealComponent,
     //canActivate: [BeforeLoginService]
   },
 ];

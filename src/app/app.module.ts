@@ -50,7 +50,7 @@ import { EquiposgeneralComponent } from './modules/equiposgeneral/equiposgeneral
 import { RegisterdelegadoComponent } from './modules/registerdelegado/registerdelegado.component';
 import { MenuAdminComponent } from './modules/menu-admin/menu-admin.component';
 import { ListapreadminComponent } from './modules/listapreadmin/listapreadmin.component';
-
+import { JugadoresgenealComponent } from './modules/jugadoresgeneal/jugadoresgeneal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +88,7 @@ import { ListapreadminComponent } from './modules/listapreadmin/listapreadmin.co
     RegisterdelegadoComponent,
     MenuAdminComponent,
     ListapreadminComponent,
+    JugadoresgenealComponent,
   ],
   imports: [
     BrowserModule,

@@ -120,7 +120,7 @@ MustMatch(controlName: string, matchingControlName: string) {
 
 handleData(data){
   this.tokenService.handle(data.access_token),
-  this.router.navigateByUrl('/todosequipos');
+  this.router.navigateByUrl('/vistadelegado/"idDel"');
 }
 
 handleError(error){
