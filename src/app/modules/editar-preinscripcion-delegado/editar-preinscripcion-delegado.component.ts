@@ -5,6 +5,7 @@ import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
 import { ActivatedRoute } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 export interface PeriodicElement {
   nombreEquipo: string;
@@ -27,13 +28,17 @@ export class EditarPreinscripcionDelegadoComponent implements OnInit , AfterView
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public idDelegado: string = "";
   public listapre: any = [];
-  constructor(private _liveAnnouncer: LiveAnnouncer,router: ActivatedRoute,
+  constructor(
+    private _liveAnnouncer: LiveAnnouncer,
+    router: ActivatedRoute,
+    private tokenService: TokenService,
     private servicePreinscripcion: PreinscripcionService) {
       router.params.subscribe((params) => {
         this.idDelegado = params["id"];
       });
     }
   ngOnInit(): void {
+    this.idDelegado = this.tokenService.getDelegadoId();
     this.servicePreinscripcion.getPreinscripcionesEditables(this.idDelegado).subscribe((res : any)=>{this.dataSource = new MatTableDataSource(res), console.log(res)});
     
   }

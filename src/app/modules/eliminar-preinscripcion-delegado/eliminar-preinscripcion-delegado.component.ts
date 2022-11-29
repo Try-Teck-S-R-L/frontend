@@ -6,6 +6,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
 import { ActivatedRoute } from '@angular/router';
 import { InfoGeneralService } from 'src/app/services/infoGeneral.service';
+import { TokenService } from 'src/app/services/token.service';
 
 export interface PeriodicElement {
   nombreEquipo: string;
@@ -34,12 +35,14 @@ export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterVie
     private _liveAnnouncer: LiveAnnouncer,
     router: ActivatedRoute,
     private generalService: InfoGeneralService,
+    private tokenService: TokenService,
     private servicePreinscripcion: PreinscripcionService) {
       router.params.subscribe((params) => {
-        this.idDelegado = params["id"];
+        //this.idDelegado = params["id"];
       });
     }
   ngOnInit(): void {
+    this.idDelegado = this.tokenService.getDelegadoId();
     this.generalService.verificarFechaValida().subscribe(data => {this.fechaValida = data;
     });
 

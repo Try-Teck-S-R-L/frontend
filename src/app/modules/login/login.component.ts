@@ -117,7 +117,7 @@ export class LoginComponent implements OnInit {
   handleData(data){
     this.tokenService.handle(data.access_token),
     this.Auth.changeStatus(true),
-    this.router.navigateByUrl('/todosequipos');
+    this.router.navigateByUrl('/vistadelegado');
   }
 
   handleError(error){
@@ -133,7 +133,7 @@ export class LoginComponent implements OnInit {
 
       
       //donde te va a enviar si te logueas
-      //this.router2.navigate(['vistadelegado/1']);
+      //this.router.navigate(['vistadelegado']);
     }
 
     this.autenticacionService.iniciarSesion(this.loginForm.value).subscribe(

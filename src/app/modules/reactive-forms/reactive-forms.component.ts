@@ -18,6 +18,7 @@ import { PreinscripcionI } from "../models/preinscripcion.interface";
 import { ResponseI } from "../models/response.interface";
 import {Location} from '@angular/common';
 import { InfoGeneralService } from "src/app/services/infoGeneral.service";
+import { TokenService } from "src/app/services/token.service";
 
 
 declare var $: any;
@@ -54,6 +55,7 @@ export class ReactiveFormsComponent implements OnInit {
     private elemento: ElementolistaService,
     private generalService: InfoGeneralService,
     private delegadoService: DelegadoService,
+    private tokenService: TokenService,
     private serviceEquipo: EquipoService,
     private _location: Location
     //private router: Router
@@ -61,13 +63,14 @@ export class ReactiveFormsComponent implements OnInit {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
     router.params.subscribe((params) => {
-      this.idDel = params["id"];
+      //this.idDel = params["id"];
     });
   }
 
   ngOnInit() {
     //$('#exampleModal').modal('show');
 
+    this.idDel = this.tokenService.getDelegadoId();
     this.generalService.verificarFechaValida().subscribe(data => {this.fechaValida = data;
       });
 

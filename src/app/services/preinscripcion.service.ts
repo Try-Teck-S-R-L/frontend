@@ -32,9 +32,9 @@ export class PreinscripcionService {
     return this.http.post<ResponseI>(url, formData);
   }
 
-  errorHandler(error: HttpErrorResponse){
+  /*errorHandler(error: HttpErrorResponse){
     return throwError(error.error.errors || 'Error del server');
-  }
+  }*/
 
 
   getPreinscripciones():Observable<PreinscripcionI>{

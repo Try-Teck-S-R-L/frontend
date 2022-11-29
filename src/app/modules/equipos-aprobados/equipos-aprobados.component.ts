@@ -8,6 +8,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import { DelegadoService } from "src/app/services/delegado.service";
+import { TokenService } from "src/app/services/token.service";
 
 export interface PeriodicElement {
   nombreEquipo: string;
@@ -40,14 +41,16 @@ export class EquiposAprobadosComponent implements AfterViewInit, OnInit {
   constructor(
     router: ActivatedRoute,
     private _liveAnnouncer: LiveAnnouncer,
+    private tokenService: TokenService,
     private servicePreinscricion: PreinscripcionService
   ) {
     router.params.subscribe((params) => {
-      this.idDel = params["id"];
+      //this.idDel = params["id"];
     });
   }
   ngOnInit(): void {
     //this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.listaPreinscripciones = res);
+    this.idDel = this.tokenService.getDelegadoId();
     this.servicePreinscricion.preinscripcionesAceptadas(this.idDel).subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res);
       this.listaPreinscripciones = res;

@@ -120,7 +120,7 @@ MustMatch(controlName: string, matchingControlName: string) {
 
 handleData(data){
   this.tokenService.handle(data.access_token),
-  this.router.navigateByUrl('/todosequipos');
+  this.router.navigateByUrl('/vistadelegado');
 }
 
 handleError(error){
@@ -140,6 +140,7 @@ onSubmit() {
       error => console.log(error)
     );
 
+    //this.router.navigate(['vistadelegado']);
 
   // stop here if form is invalid
   /*if (this.registerForm.invalid) {

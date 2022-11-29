@@ -22,7 +22,7 @@ export class VistaPrincipalComponent implements OnInit {
     // TODO: llamada al api
     // api() => {{ id: 1, delegado: "Rafael", ... }]
     const data: any[] = [
-      {
+      /*{
         idDelegado: 1,
         nombreDelegado: "Luis",
         apellidoDelegado: "Demo",
@@ -40,7 +40,7 @@ export class VistaPrincipalComponent implements OnInit {
         correoDelegado: "demo@mail.com",
         contraseniaDelegado: null,
       },
-      /*{
+      {
         idDelegado: 3,
         nombreDelegado: "Demo",
         apellidoDelegado: "Demo",
@@ -81,7 +81,7 @@ export class VistaPrincipalComponent implements OnInit {
     // TODO: formatear repuesta de la llamada
     this.urls = data.map((delegado) => {
       return {
-        href: `/vistadelegado/${delegado.idDelegado}`,
+        href: `/vistadelegado`,
         titulo: delegado.nombreDelegado,
       };
     });

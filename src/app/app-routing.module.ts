@@ -37,7 +37,7 @@ import { AfterLoginService } from "./services/after-login.service";
 const routes: Routes = [
   {
     //
-    path: "preinscripcion/:id",
+    path: "preinscripcion",
     component: ReactiveFormsComponent,
     canActivate: [AfterLoginService]
   },
@@ -47,7 +47,7 @@ const routes: Routes = [
     canActivate: [AfterLoginService]
   },
   {
-    path: "vistadelegado/:id",
+    path: "vistadelegado",
     component: VistaDelegadoComponent,
     canActivate: [AfterLoginService]
   },
@@ -57,7 +57,7 @@ const routes: Routes = [
     canActivate: [AfterLoginService]
   },
   {
-    path: "listaequipos/:id",
+    path: "listaequipos",
     component: ListaEquiposComponent,
     canActivate: [AfterLoginService]
   },
@@ -103,7 +103,7 @@ const routes: Routes = [
     canActivate: [AfterLoginService]
   },
   {
-    path: "equipoaprobado/:id",
+    path: "equipoaprobado",
     component: EquiposAprobadosComponent,
     canActivate: [AfterLoginService]
   },
@@ -123,22 +123,22 @@ const routes: Routes = [
 
   },
   {
-    path: "listapredelegado/:id",
+    path: "listapredelegado",
     component: ListaPreinscripcionDelegadoComponent,
     canActivate: [AfterLoginService]
   },
   {
-    path: "menupredelegado/:id",
+    path: "menupredelegado",
     component: MenuPreinscripcionDelegadoComponent,
     canActivate: [AfterLoginService]
   },
   {
-    path: "eliminarpredelegado/:id",
+    path: "eliminarpredelegado",
     component: EliminarPreinscripcionDelegadoComponent,
     canActivate: [AfterLoginService]
   },
   {
-    path: "editarpredelegado/:id",
+    path: "editarpredelegado",
     component: EditarPreinscripcionDelegadoComponent,
     canActivate: [AfterLoginService]
   },
@@ -165,7 +165,6 @@ const routes: Routes = [
   {
     path: "todosequipos",
     component: EquiposgeneralComponent,
-    canActivate: [BeforeLoginService]
   },
   
   {

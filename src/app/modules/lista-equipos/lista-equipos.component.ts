@@ -6,6 +6,7 @@ import { AfterViewInit, Component, ViewChild } from "@angular/core";
 import { MatSort, Sort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { EquipoService } from "src/app/services/equipo.service";
+import { TokenService } from "src/app/services/token.service";
 
 export interface PeriodicElement {
   nombreEquipo: string;
@@ -38,13 +39,15 @@ export class ListaEquiposComponent implements AfterViewInit, OnInit {
   constructor(
     router: ActivatedRoute,
     private _liveAnnouncer: LiveAnnouncer,
+    private tokenService: TokenService,
     private serviceEquipo: EquipoService
   ) {
     router.params.subscribe((params) => {
-      this.id = params["id"];
+      //this.id = params["id"];
     });
   }
   ngOnInit(): void {
+    this.id = this.tokenService.getDelegadoId();
     //this.serviceEquipo.getAllEquipos(this.id).subscribe((res : any)=>this.listaEquipos = res);
     this.serviceEquipo
       .getAllEquipos(this.id)

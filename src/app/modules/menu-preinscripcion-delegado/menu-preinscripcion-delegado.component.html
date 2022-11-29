@@ -1,24 +1,30 @@
 <app-header></app-header>
 
 <div class="container">
-    <div class="uno">
-
-        <a id="{{ id }}" href="/listapredelegado/{{ id }}">
-            <button>Informacion  <br><br> de las <br><br>
-              Preinscriciones</button>
-          </a>
-          
-          
-    </div>
-    <div class="dos">
-        <a id="{{ id }}" href="/eliminarpredelegado/{{ id }}">
-            <button>Eliminar <br><br> preinscriciones</button>
-          </a>
-    </div>
-    <div class="tres">
-        <a id="{{ id }}" href="/editarpredelegado/{{ id }}">
-            <button>Editar  <br><br> preinscriciones</button>
-          </a>
-    </div>
+  <div class="uno">
+    <a id="{{ id }}" href="/listapredelegado">
+      <button>
+        Informacion <br /><br />
+        de las <br /><br />
+        Preinscriciones
+      </button>
+    </a>
   </div>
-  <app-footer></app-footer>
+  <div class="dos">
+    <a id="{{ id }}" href="/eliminarpredelegado">
+      <button>
+        Eliminar <br /><br />
+        preinscriciones
+      </button>
+    </a>
+  </div>
+  <div class="tres">
+    <a id="{{ id }}" href="/editarpredelegado">
+      <button>
+        Editar <br /><br />
+        preinscriciones
+      </button>
+    </a>
+  </div>
+</div>
+<app-footer></app-footer>
