@@ -34,6 +34,8 @@ import { BeforeLoginService } from "./services/before-login.service";
 import { AfterLoginService } from "./services/after-login.service";
 import { MenuAdminComponent } from "./modules/menu-admin/menu-admin.component";
 import { JugadoresgenealComponent } from "./modules/jugadoresgeneal/jugadoresgeneal.component";
+import { EvaluarPreinsComponent } from "./modules/evaluar-preins/evaluar-preins.component";
+import { ListaPreinsEvaluarComponent } from "./modules/lista-preins-evaluar/lista-preins-evaluar.component";
 
 
 const routes: Routes = [
@@ -187,6 +189,15 @@ const routes: Routes = [
   },{
     path: "jugadoresgeneral/:id",
     component: JugadoresgenealComponent,
+    //canActivate: [BeforeLoginService]
+  },
+  {
+    path: "evaluarpreins/:id",
+    component: EvaluarPreinsComponent,
+    //canActivate: [BeforeLoginService]
+  },{
+    path: "listaevaluar",
+    component: ListaPreinsEvaluarComponent,
     //canActivate: [BeforeLoginService]
   },
 ];

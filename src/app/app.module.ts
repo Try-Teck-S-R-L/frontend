@@ -1,3 +1,4 @@
+import { ListaPreinsEvaluarComponent } from './modules/lista-preins-evaluar/lista-preins-evaluar.component';
 import { MainPageComponent } from './modules/main-page/main-page.component';
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
@@ -51,6 +52,11 @@ import { RegisterdelegadoComponent } from './modules/registerdelegado/registerde
 import { MenuAdminComponent } from './modules/menu-admin/menu-admin.component';
 import { ListapreadminComponent } from './modules/listapreadmin/listapreadmin.component';
 import { JugadoresgenealComponent } from './modules/jugadoresgeneal/jugadoresgeneal.component';
+import { EvaluarPreinsComponent } from './modules/evaluar-preins/evaluar-preins.component';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +95,8 @@ import { JugadoresgenealComponent } from './modules/jugadoresgeneal/jugadoresgen
     MenuAdminComponent,
     ListapreadminComponent,
     JugadoresgenealComponent,
+    EvaluarPreinsComponent,
+    ListaPreinsEvaluarComponent,
   ],
   imports: [
     BrowserModule,
