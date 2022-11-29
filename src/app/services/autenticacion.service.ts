@@ -28,6 +28,19 @@ import { ResponseI } from "../modules/models/response.interface";
         return this.http.get<ResponseI>(this.base_url+"api/login").pipe(catchError( this.errorHandler));
     }
 
+    usuarioAct(): Observable<ResponseI>{
+
+      const formData = new FormData();
+      
+      formData.append("token", localStorage.getItem('token')+'');
+
+      return this.http.post<ResponseI>(this.base_url+"api/usuarioActual", formData)
+    }
+
+    me(): Observable<ResponseI>{
+      return this.http.get<ResponseI>(this.base_url+"api/me").pipe(catchError( this.errorHandler));
+    }
+
     
     
 

@@ -1,6 +1,5 @@
 <app-header></app-header>
 
-
 <div class="container" *ngIf="fechaValida === 1">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Editar Preinscripción</h3>
@@ -40,19 +39,16 @@
       >
       <div class="col-sm-10">
         <input
-        
-       
           type="text"
           ngModel
           formControlName="nombreEquipo"
           maxlength="50"
-          
           placeholder="Ingrese nombre del equipo"
           class="form-control"
           [ngClass]="{
             'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
           }"
-          value= "{{ datosPreinscripcion?.nombreEquipo }}"
+          value="{{ datosPreinscripcion?.nombreEquipo }}"
         />
         <div
           *ngIf="
@@ -60,9 +56,7 @@
             submitted
           "
           class="text-danger"
-        >
-        
-        </div>
+        ></div>
         <div
           class="text-danger"
           *ngIf="
@@ -154,7 +148,7 @@
             'is-invalid':
               form.nroComprobante.invalid && form.nroComprobante.touched
           }"
-          value= "{{ datosPreinscripcion?.nroComprobante }}"
+          value="{{ datosPreinscripcion?.nroComprobante }}"
         />
 
         <div
@@ -196,7 +190,7 @@
           [ngClass]="{
             'is-invalid': form.montoPago.invalid && form.montoPago.touched
           }"
-          value= "{{ datosPreinscripcion?.montoPago }}"
+          value="{{ datosPreinscripcion?.montoPago }}"
         />
         <div
           *ngIf="
@@ -220,7 +214,9 @@
       accept="image/*"
       (change)="onFileSelected($event)"
       required
+      value="{{ datosPreinscripcion?.voucherPreinscripcion }}"
     />
+
     <!-- <div
       *ngIf="submitted"
       class="text-danger"
@@ -241,7 +237,7 @@
       min="2022-01-01"
       max="2022-12-31"
       required
-      value= "{{ datosPreinscripcion?.fechaPreinscripcion }}"
+      value="{{ datosPreinscripcion?.fechaPreinscripcion }}"
     />
 
     <div class="text-danger">
@@ -287,8 +283,6 @@
     </div>
   </form>
 </div>
-
-
 
 <ng-container *ngIf="fechaValida === 0">
   <p>

@@ -53,9 +53,20 @@ import { Injectable } from "@angular/core";
     }
 
     decode(payload){
+        console.log(JSON.parse(atob(payload)).sub);
         return JSON.parse(atob(payload));
     }
 
+    getDelegadoId(){
+        const token = this.get();
+        if(token){
+            const payload = this.payload(token);
+
+            if(payload){
+                return payload.sub;
+            }
+        }
+    }
 
     loggedIn(){
         return this.isValid();

@@ -8,6 +8,8 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { JugadorService } from 'src/app/services/jugador.service';
+import { AutenticacionService } from 'src/app/services/autenticacion.service';
+import { TokenService } from 'src/app/services/token.service';
 interface CountryOption {
   name: string;
   value: string;
@@ -24,7 +26,9 @@ export class EquiposMenuComponent implements OnInit {
     private _liveAnnouncer: LiveAnnouncer,
     private http: EquipoService,
     router: ActivatedRoute, 
+    private tokenService: TokenService,
     private serviceequipo: EquipoService,
+    private autenticacionService: AutenticacionService,
     ) {
 
     router.params.subscribe((params) => {
@@ -33,6 +37,10 @@ export class EquiposMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.tokenService.payload(this.tokenService.get());
+    /*this.autenticacionService.me().subscribe( data => console.log(data));
+    this.autenticacionService.usuarioAct().subscribe( data => console.log(data));*/
+    
   }
 
 
