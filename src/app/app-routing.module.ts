@@ -73,7 +73,7 @@ const routes: Routes = [
   {
     path: "listajugadores/:id",
     component: ListaJugadoresComponent,
-    canActivate: [AfterLoginService]
+    //canActivate: [AfterLoginService]
   },
   {
     //admin
@@ -155,7 +155,7 @@ const routes: Routes = [
   {
     path: "infojugador/:id",
     component: InformacionjugadorComponent,
-    canActivate: [AfterLoginService]
+    //canActivate: [AfterLoginService]
   },
   {
     path: "login",
@@ -165,7 +165,7 @@ const routes: Routes = [
   {
     path: "todosequipos",
     component: EquiposgeneralComponent,
-    canActivate: [BeforeLoginService]
+    //canActivate: [BeforeLoginService]
   },
   
   {
