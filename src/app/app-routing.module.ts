@@ -203,11 +203,11 @@ const routes: Routes = [
     component: ListaPreinsEvaluarComponent,
     //canActivate: [BeforeLoginService]
   },{
-    path: "infojugadoresgeneral",
+    path: "infojugadoresgeneral/:id",
     component: InfoJugadoresGeneralComponent,
     //canActivate: [BeforeLoginService]
   },{
-    path: "infoequiposgeneral",
+    path: "infoequiposgeneral/:id",
     component: InfoEquipoGeneralComponent,
     //canActivate: [BeforeLoginService]
   },

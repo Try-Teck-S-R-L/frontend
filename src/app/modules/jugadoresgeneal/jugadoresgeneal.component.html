@@ -17,9 +17,9 @@ InformacionEquipo <br />
     />
     <label>{{ jugador?.nombreJugador +" "+ jugador?.apellidoJugador}}</label>
     <p class="job">{{ infoEquipo?.nombreEquipo }}</p>
-    <a href="infojugadoresgeneral/{{ jugador?.id }}">
-      <button>Ver mas</button></a
-    >
+    <a [routerLink]="['/infojugadoresgeneral/', jugador.ciJugador]">
+      <button>Ver más</button>
+    </a>
   </div>
 </div>
 
