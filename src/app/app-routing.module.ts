@@ -36,6 +36,10 @@ import { MenuAdminComponent } from "./modules/menu-admin/menu-admin.component";
 import { JugadoresgenealComponent } from "./modules/jugadoresgeneal/jugadoresgeneal.component";
 import { EvaluarPreinsComponent } from "./modules/evaluar-preins/evaluar-preins.component";
 import { ListaPreinsEvaluarComponent } from "./modules/lista-preins-evaluar/lista-preins-evaluar.component";
+import { InfoJugadoresGeneralComponent } from "./modules/info-jugadores-general/info-jugadores-general.component";
+import { InfoEquipoGeneralComponent } from "./modules/info-equipo-general/info-equipo-general.component";
+
+
 
 
 const routes: Routes = [
@@ -198,6 +202,14 @@ const routes: Routes = [
   },{
     path: "listaevaluar",
     component: ListaPreinsEvaluarComponent,
+    //canActivate: [BeforeLoginService]
+  },{
+    path: "infojugadoresgeneral/:id",
+    component: InfoJugadoresGeneralComponent,
+    //canActivate: [BeforeLoginService]
+  },{
+    path: "infoequiposgeneral/:id",
+    component: InfoEquipoGeneralComponent,
     //canActivate: [BeforeLoginService]
   },
 ];

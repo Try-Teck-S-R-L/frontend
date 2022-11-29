@@ -17,16 +17,15 @@ InformacionEquipo <br />
     />
     <label>{{ jugador?.nombreJugador +" "+ jugador?.apellidoJugador}}</label>
     <p class="job">{{ infoEquipo?.nombreEquipo }}</p>
-    <button>
-      <div class="QR" id="QR">
-        <qr-code [value]="urlActual"></qr-code>
-      </div>
-    </button>
+    <a [routerLink]="['/infojugadoresgeneral/', jugador.ciJugador]">
+      <button>Ver más</button>
+    </a>
   </div>
 </div>
 
 
 
+<br><br><br>
 
-
+<br><br><br>
 <app-footer></app-footer>
