@@ -45,7 +45,7 @@ export class VistaAdministradorComponent implements AfterViewInit, OnInit {
   ) {}
   ngOnInit(): void {
     //this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.listaPreinscripciones = res);
-    this.servicePreinscricion.getPreinscripciones().subscribe((res: any) => {
+    this.servicePreinscricion.getTodasPreinscripciones().subscribe((res: any) => {
       this.dataSource = new MatTableDataSource(res);
       console.log(res);
     });
