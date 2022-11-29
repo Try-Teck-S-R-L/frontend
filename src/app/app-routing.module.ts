@@ -70,6 +70,7 @@ const routes: Routes = [
     component: CredencialComponent,
     canActivate: [AfterLoginService]
   },
+
   {
     path: "",
     component: VistaPrincipalComponent,
