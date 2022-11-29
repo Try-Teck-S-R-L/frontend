@@ -48,6 +48,8 @@ import { InformacionjugadorComponent } from './modules/informacionjugador/inform
 import { LoginComponent } from './modules/login/login.component';
 import { EquiposgeneralComponent } from './modules/equiposgeneral/equiposgeneral.component';
 import { RegisterdelegadoComponent } from './modules/registerdelegado/registerdelegado.component';
+import { MenuAdminComponent } from './modules/menu-admin/menu-admin.component';
+import { ListapreadminComponent } from './modules/listapreadmin/listapreadmin.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import { RegisterdelegadoComponent } from './modules/registerdelegado/registerde
     MainPageComponent,
     EquiposgeneralComponent,
     RegisterdelegadoComponent,
+    MenuAdminComponent,
+    ListapreadminComponent,
   ],
   imports: [
     BrowserModule,

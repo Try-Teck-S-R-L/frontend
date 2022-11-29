@@ -32,6 +32,8 @@ import { EquiposgeneralComponent } from "./modules/equiposgeneral/equiposgeneral
 import { RegisterdelegadoComponent } from "./modules/registerdelegado/registerdelegado.component";
 import { BeforeLoginService } from "./services/before-login.service";
 import { AfterLoginService } from "./services/after-login.service";
+import { MenuAdminComponent } from "./modules/menu-admin/menu-admin.component";
+
 
 
 const routes: Routes = [
@@ -79,13 +81,13 @@ const routes: Routes = [
     //admin
     path: "vistaadmin",
     component: VistaAdministradorComponent,
-    canActivate: [AfterLoginService]
+   // canActivate: [AfterLoginService]
   },
   {
     //admin
     path: "informacionequipo/:id",
     component: InformacionequiposComponent,
-    canActivate: [AfterLoginService]
+    //canActivate: [AfterLoginService]
   },
   {
     path: "equiposmenu/:id",
@@ -125,7 +127,7 @@ const routes: Routes = [
   {
     path: "listapredelegado/:id",
     component: ListaPreinscripcionDelegadoComponent,
-    canActivate: [AfterLoginService]
+   canActivate: [AfterLoginService]
   },
   {
     path: "menupredelegado/:id",
@@ -172,6 +174,11 @@ const routes: Routes = [
     path: "registro",
     component: RegisterdelegadoComponent,
     canActivate: [BeforeLoginService]
+  },
+  {
+    path: "menuadmin",
+    component: MenuAdminComponent,
+    //canActivate: [BeforeLoginService]
   },
 ];
 
