@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { PreinscripcionService } from "src/app/services/preinscripcion.service";
+import { EquipoService } from 'src/app/services/equipo.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+
 import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
-import { PreinscripcionI } from "../models/preinscripcion.interface";
-import {Location} from '@angular/common';
+import { EquipoI } from '../models/equipo.interface';
+import { JugadorService } from 'src/app/services/jugador.service';
 
 @Component({
   selector: 'app-info-equipo-general',
@@ -11,72 +12,46 @@ import {Location} from '@angular/common';
   styleUrls: ['./info-equipo-general.component.css']
 })
 export class InfoEquipoGeneralComponent implements OnInit {
-  public id: string = "";
-  public preinscripcionActual = { "idPreinscripcion": '', "fechaPreinscripcion": '', "voucherPreinscripcion": "", "nombreEquipo": "", "habilitado": "", "paisEquipo": "", "montoPago": "", "nroComprobante": '', "idDelegado": "", "idCategoria": '',"correoDelegado": '',"nombreDelegado": '',"apellidoDelegado": '', "nombreCategoria": ''};
+  public idEquipo: string = "";
+  //public equipoActual = { "idEquipo": '', "nombreEquipo": '', "paisEquipo": "", "logoEquipo": "", "colorCamisetaPrincipal": "", "colorCamisetaSecundario": "","nombreCategoria":""};
+  public equipoActual: any = '';
+  public listaJugadores: any = '';
   //public preinscripcionActual: PreinscripcionI;
   public fotoMostrar= '';
-  
 
   constructor(
     router: ActivatedRoute,
-    private servicePreinscripcion: PreinscripcionService,
-    private _location: Location,
-    private sanitizer:DomSanitizer,
-    private routerView:Router,
-    private activatedRoute: ActivatedRoute
+    private serviceEquipo: EquipoService,
+    private serviceJugador: JugadorService,
+    private sanitizer:DomSanitizer
   ) {
     router.params.subscribe((params) => {
-      this.id = params["id"];
+      this.idEquipo = params["id"];
     });
   }
 
-  public formularioEquipo: any;
-
   ngOnInit(): void {
-    this.servicePreinscripcion
-      .getPreinscripcionBuscada(this.id)
+    this.serviceEquipo
+      //.getAllEquipos(this.id)
+      .getEquipoXid(this.idEquipo)
       //.subscribe((res: any) => (this.preinscripcionActual = res, this.fotoMostrar = this.sanitizer.bypassSecurityTrustResourceUrl(res.fotoComprobante)));
-      .subscribe((res: any) => 
-        {console.log(res);
-        if(res != null){
-          this.preinscripcionActual = res;
-                                this.fotoMostrar.concat(this.preinscripcionActual.voucherPreinscripcion);
-                                this.fotoMostrar += res.voucherPreinscripcion;
-                                console.log(this.fotoMostrar);        
-        }
-        if(res == null){
-          this.routerView.navigate(['vistaerror/Esta preinscripcion ya fue evaluada'], { skipLocationChange: true });
+      .subscribe((res: any) => (this.equipoActual = res,
+
+                                this.fotoMostrar.concat(this.equipoActual.logoEquipo),
+                                this.fotoMostrar += res.logoEquipo,
+                                console.log(this.fotoMostrar),
+                                console.log(res))
+                                
+      );
+
+      this.serviceJugador.getAllJugadores(this.idEquipo).subscribe((res : any)=>this.listaJugadores = res);
     
-        }
-        });
       //console.log(this.preinscripcionActual);
 
       //console.log(this.preinscripcionActual);
   }
-
-  rechazarPreinscripcion($id: string) {
-    this.servicePreinscripcion.rechazarPreinsc(this.id)
-    .subscribe((res: any) => {
-      console.log(res), this.routerView.navigate(['../'], {relativeTo: this.activatedRoute})
-    }
-    );
-    this.regresar();
-  }
-
-  aceptarPreinscripcion($id: string) {
-    console.log($id);
-    this.servicePreinscripcion
-      .aceptarPreinsc(this.id)
-      .subscribe((res: any) => console.log(res));
-      this.regresar();
-  }
-
   sanitizeURL(url:string){
     return this.sanitizer.bypassSecurityTrustUrl(url);
 }
-  //async fetchData(): void {}
 
-  regresar(){
-    this._location.back();
-  }
 }
