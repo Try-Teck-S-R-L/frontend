@@ -1,0 +1,42 @@
+/* From uiverse.io by @felipesntr */
+.container {  display: grid;
+    grid-template-columns: 0.4fr 2.4fr 0.4fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
+    grid-auto-columns: 4fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". uno ."
+      ". dos ."
+      ". tres ."
+      ". cuatro .";
+  }
+  
+  .uno { grid-area: uno; }
+  
+  .dos { grid-area: dos; }
+  
+  .tres { grid-area: tres; }
+  
+  .cuatro { grid-area: cuatro; }
+  
+  
+  
+  
+  
+  button {
+    font-size: 1.5rem;
+    padding: 35px 250px;
+    width: 100%;
+    background-color: #000;
+    border: 15px solid rgb(255, 176, 7);
+    border-radius: 1em;
+    color: #fff;
+    font-weight: bolder;
+    transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
+    box-shadow: -5px 5px 0px 0px rgb(255, 166, 0);
+  }
+  
+  button:hover {
+    transform: translate(5px, -5px);
+  }

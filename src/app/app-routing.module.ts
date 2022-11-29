@@ -32,6 +32,8 @@ import { EquiposgeneralComponent } from "./modules/equiposgeneral/equiposgeneral
 import { RegisterdelegadoComponent } from "./modules/registerdelegado/registerdelegado.component";
 import { BeforeLoginService } from "./services/before-login.service";
 import { AfterLoginService } from "./services/after-login.service";
+import { MenuAdminComponent } from "./modules/menu-admin/menu-admin.component";
+import { JugadoresgenealComponent } from "./modules/jugadoresgeneal/jugadoresgeneal.component";
 
 
 const routes: Routes = [
@@ -73,19 +75,19 @@ const routes: Routes = [
   {
     path: "listajugadores/:id",
     component: ListaJugadoresComponent,
-    canActivate: [AfterLoginService]
+    //canActivate: [AfterLoginService]
   },
   {
     //admin
     path: "vistaadmin",
     component: VistaAdministradorComponent,
-    canActivate: [AfterLoginService]
+   // canActivate: [AfterLoginService]
   },
   {
     //admin
     path: "informacionequipo/:id",
     component: InformacionequiposComponent,
-    canActivate: [AfterLoginService]
+    //canActivate: [AfterLoginService]
   },
   {
     path: "equiposmenu/:id",
@@ -125,7 +127,7 @@ const routes: Routes = [
   {
     path: "listapredelegado",
     component: ListaPreinscripcionDelegadoComponent,
-    canActivate: [AfterLoginService]
+   canActivate: [AfterLoginService]
   },
   {
     path: "menupredelegado",
@@ -155,7 +157,7 @@ const routes: Routes = [
   {
     path: "infojugador/:id",
     component: InformacionjugadorComponent,
-    canActivate: [AfterLoginService]
+    //canActivate: [AfterLoginService]
   },
   {
     path: "login",
@@ -171,6 +173,20 @@ const routes: Routes = [
     path: "registro",
     component: RegisterdelegadoComponent,
     canActivate: [BeforeLoginService]
+  },
+  {
+    path: "menuadmin",
+    component: MenuAdminComponent,
+    //canActivate: [BeforeLoginService]
+  },
+  {
+    path: "mainpage",
+    component: MainPageComponent,
+    //canActivate: [BeforeLoginService]
+  },{
+    path: "jugadoresgeneral/:id",
+    component: JugadoresgenealComponent,
+    //canActivate: [BeforeLoginService]
   },
 ];
 
