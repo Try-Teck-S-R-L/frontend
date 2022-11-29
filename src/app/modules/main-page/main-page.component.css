@@ -1,15 +1,19 @@
 .cabeza{
-    background-image: url(../../../assets/Imagenes/15263.gif);
+    background-image: url(../../../assets/Imagenes/4j7k.gif);
     background-position: center;
     background-size: cover;
     position: relative;
   
 }
 
-.h1{
-font-size: 15px;
+.titulo{
+font-size: 50px;
+font-weight: bolder;
+font-family: 'Lucida Bright', sans-serif;
+-webkit-text-stroke: 1px rgba(5, 5, 5, 0.842);
+text-shadow: 0.1em 0.1em 0.2em rgb(253, 253, 253);
+color: rgba(243, 70, 2, 0.842);
 }
-
 .cabeza::after{
     content: "";
     display: block;
@@ -21,7 +25,15 @@ font-size: 15px;
     bottom: 0;
 
 }
-
+.info{
+    color: rgb(255, 94, 0);
+    font-weight: bold;
+    font-family: 'Lucida Bright', sans-serif; 
+    font-size: 25px;
+}
+.torneo{
+    font-size: 18px;
+}
 .img-logo{
     margin-top: 70px;
     width: 150px;
@@ -67,4 +79,15 @@ font-size: 15px;
 
 .card-img-filter{
     filter: brightness(0.5);
+}
+.preins{
+    color: rgb(255, 94, 0);
+    font-weight: bold;
+    font-family: 'Lucida Bright', sans-serif;  
+}
+.infopago{
+    font-size: 17px;
+}
+.infoextra{
+    font-size: 17px;
 }

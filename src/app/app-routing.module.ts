@@ -180,6 +180,11 @@ const routes: Routes = [
     component: MenuAdminComponent,
     //canActivate: [BeforeLoginService]
   },
+  {
+    path: "mainpage",
+    component: MainPageComponent,
+    //canActivate: [BeforeLoginService]
+  },
 ];
 
 @NgModule({
