@@ -1,0 +1,40 @@
+<app-header></app-header>
+<br />
+<!--{{ equipoActual | json }} foto wea: {{ fotoMostrar }}
+<br />
+jugadores: <br />
+{{ listaJugadores | json }}
+-->
+<div class="container">
+  <div class="uno">
+    <label type="text" name="text" class="input"
+      >  Nombre Completo: {{ infoJugador?.nombreJugador+ " " +infoJugador?.apellidoJugador }} <hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Edad del jugador: {{ infoJugador?.edadJugador }}<hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Numero de camiseta: {{ infoJugador?.numeroCamiseta }}<hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >País del jugador: {{ infoJugador?.nacionalidadJugador }}<hr></label
+    >
+    <br /><br />
+    <label type="text" name="text" class="input"
+      >Posicion del jugador: {{ infoJugador?.posicionJugador }}<hr></label
+    >
+    <br /><br /><label type="text" name="text" class="input"
+    >Talla del jugador: {{ infoJugador?.tallaJugador }}<hr></label
+  >
+  
+  </div>
+  <div class="tres">
+    <img [src]="infoJugador?.fotoPerfilJugador" />
+    <label type="text" name="text" class="input">Logo del equipo</label>
+  </div>
+</div>
+<br />
+<app-footer></app-footer>
