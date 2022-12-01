@@ -34,8 +34,9 @@ export class JugadoresgenealComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.jugadorService.getAllJugadores(this.idEquipo).subscribe(data => (this.listaJugadores = data, console.log(data)));
-    this.equipoService.getEquipoXid(this.idEquipo).subscribe((data2: any) => (this.infoEquipo = data2));
+    this.jugadorService.getJugadoresTorneo().subscribe(data => (this.listaJugadores = data, console.log(data)));
+    //this.jugadorService.getAllJugadores(this.idEquipo).subscribe(data => (this.listaJugadores = data, console.log(data)));
+    //this.equipoService.getEquipoXid(this.idEquipo).subscribe((data2: any) => (this.infoEquipo = data2));
 
   }
   get equipoJugador(){ return this.credencial.value.equipos; }
