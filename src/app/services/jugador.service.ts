@@ -62,7 +62,7 @@ import { ResponseI } from '../modules/models/response.interface';
       formData.append("tallaJugador", form.tallaJugador);
       formData.append("posicionJugador", form.posicionJugador);
       formData.append("numeroCamiseta", form.numeroCamiseta);
-      formData.append("edadJugador", form.edadJugador);
+      formData.append("edadJugador", '50');
       
       formData.append("fotoPerfilJugador", form.fotoPerfilJugador);
       formData.append("fotoCiJugador", form.fotoCiJugador);

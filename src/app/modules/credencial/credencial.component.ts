@@ -6,6 +6,10 @@ import { EquipoService } from 'src/app/services/equipo.service';
 import { JugadorService } from 'src/app/services/jugador.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import pdfMake from 'pdfmake/build/pdfMake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 @Component({
   selector: 'app-credencial',
   templateUrl: './credencial.component.html',
@@ -48,11 +52,13 @@ export class CredencialComponent implements OnInit {
     const doc = new jsPDF('p', 'pt', 'carta');
     const options = {
       background: 'white',
+      useCORS: true,
       scale: 3
     };
     
     html2canvas(DATA, options).then((canvas) => {
 
+      
       const img = canvas.toDataURL('image/PNG');
 
       // Add image Canvas to PDF
@@ -65,9 +71,24 @@ export class CredencialComponent implements OnInit {
       return doc;
     }).then((docResult) => {
       docResult.save(`${new Date().toISOString()}credencial.pdf`);
+
     });
+
+
   }
   
-  
+  /*createPdf(){
+    const DATA = document.getElementById('credencial');
+    const pdfDefinition: any = {
+      content: [
+        {
+          text: 'Hola mundo'
+        }
+      ]
+    }
+
+    const pdf = pdfMake.createPdf(DATA);
+    pdf.open();
+  }*/
 
 }

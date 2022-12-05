@@ -24,7 +24,6 @@
           type="text"
           ngModel
           maxlength="50"
-          
           placeholder="Ingrese el nombre del jugador"
           formControlName="nombreJugador"
           class="form-control"
@@ -70,8 +69,6 @@
           type="text"
           formControlName="apellidoJugador"
           maxlength="50"
-          
-          
           placeholder="Ingrese apellido del jugador"
           class="form-control"
           [ngClass]="{
@@ -195,7 +192,7 @@
         </div>
       </div>
     </div>
-    <!--INPUT edad-->
+    <!--INPUT edad-
     <div class="mb-3 row">
       <label for="edad" class="edad col-sm-2 col-form-label">Edad:</label>
       <div class="col-sm-10">
@@ -219,7 +216,18 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <label for="edad" class="edad col-sm-2 col-form-label">Edad:</label>
+    <input
+      type="date"
+      name="edadJugador"
+      id="edadJugador"
+      formControlName="edadJugador"
+      min="2000-01-01"
+      max="2022-12-31"
+      required
+    />
 
     <!--INPUT CI-->
     <div class="mb-3 row">

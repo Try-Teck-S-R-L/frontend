@@ -1,10 +1,7 @@
 <app-header></app-header>
 
-
-
- <br />
+<br />
 InformacionEquipo <br />
-
 
 <div class="contenedor-grid-cards" id="credencial">
   <div class="card" *ngFor="let jugador of listaJugadores; index as i">
@@ -15,7 +12,7 @@ InformacionEquipo <br />
       [src]="jugador.fotoPerfilJugador"
       [alt]="jugador.nombreJugador"
     />
-    <label>{{ jugador?.nombreJugador +" "+ jugador?.apellidoJugador}}</label>
+    <label>{{ jugador?.nombreJugador + " " + jugador?.apellidoJugador }}</label>
     <p class="job">{{ infoEquipo?.nombreEquipo }}</p>
     <button>
       <div class="QR" id="QR">
@@ -26,7 +23,5 @@ InformacionEquipo <br />
 </div>
 
 <button (click)="downloadPDF()">crear pdf</button>
-
-
 
 <app-footer></app-footer>
