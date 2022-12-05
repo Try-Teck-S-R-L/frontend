@@ -87,18 +87,18 @@ export class EditarPreDeleComponent implements OnInit {
     .getAllCategorias()
     .subscribe((data) => (this.listaCategorias = data));
 
-  this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
+    this.elemento.getAllPaises().subscribe((data) => (this.listaPaises = data));
 
   /*this.serviceEquipo
     .getAllEquipos()
     .subscribe((res: any) => (this.listaEquipos = res));*/
 
-  this.delegadoService.getInfoDelegado(this.idDelegado).subscribe((data) => (this.delegadoAct =  data));
+    this.delegadoService.getInfoDelegado(this.idDelegado).subscribe((data) => (this.delegadoAct =  data));
 
   this.registerForm = this.formBuilder.group({
     nombreDelegado: [],
     emailDelegado: [],
-    nombreEquipo: ["{nombreEquipo}", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+    nombreEquipo: [],
     paisEquipo: ["", [Validators.required]],
 
     idCategoria: ["", [Validators.required]],

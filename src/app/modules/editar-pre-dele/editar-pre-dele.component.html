@@ -48,6 +48,7 @@
           [ngClass]="{
             'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
           }"
+          [(ngModel)]="datosPreinscripcion.nombreEquipo"
         />
         <div
           *ngIf="
@@ -147,6 +148,7 @@
             'is-invalid':
               form.nroComprobante.invalid && form.nroComprobante.touched
           }"
+          [(ngModel)]="datosPreinscripcion.nroComprobante"
         />
 
         <div
@@ -188,6 +190,7 @@
           [ngClass]="{
             'is-invalid': form.montoPago.invalid && form.montoPago.touched
           }"
+          [(ngModel)]="datosPreinscripcion.montoPago"
         />
         <div
           *ngIf="
