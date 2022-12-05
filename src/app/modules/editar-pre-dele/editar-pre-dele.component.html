@@ -48,7 +48,6 @@
           [ngClass]="{
             'is-invalid': form.nombreEquipo.invalid && form.nombreEquipo.touched
           }"
-          value="{{ datosPreinscripcion?.nombreEquipo }}"
         />
         <div
           *ngIf="
@@ -148,7 +147,6 @@
             'is-invalid':
               form.nroComprobante.invalid && form.nroComprobante.touched
           }"
-          value="{{ datosPreinscripcion?.nroComprobante }}"
         />
 
         <div
@@ -190,7 +188,6 @@
           [ngClass]="{
             'is-invalid': form.montoPago.invalid && form.montoPago.touched
           }"
-          value="{{ datosPreinscripcion?.montoPago }}"
         />
         <div
           *ngIf="
@@ -214,7 +211,6 @@
       accept="image/*"
       (change)="onFileSelected($event)"
       required
-      value="{{ datosPreinscripcion?.voucherPreinscripcion }}"
     />
 
     <!-- <div
@@ -237,7 +233,6 @@
       min="2022-01-01"
       max="2022-12-31"
       required
-      value="{{ datosPreinscripcion?.fechaPreinscripcion }}"
     />
 
     <div class="text-danger">
