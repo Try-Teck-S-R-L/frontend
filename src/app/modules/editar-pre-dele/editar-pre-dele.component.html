@@ -79,6 +79,7 @@
           name="paisEquipo"
           formControlName="paisEquipo"
           required
+          [(ngModel)]="datosPreinscripcion.paisEquipo"
         >
           <option value="" disabled selected>Seleccionar país</option>
           <option *ngFor="let pais of paises" [value]="pais.value">
@@ -111,6 +112,7 @@
           id="idCategoria"
           class="form-select form-select-sm"
           formControlName="idCategoria"
+          [(ngModel)]="datosPreinscripcion.idCategoria"
         >
           <option value="" disabled selected>Seleccionar categoria</option>
           <option value="1">Mayores de 35</option>
