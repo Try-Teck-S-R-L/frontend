@@ -218,6 +218,15 @@
       required
     />
 
+    <br />
+
+    <label type="text" name="text" class="input">
+      Comprobante actual de la preinscripción:
+      <a href="{{ datosPreinscripcion.voucherPreinscripcion }}" target="_blank"
+        >comprobante de pago</a
+      >
+    </label>
+
     <!-- <div
       *ngIf="submitted"
       class="text-danger"
@@ -238,7 +247,14 @@
       min="2022-01-01"
       max="2022-12-31"
       required
+      [(ngModel)]="datosPreinscripcion.fechaPreinscripcion"
     />
+
+    <!--<div class="dos">
+      <h3>Voucher Actual</h3>
+      <img [src]="fotoMostrar" />
+      <input type="file" (change)="onselectFile($event)" />
+    </div> -->
 
     <div class="text-danger">
       <h3>{{ mensajeError | json }}</h3>

@@ -47,6 +47,7 @@ export class EditarPreDeleComponent implements OnInit {
   public listaPaises: any = [];
   public listaCategorias: any = [];
   public mensajeError: string = '';
+  public fotoMostrar= '';
   
   public delegadoAct: { "nombreDelegado": "string";"apellidoDelegado" : "string" ;"correoDelegado": "string" } | undefined;
 
@@ -80,7 +81,8 @@ export class EditarPreDeleComponent implements OnInit {
     this.generalService.verificarFechaValida().subscribe(data => {this.fechaValida = data;
     });
 
-    this.servicePreinscripcion.getPreinscripcionGeneral(this.idDelegado).subscribe((res : any)=>{this.datosPreinscripcion = res, console.log(res)});
+    this.servicePreinscripcion.getPreinscripcionGeneral(this.idDelegado)
+    .subscribe((res : any)=>{this.datosPreinscripcion = res,this.fotoMostrar += res.voucherPreinscripcion, console.log(res)});
     
 
     this.elemento
@@ -189,6 +191,20 @@ export class EditarPreDeleComponent implements OnInit {
     this.registerForm.clearValidators();
     this.registerForm.updateValueAndValidity();
   }
+
+
+  /*onselectFile(e){
+    this.fotoMostrar ='0;'
+    if(e.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.fotoMostrar = event.target.result;
+      }
+    }
+
+  }*/
+
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
