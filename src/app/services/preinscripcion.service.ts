@@ -32,6 +32,23 @@ export class PreinscripcionService {
     return this.http.post<ResponseI>(url, formData);
   }
 
+  EditarPreinscripcion(form: PreinscripcionI, idPreinscripcion:string): Observable<ResponseI> {
+    let url = this.base_url + "api/editarPreinscripcion/";
+    console.log("Service log: ", form);
+    const formData = new FormData();
+
+    formData.append("idPreinscripcion", idPreinscripcion);
+    formData.append("fechaPreinscripcion", form.fechaPreinscripcion);
+    formData.append("nombreEquipo", form.nombreEquipo);
+    formData.append("paisEquipo", form.paisEquipo);
+    formData.append("nroComprobante", form.nroComprobante);
+    formData.append("montoPago", form.montoPago);
+    formData.append("voucherPreinscripcion", form.voucherPreinscripcion);
+    formData.append("idCategoria",form.idCategoria);
+    //formData.append("idDelegado", idDelegado);
+    return this.http.post<ResponseI>(url, formData);
+  }
+
   /*errorHandler(error: HttpErrorResponse){
     return throwError(error.error.errors || 'Error del server');
   }*/

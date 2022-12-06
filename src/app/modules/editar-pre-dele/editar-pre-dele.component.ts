@@ -52,7 +52,7 @@ export class EditarPreDeleComponent implements OnInit {
   public delegadoAct: { "nombreDelegado": "string";"apellidoDelegado" : "string" ;"correoDelegado": "string" } | undefined;
 
 
-  public idDelegado: string = "";
+  public idPreinscripcion: string = "";
   public datosPreinscripcion: any = [];
   public fechaValida: number;
 
@@ -71,7 +71,7 @@ export class EditarPreDeleComponent implements OnInit {
     private generalService: InfoGeneralService,
     private servicePreinscripcion: PreinscripcionService) {
       router.params.subscribe((params) => {
-        this.idDelegado = params["id"];
+        this.idPreinscripcion = params["id"];
         this.paises = data.paises;
       });
     }
@@ -81,7 +81,7 @@ export class EditarPreDeleComponent implements OnInit {
     this.generalService.verificarFechaValida().subscribe(data => {this.fechaValida = data;
     });
 
-    this.servicePreinscripcion.getPreinscripcionGeneral(this.idDelegado)
+    this.servicePreinscripcion.getPreinscripcionGeneral(this.idPreinscripcion)
     .subscribe((res : any)=>{this.datosPreinscripcion = res,this.fotoMostrar += res.voucherPreinscripcion, console.log(res)});
     
 
@@ -95,7 +95,7 @@ export class EditarPreDeleComponent implements OnInit {
     .getAllEquipos()
     .subscribe((res: any) => (this.listaEquipos = res));*/
 
-    this.delegadoService.getInfoDelegado(this.idDelegado).subscribe((data) => (this.delegadoAct =  data));
+    this.delegadoService.getInfoDelegado(this.datosPreinscripcion.idDelegado).subscribe((data) => (this.delegadoAct =  data));
 
   this.registerForm = this.formBuilder.group({
     nombreDelegado: [],
@@ -156,10 +156,10 @@ export class EditarPreDeleComponent implements OnInit {
 
 
     this.http
-      .Preinscripcion({
+      .EditarPreinscripcion({
         ...this.registerForm.value,
         voucherPreinscripcion: this.file
-      }, this.idDelegado)
+      }, this.idPreinscripcion)
       
       /*.subscribe((data) => {
         let response: ResponseI = data;
@@ -226,6 +226,7 @@ export class EditarPreDeleComponent implements OnInit {
 
 
   regresar(){
+    $('#exampleModal').modal('hide');
     this.onReset();
     this._location.back();
   }
