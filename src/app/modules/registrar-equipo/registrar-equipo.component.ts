@@ -199,7 +199,9 @@ export class RegistrarEquipoComponent implements OnInit {
     this._location.back();
   }
   
-
+  atras(){
+    this._location.back();
+  }
   
  
 }

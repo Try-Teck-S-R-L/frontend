@@ -7,6 +7,7 @@ import { MatSort, Sort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { EquipoService } from "src/app/services/equipo.service";
 import { TokenService } from "src/app/services/token.service";
+import {Location} from '@angular/common';
 
 export interface PeriodicElement {
   nombreEquipo: string;
@@ -40,6 +41,7 @@ export class ListaEquiposComponent implements AfterViewInit, OnInit {
     router: ActivatedRoute,
     private _liveAnnouncer: LiveAnnouncer,
     private tokenService: TokenService,
+    private _location: Location,
     private serviceEquipo: EquipoService
   ) {
     router.params.subscribe((params) => {
@@ -73,5 +75,8 @@ export class ListaEquiposComponent implements AfterViewInit, OnInit {
     } else {
       this._liveAnnouncer.announce("Sorting cleared");
     }
+  }
+  atras(){
+    this._location.back();
   }
 }

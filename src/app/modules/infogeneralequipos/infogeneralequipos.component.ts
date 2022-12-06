@@ -6,7 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
 import { EquipoI } from '../models/equipo.interface';
 import { JugadorService } from 'src/app/services/jugador.service';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-infogeneralequipos',
   templateUrl: './infogeneralequipos.component.html',
@@ -21,6 +21,7 @@ export class InfogeneralequiposComponent implements OnInit {
   public fotoMostrar= '';
   constructor(
     router: ActivatedRoute,
+    private _location: Location,
     private serviceEquipo: EquipoService,
     private serviceJugador: JugadorService,
     private sanitizer:DomSanitizer
@@ -53,5 +54,7 @@ export class InfogeneralequiposComponent implements OnInit {
   sanitizeURL(url:string){
     return this.sanitizer.bypassSecurityTrustUrl(url);
 }
-
+atras(){
+  this._location.back();
+}
 }

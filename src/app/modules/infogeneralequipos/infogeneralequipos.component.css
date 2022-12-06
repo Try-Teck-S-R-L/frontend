@@ -30,8 +30,8 @@
    hr { background-color: rgb(0, 0, 0); border: 0 none; color: rgb(0, 0, 0); height: 5px; }
    .atras{
     position: relative;
-    
-  right: 96%;
+    cursor: pointer;
+  right: 93%;
   }
   
   

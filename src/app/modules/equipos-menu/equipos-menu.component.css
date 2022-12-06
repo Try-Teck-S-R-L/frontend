@@ -9,7 +9,7 @@
     ". tres . uno ."
     ". dos . cuatro ."
     ". cinco . seis ."
-    ". . . . .";
+    
 }
 
 .tres { grid-area: tres; }
@@ -45,6 +45,6 @@
   }
   .atras{
     position: relative;
-    
-  right: 96%;
-  }
+    cursor: pointer;
+  right: 80%;
+}

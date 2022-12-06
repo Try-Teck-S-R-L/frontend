@@ -5,9 +5,9 @@
 
 .atras{
     position: relative;
-    
-  right: 96%;
-  }
+    cursor: pointer;
+  right: 82%;
+}
 h3{
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 23px;

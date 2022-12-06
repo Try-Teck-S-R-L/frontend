@@ -5,6 +5,8 @@ import {QRCodeComponent} from 'angular2-qrcode';
 import { EquipoService } from 'src/app/services/equipo.service';
 import { JugadorService } from 'src/app/services/jugador.service';
 import jsPDF from 'jspdf';
+import {Location} from '@angular/common';
+
 import html2canvas from 'html2canvas';@Component({
   selector: 'app-credenciales-internas',
   templateUrl: './credenciales-internas.component.html',
@@ -22,6 +24,7 @@ export class CredencialesInternasComponent implements OnInit {
   constructor(
     private jugadorService: JugadorService,
     private equipoService: EquipoService,
+    private _location: Location,
     router: ActivatedRoute) { 
       router.params.subscribe((params) => {
         this.idEquipo = params["id"];
@@ -66,5 +69,7 @@ export class CredencialesInternasComponent implements OnInit {
       docResult.save(`${new Date().toISOString()}credencial.pdf`);
     });
   }
-  
+  atras(){
+    this._location.back();
+  }
 }

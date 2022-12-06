@@ -28,6 +28,6 @@ button {
  }
  .atras{
   position: relative;
-  
+  cursor: pointer;
 right: 96%;
 }

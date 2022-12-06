@@ -6,6 +6,9 @@ import { EquipoService } from 'src/app/services/equipo.service';
 import { JugadorService } from 'src/app/services/jugador.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import {Location} from '@angular/common';
+
+
 @Component({
   selector: 'app-jugadoresgeneal',
   templateUrl: './jugadoresgeneal.component.html',
@@ -20,6 +23,7 @@ export class JugadoresgenealComponent implements OnInit {
   public urlActual: any;
   constructor(
     private jugadorService: JugadorService,
+    private _location: Location,
     private equipoService: EquipoService,
     router: ActivatedRoute) { 
       router.params.subscribe((params) => {
@@ -66,5 +70,7 @@ export class JugadoresgenealComponent implements OnInit {
       docResult.save(`${new Date().toISOString()}credencial.pdf`);
     });
   }
-  
+  atras(){
+    this._location.back();
+  }
 }

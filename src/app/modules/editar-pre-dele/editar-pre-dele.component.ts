@@ -231,5 +231,7 @@ export class EditarPreDeleComponent implements OnInit {
     this._location.back();
   }
 
-
+ atras(){
+    this._location.back();
+  }
 }

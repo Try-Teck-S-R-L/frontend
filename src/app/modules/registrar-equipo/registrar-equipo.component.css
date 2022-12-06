@@ -1,6 +1,6 @@
 .container{
     font-family: 'Trebuchet MS', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
 h3{
     font-family: 'Trebuchet MS', sans-serif;
@@ -10,9 +10,9 @@ h3{
 }
 .atras{
     position: relative;
-    
-  right: 96%;
-  }
+    cursor: pointer;
+  right: 82%;
+}
 .nombreDelegado{
     font-weight: bold; 
 }

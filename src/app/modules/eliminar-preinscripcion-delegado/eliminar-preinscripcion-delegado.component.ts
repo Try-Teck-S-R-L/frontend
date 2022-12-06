@@ -7,7 +7,7 @@ import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
 import { ActivatedRoute } from '@angular/router';
 import { InfoGeneralService } from 'src/app/services/infoGeneral.service';
 import { TokenService } from 'src/app/services/token.service';
-
+import {Location} from '@angular/common';
 export interface PeriodicElement {
   nombreEquipo: string;
   
@@ -34,6 +34,7 @@ export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterVie
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     router: ActivatedRoute,
+    private _location: Location,
     private generalService: InfoGeneralService,
     private tokenService: TokenService,
     private servicePreinscripcion: PreinscripcionService) {
@@ -80,5 +81,8 @@ export class EliminarPreinscripcionDelegadoComponent implements OnInit, AfterVie
       console.log("success");
   });
     console.log($id);
+  }
+  atras(){
+    this._location.back();
   }
 }

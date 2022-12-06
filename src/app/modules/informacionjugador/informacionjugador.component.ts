@@ -38,4 +38,7 @@ export class InformacionjugadorComponent implements OnInit {
       .getJugador(this.idJugador)
       .subscribe((res: any) => (this.infoJugador = res, console.log(res) ));
   }
+  atras(){
+    this._location.back();
+  }
 }

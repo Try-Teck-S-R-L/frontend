@@ -9,8 +9,8 @@
 
 .atras{
   position: relative;
-  
-right: 96%;
+  cursor: pointer;
+right: 93%;
 }
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */

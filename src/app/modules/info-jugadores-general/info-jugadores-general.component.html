@@ -1,6 +1,18 @@
 <app-header></app-header>
+<div class="modal-footer">
+  <a class="atras" (click)="atras()"
+    ><img
+      src="../../../assets/Imagenes/atrasoficial.png"
+      height="70"
+      width="70"
+      alt="Botón"
+    />
+  </a>
+</div>
+<!--{{ equipoActual | json }} foto wea: {{ fotoMostrar }}
 <br />
-{{ infoJugador | json }}
+jugadores: <br />
+{{ listaJugadores | json }}
 -->
 <div class="container">
   <div class="uno">
@@ -9,51 +21,55 @@
       {{ infoJugador?.nombreJugador + " " + infoJugador?.apellidoJugador }}
       <hr
     /></label>
-    <br /><br />
+
     <label type="text" name="text" class="input"
       >Edad del jugador: {{ infoJugador?.edadJugador }}
       <hr
     /></label>
-    <br /><br />
+
     <label type="text" name="text" class="input"
-      >Número de camiseta: {{ infoJugador?.numeroCamiseta }}
+      >Numero de camiseta: {{ infoJugador?.numeroCamiseta }}
       <hr
     /></label>
-    <br /><br />
+
     <label type="text" name="text" class="input"
       >País del jugador: {{ infoJugador?.nacionalidadJugador }}
       <hr
     /></label>
-    <br /><br />
+
     <label type="text" name="text" class="input"
       >Posicion del jugador: {{ infoJugador?.posicionJugador }}
       <hr
     /></label>
-    <br /><br /><label type="text" name="text" class="input"
+    <label type="text" name="text" class="input"
       >Talla del jugador: {{ infoJugador?.tallaJugador }}
       <hr
     /></label>
-    <br /><br /><label type="text" name="text" class="input"
-      >Número de faltas: {{ infoJugador?.nroFaltas }}
-      <hr
-    /></label>
-    <br /><br /><label type="text" name="text" class="input"
-      >Número de robos: {{ infoJugador?.nroRobos }}
-      <hr
-    /></label>
-    <br /><br /><label type="text" name="text" class="input"
-      >Número de asistencias: {{ infoJugador?.nroAsistencias }}
-      <hr
-    /></label>
-    <br /><br /><label type="text" name="text" class="input"
-      >Número de bloqueos: {{ infoJugador?.nroBloqueos }}
-      <hr
-    /></label>
-    <br /><br /><label type="text" name="text" class="input"
-      >Número de puntos: {{ infoJugador?.nroPuntos }}
+    <label type="text" name="text" class="input"
+      >Numero de faltas: {{ infoJugador?.nroFaltas }}
       <hr
     /></label>
   </div>
+
+  <div class="dos">
+    <label type="text" name="text" class="input"
+      >Numero de robos: {{ infoJugador?.nroRobos }}
+      <hr
+    /></label>
+    <label type="text" name="text" class="input"
+      >Numero de asistencias: {{ infoJugador?.nroAsistencias }}
+      <hr
+    /></label>
+    <label type="text" name="text" class="input"
+      >Numero de bloqueos: {{ infoJugador?.nroBloqueos }}
+      <hr
+    /></label>
+    <label type="text" name="text" class="input"
+      >Numero de puntos: {{ infoJugador?.nroPuntos }}
+      <hr
+    /></label>
+  </div>
+
   <div class="tres">
     <img [src]="infoJugador?.fotoPerfilJugador" />
     <label type="text" name="text" class="input">Foto jugador</label>
