@@ -137,7 +137,7 @@ export class ReactiveFormsComponent implements OnInit {
 
     }
 
-
+    
 
 
 
@@ -201,5 +201,7 @@ export class ReactiveFormsComponent implements OnInit {
     this.onReset();
     this._location.back();
   }
-
+atras(){
+  this._location.back();
+}
 }

@@ -6,6 +6,7 @@ import { EquipoService } from 'src/app/services/equipo.service';
 import { JugadorService } from 'src/app/services/jugador.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-credencial',
   templateUrl: './credencial.component.html',
@@ -22,6 +23,7 @@ export class CredencialComponent implements OnInit {
 
   constructor(
     private jugadorService: JugadorService,
+    private _location: Location,
     private equipoService: EquipoService,
     router: ActivatedRoute) { 
       router.params.subscribe((params) => {
@@ -56,8 +58,8 @@ export class CredencialComponent implements OnInit {
       const img = canvas.toDataURL('image/PNG');
 
       // Add image Canvas to PDF
-      const bufferX = 15;
-      const bufferY = 15;
+      const bufferX = 5;
+      const bufferY = 5;
       const imgProps = (doc as any).getImageProperties(img);
       const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
@@ -67,5 +69,7 @@ export class CredencialComponent implements OnInit {
       docResult.save(`${new Date().toISOString()}credencial.pdf`);
     });
   }
-  
+  atras(){
+    this._location.back();
+  }
 }

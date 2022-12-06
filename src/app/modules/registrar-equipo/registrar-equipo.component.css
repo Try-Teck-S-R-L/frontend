@@ -8,6 +8,11 @@ h3{
     font-weight: bold;
     color: rgba(243, 70, 2, 0.842);
 }
+.atras{
+    position: relative;
+    
+  right: 96%;
+  }
 .nombreDelegado{
     font-weight: bold; 
 }

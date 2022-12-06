@@ -1,6 +1,12 @@
 table {
   width: 100%;
 }
+.atras{
+  position: relative;
+  
+right: 96%;
+}
+
 
 th.mat-sort-header-sorted {
   color: black;

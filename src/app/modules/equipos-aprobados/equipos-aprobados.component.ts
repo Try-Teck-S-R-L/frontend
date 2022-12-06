@@ -9,7 +9,7 @@ import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import { DelegadoService } from "src/app/services/delegado.service";
 import { TokenService } from "src/app/services/token.service";
-
+import {Location} from '@angular/common';
 export interface PeriodicElement {
   nombreEquipo: string;
   idCategoria: string;
@@ -42,6 +42,7 @@ export class EquiposAprobadosComponent implements AfterViewInit, OnInit {
     router: ActivatedRoute,
     private _liveAnnouncer: LiveAnnouncer,
     private tokenService: TokenService,
+    private _location: Location,
     private servicePreinscricion: PreinscripcionService
   ) {
     router.params.subscribe((params) => {
@@ -79,6 +80,10 @@ export class EquiposAprobadosComponent implements AfterViewInit, OnInit {
     let idpreInscripcion = $idpreInscripcion;
     localStorage.setItem("idpreInscripcion", idpreInscripcion);
   }
+  
  
-
+  atras(){
+    this._location.back();
+  }
 }
+

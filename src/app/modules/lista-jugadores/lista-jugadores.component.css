@@ -13,3 +13,8 @@ table {
     justify-content: center;
   
   }
+  .atras{
+    position: relative;
+    
+  right: 96%;
+  }

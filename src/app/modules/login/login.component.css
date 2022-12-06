@@ -33,6 +33,11 @@ body{
   transform-origin: left;
   transform-style: preserve-3d;
 }
+.atras{
+  position: relative;
+  
+right: 96%;
+}
 .container #flip:checked ~ .cover{
   transform: rotateY(-180deg);
 }
