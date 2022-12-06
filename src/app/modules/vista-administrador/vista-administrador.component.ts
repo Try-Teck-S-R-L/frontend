@@ -7,6 +7,7 @@ import { MatSort, Sort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
+import {Location} from '@angular/common';
 export interface PeriodicElement {
   nombreEquipo: string;
   //position: number;
@@ -41,7 +42,8 @@ export class VistaAdministradorComponent implements AfterViewInit, OnInit {
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
-    private servicePreinscricion: PreinscripcionService
+    private servicePreinscricion: PreinscripcionService,
+    private _location: Location,
   ) {}
   ngOnInit(): void {
     //this.servicePreinscricion.getPreinscripciones().subscribe((res : any)=>this.listaPreinscripciones = res);
@@ -76,5 +78,8 @@ export class VistaAdministradorComponent implements AfterViewInit, OnInit {
   guardarPreinscripcion($idpreInscripcion: string) {
     let idpreInscripcion = $idpreInscripcion;
     localStorage.setItem("idpreInscripcion", idpreInscripcion);
+  }
+  atras(){
+    this._location.back();
   }
 }

@@ -3,9 +3,9 @@ table {
   }
   .atras{
     position: relative;
-    
+    cursor: pointer;
   right: 96%;
-  }
+}
   p{
     font-size: 50px;
     color: rgb(185, 123, 7);

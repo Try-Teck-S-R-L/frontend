@@ -53,5 +53,7 @@ export class InformacionPreDeleComponent implements OnInit {
   regresar(){
     this._location.back();
   }
-
+  atras(){
+    this._location.back();
+  }
 }

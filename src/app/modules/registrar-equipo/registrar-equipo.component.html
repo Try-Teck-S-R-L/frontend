@@ -1,5 +1,9 @@
 <app-header></app-header>
-
+<div class="modal-footer">
+    
+  <a class="atras" (click)="atras()"><img src="../../../assets/Imagenes/atrasoficial.png" height="70" width="70" alt="Botón"> </a>
+  
+</div>
 <div class="container" *ngIf="fechaValida === 1">
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <h3>Inscripción de equipo</h3>
@@ -164,5 +168,5 @@
 <ng-container *ngIf="fechaValida === 0">
   <p>Usted no puede registrar equipos, esta fuera de la fecha limite</p>
 </ng-container>
-
+<br>
 <app-footer></app-footer>

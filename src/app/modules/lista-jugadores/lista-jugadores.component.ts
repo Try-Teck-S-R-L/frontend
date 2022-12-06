@@ -3,7 +3,7 @@ import { EquipoI } from './../models/equipo.interface';
 import {  OnInit } from '@angular/core';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {AfterViewInit, Component, ViewChild, ElementRef} from '@angular/core';
-
+import {Location} from '@angular/common';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { JugadorService } from 'src/app/services/jugador.service';
@@ -37,6 +37,7 @@ export class ListaJugadoresComponent implements OnInit, AfterViewInit {
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     router: ActivatedRoute, 
+    private _location: Location,
     private serviceJugador: JugadorService,) {
     router.params.subscribe((params) => {
       this.id = params["id"];
@@ -79,7 +80,9 @@ export class ListaJugadoresComponent implements OnInit, AfterViewInit {
     }
   }
 
-
+  atras(){
+    this._location.back();
+  }
 
   
   /*eliminarJug($id: number){

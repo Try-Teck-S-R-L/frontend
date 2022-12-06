@@ -6,6 +6,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
 import { ActivatedRoute } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import {Location} from '@angular/common';
 
 export interface PeriodicElement {
   nombreEquipo: string;
@@ -31,6 +32,7 @@ export class EditarPreinscripcionDelegadoComponent implements OnInit , AfterView
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     router: ActivatedRoute,
+    private _location: Location,
     private tokenService: TokenService,
     private servicePreinscripcion: PreinscripcionService) {
       router.params.subscribe((params) => {
@@ -65,5 +67,8 @@ export class EditarPreinscripcionDelegadoComponent implements OnInit , AfterView
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+  atras(){
+    this._location.back();
   }
 }

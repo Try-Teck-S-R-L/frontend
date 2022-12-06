@@ -12,9 +12,9 @@
   .dos { grid-area: dos; }
   .atras{
     position: relative;
-    
-  right: 96%;
-  }
+    cursor: pointer;
+  right: 82%;
+}
   
   /*letras*/
   

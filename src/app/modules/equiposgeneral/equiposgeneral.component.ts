@@ -7,6 +7,9 @@ import { EquipoService } from 'src/app/services/equipo.service';
 import { JugadorService } from 'src/app/services/jugador.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+
+import {Location} from '@angular/common';
+
 @Component({
   selector: 'app-equiposgeneral',
   templateUrl: './equiposgeneral.component.html',
@@ -23,6 +26,7 @@ export class EquiposgeneralComponent implements OnInit {
   constructor(
     private jugadorService: JugadorService,
     private equipoService: EquipoService,
+    private _location: Location,
     router: ActivatedRoute) { 
       router.params.subscribe((params) => {
         this.idEquipo = params["id"];
@@ -38,5 +42,7 @@ export class EquiposgeneralComponent implements OnInit {
   get equipoJugador(){ return this.credencial.value.equipos; }
 
   
-  
+  atras(){
+    this._location.back();
+  }
 }

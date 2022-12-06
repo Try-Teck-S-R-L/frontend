@@ -4,6 +4,9 @@ import { PreinscripcionService } from 'src/app/services/preinscripcion.service';
 import { JugadorService } from 'src/app/services/jugador.service';
 import { ActivatedRoute } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import {Location} from '@angular/common';
+
+
 @Component({
   selector: 'app-menu-preinscripcion-delegado',
   templateUrl: './menu-preinscripcion-delegado.component.html',
@@ -16,6 +19,7 @@ export class MenuPreinscripcionDelegadoComponent implements OnInit {
 
   constructor( router: ActivatedRoute,
     private http: JugadorService,
+    private _location: Location,
     private tokenService: TokenService) { 
     router.params.subscribe((params) => {
       //this.id = params["id"];
@@ -25,5 +29,7 @@ export class MenuPreinscripcionDelegadoComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.tokenService.getDelegadoId();
   }
-
+  atras(){
+    this._location.back();
+  }
 }

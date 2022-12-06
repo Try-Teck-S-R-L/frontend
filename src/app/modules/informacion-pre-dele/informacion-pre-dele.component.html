@@ -1,55 +1,59 @@
 <app-header></app-header>
 
-<br />
+<div class="modal-footer">
+    
+  <a class="atras" (click)="atras()"><img src="../../../assets/Imagenes/atrasoficial.png" height="70" width="70" alt="Botón"> </a>
+  
+</div>
 <div class="container">
   <div class="uno">
     <label type="text" name="text" class="input"
-      >nombre del Delegado: {{ preinscripcionActual?.nombreEquipo }}</label
+      >nombre del Delegado: {{ preinscripcionActual?.nombreEquipo }} <hr></label
     >
-    <br /><br />
+   
 
     <!--INPUT email-->
 
     <label type="text" name="text" class="input"
-      >Email: {{ preinscripcionActual?.correoDelegado }}</label
+      >Email: {{ preinscripcionActual?.correoDelegado }}<hr></label
     >
-    <br /><br />
+    
 
     <!--INPUT nombreequipo-->
 
     <label type="text" name="text" class="input"
-      >Nombre del equipo: {{ preinscripcionActual?.nombreEquipo }}</label
+      >Nombre del equipo: {{ preinscripcionActual?.nombreEquipo }}<hr></label
     >
-    <br /><br />
+   
 
     <!--INPUT PAIS-->
 
     <label type="text" name="text" class="input"
-      >País: {{ preinscripcionActual?.paisEquipo }}</label
+      >País: {{ preinscripcionActual?.paisEquipo }}<hr></label
     >
-    <br /><br />
+   
 
     <!--INPUT categorias-->
 
     <label type="text" name="text" class="input"
-      >Categoría: {{ preinscripcionActual?.nombreCategoria }}</label
+      >Categoría: {{ preinscripcionActual?.nombreCategoria }}<hr></label
     >
-    <br /><br />
-
+  
+ 
     <!--INPUT nro de comprobante-->
 
     <label type="text" name="text" class="input"
       >Nro de comprobante de pago:
-      {{ preinscripcionActual?.nroComprobante }}</label
-    >
-    <br /><br />
+      {{ preinscripcionActual?.nroComprobante }}<hr></label
+    > </div>
+   
 
     <!--INPUT monto de pago-->
-
+    <div class="dos">
     <label type="text" name="text" class="input"
-      >Monto de pago: {{ preinscripcionActual?.montoPago }}</label
+      >Monto de pago: {{ preinscripcionActual?.montoPago }}<hr></label
     >
-    <br /><br />
+    
 
     <br />
     <!--imagen voucher-->
@@ -57,10 +61,10 @@
     <label type="text" name="text" class="input"
       >Comprobante de pago:
       <a href="{{ preinscripcionActual?.voucherPreinscripcion }}">
-        ver imagen</a
+        ver imagen<hr></a
       >
     </label>
-    <br /><br />
+    
 
     <!-- <div
           *ngIf="submitted"
@@ -70,19 +74,19 @@
             Por favor, suba el comprobante
           </div>
         </div> -->
-    <br /><br />
+    
     <!--INPUT agregar fecha-->
 
     <label type="text" name="text" class="input"
-      >Fecha de pago: {{ preinscripcionActual?.fechaPreinscripcion }}</label
+      >Fecha de pago: {{ preinscripcionActual?.fechaPreinscripcion }}<hr></label
     >
   </div>
 
-  <div class="dos">
+  <div class="tres">
     <img [src]="fotoMostrar" />
   </div>
 </div>
 
-<br />
 
+<br><br>
 <app-footer></app-footer>

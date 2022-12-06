@@ -10,6 +10,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { JugadorService } from 'src/app/services/jugador.service';
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
 import { TokenService } from 'src/app/services/token.service';
+import {Location} from '@angular/common';
 interface CountryOption {
   name: string;
   value: string;
@@ -26,6 +27,7 @@ export class EquiposMenuComponent implements OnInit {
     private _liveAnnouncer: LiveAnnouncer,
     private http: EquipoService,
     router: ActivatedRoute, 
+    private _location: Location,
     private tokenService: TokenService,
     private serviceequipo: EquipoService,
     private autenticacionService: AutenticacionService,
@@ -45,7 +47,9 @@ export class EquiposMenuComponent implements OnInit {
 
 
 
-
+  atras(){
+    this._location.back();
+  }
 
 
 

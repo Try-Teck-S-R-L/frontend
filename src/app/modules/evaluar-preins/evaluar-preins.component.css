@@ -1,15 +1,26 @@
 .container {  display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "uno dos";
-  }
+  grid-template-columns: 0.1fr 1.9fr 1.1fr 1.5fr 0.1fr;
+  grid-template-rows: 0.8fr 1.2fr 1fr 1.3fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". uno tres tres ."
+    ". uno tres tres ."
+    ". uno dos dos ."
+    ". uno dos dos .";
+}
+
+.dos { grid-area: dos; }
+
+.tres { grid-area: tres; }
+
+.uno { grid-area: uno; 
+}
+img{margin-left: 10%;}
+
+  hr { background-color: rgb(0, 0, 0); border: 0 none; color: rgb(0, 0, 0); height: 5px; }
   
-  .uno { grid-area: uno; }
-  
-  .dos { grid-area: dos; }
   
   
   /*letras*/
@@ -31,7 +42,7 @@
   
    .atras{
     position: relative;
-    
-  right: 96%;
-  }
+    cursor: pointer;
+  right: 82%;
+}
   

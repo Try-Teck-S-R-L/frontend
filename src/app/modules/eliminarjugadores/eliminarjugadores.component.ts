@@ -6,6 +6,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { JugadorService } from 'src/app/services/jugador.service';
+import {Location} from '@angular/common';
 export interface PeriodicElement {
   nombreJugador: string;
   //position: number;
@@ -33,7 +34,7 @@ export class EliminarjugadoresComponent implements AfterViewInit,OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   public listaJugadores: any = [];
 
-  constructor(private _liveAnnouncer: LiveAnnouncer,router: ActivatedRoute, private serviceJugador: JugadorService,) {
+  constructor(private _liveAnnouncer: LiveAnnouncer,router: ActivatedRoute, private serviceJugador: JugadorService, private _location: Location,) {
     router.params.subscribe((params) => {
       this.id = params["id"];
     });
@@ -72,5 +73,7 @@ export class EliminarjugadoresComponent implements AfterViewInit,OnInit {
   });
     console.log($id);
   }
-
+  atras(){
+    this._location.back();
+  }
  }

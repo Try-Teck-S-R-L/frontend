@@ -4,6 +4,7 @@ import { OnInit } from "@angular/core";
 import { LiveAnnouncer } from "@angular/cdk/a11y";
 import { AfterViewInit, Component, ViewChild } from "@angular/core";
 import { MatSort, Sort } from "@angular/material/sort";
+import {Location} from '@angular/common';
 import { MatTableDataSource } from "@angular/material/table";
 import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
@@ -41,6 +42,7 @@ export class ListaPreinsEvaluarComponent implements OnInit {
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
+    private _location: Location,
     private servicePreinscricion: PreinscripcionService
   ) {}
   ngOnInit(): void {
@@ -76,5 +78,8 @@ export class ListaPreinsEvaluarComponent implements OnInit {
   guardarPreinscripcion($idpreInscripcion: string) {
     let idpreInscripcion = $idpreInscripcion;
     localStorage.setItem("idpreInscripcion", idpreInscripcion);
+  }
+  atras(){
+    this._location.back();
   }
 }

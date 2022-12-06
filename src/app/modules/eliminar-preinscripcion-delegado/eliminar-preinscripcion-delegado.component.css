@@ -4,9 +4,9 @@ table {
   }
   .atras{
     position: relative;
-    
+    cursor: pointer;
   right: 96%;
-  }
+}
   th.mat-sort-header-sorted {
     color: black;
   }

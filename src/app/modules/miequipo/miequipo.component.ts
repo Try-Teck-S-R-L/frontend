@@ -5,7 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import {DomSanitizer, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
 import { EquipoI } from '../models/equipo.interface';
 import { JugadorService } from 'src/app/services/jugador.service';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-miequipo',
   templateUrl: './miequipo.component.html',
@@ -23,6 +23,7 @@ export class MiequipoComponent implements OnInit {
     router: ActivatedRoute,
     private serviceEquipo: EquipoService,
     private serviceJugador: JugadorService,
+    private _location: Location,
     private sanitizer:DomSanitizer
   ) {
     router.params.subscribe((params) => {
@@ -53,5 +54,7 @@ export class MiequipoComponent implements OnInit {
   sanitizeURL(url:string){
     return this.sanitizer.bypassSecurityTrustUrl(url);
 }
-
+atras(){
+  this._location.back();
+}
 }
