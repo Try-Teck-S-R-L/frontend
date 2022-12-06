@@ -10,7 +10,11 @@
   .uno { grid-area: uno; }
   
   .dos { grid-area: dos; }
-  
+  .atras{
+    position: relative;
+    
+  right: 96%;
+  }
   
   /*letras*/
   

@@ -1,8 +1,13 @@
 <app-header></app-header>
-<app-navar></app-navar>
+
 
 <div class="container" *ngIf="fechaValida === 1">
+  <div class="modal-footer">
+    <a class="atras" (click)="regresar()"><img src="../../../assets/Imagenes/atas4.png" height="70" width="70" alt="Botón"> </a>
+    
+  </div>
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+<br>
     <h3>Preinscripción</h3>
     <!--INPUT nombre delegado-->
 

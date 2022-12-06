@@ -5,6 +5,11 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
+.atras{
+  position: relative;
+  
+right: 96%;
+}
 body{
   min-height: 100vh;
   display: flex;

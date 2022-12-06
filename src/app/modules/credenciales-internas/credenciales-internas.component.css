@@ -1,10 +1,10 @@
 .contenedor-grid-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 3rem;
-    grid-row-gap: 3rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 0rem;
+    grid-row-gap: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
   
   @media only screen and (max-width: 768px) {
@@ -79,7 +79,7 @@
   
   
   .card {
-    width: 60%;
+    width: 80%;
     height: 100%;
     background: #3405a3;
     border-radius: 15px;
@@ -120,7 +120,11 @@
     margin: auto;
     margin-top: 25px;
   }
-  
+  .atras{
+    position: relative;
+    
+  right: 96%;
+  }
   .card button {
     
     display: block;

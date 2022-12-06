@@ -8,7 +8,11 @@
       ". tres ."
       ". . .";
   }
-  
+  .atras{
+    position: relative;
+    
+  right: 96%;
+  }
   .uno { grid-area: uno; }
   
   .dos { grid-area: dos; }

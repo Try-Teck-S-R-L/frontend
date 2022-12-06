@@ -76,7 +76,11 @@
     
     
   }
-  
+  .atras{
+    position: relative;
+    
+  right: 96%;
+  }
   
   .card {
     width: 80%;

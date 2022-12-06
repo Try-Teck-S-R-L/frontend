@@ -1,6 +1,11 @@
 table {
     width: 100%;
   }
+  .atras{
+    position: relative;
+    
+  right: 96%;
+  }
   p{
     font-size: 50px;
     color: rgb(185, 123, 7);

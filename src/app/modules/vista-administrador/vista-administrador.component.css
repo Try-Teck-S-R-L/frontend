@@ -5,6 +5,11 @@ table {
   th.mat-sort-header-sorted {
     color: black;
   }
+  .atras{
+    position: relative;
+    
+  right: 96%;
+  }
   button {
     background: #FBCA1F;
     font-family: inherit;
