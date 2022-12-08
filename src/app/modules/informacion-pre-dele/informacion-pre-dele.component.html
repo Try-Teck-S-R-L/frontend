@@ -83,10 +83,14 @@
   </div>
 
   <div class="tres">
-    <img [src]="fotoMostrar" />
+    <img
+    class="tres img"
+    [src]="preinscripcionActual?.voucherPreinscripcion"
+    [alt]="preinscripcionActual.voucherPreinscripcion"
+    />
   </div>
 </div>
 
 
-<br><br>
+
 <app-footer></app-footer>

@@ -19,35 +19,35 @@
 <div class="container">
   <div class="uno">
     <label type="text" name="text" class="input"
-      >nombre del Delegado: {{ preinscripcionActual?.nombreDelegado }}</label
+      >nombre del Delegado: {{ preinscripcionActual?.nombreDelegado }} <hr></label
     >
     <br /><br />
 
     <!--INPUT email-->
 
     <label type="text" name="text" class="input"
-      >Email: {{ preinscripcionActual?.correoDelegado }}</label
+      >Email: {{ preinscripcionActual?.correoDelegado }} <hr></label
     >
     <br /><br />
 
     <!--INPUT nombreequipo-->
 
     <label type="text" name="text" class="input"
-      >Nombre del equipo: {{ preinscripcionActual?.nombreEquipo }}</label
+      >Nombre del equipo: {{ preinscripcionActual?.nombreEquipo }} <hr></label
     >
     <br /><br />
 
     <!--INPUT PAIS-->
 
     <label type="text" name="text" class="input"
-      >País: {{ preinscripcionActual?.paisEquipo }}</label
+      >País: {{ preinscripcionActual?.paisEquipo }} <hr></label
     >
     <br /><br />
 
     <!--INPUT categorias-->
 
     <label type="text" name="text" class="input"
-      >Categoría: {{ preinscripcionActual?.nombreCategoria }}</label
+      >Categoría: {{ preinscripcionActual?.nombreCategoria }} <hr></label
     >
     <br /><br />
 
@@ -55,23 +55,23 @@
 
     <label type="text" name="text" class="input"
       >Nro de comprobante de pago:
-      {{ preinscripcionActual?.nroComprobante }}</label
+      {{ preinscripcionActual?.nroComprobante }} <hr></label
     >
     <br /><br />
-
+</div>
     <!--INPUT monto de pago-->
-
+    <div class="dos">
     <label type="text" name="text" class="input"
-      >Monto de pago: {{ preinscripcionActual?.montoPago }}</label
+      >Monto de pago: {{ preinscripcionActual?.montoPago }} <hr></label
     >
-    <br /><br />
+    <br />
 
     <br />
     <!--imagen voucher-->
 
     <label type="text" name="text" class="input"
       >
-      Comprobante de pago: <a href="{{ preinscripcionActual?.voucherPreinscripcion }}">comprobante de pago</a>
+      Comprobante de pago: <a href="{{ preinscripcionActual?.voucherPreinscripcion }}">comprobante de pago <hr></a>
     </label>
     <br /><br />
 
@@ -87,17 +87,18 @@
     <!--INPUT agregar fecha-->
 
     <label type="text" name="text" class="input"
-      >Fecha de pago: {{ preinscripcionActual?.fechaPreinscripcion }}</label
+      >Fecha de pago: {{ preinscripcionActual?.fechaPreinscripcion }} <hr></label
     >
   </div>
 
-  <div class="dos">
+
+  <div class="tres">
     <img [src]="fotoMostrar" />
   </div>
 </div>
 <br />
 <!--INPUT aprobar-->
 
-<br />
+
 
 <app-footer></app-footer>
