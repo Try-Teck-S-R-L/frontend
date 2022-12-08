@@ -10,6 +10,7 @@
   .uno { grid-area: uno; }
   
   .dos { grid-area: dos; }
+  
   .atras{
     position: relative;
     cursor: pointer;
