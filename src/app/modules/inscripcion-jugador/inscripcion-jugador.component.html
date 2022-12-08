@@ -1,9 +1,14 @@
 <app-header></app-header>
 
 <div class="modal-footer">
-    
-  <a class="atras" (click)="atras()"><img src="../../../assets/Imagenes/atrasoficial.png" height="70" width="70" alt="Botón"> </a>
-  
+  <a class="atras" (click)="atras()"
+    ><img
+      src="../../../assets/Imagenes/atrasoficial.png"
+      height="70"
+      width="70"
+      alt="Botón"
+    />
+  </a>
 </div>
 <div class="container" *ngIf="fechaValida === 1">
   <form #myForm="ngForm" (ngSubmit)="onSubmit()" [formGroup]="registerForm">
@@ -222,7 +227,9 @@
       </div>
     </div> -->
 
-    <label for="edad" class="edad col-sm-2 col-form-label">Edad:</label>
+    <label for="edad" class="edad col-sm-2 col-form-label"
+      >Fecha de Nacimiento:</label
+    >
     <input
       type="date"
       name="edadJugador"
@@ -261,7 +268,7 @@
         </div>
       </div>
     </div>
-    <br />
+
     <!--INPUT numero de camiceta-->
     <div class="mb-3 row">
       <label for="nroCamiseta" class="nroCamiseta col-sm-2 col-form-label"
@@ -291,7 +298,7 @@
         </div>
       </div>
     </div>
-    
+
     <!--fotoPerfilJugador-->
     <label class="fotoJugador form-label">Foto del jugador:</label>
     <input
@@ -325,7 +332,7 @@
       </div>
     </div>
   -->
-   
+
     <h3 class="errorb">{{ mensajeError | json }}</h3>
 
     <!--INPUT subir-->

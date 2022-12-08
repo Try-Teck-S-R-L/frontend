@@ -50,14 +50,15 @@ export class CredencialComponent implements OnInit {
     const doc = new jsPDF('p', 'pt', 'carta');
     const options = {
       background: 'white',
+      allowTaint: false  ,
       useCORS: true,
-      scale: 3
+      scale: 3,
+      //proxy: 'http://127.0.0.1:8000/fotosPerfiles/messi-1279198796_1670447034.jpg'
     };
     
     html2canvas(DATA, options).then((canvas) => {
-
       
-      const img = canvas.toDataURL('image/PNG');
+      const img = canvas.toDataURL('image/JPG');
 
       // Add image Canvas to PDF
       const bufferX = 5;
@@ -65,7 +66,7 @@ export class CredencialComponent implements OnInit {
       const imgProps = (doc as any).getImageProperties(img);
       const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      doc.addImage(img, 'JPG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
       return doc;
     }).then((docResult) => {
       docResult.save(`${new Date().toISOString()}credencial.pdf`);
