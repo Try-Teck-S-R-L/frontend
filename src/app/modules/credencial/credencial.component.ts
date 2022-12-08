@@ -16,14 +16,14 @@ export class CredencialComponent implements OnInit {
   public credencial: FormGroup;
   public listaJugadores: any = [];
   public infoEquipo: any = '';
-  private _location: Location;
+  
   public idEquipo:string = "";
   public urlActual: any;
 
 
   constructor(
     private jugadorService: JugadorService,
-    
+    private _location: Location,
     private equipoService: EquipoService,
     router: ActivatedRoute) { 
       router.params.subscribe((params) => {
@@ -69,6 +69,7 @@ export class CredencialComponent implements OnInit {
       docResult.save(`${new Date().toISOString()}credencial.pdf`);
     });
   }
+
   atras(){
     this._location.back();
   }

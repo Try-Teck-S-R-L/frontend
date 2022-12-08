@@ -57,9 +57,17 @@ jugadores: <br />
   
  
   <div class="tres">
-    <img [src]="infoJugador?.fotoPerfilJugador" />
+    
+    <img
+    class="tres img"
+    [src]="infoJugador?.fotoPerfilJugador"
+    [alt]="infoJugador.nombreJugador"
+    />
+
+
+
     <label type="text" name="text" class="input">Logo del equipo</label>
   </div>
 </div>
-<br />
+
 <app-footer></app-footer>

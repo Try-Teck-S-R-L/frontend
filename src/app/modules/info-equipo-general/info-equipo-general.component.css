@@ -1,6 +1,6 @@
 .container {  display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 0.2fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -15,10 +15,10 @@
   /*letras*/
   
   .input {
-      width: 60%;
+      width: 70%;
     border: none;
     border-radius: 15px;
-    padding: 15px;
+    padding: 0px;
     
     
     font-size: large;

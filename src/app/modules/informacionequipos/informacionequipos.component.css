@@ -28,7 +28,10 @@
   
  }
  hr { background-color: rgb(0, 0, 0); border: 0 none; color: rgb(0, 0, 0); height: 5px; }
-
+.dos .img{
+  width: 150px;
+  height: 140px;
+}
 
  .atras{
   position: relative;

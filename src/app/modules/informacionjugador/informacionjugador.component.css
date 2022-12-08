@@ -15,15 +15,17 @@
     cursor: pointer;
   right: 82%;
 }
+  .tres .img{
+  width: 372px;
+  height: 372px;
   
+  
+}
   /*letras*/
   
   .input {
       width: 60%;
-    border: none;
-    border-radius: 15px;
-    padding: 15px;
-    
+  
     
     font-size: large;
     font-weight: bold;

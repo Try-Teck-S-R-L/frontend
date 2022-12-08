@@ -8,6 +8,10 @@ h3{
     font-weight: bold;
     color: rgba(243, 70, 2, 0.842);
 }
+select{
+    
+    width: 80%;
+}
 .atras{
     position: relative;
     cursor: pointer;
