@@ -42,7 +42,12 @@ jugadores: <br />
     /></label>
   </div>
   <div class="tres">
-    <img [src]="infoJugador?.fotoPerfilJugador" />
+    <img
+    class="tres img"
+    [src]="infoJugador?.fotoPerfilJugador"
+    [alt]="infoJugador.nombreJugador"
+    />
+    
     <label type="text" name="text" class="input">Logo del equipo<br></label>
   </div>
 </div>

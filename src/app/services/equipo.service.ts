@@ -25,6 +25,9 @@ import { catchError } from 'rxjs/operators';
 
     getAllEquiposTorneo():Observable<any[]>{
 
+      const formData = new FormData();
+      formData.append("token", localStorage.getItem('token')+'');
+      console.log(formData);
       return this.http.get<any[]>(this.base_url + 'api/equiposTorneo');
       //return this.http.get<EquipoI[]>(this.base_url + 'api/equipos');
     }

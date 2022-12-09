@@ -1,14 +1,5 @@
 <app-header></app-header>
-<div class="modal-footer">
-  <a class="atras" (click)="atras()"
-    ><img
-      src="../../../assets/Imagenes/atrasoficial.png"
-      height="70"
-      width="70"
-      alt="Botón"
-    />
-  </a>
-</div>
+
 <!--{{ equipoActual | json }} foto wea: {{ fotoMostrar }}
 <br />
 jugadores: <br />
@@ -71,9 +62,14 @@ jugadores: <br />
   </div>
 
   <div class="tres">
-    <img [src]="infoJugador?.fotoPerfilJugador" />
-    <label type="text" name="text" class="input">Foto jugador</label>
+    <img
+      class="tres img"
+      [src]="infoJugador?.fotoPerfilJugador"
+      [alt]="infoJugador.nombreJugador"
+    />
+
+    <label type="text" name="text" class="input">Logo del equipo</label>
   </div>
 </div>
-<br />
+
 <app-footer></app-footer>

@@ -1,6 +1,6 @@
 .container {  display: grid;
-  grid-template-columns: 0.1fr 2fr 0.5fr 2fr 0.4fr;
-  grid-template-rows: 0.2fr 1.7fr 1.5fr 1.2fr 0.7fr;
+  grid-template-columns: 0.1fr 3fr 0.5fr 3fr 0.4fr;
+  grid-template-rows: 0fr 1.3fr 1.3fr 1.1fr 0.2fr;
   grid-auto-columns: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -29,9 +29,9 @@
   button {
     font-size: 230%;
     width: 100%;
-    padding: 10% 20%;
+    padding: 10% 15%;
     background-color: #000;
-    border: 3px solid yellow;
+    border: 2px solid yellow;
     border-radius: 1em;
     color: #fff;
     font-weight: bolder;

@@ -21,9 +21,9 @@ right: 93%;
     grid-row-gap: 1rem;
   }
 }
-@media only screen and (max-width: 981) {
+@media only screen and (max-width: 1367) {
   .card {
-    width: 100%;
+    width: 80%;
     height: 100%;
     background: #3405a3;
     border-radius: 15px;
@@ -85,7 +85,7 @@ right: 93%;
 
 .card {
   width: 80%;
-  height: 120%;
+  height: 100%;
   background: #3405a3;
   border-radius: 15px;
   box-shadow: 1px 5px 60px 0px #100a886b;
