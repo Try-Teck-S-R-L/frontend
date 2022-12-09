@@ -1,6 +1,6 @@
 .container {  display: grid;
   grid-template-columns: 0.1fr 1.9fr 1.1fr 1.5fr 0.1fr;
-  grid-template-rows: 0.8fr 1.2fr 1fr 1.3fr;
+  grid-template-rows: 0.8fr 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -33,7 +33,9 @@ right: 80%;
   
   .input {
       width: 90%;
-    
+    border: none;
+    border-radius: 15px;
+    padding: 3px;
     
     
     font-size: large;

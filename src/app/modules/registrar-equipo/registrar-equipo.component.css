@@ -8,6 +8,10 @@ h3{
     font-weight: bold;
     color: rgba(243, 70, 2, 0.842);
 }
+button{
+    width: 200px;
+    height: 50px;
+}
 select{
     
     width: 80%;

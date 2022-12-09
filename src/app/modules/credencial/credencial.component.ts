@@ -19,6 +19,7 @@ export class CredencialComponent implements OnInit {
   
   public idEquipo:string = "";
   public urlActual: any;
+  public weafome = 'http://127.0.0.1:8000/bicho-841045362_1670460678.jpg'
 
 
   constructor(
@@ -40,6 +41,7 @@ export class CredencialComponent implements OnInit {
   ngOnInit(): void {
     this.jugadorService.getAllJugadores(this.idEquipo).subscribe(data => (this.listaJugadores = data, console.log(data)));
     this.equipoService.getEquipoXid(this.idEquipo).subscribe((data2: any) => (this.infoEquipo = data2));
+    this.startDownload(this.weafome);
 
   }
   get equipoJugador(){ return this.credencial.value.equipos; }
@@ -73,5 +75,37 @@ export class CredencialComponent implements OnInit {
 
   atras(){
     this._location.back();
+  }
+
+
+  downloadedImg: any = '';
+
+  startDownload(imageURL) {
+    //let imageURL = "https://cdn.glitch.com/4c9ebeb9-8b9a-4adc-ad0a-238d9ae00bb5%2Fmdn_logo-only_color.svg?1535749917189";
+    let imageDescription = "The Mozilla logo";
+  
+    this.downloadedImg = new Image();
+    this.downloadedImg.crossOrigin = "Anonymous";
+    this.downloadedImg.addEventListener("load", this.imageReceived(), false);
+    this.downloadedImg.alt = imageDescription;
+    this.downloadedImg.src = imageURL;
+  }
+
+  imageReceived() {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+  
+    canvas.width = this.downloadedImg.width;
+    canvas.height = this.downloadedImg.height;
+    canvas.innerText = this.downloadedImg.alt;
+  
+    context.drawImage(this.downloadedImg, 0, 0);
+    //imageBox.appendChild(canvas);
+  
+    try {
+      localStorage.setItem("saved-image-example", canvas.toDataURL("image/png"));
+    } catch (err) {
+      console.error(`Error: ${err}`);
+    }
   }
 }
