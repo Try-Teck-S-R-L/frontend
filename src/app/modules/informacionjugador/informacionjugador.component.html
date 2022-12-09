@@ -1,8 +1,13 @@
 <app-header></app-header>
 <div class="modal-footer">
-    
-  <a class="atras" (click)="atras()"><img src="../../../assets/Imagenes/atrasoficial.png" height="70" width="70" alt="Botón"> </a>
-  
+  <a class="atras" (click)="atras()"
+    ><img
+      src="../../../assets/Imagenes/atrasoficial.png"
+      height="70"
+      width="70"
+      alt="Botón"
+    />
+  </a>
 </div>
 <!--{{ equipoActual | json }} foto wea: {{ fotoMostrar }}
 <br />
@@ -23,7 +28,7 @@ jugadores: <br />
     /></label>
     <br /><br />
     <label type="text" name="text" class="input"
-      >Número de camiseta: {{ infoJugador?.numeroCamiseta }}
+      >Numero de camiseta: {{ infoJugador?.numeroCamiseta }}
       <hr
     /></label>
     <br /><br />
@@ -33,7 +38,7 @@ jugadores: <br />
     /></label>
     <br /><br />
     <label type="text" name="text" class="input"
-      >Posición del jugador: {{ infoJugador?.posicionJugador }}
+      >Posicion del jugador: {{ infoJugador?.posicionJugador }}
       <hr
     /></label>
     <br /><br /><label type="text" name="text" class="input"
@@ -43,12 +48,12 @@ jugadores: <br />
   </div>
   <div class="tres">
     <img
-    class="tres img"
-    [src]="infoJugador?.fotoPerfilJugador"
-    [alt]="infoJugador.nombreJugador"
+      class="tres img"
+      [src]="infoJugador?.fotoPerfilJugador"
+      [alt]="infoJugador.nombreJugador"
     />
-    
-    <label type="text" name="text" class="input">Logo del equipo<br></label>
+
+    <label type="text" name="text" class="input">Foto del jugador<br /></label>
   </div>
 </div>
 <br />

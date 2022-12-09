@@ -24,7 +24,9 @@ import { ResponseI } from '../modules/models/response.interface';
     }
 
     getJugadoresTorneo():Observable<JugadorI[]>{
-
+      const formData = new FormData();
+      
+      formData.append("token", localStorage.getItem('token')+'');
       return this.http.get<JugadorI[]>(this.base_url + "api/jugadoresTorneo");
     }
 

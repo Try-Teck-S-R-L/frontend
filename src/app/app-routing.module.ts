@@ -38,6 +38,7 @@ import { EvaluarPreinsComponent } from "./modules/evaluar-preins/evaluar-preins.
 import { ListaPreinsEvaluarComponent } from "./modules/lista-preins-evaluar/lista-preins-evaluar.component";
 import { InfoJugadoresGeneralComponent } from "./modules/info-jugadores-general/info-jugadores-general.component";
 import { InfoEquipoGeneralComponent } from "./modules/info-equipo-general/info-equipo-general.component";
+import { TodosjugadoresComponent } from "./todosjugadores/todosjugadores.component";
 
 
 
@@ -210,6 +211,11 @@ const routes: Routes = [
   },{
     path: "infoequiposgeneral/:id",
     component: InfoEquipoGeneralComponent,
+    //canActivate: [BeforeLoginService]
+  },
+  {
+    path: "todosjugadores",
+    component: TodosjugadoresComponent,
     //canActivate: [BeforeLoginService]
   },
 ];
