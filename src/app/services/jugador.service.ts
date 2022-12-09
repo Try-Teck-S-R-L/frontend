@@ -19,6 +19,7 @@ import { ResponseI } from '../modules/models/response.interface';
       const formData = new FormData();
       
       formData.append("idEquipo", $id);
+      formData.append("token", localStorage.getItem('token')+'');
       return this.http.post<JugadorI[]>(this.base_url + "api/buscarjugadores", formData);
     }
 

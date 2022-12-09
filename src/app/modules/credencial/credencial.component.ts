@@ -50,6 +50,7 @@ export class CredencialComponent implements OnInit {
     const doc = new jsPDF('p', 'pt', 'carta');
     const options = {
       background: 'white',
+      useCORS: true,
       scale: 3
     };
     

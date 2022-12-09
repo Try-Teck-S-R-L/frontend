@@ -40,6 +40,7 @@ export class EquiposMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.tokenService.payload(this.tokenService.get());
+    this.tokenService.getDelegadoId();
     /*this.autenticacionService.me().subscribe( data => console.log(data));
     this.autenticacionService.usuarioAct().subscribe( data => console.log(data));*/
     

@@ -53,7 +53,8 @@ import { Injectable } from "@angular/core";
     }
 
     decode(payload){
-        console.log(JSON.parse(atob(payload)).sub);
+        console.log(JSON.parse(atob(payload)));
+        //console.log('wea');
         return JSON.parse(atob(payload));
     }
 
