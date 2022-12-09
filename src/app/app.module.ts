@@ -56,6 +56,7 @@ import { EvaluarPreinsComponent } from './modules/evaluar-preins/evaluar-preins.
 import { InfoJugadoresGeneralComponent } from './modules/info-jugadores-general/info-jugadores-general.component';
 import { InfoEquipoGeneralComponent } from './modules/info-equipo-general/info-equipo-general.component';
 import { TodosjugadoresComponent } from './todosjugadores/todosjugadores.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 
@@ -104,6 +105,7 @@ import { TodosjugadoresComponent } from './todosjugadores/todosjugadores.compone
     InfoJugadoresGeneralComponent,
     InfoEquipoGeneralComponent,
     TodosjugadoresComponent,
+    NotfoundComponent,
     
   ],
   imports: [
