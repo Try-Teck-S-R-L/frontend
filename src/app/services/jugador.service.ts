@@ -23,6 +23,13 @@ import { ResponseI } from '../modules/models/response.interface';
       return this.http.post<JugadorI[]>(this.base_url + "api/buscarjugadores", formData);
     }
 
+    getJugadoresTorneo():Observable<JugadorI[]>{
+      const formData = new FormData();
+      
+      formData.append("token", localStorage.getItem('token')+'');
+      return this.http.get<JugadorI[]>(this.base_url + "api/jugadoresTorneo");
+    }
+
     getJugador($id: string):Observable<JugadorI[]>{
       const formData = new FormData();
       

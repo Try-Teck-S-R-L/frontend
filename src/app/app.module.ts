@@ -55,6 +55,7 @@ import { JugadoresgenealComponent } from './modules/jugadoresgeneal/jugadoresgen
 import { EvaluarPreinsComponent } from './modules/evaluar-preins/evaluar-preins.component';
 import { InfoJugadoresGeneralComponent } from './modules/info-jugadores-general/info-jugadores-general.component';
 import { InfoEquipoGeneralComponent } from './modules/info-equipo-general/info-equipo-general.component';
+import { TodosjugadoresComponent } from './todosjugadores/todosjugadores.component';
 
 
 
@@ -102,6 +103,7 @@ import { InfoEquipoGeneralComponent } from './modules/info-equipo-general/info-e
     ListaPreinsEvaluarComponent,
     InfoJugadoresGeneralComponent,
     InfoEquipoGeneralComponent,
+    TodosjugadoresComponent,
     
   ],
   imports: [

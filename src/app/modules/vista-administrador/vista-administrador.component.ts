@@ -34,7 +34,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ["./vista-administrador.component.css"],
 })
 export class VistaAdministradorComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ["nombreEquipo", "nombreDelegado", "urlequipo"];
+  displayedColumns: string[] = ["nombreEquipo", "nombreDelegado", "habilitado", "urlequipo"];
 
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   //public listaEquipos: any = [];
