@@ -79,10 +79,11 @@ export class InscripcionJugadorComponent implements OnInit {
       tallaJugador: ["", [Validators.required]],
       posicionJugador: ["", [Validators.required]],
       numeroCamiseta: ["", [Validators.required, ]],
-      edadJugador: ["35", [Validators.required]],
+      //edadJugador: ["35", [Validators.required]],
       ciJugador: ["", [Validators.required]],
       fotoPerfilJugador:["", [Validators.required]],
       fotoCiJugador:["", [Validators.required]],
+      edadJugador: ['', [Validators.required]],
     });
   }
 

@@ -56,6 +56,19 @@ import { ResponseI } from '../modules/models/response.interface';
     jugador(form: JugadorI, idEquipo: string): Observable<ResponseI> {
       let url = this.base_url + "api/jugador/";
       console.log("Service log: ", form);
+
+      const today = new Date();
+      const birthDate = new Date(form.edadJugador);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+
+      console.log(age);
+
       const formData = new FormData();
       
       formData.append("ciJugador", form.ciJugador);
@@ -65,7 +78,7 @@ import { ResponseI } from '../modules/models/response.interface';
       formData.append("tallaJugador", form.tallaJugador);
       formData.append("posicionJugador", form.posicionJugador);
       formData.append("numeroCamiseta", form.numeroCamiseta);
-      formData.append("edadJugador", '50');
+      formData.append("edadJugador", age+'');
       
       formData.append("fotoPerfilJugador", form.fotoPerfilJugador);
       formData.append("fotoCiJugador", form.fotoCiJugador);

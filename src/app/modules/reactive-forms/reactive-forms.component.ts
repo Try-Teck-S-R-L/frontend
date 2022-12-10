@@ -13,9 +13,6 @@ import { ElementolistaService } from "src/app/services/elementolista.service";
 import { EquipoService } from "src/app/services/equipo.service";
 import { PreinscripcionService } from "src/app/services/preinscripcion.service";
 import data from "../../../assets/Archivos/data.json";
-import { DelegadoI } from "../models/delegado.interface";
-import { PreinscripcionI } from "../models/preinscripcion.interface";
-import { ResponseI } from "../models/response.interface";
 import {Location} from '@angular/common';
 import { InfoGeneralService } from "src/app/services/infoGeneral.service";
 import { TokenService } from "src/app/services/token.service";
@@ -46,7 +43,6 @@ export class ReactiveFormsComponent implements OnInit {
   public mensajeError: string = '';
   public fechaValida: number;
   public delegadoAct: { "nombreDelegado": "string";"apellidoDelegado" : "string" ;"correoDelegado": "string" } | undefined;
-  //public delegado = {"nombreDelegado" : '' , "apellidoDelegado" : '', "correoDelegado" : ''};
 
   constructor(
     router: ActivatedRoute,
@@ -56,14 +52,12 @@ export class ReactiveFormsComponent implements OnInit {
     private generalService: InfoGeneralService,
     private delegadoService: DelegadoService,
     private tokenService: TokenService,
-    private serviceEquipo: EquipoService,
     private _location: Location
     //private router: Router
   ) {
     this.registerForm = formBuilder.group({});
     this.paises = data.paises;
     router.params.subscribe((params) => {
-      //this.idDel = params["id"];
     });
   }
 
@@ -147,14 +141,6 @@ export class ReactiveFormsComponent implements OnInit {
         voucherPreinscripcion: this.file
       }, this.idDel)
       
-      /*.subscribe((data) => {
-        let response: ResponseI = data;
-        console.log("File:", this.file);
-        console.log({
-          ...this.registerForm.value,
-          voucherPreinscripcion: this.file,
-        });
-      });*/
       .subscribe(//data => console.log(data),
                  error => {
                   if(error != null){

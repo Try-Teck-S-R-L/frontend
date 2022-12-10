@@ -1,11 +1,15 @@
 <app-header></app-header>
 
-
-
 <br />
 <div class="modal-footer">
- <a class="atras" (click)="atras()"><img src="../../../assets/Imagenes/atrasoficial.png" height="70" width="70" alt="Botón"> </a>
- 
+  <a class="atras" (click)="atras()"
+    ><img
+      src="../../../assets/Imagenes/atrasoficial.png"
+      height="70"
+      width="70"
+      alt="Botón"
+    />
+  </a>
 </div>
 
 <div class="contenedor-grid-cards" id="credencial">
@@ -22,18 +26,21 @@
     <a href="jugadoresgeneral/{{ equipo?.idEquipo }}">
       <button>Ver Jugadores</button></a
     >
-    
-    <br>
+
+    <br />
     <a href="infoequiposgeneral/{{ equipo?.idEquipo }}">
       <button>Ver información</button></a
     >
-    <br>
-    
-    <br>
-    <br>
+    <br />
+
+    <br />
+    <br />
   </div>
 </div>
+<ng-container *ngIf="listaEquipos.length === 0">
+  <p>Actualmente no existen equipos en el sistema</p>
+</ng-container>
 
-<br><br><br><br><br>
+<br /><br /><br /><br /><br />
 
 <app-footer></app-footer>

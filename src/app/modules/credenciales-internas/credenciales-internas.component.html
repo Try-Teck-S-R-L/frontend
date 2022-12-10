@@ -1,12 +1,15 @@
 <app-header></app-header>
 
-
 <div class="modal-footer">
-  <a class="atras" (click)="atras()"><img src="../../../assets/Imagenes/atrasoficial.png" height="70" width="70" alt="Botón"> </a>
-  
+  <a class="atras" (click)="atras()"
+    ><img
+      src="../../../assets/Imagenes/atrasoficial.png"
+      height="70"
+      width="70"
+      alt="Botón"
+    />
+  </a>
 </div>
-
-
 
 <div class="contenedor-grid-cards" id="credencial">
   <div class="card" *ngFor="let jugador of listaJugadores; index as i">
@@ -17,7 +20,7 @@
       [src]="jugador.fotoPerfilJugador"
       [alt]="jugador.nombreJugador"
     />
-    <label>{{ jugador?.nombreJugador +" "+ jugador?.apellidoJugador}}</label>
+    <label>{{ jugador?.nombreJugador + " " + jugador?.apellidoJugador }}</label>
     <p class="job">{{ infoEquipo?.nombreEquipo }}</p>
     <button>
       <div class="QR" id="QR">
@@ -27,6 +30,9 @@
   </div>
 </div>
 
+<ng-container *ngIf="listaJugadores.length === 0">
+  <p>Actualmente no existen jugadores en este equipo</p>
+</ng-container>
 
-<br>
+<br />
 <app-footer></app-footer>

@@ -32,6 +32,10 @@
   </div>
 </div>
 
+<ng-container *ngIf="listaJugadores.length === 0">
+  <p>Actualmente no existen jugadores en el sistema</p>
+</ng-container>
+
 <br /><br /><br /><br /><br />
 
 <app-footer></app-footer>
