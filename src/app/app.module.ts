@@ -57,6 +57,8 @@ import { InfoJugadoresGeneralComponent } from './modules/info-jugadores-general/
 import { InfoEquipoGeneralComponent } from './modules/info-equipo-general/info-equipo-general.component';
 import { TodosjugadoresComponent } from './todosjugadores/todosjugadores.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { LoginAdminComponent } from './modules/login-admin/login-admin.component';
+
 
 
 
@@ -106,6 +108,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     InfoEquipoGeneralComponent,
     TodosjugadoresComponent,
     NotfoundComponent,
+    LoginAdminComponent,
+    
     
   ],
   imports: [

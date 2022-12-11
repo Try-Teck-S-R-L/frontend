@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 @Injectable({
   providedIn: "root",
 })
-export class OnlyAdminGuard implements CanActivate {
+export class NotAdminGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(
@@ -23,10 +23,10 @@ export class OnlyAdminGuard implements CanActivate {
     | UrlTree {
     const isAdmin = localStorage.getItem("is-admin");
     if (isAdmin == null || isAdmin == undefined || isAdmin != "true") {
-      this.router.navigateByUrl("/admin");
-      return false;
+      return true;
     }
 
-    return true;
+    this.router.navigateByUrl("/menuadmin");
+    return false;
   }
 }
