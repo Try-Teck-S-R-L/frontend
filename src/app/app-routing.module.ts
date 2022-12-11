@@ -43,37 +43,41 @@ import { LoginAdminComponent } from "./modules/login-admin/login-admin.component
 import { NotfoundComponent } from "./notfound/notfound.component";
 import { OnlyAdminGuard } from "./guards/only-admin.guard";
 import { NotAdminGuard } from "./guards/not-admin.guard";
+import { DelegadoGuard } from "./guards/delegado.guard";
+import { NotDelegadoGuard } from "./guards/not-delegado.guard";
 const routes: Routes = [
+
+  //DELEGADO
+
   {
-    //DELEGADO
+    path: "vistadelegado",
+    component: VistaDelegadoComponent,
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
+  },
+  {
     path: "preinscripcion",
     component: ReactiveFormsComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "inscripcion/:id",
     component: InscripcionJugadorComponent,
-    canActivate: [AfterLoginService],
-  },
-  {
-    path: "vistadelegado",
-    component: VistaDelegadoComponent,
-    canActivate: [AfterLoginService, NotAdminGuard],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "registrarequipo/:id",
     component: RegistrarEquipoComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "listaequipos",
     component: ListaEquiposComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "credencial/:id",
     component: CredencialComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
 
   {
@@ -83,37 +87,37 @@ const routes: Routes = [
   {
     path: "listajugadores/:id",
     component: ListaJugadoresComponent,
-    canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard]
   },
   {
     path: "equiposmenu/:id",
     component: EquiposMenuComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "preinscipcionesmenu",
     component: PreinscipcionMenuComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "miequipo/:id",
     component: MiequipoComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "equipoaprobado",
     component: EquiposAprobadosComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "eliminarjugador/:id",
     component: EliminarjugadoresComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "credencialinterna/:id",
     component: CredencialesInternasComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "vistaerror/:mensaje",
@@ -122,38 +126,38 @@ const routes: Routes = [
   {
     path: "listapredelegado",
     component: ListaPreinscripcionDelegadoComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "menupredelegado",
     component: MenuPreinscripcionDelegadoComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "editarpredelegado",
     component: EditarPreinscripcionDelegadoComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "inforformulariopre/:id",
     component: InformacionPreDeleComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "editarformulariopre/:id",
     component: EditarPreDeleComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
   {
     path: "eliminarpredelegado",
     component: EliminarPreinscripcionDelegadoComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
 
   {
     path: "infojugador/:id",
     component: InformacionjugadorComponent,
-    canActivate: [AfterLoginService],
+    canActivate: [AfterLoginService, DelegadoGuard, NotAdminGuard],
   },
 
 
@@ -162,28 +166,28 @@ const routes: Routes = [
     //admin
     path: "vistaadmin",
     component: VistaAdministradorComponent,
-    canActivate: [OnlyAdminGuard],
+    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
   },
   {
     //admin
     path: "informacionequipo/:id",
     component: InformacionequiposComponent,
-    canActivate: [OnlyAdminGuard],
+    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
   },
   {
     path: "menuadmin",
     component: MenuAdminComponent,
-    canActivate: [OnlyAdminGuard],
+    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
   },
   {
     path: "evaluarpreins/:id",
     component: EvaluarPreinsComponent,
-    canActivate: [OnlyAdminGuard],
+    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
   },
   {
     path: "listaevaluar",
     component: ListaPreinsEvaluarComponent,
-    canActivate: [OnlyAdminGuard],
+    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
   },
 
   ////TODOS LOS USUARIOS
@@ -193,12 +197,12 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [BeforeLoginService],
   },
-
+/*
   {
     path: "registro",
     component: RegisterdelegadoComponent,
     canActivate: [BeforeLoginService],
-  },
+  },*/
 
   {
     path: "mainpage",
@@ -237,7 +241,7 @@ const routes: Routes = [
   {
     path: "**",
     component: NotfoundComponent,
-    canActivate: [BeforeLoginService],
+    //canActivate: [BeforeLoginService],
   },
 ];
 

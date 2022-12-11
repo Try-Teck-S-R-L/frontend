@@ -130,6 +130,7 @@ export class LoginComponent implements OnInit {
 
   verificarUsuario(rol): void {
     if(rol === 'delegado'){
+      localStorage.setItem("is-delegado", "true");
       this.router.navigate(['/vistadelegado'])
     }
     if(rol === 'administrador'){
