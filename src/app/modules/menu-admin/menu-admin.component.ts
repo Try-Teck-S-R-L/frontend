@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/services/autenticacion.service';
 
 @Component({
   selector: 'app-menu-admin',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AutenticacionService) { }
 
   ngOnInit(): void {
+    this.authService.usuarioAct().subscribe((data2: any) => (console.log(data2)));
+
+
   }
 
 }

@@ -33,7 +33,7 @@ import { ResponseI } from "../modules/models/response.interface";
       const formData = new FormData();
       
       formData.append("token", localStorage.getItem('token')+'');
-
+      console.log(localStorage.getItem('token'));
       return this.http.post<ResponseI>(this.base_url+"api/usuarioActual", formData)
     }
 
