@@ -45,7 +45,7 @@ import { OnlyAdminGuard } from "./guards/only-admin.guard";
 import { NotAdminGuard } from "./guards/not-admin.guard";
 const routes: Routes = [
   {
-    //
+    //DELEGADO
     path: "preinscripcion",
     component: ReactiveFormsComponent,
     canActivate: [AfterLoginService],
@@ -83,19 +83,7 @@ const routes: Routes = [
   {
     path: "listajugadores/:id",
     component: ListaJugadoresComponent,
-    //canActivate: [AfterLoginService]
-  },
-  {
-    //admin
-    path: "vistaadmin",
-    component: VistaAdministradorComponent,
-    canActivate: [OnlyAdminGuard],
-  },
-  {
-    //admin
-    path: "informacionequipo/:id",
-    component: InformacionequiposComponent,
-    //canActivate: [AfterLoginService]
+    canActivate: [AfterLoginService]
   },
   {
     path: "equiposmenu/:id",
@@ -142,18 +130,8 @@ const routes: Routes = [
     canActivate: [AfterLoginService],
   },
   {
-    path: "eliminarpredelegado",
-    component: EliminarPreinscripcionDelegadoComponent,
-    canActivate: [AfterLoginService],
-  },
-  {
     path: "editarpredelegado",
     component: EditarPreinscripcionDelegadoComponent,
-    canActivate: [AfterLoginService],
-  },
-  {
-    path: "editarformulariopre/:id",
-    component: EditarPreDeleComponent,
     canActivate: [AfterLoginService],
   },
   {
@@ -162,39 +140,40 @@ const routes: Routes = [
     canActivate: [AfterLoginService],
   },
   {
-    path: "infojugador/:id",
-    component: InformacionjugadorComponent,
-    //canActivate: [AfterLoginService]
+    path: "editarformulariopre/:id",
+    component: EditarPreDeleComponent,
+    canActivate: [AfterLoginService],
   },
   {
-    path: "login",
-    component: LoginComponent,
-    canActivate: [BeforeLoginService],
-  },
-  {
-    path: "todosequipos",
-    component: EquiposgeneralComponent,
+    path: "eliminarpredelegado",
+    component: EliminarPreinscripcionDelegadoComponent,
+    canActivate: [AfterLoginService],
   },
 
   {
-    path: "registro",
-    component: RegisterdelegadoComponent,
-    canActivate: [BeforeLoginService],
+    path: "infojugador/:id",
+    component: InformacionjugadorComponent,
+    canActivate: [AfterLoginService],
+  },
+
+
+  /////////ADMINISTRADOR
+  {
+    //admin
+    path: "vistaadmin",
+    component: VistaAdministradorComponent,
+    canActivate: [OnlyAdminGuard],
+  },
+  {
+    //admin
+    path: "informacionequipo/:id",
+    component: InformacionequiposComponent,
+    canActivate: [OnlyAdminGuard],
   },
   {
     path: "menuadmin",
     component: MenuAdminComponent,
     canActivate: [OnlyAdminGuard],
-  },
-  {
-    path: "mainpage",
-    component: MainPageComponent,
-    //canActivate: [BeforeLoginService]
-  },
-  {
-    path: "jugadoresgeneral/:id",
-    component: JugadoresgenealComponent,
-    //canActivate: [BeforeLoginService]
   },
   {
     path: "evaluarpreins/:id",
@@ -206,20 +185,49 @@ const routes: Routes = [
     component: ListaPreinsEvaluarComponent,
     canActivate: [OnlyAdminGuard],
   },
+
+  ////TODOS LOS USUARIOS
+  
+  {
+    path: "login",
+    component: LoginComponent,
+    canActivate: [BeforeLoginService],
+  },
+
+  {
+    path: "registro",
+    component: RegisterdelegadoComponent,
+    canActivate: [BeforeLoginService],
+  },
+
+  {
+    path: "mainpage",
+    component: MainPageComponent,
+    //vista para todos los usuarios
+  },
+  {
+    path: "todosequipos",
+    component: EquiposgeneralComponent,
+  },
+  {
+    path: "jugadoresgeneral/:id",
+    component: JugadoresgenealComponent,
+    //vista para todos los usuarios
+  },
   {
     path: "infojugadoresgeneral/:id",
     component: InfoJugadoresGeneralComponent,
-    //canActivate: [BeforeLoginService]
+    //vista para todos los usuarios
   },
   {
     path: "infoequiposgeneral/:id",
     component: InfoEquipoGeneralComponent,
-    //canActivate: [BeforeLoginService]
+    //vista para todos los usuarios
   },
   {
     path: "todosjugadores",
     component: TodosjugadoresComponent,
-    //canActivate: [BeforeLoginService]
+    //vista para todos los usuarios
   },
   {
     path: "admin",

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
 
 @Component({
@@ -8,12 +9,22 @@ import { AutenticacionService } from 'src/app/services/autenticacion.service';
 })
 export class MenuAdminComponent implements OnInit {
 
-  constructor(private authService: AutenticacionService) { }
+  infoUsuario: any = '';
+  constructor(private authService: AutenticacionService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.authService.usuarioAct().subscribe((data2: any) => (console.log(data2)));
+    this.authService.usuarioAct()
+    .subscribe((data2: any) => (this.infoUsuario = data2, console.log(data2), this.verificarUsuario(data2.role)));
+    //this.verificarUsuario();
 
 
+  }
+
+  verificarUsuario(rol): void{
+    if(rol === 'delegado'){
+      this.router.navigate(['/vistadelegado'])
+    }
   }
 
 }

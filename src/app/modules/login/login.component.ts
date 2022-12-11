@@ -117,11 +117,25 @@ export class LoginComponent implements OnInit {
   handleData(data){
     this.tokenService.handle(data.access_token),
     this.Auth.changeStatus(true),
+    //console.log (this.autenticacionService.usuarioAct());
+    this.autenticacionService.usuarioAct()
+    .subscribe((data2: any) => (this.verificarUsuario(data2.role)));
+
     this.router.navigateByUrl('/vistadelegado');
   }
 
   handleError(error){
     this.mensajeError = error.error.error;
+  }
+
+  verificarUsuario(rol): void {
+    if(rol === 'delegado'){
+      this.router.navigate(['/vistadelegado'])
+    }
+    if(rol === 'administrador'){
+      localStorage.setItem("is-admin", "true");
+      this.router.navigate(['/menuadmin'])
+    }
   }
 
   onLogin(): void {
