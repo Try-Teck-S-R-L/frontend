@@ -52,6 +52,7 @@ export class RegisterdelegadoComponent implements OnInit {
   public form = {
     email: null,
     name: null,
+   
     role: 'delegado',
     password: null,
     password_confirmation: null
