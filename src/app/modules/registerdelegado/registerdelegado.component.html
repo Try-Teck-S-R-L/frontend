@@ -87,3 +87,257 @@
     </div>
  
 -->
+
+
+
+
+
+
+  
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+<br>
+    <h3>Preinscripción</h3>
+    <!--INPUT nombre delegado-->
+
+    <!-- {{ delegadoAct | json }}
+    {{ mensajeError | json }}-->
+    {{ mensajeError }}
+
+    <div class="mb-3 row">
+      <label
+        for="inputnombreUsuario"
+        class="nombreUsuario col-sm-2 col-form-label"
+        >Nombre del delegado:</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          formControlName="nombreUsuario"
+          maxlength="50"
+          placeholder="Ingrese su nombre"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': form.nombreUsuario.invalid && form.nombreUsuario.touched
+          }"
+        />
+        <div
+          *ngIf="
+            (form.nombreUsuario.touched && form.nombreUsuario.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.nombreUsuario.errors?.required">
+            Este campo no puede estar vacío.
+          </div>
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+          nombreUsuario.value != '' &&
+          nombreUsuario.invalid &&
+          nombreUsuario.touched
+          "
+        >
+          Por favor, ingrese caracteres válidos
+        </div>
+      </div>
+    </div>
+<!--INPUT apellidodelegado-->
+<div class="mb-3 row">
+  <label
+    for="inputapelldidelegado"
+    class="apellidoUsuario col-sm-2 col-form-label"
+    >Apellido del delegado:</label
+  >
+  <div class="col-sm-10">
+    <input
+      type="text"
+      ngModel
+      formControlName="apellidoUsuario"
+      maxlength="50"
+      placeholder="Ingrese su apellido "
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.apellidoUsuario.invalid && form.apellidoUsuario.touched
+      }"
+    />
+    <div
+      *ngIf="
+        (form.apellidoUsuario.touched && form.apellidoUsuario.invalid) ||
+        submitted
+      "
+      class="text-danger"
+    >
+      <div *ngIf="form.apellidoUsuario.errors?.required">
+        Este campo no puede estar vacío.
+      </div>
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+      apellidoUsuario.value != '' &&
+      apellidoUsuario.invalid &&
+      apellidoUsuario.touched
+      "
+    >
+      Por favor, ingrese caracteres válidos
+    </div>
+  </div>
+</div>
+    <!--INPUT email-->
+   
+
+    
+
+   
+    
+
+    
+
+    <div class="mb-3 row">
+      <label for="correoUsuario" class="correoUsuario col-sm-2 col-form-label"
+        >correo::</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="email"
+          ngModel
+          maxlength="50"
+          placeholder="Ingrese su correo"
+          formControlName="correoUsuario"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              form.correoUsuario.invalid && form.correoUsuario.touched
+          }"
+        />
+
+        <div
+          *ngIf="
+            (form.correoUsuario.touched && form.correoUsuario.invalid) ||
+            submitted
+          "
+          class="text-danger"
+        >
+          <div *ngIf="form.correoUsuario.errors?.required">
+            Este campo no puede estar vacío.
+          </div>
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+          correoUsuario.value != '' &&
+          correoUsuario.invalid &&
+          correoUsuario.touched
+          "
+        >
+          Por favor, ingrese caracteres válidos
+        </div>
+      </div>
+    </div>
+ <!--INPUT monto de pago-->
+
+ <div class="mb-3 row">
+  <label for="documentoIdentidadUsuario" class="documentoIdentidadUsuario col-sm-2 col-form-label"
+    >CI:</label
+  >
+  <div class="col-sm-10">
+    <input
+      type="number"
+      placeholder="Ingrese su numero de CI"
+      formControlName="documentoIdentidadUsuario"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': form.documentoIdentidadUsuario.invalid && form.documentoIdentidadUsuario.touched
+      }"
+    />
+    <div
+      *ngIf="
+        (form.documentoIdentidadUsuario.touched && form.documentoIdentidadUsuario.invalid) || submitted
+      "
+      class="text-danger"
+    >
+      <div *ngIf="form.documentoIdentidadUsuario.errors?.required">
+        Este campo no puede estar vacío.
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!--imagen voucher-->
+    <label class="fotoPerfil form-label">Comprobante de pago:</label>
+    <input
+      type="file"
+      name="fotoPerfil"
+      id="fotoPerfil"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      required
+    />
+    <!-- <div
+      *ngIf="submitted"
+      class="text-danger"
+    >
+      <div *ngIf="form.voucherPreinscripcion.errors?.required">
+        Por favor, suba el comprobante
+      </div>
+    </div> -->
+    <br /><br />
+
+    <!--INPUT agregar fecha-->
+    <label class="fechaNacimiento form-label">Fecha de nacimiento:</label>
+    <input
+      type="date"
+      name="fechaNacimiento"
+      id="fechaNacimiento"
+      formControlName="fechaNacimiento"
+      
+      required
+    />
+
+   
+    <!--INPUT subir-->
+    <div class="text-center">
+      <button class="btn btn-primary mr-1">Registrar</button>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Felicidades!
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Su Registro sera conciderado</div>
+            <div class="modal-footer">
+              <button (click)="regresar()">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-secondary" type="reset" (click)="onReset()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+
+
+
+

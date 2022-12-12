@@ -197,12 +197,12 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [BeforeLoginService],
   },
-/*
+
   {
     path: "registro",
     component: RegisterdelegadoComponent,
-    canActivate: [BeforeLoginService],
-  },*/
+    //canActivate: [BeforeLoginService],
+  },
 
   {
     path: "mainpage",

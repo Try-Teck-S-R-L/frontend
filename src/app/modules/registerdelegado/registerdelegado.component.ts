@@ -35,6 +35,165 @@ interface CountryOption {
   styleUrls: ['./registerdelegado.component.css']
 })
 export class RegisterdelegadoComponent implements OnInit {
+  registerForm: FormGroup;
+  submitted = false;
+
+
+  private file: File | null = null;
+ 
+
+  public mensajeError: string = '';
+  
+  
+
+  constructor(
+  
+    private elemento: ElementolistaService,
+    private generalService: InfoGeneralService,
+    private delegadoService: DelegadoService,
+    
+    private _location: Location,
+    private tokenService: TokenService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private http: DelegadoService,
+    
+    private autenticacionService: AutenticacionService,
+    private cliente:HttpClient,
+    
+    private serviceEquipo: EquipoService,
+   
+    //private router: Router
+  ) {
+    this.registerForm = formBuilder.group({});
+    
+    
+  }
+
+  ngOnInit() {
+
+    this.registerForm = this.formBuilder.group({
+      nombreUsuario: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+      correoUsuario: ["", Validators.email],
+      apellidoUsuario: ["", [Validators.required, Validators.pattern(/^(\w+\s)*\w+$/)]],
+      documentoIdentidadUsuario: ["", [Validators.required]],
+      fechaNacimiento: ["", [Validators.required]],
+    });
+  }
+
+  // custom validator to check that two fields match
+  MustMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+
+      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+        // return if another validator has already found an error on the matchingControl
+        return;
+      }
+
+      // set error on matchingControl if validation fails
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ mustMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    };
+  }
+
+
+  handleData(data){
+    this.tokenService.handle(data.access_token),
+    this.router.navigateByUrl('/vistadelegado');
+  }
+  
+  handleError(error){
+    this.mensajeError = error.error.error;
+  }
+
+  // convenience getter for easy access to form fields
+  get form() {
+    return this.registerForm.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.mensajeError = '';
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+
+
+    }
+
+    
+
+
+
+    this.http
+      .registrarDelegado({
+        ...this.registerForm.value,
+        fotoPerfil: this.file
+      }, )
+      
+      .subscribe(//data => console.log(data),
+                 error => {
+                  if(error != null){
+                    this.mensajeError = error[0]
+                  }; console.log('errores'),
+                  console.log(error);
+                  if(error == null){
+                    $('#exampleModal').modal('show');
+                  };
+                });
+
+    // display form values on success
+    
+
+  }
+   
+   
+
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
+    this.registerForm.clearValidators();
+    this.registerForm.updateValueAndValidity();
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    if (file) {
+      this.file = file;
+    }
+  }
+
+  get nombreUsuario(): FormControl {
+    return this.registerForm.get("nombreUsuario") as FormControl;
+  }
+  get apellidoUsuario(): FormControl {
+    return this.registerForm.get("apellidoUsuario") as FormControl;
+  }
+  get correoUsuario(): FormControl {
+    return this.registerForm.get("correoUsuario") as FormControl;
+  }
+
+
+  regresar(){
+    this.onReset();
+    this._location.back();
+  }
+atras(){
+  this._location.back();
+}
+}
+
+
+
+/*
+export class RegisterdelegadoComponent implements OnInit {
   public loginForm: FormGroup;
   public submitted = false;
   public registerForm: FormGroup;
@@ -172,8 +331,8 @@ onSubmit() {
   //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { skipLocationChange: true });
   //this.routerView.navigate(['equiposmenu/'+this.idEquipo], { replaceUrl: true });
   //this.routerView.navigate([this._location.back()], { replaceUrl: true });
-}
-onFileSelected(event: any, fileType: "ID" | "PROFILE") {
+//}
+/*onFileSelected(event: any, fileType: "ID" | "PROFILE") {
   const file: File = event.target.files[0];
 
   if (file) {
@@ -200,3 +359,4 @@ get apellidoDelegado(): FormControl {
 }
 }
 
+*/
