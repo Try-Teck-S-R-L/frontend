@@ -46,6 +46,8 @@ import { NotAdminGuard } from "./guards/not-admin.guard";
 import { DelegadoGuard } from "./guards/delegado.guard";
 import { NotDelegadoGuard } from "./guards/not-delegado.guard";
 import { VistaEsperaComponent } from "./modules/vista-espera/vista-espera.component";
+import { SolicitudespendientesComponent } from "./modules/solicitudespendientes/solicitudespendientes.component";
+import { EvaluarSolicitudComponent } from "./modules/evaluar-solicitud/evaluar-solicitud.component";
 const routes: Routes = [
 
   //DELEGADO
@@ -188,6 +190,16 @@ const routes: Routes = [
   {
     path: "listaevaluar",
     component: ListaPreinsEvaluarComponent,
+    canActivate: [OnlyAdminGuard],
+  },
+  {
+    path: "solicitudespendientes",
+    component: SolicitudespendientesComponent,
+    canActivate: [OnlyAdminGuard],
+  },
+  {
+    path: "evaluarSolicitud/:id",
+    component: EvaluarSolicitudComponent,
     canActivate: [OnlyAdminGuard],
   },
 

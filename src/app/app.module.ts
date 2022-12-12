@@ -59,6 +59,8 @@ import { TodosjugadoresComponent } from './todosjugadores/todosjugadores.compone
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginAdminComponent } from './modules/login-admin/login-admin.component';
 import { VistaEsperaComponent } from './modules/vista-espera/vista-espera.component';
+import { SolicitudespendientesComponent } from './modules/solicitudespendientes/solicitudespendientes.component';
+import { EvaluarSolicitudComponent } from './modules/evaluar-solicitud/evaluar-solicitud.component';
 
 
 
@@ -111,6 +113,8 @@ import { VistaEsperaComponent } from './modules/vista-espera/vista-espera.compon
     NotfoundComponent,
     LoginAdminComponent,
     VistaEsperaComponent,
+    SolicitudespendientesComponent,
+    EvaluarSolicitudComponent,
     
     
   ],

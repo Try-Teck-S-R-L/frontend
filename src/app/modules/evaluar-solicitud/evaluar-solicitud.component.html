@@ -1,0 +1,111 @@
+<p>evaluar-solicitud works!</p>
+<app-header></app-header>
+
+<div class="modal-footer">
+  <a class="atras" (click)="atras()"
+    ><img
+      src="../../../assets/Imagenes/atrasoficial.png"
+      height="70"
+      width="70"
+      alt="Botón"
+    />
+  </a>
+</div>
+
+<div class="container">
+  <div class="uno">
+    <label type="text" name="text" class="input"
+      >nombre del Delegado: {{ solicitudActual?.nombreDelegado }}
+      <hr
+    /></label>
+
+    <!--INPUT email-->
+
+    <label type="text" name="text" class="input"
+      >Email: {{ solicitudActual?.correoDelegado }}
+      <hr
+    /></label>
+
+    <!--INPUT nombreequipo
+
+    <label type="text" name="text" class="input"
+      >Nombre del equipo: {{ solicitudActual?.nombreEquipo }}
+      <hr
+    /></label> -->
+
+    <!--INPUT PAIS
+
+    <label type="text" name="text" class="input"
+      >País: {{ solicitudActual?.paisEquipo }}
+      <hr
+    /></label> -->
+
+    <!--INPUT categorias
+
+    <label type="text" name="text" class="input"
+      >Categoría: {{ solicitudActual?.nombreCategoria }}
+      <hr
+    /></label> -->
+
+    <!--INPUT nro de comprobante
+
+    <label type="text" name="text" class="input"
+      >Nro de comprobante de pago: {{ solicitudActual?.nroComprobante }}
+      <hr
+    /></label>
+  </div> -->
+    <!--INPUT monto de pago
+
+  <div class="dos">
+    <br />
+    <label type="text" name="text" class="input"
+      >Monto de pago: {{ solicitudActual?.montoPago }}
+      <hr
+    /></label> -->
+
+    <!--imagen voucher
+
+    <label type="text" name="text" class="input">
+      Comprobante de pago:
+      <a href="{{ solicitudActual?.voucherPreinscripcion }}"
+        >comprobante de pago</a
+      >
+      <hr />
+    </label> -->
+
+    <!--INPUT agregar fecha
+
+    <label type="text" name="text" class="input"
+      >Fecha de pago: {{ solicitudActual?.fechaPreinscripcion }}
+      <hr
+    /></label>
+  </div>
+
+  <div class="tres">
+    <img [src]="fotoMostrar" />
+  </div>
+</div>  -->
+
+    <!--INPUT aprobar-->
+    <div class="text-center">
+      <button
+        class="btn btn-primary mr-1"
+        [routerLink]="['/vistaadmin/']"
+        (click)="aceptarSolicitud(id)"
+      >
+        Aprobar
+      </button>
+
+      <button
+        id="{{ id }}"
+        class="btn btn-secondary"
+        [routerLink]="['/vistaadmin/']"
+        (click)="rechazarPreinscripcion(id)"
+      >
+        Denegar
+      </button>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</div>

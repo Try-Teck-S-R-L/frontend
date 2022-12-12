@@ -41,6 +41,15 @@ import { ResponseI } from "../modules/models/response.interface";
       return this.http.get<ResponseI>(this.base_url+"api/me").pipe(catchError( this.errorHandler));
     }
 
+
+    actualizarUsuario(id): Observable<ResponseI>{
+
+      const formData = new FormData();
+      
+      formData.append("id", id);
+
+      return this.http.post<ResponseI>(this.base_url+"api/actualizarRol", formData)
+    }
     
     
 

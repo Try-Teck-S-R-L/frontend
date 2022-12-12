@@ -26,4 +26,38 @@ export class SolicitudDelService {
     //formData.append("correoDelegado", form.paisEquipo);
     return this.http.post<ResponseI>(url, formData);
   }
+
+  getSolicitud( idDelegado:string): Observable<ResponseI> {
+    let url = this.base_url + "api/infosolicitud/";
+    //console.log("Service log: ", form);
+    const formData = new FormData();
+
+    formData.append("id", idDelegado);
+    return this.http.post<ResponseI>(url, formData);
+  }
+
+  aprobarSolicitud( idDelegado:string): Observable<ResponseI> {
+    let url = this.base_url + "api/aprobarsolicitud/";
+    //console.log("Service log: ", form);
+    const formData = new FormData();
+
+    formData.append("id", idDelegado);
+    return this.http.post<ResponseI>(url, formData);
+  }
+
+  rechazarSolicitud( idDelegado:string): Observable<ResponseI> {
+    let url = this.base_url + "api/rechazarsolicitud/";
+    //console.log("Service log: ", form);
+    const formData = new FormData();
+
+    formData.append("id", idDelegado);
+    return this.http.post<ResponseI>(url, formData);
+  }
+
+  getSolicitudesEspera(): Observable<ResponseI> {
+    let url = this.base_url + "api/solicitudesespera/";
+
+    return this.http.get<ResponseI>(url );
+  }
+
 }
