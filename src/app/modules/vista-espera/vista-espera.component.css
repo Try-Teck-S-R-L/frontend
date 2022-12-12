@@ -21,7 +21,14 @@
   .cuatro { grid-area: cuatro; }
   
   
+  p{
+    font-size: 50px;
+    color: rgb(185, 123, 7);
+    
+    display: flex;
+    justify-content: center;
   
+  }
   
   
   button {
