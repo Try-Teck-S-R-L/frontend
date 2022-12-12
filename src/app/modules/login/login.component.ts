@@ -137,6 +137,10 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("is-admin", "true");
       this.router.navigate(['/menuadmin'])
     }
+    if(rol === 'espera'){
+      //localStorage.setItem("is-admin", "true");
+      this.router.navigate(['/espera'])
+    }
   }
 
   onLogin(): void {

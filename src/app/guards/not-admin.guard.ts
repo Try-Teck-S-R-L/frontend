@@ -26,6 +26,7 @@ export class NotAdminGuard implements CanActivate {
       return true;
     }
 
+    //this.router.navigateByUrl("/menuadmin");
     this.router.navigateByUrl("/menuadmin");
     return false;
   }

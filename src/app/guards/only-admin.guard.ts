@@ -25,7 +25,8 @@ export class OnlyAdminGuard implements CanActivate {
     if (isAdmin == null || isAdmin == undefined || isAdmin != "true") {
       const isDelegado = localStorage.getItem("is-delegado");
         //if (isDelegado == null || isDelegado == undefined || isDelegado != "true") {
-            this.router.navigateByUrl("/login");
+            //this.router.navigateByUrl("/mainpage");
+            this.router.navigateByUrl("/espera");
             return false;
         //}
         this.router.navigateByUrl("/vistadelegado");

@@ -136,7 +136,7 @@ onSubmit() {
   console.log(this.form);
 
   this.autenticacionService.registrar(this.form).subscribe(
-      data => this.handleData(data),
+      data => {this.handleData(data),localStorage.setItem("is-delegado", "true"), this.router.navigate(['/vistadelegado'])},
       //error => this.handleError(error)
       error => console.log(error)
     );

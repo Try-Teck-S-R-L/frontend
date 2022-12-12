@@ -58,6 +58,7 @@ import { InfoEquipoGeneralComponent } from './modules/info-equipo-general/info-e
 import { TodosjugadoresComponent } from './todosjugadores/todosjugadores.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginAdminComponent } from './modules/login-admin/login-admin.component';
+import { VistaEsperaComponent } from './modules/vista-espera/vista-espera.component';
 
 
 
@@ -109,6 +110,7 @@ import { LoginAdminComponent } from './modules/login-admin/login-admin.component
     TodosjugadoresComponent,
     NotfoundComponent,
     LoginAdminComponent,
+    VistaEsperaComponent,
     
     
   ],

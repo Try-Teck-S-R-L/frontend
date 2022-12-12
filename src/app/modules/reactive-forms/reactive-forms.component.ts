@@ -79,6 +79,7 @@ export class ReactiveFormsComponent implements OnInit {
       .getAllEquipos()
       .subscribe((res: any) => (this.listaEquipos = res));*/
 
+      console.log(this.idDel);
     this.delegadoService.getInfoDelegado(this.idDel).subscribe((data) => (this.delegadoAct =  data));
 
     this.registerForm = this.formBuilder.group({

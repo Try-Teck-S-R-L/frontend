@@ -25,7 +25,8 @@ export class DelegadoGuard implements CanActivate {
     if (isDelegado == null || isDelegado == undefined || isDelegado != "true") {
         const isDelegado = localStorage.getItem("is-admin");
         //if (isDelegado == null || isDelegado == undefined || isDelegado != "true") {
-            this.router.navigateByUrl("/login");
+            //this.router.navigateByUrl("/mainpage");
+            this.router.navigateByUrl("/espera");
             return false;
         //}
         this.router.navigateByUrl("/menuadmin");

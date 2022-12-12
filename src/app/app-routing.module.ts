@@ -45,6 +45,7 @@ import { OnlyAdminGuard } from "./guards/only-admin.guard";
 import { NotAdminGuard } from "./guards/not-admin.guard";
 import { DelegadoGuard } from "./guards/delegado.guard";
 import { NotDelegadoGuard } from "./guards/not-delegado.guard";
+import { VistaEsperaComponent } from "./modules/vista-espera/vista-espera.component";
 const routes: Routes = [
 
   //DELEGADO
@@ -166,29 +167,41 @@ const routes: Routes = [
     //admin
     path: "vistaadmin",
     component: VistaAdministradorComponent,
-    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
+    canActivate: [OnlyAdminGuard],
   },
   {
     //admin
     path: "informacionequipo/:id",
     component: InformacionequiposComponent,
-    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
+    canActivate: [OnlyAdminGuard],
   },
   {
     path: "menuadmin",
     component: MenuAdminComponent,
-    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
+    canActivate: [OnlyAdminGuard],
   },
   {
     path: "evaluarpreins/:id",
     component: EvaluarPreinsComponent,
-    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
+    canActivate: [OnlyAdminGuard],
   },
   {
     path: "listaevaluar",
     component: ListaPreinsEvaluarComponent,
-    canActivate: [OnlyAdminGuard, NotDelegadoGuard],
+    canActivate: [OnlyAdminGuard],
   },
+
+
+
+  ////ESPERA
+  
+  {
+    path: "espera",
+    component: VistaEsperaComponent,
+    canActivate: [AfterLoginService, NotAdminGuard, NotDelegadoGuard],
+  },
+
+
 
   ////TODOS LOS USUARIOS
   

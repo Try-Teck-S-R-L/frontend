@@ -26,6 +26,7 @@ export class NotDelegadoGuard implements CanActivate {
       return true;
     }
 
+    //this.router.navigateByUrl("/vistadelegado");
     this.router.navigateByUrl("/vistadelegado");
     return false;
   }
