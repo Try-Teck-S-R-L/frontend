@@ -1,18 +1,29 @@
 .container{
   font-family: 'Trebuchet MS', sans-serif;
-  font-size: 15px;
+
+}
+*{
+  font-size: 17px;
+  width: 100%;
+}
+button{
+  width: 30%;
+}
+input{
+
+  width: 60%;
+
+}
+.fecha{
+  width: 35%;
 }
 h3{
   font-family: 'Trebuchet MS', sans-serif;
-  font-size: 23px;
+ 
   font-weight: bold;
   color: rgba(243, 70, 2, 0.842);
 }
-.atras{
-  position: relative;
-  cursor: pointer;
-right: 96%;
-}
+
 .nombreUsuario{
   font-weight: bold; 
 }
@@ -27,6 +38,7 @@ right: 96%;
 }
 .fechaNacimiento{
   font-weight: bold;
+  
 }
 .fotoPerfil{
   font-weight: bold;

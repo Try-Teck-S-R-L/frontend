@@ -96,14 +96,14 @@
   
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
 <br>
-    <h3>Preinscripción</h3>
+    
     <!--INPUT nombre delegado-->
 
     <!-- {{ delegadoAct | json }}
     {{ mensajeError | json }}-->
     {{ mensajeError }}
 
-    <div class="mb-3 row">
+    
       <label
         for="inputnombreUsuario"
         class="nombreUsuario col-sm-2 col-form-label"
@@ -143,9 +143,9 @@
           Por favor, ingrese caracteres válidos
         </div>
       </div>
-    </div>
+    
 <!--INPUT apellidodelegado-->
-<div class="mb-3 row">
+
   <label
     for="inputapelldidelegado"
     class="apellidoUsuario col-sm-2 col-form-label"
@@ -185,7 +185,7 @@
       Por favor, ingrese caracteres válidos
     </div>
   </div>
-</div>
+
     <!--INPUT email-->
    
 
@@ -196,7 +196,7 @@
 
     
 
-    <div class="mb-3 row">
+    
       <label for="correoUsuario" class="correoUsuario col-sm-2 col-form-label"
         >correo::</label
       >
@@ -236,10 +236,10 @@
           Por favor, ingrese caracteres válidos
         </div>
       </div>
-    </div>
+    
  <!--INPUT monto de pago-->
 
- <div class="mb-3 row">
+ 
   <label for="documentoIdentidadUsuario" class="documentoIdentidadUsuario col-sm-2 col-form-label"
     >CI:</label
   >
@@ -264,7 +264,7 @@
       </div>
     </div>
   </div>
-</div>
+
     
     <!--imagen voucher-->
     <label class="fotoPerfil form-label">Comprobante de pago:</label>
@@ -289,6 +289,7 @@
     <!--INPUT agregar fecha-->
     <label class="fechaNacimiento form-label">Fecha de nacimiento:</label>
     <input
+    class="fecha"
       type="date"
       name="fechaNacimiento"
       id="fechaNacimiento"
@@ -335,6 +336,9 @@
       <button class="btn btn-secondary" type="reset" (click)="onReset()">
         Cancelar
       </button>
+      <div class="text sign-up-text">
+        Ya tienes una cuenta? <label for="flip">Inicia sesión ahora</label>
+      </div>
     </div>
   </form>
 
