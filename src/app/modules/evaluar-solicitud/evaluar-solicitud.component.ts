@@ -68,10 +68,11 @@ export class EvaluarSolicitudComponent implements OnInit {
           });    
   }
 
-  rechazarPreinscripcion($id: string) {
-    this.servicePreinscripcion.rechazarPreinsc(this.id)
+  rechazarSolicitud($id: string) {
+
+    this.solicitudService.rechazarSolicitud(this.id)
     .subscribe((res: any) => {
-      console.log(res), this.routerView.navigate(['../'], {relativeTo: this.activatedRoute})
+      console.log(res)
     }
     );
     this.regresar();
@@ -79,8 +80,8 @@ export class EvaluarSolicitudComponent implements OnInit {
 
   aceptarSolicitud($id: string) {
     console.log($id);
-    this.servicePreinscripcion
-      .aceptarPreinsc(this.id)
+    this.solicitudService
+      .aprobarSolicitud(this.id)
       .subscribe((res: any) => console.log(res));
       this.regresar();
   }

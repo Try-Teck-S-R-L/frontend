@@ -37,7 +37,8 @@ export class VistaEsperaComponent implements OnInit {
 
   solicitar(): void{
     this.solicitudService.crearSolicitud(this.idDel).subscribe((data) => (console.log(data)));
-    this.autenticacionService.actualizarUsuario(this.idDel).subscribe((data) => (console.log(data)));
+    this.autenticacionService.actualizarUsuario(this.idDel).subscribe((data) => (window.location.reload()));
     //this.routerView.navigate(['/espera']);
+    //window.location.reload();
   }
 }

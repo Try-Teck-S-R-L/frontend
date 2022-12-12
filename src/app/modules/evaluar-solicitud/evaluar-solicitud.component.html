@@ -88,19 +88,14 @@
 
     <!--INPUT aprobar-->
     <div class="text-center">
-      <button
-        class="btn btn-primary mr-1"
-        [routerLink]="['/vistaadmin/']"
-        (click)="aceptarSolicitud(id)"
-      >
+      <button class="btn btn-primary mr-1" (click)="aceptarSolicitud(id)">
         Aprobar
       </button>
 
       <button
         id="{{ id }}"
         class="btn btn-secondary"
-        [routerLink]="['/vistaadmin/']"
-        (click)="rechazarPreinscripcion(id)"
+        (click)="rechazarSolicitud(id)"
       >
         Denegar
       </button>
